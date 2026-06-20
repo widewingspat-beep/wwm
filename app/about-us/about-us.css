@@ -468,7 +468,7 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   filter: grayscale(1) contrast(1.05) brightness(0.82);
 }
 
