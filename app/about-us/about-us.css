@@ -105,10 +105,24 @@
 }
 .au-hero-h1-orig em {
   font-style: normal;
-  background: linear-gradient(90deg, var(--coral), var(--amber));
+  background: linear-gradient(105deg,
+    #FF6B5B 0%,
+    #FF6B5B 30%,
+    #FFD166 48%,
+    #ffffff 53%,
+    #FFD166 58%,
+    #FFA94D 72%,
+    #FFA94D 100%
+  );
+  background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: auShimmer 5s linear infinite;
+}
+@keyframes auShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 300% center; }
 }
 
 /* heading glow on hover */
