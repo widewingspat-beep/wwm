@@ -337,7 +337,6 @@ export default function AboutUsPage() {
                   <blockquote>&ldquo;As the CEO of Wide Wings Media, I carry the responsibility of every brand that puts its trust in us.&rdquo;</blockquote>
                 </div>
                 <p className="au-fs-bio">Our team&apos;s expertise and dedication are what let me make that promise with confidence. Together, we turn ambitious ideas into results our clients can measure.</p>
-                <div className="au-fs-signature">Reem Osman</div>
               </div>
               <div className="au-fs-bottom">
                 <Link href="/contact" className="au-fs-arrow" aria-label="Connect with Reem Osman">
@@ -360,7 +359,6 @@ export default function AboutUsPage() {
                   <blockquote>&ldquo;I built Wide Wings Media because I believe great marketing should never feel like guesswork.&rdquo;</blockquote>
                 </div>
                 <p className="au-fs-bio">Every brand that works with us gets a partner that&apos;s as invested in their growth as they are. That&apos;s the standard we hold ourselves to, every single day.</p>
-                <div className="au-fs-signature">Seham Batterjee</div>
               </div>
               <div className="au-fs-bottom">
                 <Link href="/contact" className="au-fs-arrow" aria-label="Connect with Seham Batterjee">
