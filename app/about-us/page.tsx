@@ -216,6 +216,7 @@ function CtaSection() {
 
   return (
     <section id="au-cta" className="au-cta-white">
+      <div className="au-cta-blob" aria-hidden="true" />
       <canvas ref={canvasRef} className="au-cta-canvas" />
       <div className="au-cta-content">
         <div className="au-eyebrow au-eyebrow-dark"><span className="dot dot-dark" />END CREDITS</div>
