@@ -435,11 +435,28 @@
 }
 
 /* ─── CLOSING CTA ──────────────────────── */
-#au-cta {
+/* white CTA with interactive grid */
+.au-cta-white {
+  position: relative;
+  background: #fff;
   text-align: center;
   padding: 110px 0 90px;
+  overflow: hidden;
 }
-#au-cta .au-eyebrow { justify-content: center; }
+.au-cta-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.au-cta-content {
+  position: relative;
+  z-index: 1;
+}
+.au-eyebrow-dark { color: #333; }
+.au-eyebrow-dark .dot-dark { background: var(--coral); }
 .au-cta-h2 {
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-style: italic;
@@ -449,6 +466,7 @@
   line-height: 1.2;
   color: var(--cream);
 }
+.au-cta-h2-dark { color: #111; }
 .au-ticket {
   margin-top: 38px;
   display: inline-flex;

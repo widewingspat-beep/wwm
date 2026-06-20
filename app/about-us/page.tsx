@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef, useEffect } from 'react';
 import './about-us.css';
 
 const team = [
@@ -26,6 +27,101 @@ const team = [
   { name: 'Rana Amir Irshad',         title: 'Cash Flow In-charge',      img: '/Amir.webp' },
   { name: 'Joy Donald Gomez',         title: 'Strategic Consultant',     img: '/Joydonald.webp' },
 ];
+
+const COLORS = ['#FF6B5B','#FFA94D','#FFD166','#06D6A0','#4CC9F0','#9B5DE5'];
+
+function CtaSection() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouse = useRef({ x: -999, y: -999 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+    const GAP = 60;
+    let raf = 0;
+
+    const resize = () => {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const onMove = (e: MouseEvent | TouchEvent) => {
+      const r = canvas.getBoundingClientRect();
+      const src = 'touches' in e ? e.touches[0] : e;
+      mouse.current = { x: src.clientX - r.left, y: src.clientY - r.top };
+    };
+    const section = canvas.parentElement!;
+    section.addEventListener('mousemove', onMove);
+    section.addEventListener('touchmove', onMove as any);
+    section.addEventListener('mouseleave', () => { mouse.current = { x: -999, y: -999 }; });
+
+    const draw = () => {
+      const { width: W, height: H } = canvas;
+      ctx.clearRect(0, 0, W, H);
+      const { x: mx, y: my } = mouse.current;
+      const RADIUS = 180;
+
+      // vertical lines
+      for (let x = GAP; x < W; x += GAP) {
+        const dist = Math.abs(x - mx);
+        if (dist < RADIUS) {
+          const t = 1 - dist / RADIUS;
+          const ci = Math.floor((x / GAP) % COLORS.length);
+          ctx.strokeStyle = COLORS[ci];
+          ctx.globalAlpha = t * 0.85;
+          ctx.lineWidth = 1.5 + t * 2;
+        } else {
+          ctx.strokeStyle = '#ccc';
+          ctx.globalAlpha = 0.35;
+          ctx.lineWidth = 1;
+        }
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+      }
+
+      // horizontal lines
+      for (let y = GAP; y < H; y += GAP) {
+        const dist = Math.abs(y - my);
+        if (dist < RADIUS) {
+          const t = 1 - dist / RADIUS;
+          const ci = Math.floor((y / GAP) % COLORS.length);
+          ctx.strokeStyle = COLORS[ci];
+          ctx.globalAlpha = t * 0.85;
+          ctx.lineWidth = 1.5 + t * 2;
+        } else {
+          ctx.strokeStyle = '#ccc';
+          ctx.globalAlpha = 0.35;
+          ctx.lineWidth = 1;
+        }
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      section.removeEventListener('mousemove', onMove);
+    };
+  }, []);
+
+  return (
+    <section id="au-cta" className="au-cta-white">
+      <canvas ref={canvasRef} className="au-cta-canvas" />
+      <div className="au-cta-content">
+        <div className="au-eyebrow au-eyebrow-dark"><span className="dot dot-dark" />END CREDITS</div>
+        <h2 className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
+        <Link href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
+      </div>
+    </section>
+  );
+}
 
 export default function AboutUsPage() {
   return (
@@ -164,11 +260,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── CLOSING CTA ── */}
-      <section id="au-cta" className="au-wrap">
-        <div className="au-eyebrow"><span className="dot" />END CREDITS</div>
-        <h2 className="au-cta-h2">Ready to write the next scene for your brand?</h2>
-        <Link href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
-      </section>
+      <CtaSection />
     </div>
   );
 }
