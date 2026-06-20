@@ -1,10 +1,26 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
+  const [visible, setVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setVisible(scrolled > 300);
+      setProgress(total > 0 ? (scrolled / total) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
   useEffect(() => {
     function initFooterAccordion() {
       const cols = document.querySelectorAll('.footer-col');
@@ -89,6 +105,28 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* ── Go to top ── */}
+        <button
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          className={`go-top-btn${visible ? ' go-top-visible' : ''}`}
+          style={{ '--prog': `${progress}%` } as React.CSSProperties}
+        >
+          <svg className="go-top-ring" viewBox="0 0 44 44">
+            <defs>
+              <linearGradient id="gtGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#FF6B5B" />
+                <stop offset="100%" stopColor="#FFA94D" />
+              </linearGradient>
+            </defs>
+            <circle cx="22" cy="22" r="19" />
+            <circle cx="22" cy="22" r="19" className="go-top-track" style={{ strokeDashoffset: `${119.4 - (119.4 * progress) / 100}` }} />
+          </svg>
+          <svg className="go-top-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+        </button>
 
         <div className="footer-bottom">
           <p className="footer-copy">© 2026 | All Rights Reserved by Wide Wings Media</p>
