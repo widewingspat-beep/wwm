@@ -28,6 +28,85 @@ const team = [
   { name: 'Joy Donald Gomez',         title: 'Strategic Consultant',     img: '/Joydonald.webp' },
 ];
 
+function HeroStars() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext('2d')!;
+    let raf = 0;
+    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    type Particle = { x: number; y: number; r: number; speed: number; angle: number; opacity: number; pulse: number; color: string };
+    const COLS = ['#FF6B5B','#FFA94D','#FFD166','#c084fc','#67e8f9','#fff'];
+    const particles: Particle[] = Array.from({ length: 60 }, () => ({
+      x: 0.5 + Math.random() * 0.5,   // right half
+      y: Math.random(),
+      r: 1 + Math.random() * 2.5,
+      speed: 0.00015 + Math.random() * 0.0003,
+      angle: Math.random() * Math.PI * 2,
+      opacity: 0.3 + Math.random() * 0.6,
+      pulse: Math.random() * Math.PI * 2,
+      color: COLS[Math.floor(Math.random() * COLS.length)],
+    }));
+
+    // orbiting rings
+    type Ring = { cx: number; cy: number; rx: number; ry: number; speed: number; phase: number; color: string };
+    const rings: Ring[] = [
+      { cx: 0.78, cy: 0.35, rx: 0.12, ry: 0.07, speed: 0.004, phase: 0,        color: 'rgba(255,107,91,0.18)' },
+      { cx: 0.88, cy: 0.65, rx: 0.08, ry: 0.12, speed: -0.003, phase: Math.PI, color: 'rgba(255,209,102,0.14)' },
+      { cx: 0.65, cy: 0.7,  rx: 0.06, ry: 0.05, speed: 0.005, phase: 1,        color: 'rgba(192,132,252,0.15)' },
+    ];
+
+    let t = 0;
+    const draw = () => {
+      const { width: W, height: H } = canvas;
+      ctx.clearRect(0, 0, W, H);
+      t += 1;
+
+      // orbiting ellipses
+      rings.forEach(ring => {
+        const cx = ring.cx * W, cy = ring.cy * H;
+        const rx = ring.rx * W, ry = ring.ry * H;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx, ry, ring.phase + t * ring.speed, 0, Math.PI * 2);
+        ctx.strokeStyle = ring.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // dot on the ring
+        const dotAngle = ring.phase + t * ring.speed;
+        const dx = cx + rx * Math.cos(dotAngle);
+        const dy = cy + ry * Math.sin(dotAngle);
+        ctx.beginPath();
+        ctx.arc(dx, dy, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = ring.color.replace('0.1', '0.9').replace('0.18','0.9').replace('0.14','0.9').replace('0.15','0.9');
+        ctx.fill();
+      });
+
+      // floating stars
+      particles.forEach(p => {
+        p.angle += p.speed;
+        const px = (p.x + Math.sin(p.angle * 1.3) * 0.05) * W;
+        const py = (p.y + Math.cos(p.angle) * 0.04) * H;
+        const alpha = p.opacity * (0.6 + 0.4 * Math.sin(t * 0.03 + p.pulse));
+        ctx.beginPath();
+        ctx.arc(px, py, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = alpha;
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+  }, []);
+  return <canvas ref={canvasRef} className="au-hero-stars" />;
+}
+
 const COLORS = ['#FF6B5B','#FFA94D','#FFD166','#06D6A0','#4CC9F0','#9B5DE5'];
 
 function CtaSection() {
@@ -129,6 +208,7 @@ export default function AboutUsPage() {
 
       {/* ── HERO ── */}
       <section id="au-hero-orig">
+        <HeroStars />
         <div className="au-hero-left">
           {/* breadcrumb */}
           <nav className="au-breadcrumb" aria-label="breadcrumb">
@@ -137,12 +217,7 @@ export default function AboutUsPage() {
             <span>About Us</span>
           </nav>
 
-          <div className="au-hero-badge">
-            <div className="au-hero-badge-dot" />
-            <span>Wide Wings Media</span>
-          </div>
-
-          <h1 className="au-hero-h1-orig">
+          <h1 className="au-hero-h1-orig au-hero-glow-text">
             A Digital Marketing Partner<br />
             <em>You Can Trust</em>
           </h1>
