@@ -314,61 +314,74 @@
 }
 
 /* ── MISSION ── white background */
+/* ─── MISSION — cinematic white layout ─── */
 #au-mission {
   position: relative;
   background: #fff;
   overflow: hidden;
   padding: 0;
 }
-/* full-bleed image half on the right */
-.au-mission-bg {
-  position: absolute;
-  inset: 0 0 0 50%;
-  background: url('/shutterstock_2654081077.jpg') center/cover no-repeat;
-}
-.au-mission-bg::after {
+/* hide the old bg image div */
+.au-mission-bg { display: none; }
+
+/* subtle diagonal stripe watermark */
+#au-mission::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.08) 100%);
-}
-/* large watermark logo in left half */
-.au-mission-inner::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 36px;
-  transform: translateY(-50%);
-  width: min(380px, 38vw);
-  height: min(380px, 38vw);
-  background: url('/Logoblack.webp') center/contain no-repeat;
-  opacity: 0.04;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0,0,0,0.018) 0px,
+    rgba(0,0,0,0.018) 1px,
+    transparent 1px,
+    transparent 40px
+  );
   pointer-events: none;
   z-index: 0;
 }
+
+/* coral accent bar on left edge */
+#au-mission::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 10%; bottom: 10%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--coral), var(--amber));
+  border-radius: 0 4px 4px 0;
+  z-index: 1;
+}
+
 .au-mission-inner {
   position: relative;
+  z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  min-height: 640px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0 80px;
+  min-height: 620px;
   align-items: center;
+  padding: 100px 60px;
 }
-/* left text column */
+
+/* left — sticky heading block */
 .au-mission-left {
-  padding: 100px 60px 100px 40px;
-  z-index: 1;
+  position: relative;
 }
-.au-mission-left .au-eyebrow { color: #333; margin-bottom: 24px; }
+.au-mission-left .au-eyebrow {
+  color: #333;
+  margin-bottom: 28px;
+}
 .au-mission-left .au-eyebrow .dot { background: var(--coral); }
+
 .au-mission-h2 {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: clamp(36px, 4vw, 64px);
-  font-weight: 800;
-  line-height: 1.05;
+  font-size: clamp(38px, 4.2vw, 68px);
+  font-weight: 900;
+  line-height: 1.02;
   color: #111;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
 }
 .au-mission-h2 em {
   font-style: normal;
@@ -377,50 +390,75 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.au-mission-intro {
-  font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 15.5px;
-  line-height: 1.85;
-  color: #555;
-  max-width: 440px;
+
+/* thin rule under heading */
+.au-mission-left::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--amber));
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 28px;
 }
-/* right points column — sits on top of the image */
+
+.au-mission-intro {
+  font-family: 'Calibri', 'Nexa', sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  max-width: 420px;
+}
+
+/* right — numbered points */
 .au-mission-right {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: 100px 40px 100px 60px;
-  z-index: 1;
 }
+
 .au-mission-point {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  padding: 32px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.09);
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 20px;
+  align-items: start;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  transition: background 0.2s;
 }
-.au-mission-point:first-child { border-top: 1px solid rgba(0,0,0,0.09); }
+.au-mission-point:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
+
 .au-mission-num {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  color: var(--coral);
-  flex-shrink: 0;
-  padding-top: 3px;
+  font-size: clamp(36px, 3.5vw, 52px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, rgba(255,107,91,0.15), rgba(255,169,77,0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: rgba(255,107,91,0.2);
+  padding-top: 4px;
+  user-select: none;
 }
+
 .au-mission-point p {
-  font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #444;
+  font-family: 'Calibri', 'Nexa', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #333;
+  padding-top: 10px;
 }
+
 @media (max-width: 960px) {
-  .au-mission-bg { inset: 50% 0 0 0; }
-  .au-mission-bg::after { background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%); }
-  .au-mission-inner { grid-template-columns: 1fr; min-height: auto; }
-  .au-mission-left { padding: 72px 32px 40px; }
-  .au-mission-right { padding: 0 32px 72px; }
+  .au-mission-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 72px 32px;
+  }
+  .au-mission-intro { max-width: 100%; }
 }
 
 /* ─── FOUNDERS — 3D cube flip, Lumos style ─── */
