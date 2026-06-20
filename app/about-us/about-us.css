@@ -245,8 +245,9 @@
 
 .au-fs-name {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: clamp(48px, 6vw, 96px);
-  line-height: 0.9;
+  font-size: clamp(28px, 3.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
   text-transform: uppercase;
   color: #fff;
   margin-top: 0;
