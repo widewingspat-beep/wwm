@@ -2,6 +2,9 @@
    WIDE WINGS MEDIA — SHARED STYLESHEET
 ═══════════════════════════════════════════════════════════ */
 
+/* ─── GOOGLE FONTS ──────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
 /* ─── CUSTOM FONTS ──────────────────────── */
 @font-face {
   font-family: 'Nexa';
