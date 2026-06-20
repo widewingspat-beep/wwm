@@ -99,15 +99,15 @@
   line-height: 1.05;
   margin-bottom: 20px;
   font-style: normal;
-  /* shimmer sweep on main text */
+  /* shimmer sweep — coral/amber palette matching "You Can Trust" */
   background: linear-gradient(105deg,
-    #ffffff 0%,
-    #ffffff 38%,
-    #e0e0e0 48%,
-    #ffffff 53%,
-    #e0e0e0 58%,
-    #ffffff 68%,
-    #ffffff 100%
+    #FF6B5B 0%,
+    #FF6B5B 30%,
+    #FFD166 46%,
+    #ffffff 52%,
+    #FFD166 58%,
+    #FFA94D 72%,
+    #FFA94D 100%
   );
   background-size: 300% auto;
   -webkit-background-clip: text;
@@ -191,11 +191,11 @@
 .au-hbtn-primary:hover::after { transform: scaleX(1); }
 .au-hbtn-outline {
   background: transparent;
-  color: var(--magenta);
-  border: 2px solid var(--magenta);
+  color: #fff;
+  border: 2px solid #fff;
 }
 .au-hbtn-outline:hover {
-  background: var(--magenta);
+  background: rgba(255,255,255,0.12);
   color: #fff;
 }
 
