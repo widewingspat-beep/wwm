@@ -359,9 +359,9 @@
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 0 80px;
-  min-height: 620px;
+  min-height: auto;
   align-items: center;
-  padding: 100px 60px;
+  padding: 72px 60px;
 }
 
 /* left — sticky heading block */
@@ -423,7 +423,7 @@
   grid-template-columns: 60px 1fr;
   gap: 0 24px;
   align-items: center;
-  padding: 36px 0;
+  padding: 22px 0;
   border-bottom: 1px solid rgba(0,0,0,0.07);
 }
 .au-mission-point:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
