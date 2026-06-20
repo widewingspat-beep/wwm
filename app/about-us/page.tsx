@@ -232,12 +232,8 @@ export default function AboutUsPage() {
 
       {/* ── HERO ── */}
       <section id="au-hero-orig">
-        <HeroStars />
+        <div className="au-hero-blob" aria-hidden="true" />
         <HeroParallaxButtons />
-        {/* galaxy rings */}
-        <div className="au-galaxy" aria-hidden="true">
-          {[320,240,170,110,60].map((r,i) => <div key={i} className="au-galaxy-ring" style={{'--gr':r+'px','--gd':`${i*0.4}s`} as React.CSSProperties} />)}
-        </div>
 
         <div className="au-hero-left">
           <nav className="au-breadcrumb" aria-label="breadcrumb">
