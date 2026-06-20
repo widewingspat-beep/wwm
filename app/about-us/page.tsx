@@ -73,7 +73,7 @@ function CtaSection() {
           const ci = Math.floor((x / GAP) % COLORS.length);
           ctx.strokeStyle = COLORS[ci];
           ctx.globalAlpha = t * 0.85;
-          ctx.lineWidth = 1.5 + t * 2;
+          ctx.lineWidth = 1;
         } else {
           ctx.strokeStyle = '#ccc';
           ctx.globalAlpha = 0.35;
@@ -90,7 +90,7 @@ function CtaSection() {
           const ci = Math.floor((y / GAP) % COLORS.length);
           ctx.strokeStyle = COLORS[ci];
           ctx.globalAlpha = t * 0.85;
-          ctx.lineWidth = 1.5 + t * 2;
+          ctx.lineWidth = 1;
         } else {
           ctx.strokeStyle = '#ccc';
           ctx.globalAlpha = 0.35;
