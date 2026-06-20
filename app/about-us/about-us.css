@@ -83,7 +83,8 @@
   text-transform: uppercase;
   color: rgba(255,255,255,0.38);
   margin-bottom: 40px;
-  align-self: flex-start;
+  align-self: center;
+  justify-content: center;
 }
 .au-breadcrumb a { color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
 .au-breadcrumb a:hover { color: var(--coral); }
@@ -169,6 +170,28 @@
 }
 
 .au-hero-stars { display: none; }
+
+/* multicolor blinking sparkle dots */
+.au-hero-sparks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.au-spark {
+  position: absolute;
+  border-radius: 50%;
+  width: var(--sz, 4px);
+  height: var(--sz, 4px);
+  background: var(--sc, #FF6B5B);
+  opacity: 0;
+  animation: sparkBlink var(--sd, 2.4s) ease-in-out infinite;
+  animation-delay: var(--dl, 0s);
+}
+@keyframes sparkBlink {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50%       { opacity: var(--op, 0.7); transform: scale(1); }
+}
 
 @media (max-width: 768px) {
   #au-hero-orig { min-height: auto; padding: 80px 0 60px; }
