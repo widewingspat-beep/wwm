@@ -88,9 +88,8 @@ export default function AboutUsPage() {
               <Image src="/Reem.jpg" alt="Reem Osman" fill sizes="50vw" priority />
             </div>
             <div className="au-fc-panel">
-              <div>
-                <div className="au-fs-name">Reem Osman</div>
-              </div>
+              <div className="au-fc-watermark">WIDE WINGS</div>
+              <div className="au-fs-name">Reem Osman</div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
                   <blockquote>&ldquo;As the CEO of Wide Wings Media, I carry the responsibility of every brand that puts its trust in us.&rdquo;</blockquote>
@@ -111,9 +110,8 @@ export default function AboutUsPage() {
               <Image src="/SehamTeam.webp" alt="Seham Batterjee" fill sizes="50vw" />
             </div>
             <div className="au-fc-panel">
-              <div>
-                <div className="au-fs-name">Seham Batterjee</div>
-              </div>
+              <div className="au-fc-watermark">WIDE WINGS</div>
+              <div className="au-fs-name">Seham Batterjee</div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
                   <blockquote>&ldquo;I built Wide Wings Media because I believe great marketing should never feel like guesswork.&rdquo;</blockquote>

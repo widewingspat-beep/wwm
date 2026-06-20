@@ -188,7 +188,7 @@
   padding: 0 32px;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 32px;
 }
 
 /* each founder row */
@@ -226,9 +226,10 @@
 /* content half */
 .au-fc-panel {
   background: #1a1612;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 52px 56px;
   overflow: hidden;
 }
@@ -245,15 +246,33 @@
 
 .au-fs-name {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: clamp(28px, 3.2vw, 52px);
+  font-size: clamp(36px, 4vw, 64px);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.05;
   text-transform: uppercase;
   color: #fff;
   margin-top: 0;
 }
 
-.au-fs-middle { margin-top: auto; padding-top: 36px; }
+.au-fs-middle { padding-top: 24px; }
+
+/* watermark */
+.au-fc-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 8vw, 100px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
 
 .au-fs-quote {
   display: flex;
