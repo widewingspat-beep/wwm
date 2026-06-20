@@ -91,38 +91,41 @@
 .au-breadcrumb span:last-child { color: var(--coral); }
 .au-bc-sep { opacity: 0.35; }
 
-/* heading */
+/* heading — shimmer on the white line, static gradient on em */
 .au-hero-h1-orig {
   font-family: 'Nexa','Calibri',sans-serif;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
   line-height: 1.05;
-  color: #fff;
   margin-bottom: 20px;
   font-style: normal;
-  background: none;
-  -webkit-text-fill-color: #fff;
-}
-.au-hero-h1-orig em {
-  font-style: normal;
+  /* shimmer sweep on main text */
   background: linear-gradient(105deg,
-    #FF6B5B 0%,
-    #FF6B5B 30%,
-    #FFD166 48%,
+    #ffffff 0%,
+    #ffffff 38%,
+    #e0e0e0 48%,
     #ffffff 53%,
-    #FFD166 58%,
-    #FFA94D 72%,
-    #FFA94D 100%
+    #e0e0e0 58%,
+    #ffffff 68%,
+    #ffffff 100%
   );
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: auShimmer 5s linear infinite;
+  animation: auShimmer 12s linear infinite;
 }
 @keyframes auShimmer {
   0%   { background-position: -200% center; }
   100% { background-position: 300% center; }
+}
+.au-hero-h1-orig em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--coral), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: none;
 }
 
 /* heading glow on hover */
@@ -167,20 +170,33 @@
 }
 .au-hbtn:hover { transform: translate(var(--px,0px), calc(var(--py,0px) - 4px)) scale(1.04); }
 .au-hbtn-primary {
-  background: linear-gradient(90deg, var(--coral), var(--amber));
-  color: #000;
-  box-shadow: 0 4px 24px rgba(255,107,91,0.35);
-}
-.au-hbtn-primary:hover { box-shadow: 0 10px 36px rgba(255,107,91,0.55); }
-.au-hbtn-outline {
-  background: rgba(255,255,255,0.07);
+  background: var(--magenta);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 24px rgba(167,49,132,0.35);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.au-hbtn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index: -1;
+  border-radius: inherit;
+}
+.au-hbtn-primary:hover::after { transform: scaleX(1); }
+.au-hbtn-outline {
+  background: transparent;
+  color: var(--magenta);
+  border: 2px solid var(--magenta);
 }
 .au-hbtn-outline:hover {
-  background: rgba(255,255,255,0.13);
-  border-color: rgba(255,255,255,0.4);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  background: var(--magenta);
+  color: #fff;
 }
 
 .au-hero-stars { display: none; }
