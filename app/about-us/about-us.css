@@ -450,9 +450,9 @@
 
 .au-mission-point p {
   font-family: 'Calibri', 'Nexa', sans-serif;
-  font-size: 17px;
-  line-height: 1.85;
-  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
 
 @media (max-width: 960px) {
