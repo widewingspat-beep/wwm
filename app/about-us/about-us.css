@@ -513,6 +513,7 @@
   overflow: hidden;
   background: #111;
   min-height: 480px;
+  cursor: pointer;
 }
 .au-fc-photo img {
   position: absolute !important;
@@ -522,6 +523,27 @@
   object-fit: cover;
   object-position: center 20%;
   filter: grayscale(1) contrast(1.05) brightness(0.82);
+  transform: scale(1);
+  transition: filter 0.7s ease, transform 0.7s ease;
+}
+/* gold spotlight overlay — same as team cards */
+.au-fc-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,209,102,0.55), transparent 65%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.au-founder-card:hover .au-fc-photo img {
+  filter: grayscale(0) brightness(1) contrast(1.02);
+  transform: scale(1.04);
+}
+.au-founder-card:hover .au-fc-photo::after {
+  opacity: 1;
 }
 
 /* content half */
