@@ -680,15 +680,7 @@
   pointer-events: none;
   z-index: 0;
 }
-.au-cta-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-  z-index: 1;
-}
+.au-cta-canvas { display: none; }
 .au-cta-content {
   position: relative;
   z-index: 2;
@@ -712,20 +704,21 @@
   align-items: center;
   gap: 14px;
   padding: 16px 34px;
-  border: 1px solid var(--hair);
+  border: none;
   border-radius: 999px;
-  color: var(--void);
-  background: linear-gradient(100deg, var(--au-gold), var(--amber) 60%, var(--coral));
+  color: #fff;
+  background: #2b2b2b;
   font-weight: 700;
   letter-spacing: 0.14em;
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.2s ease;
 }
 .au-ticket:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -8px rgba(255,169,77,0.55);
+  background: #111;
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,0.35);
 }
 
 /* ─── MOBILE ──────────────────────────── */

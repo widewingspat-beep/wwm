@@ -217,9 +217,7 @@ function CtaSection() {
   return (
     <section id="au-cta" className="au-cta-white">
       <div className="au-cta-blob" aria-hidden="true" />
-      <canvas ref={canvasRef} className="au-cta-canvas" />
       <div className="au-cta-content">
-        <div className="au-eyebrow au-eyebrow-dark"><span className="dot dot-dark" />END CREDITS</div>
         <h2 className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
         <Link href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
       </div>
