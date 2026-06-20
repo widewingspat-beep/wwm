@@ -174,6 +174,43 @@ export default function AboutUsPage() {
 
       <hr className="au-divider" />
 
+      {/* ── MISSION ── */}
+      <section id="au-mission">
+        <div className="au-mission-bg" />
+        <div className="au-mission-inner">
+          <div className="au-mission-left">
+            <div className="au-eyebrow"><span className="dot" />OUR MISSION</div>
+            <h2 className="au-mission-h2">We believe in<br /><em>limitless potential.</em></h2>
+            <p className="au-mission-intro">
+              At Wide Wings Media, our mission is to help brands break free from boundaries
+              and explore new horizons. With proper research, tailored plans and creative
+              solutions, we empower businesses to spread their wings and soar beyond expectations.
+            </p>
+          </div>
+          <div className="au-mission-right">
+            {[
+              {
+                n: '01',
+                text: 'Our approach is rooted in data-driven insights, enabling us to make informed decisions that maximize return on investment (ROI) for our clients.',
+              },
+              {
+                n: '02',
+                text: 'We understand that every business is unique, which is why we offer tailor-made digital marketing strategies to meet the specific needs and goals of each client.',
+              },
+              {
+                n: '03',
+                text: 'We build lasting partnerships by combining strategic thinking with creative execution — turning ambitious visions into measurable, real-world results.',
+              },
+            ].map(({ n, text }) => (
+              <div key={n} className="au-mission-point">
+                <span className="au-mission-num">{n}</span>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FOUNDERS ── */}
       <section id="au-founders">
         <div className="au-founders-inner">

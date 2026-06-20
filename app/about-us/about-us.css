@@ -174,6 +174,86 @@
   max-width: 1180px;
 }
 
+/* ── MISSION ── cinematic dark section */
+#au-mission {
+  position: relative;
+  background: #0a0a0d;
+  overflow: hidden;
+  padding: 120px 40px;
+}
+.au-mission-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 10% 50%, rgba(255,107,91,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 90% 30%, rgba(255,209,102,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.au-mission-inner {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.au-mission-left .au-eyebrow { margin-bottom: 24px; }
+.au-mission-h2 {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(36px, 4.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.au-mission-h2 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--coral), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.au-mission-intro {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(244,239,230,0.65);
+  max-width: 460px;
+}
+.au-mission-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 12px;
+}
+.au-mission-point {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.au-mission-point:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+.au-mission-num {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--coral);
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+.au-mission-point p {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(244,239,230,0.70);
+}
+@media (max-width: 860px) {
+  .au-mission-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
 /* ─── FOUNDERS — 3D cube flip, Lumos style ─── */
 /* ── FOUNDERS ── two alternating cards on white */
 #au-founders {
