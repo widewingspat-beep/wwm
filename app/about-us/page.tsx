@@ -94,7 +94,6 @@ export default function AboutUsPage() {
               </div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
-                  <span className="initial">[R]</span>
                   <blockquote>&ldquo;As the CEO of Wide Wings Media, I carry the responsibility of every brand that puts its trust in us.&rdquo;</blockquote>
                 </div>
                 <p className="au-fs-bio">Our team&apos;s expertise and dedication are what let me make that promise with confidence. Together, we turn ambitious ideas into results our clients can measure.</p>
@@ -118,7 +117,6 @@ export default function AboutUsPage() {
               </div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
-                  <span className="initial">[S]</span>
                   <blockquote>&ldquo;I built Wide Wings Media because I believe great marketing should never feel like guesswork.&rdquo;</blockquote>
                 </div>
                 <p className="au-fs-bio">Every brand that works with us gets a partner that&apos;s as invested in their growth as they are. That&apos;s the standard we hold ourselves to, every single day.</p>
