@@ -30,7 +30,6 @@ const team = [
 export default function AboutUsPage() {
   return (
     <div id="au-page">
-      <div className="au-sprockets" />
 
       {/* ── HERO ── */}
       <section id="au-hero-orig">
