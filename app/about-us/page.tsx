@@ -28,6 +28,30 @@ const team = [
   { name: 'Joy Donald Gomez',         title: 'Strategic Consultant',     img: '/Joydonald.webp' },
 ];
 
+function HeroParallaxButtons() {
+  useEffect(() => {
+    const section = document.getElementById('au-hero-orig');
+    if (!section) return;
+    const btns = section.querySelectorAll<HTMLElement>('.au-hbtn');
+    const onMove = (e: MouseEvent) => {
+      const r = section.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const dx = (e.clientX - cx) / r.width;
+      const dy = (e.clientY - cy) / r.height;
+      btns.forEach((btn, i) => {
+        const depth = i === 0 ? 14 : 9;
+        btn.style.setProperty('--px', `${dx * depth}px`);
+        btn.style.setProperty('--py', `${dy * depth}px`);
+      });
+    };
+    const onLeave = () => btns.forEach(b => { b.style.setProperty('--px','0px'); b.style.setProperty('--py','0px'); });
+    section.addEventListener('mousemove', onMove);
+    section.addEventListener('mouseleave', onLeave);
+    return () => { section.removeEventListener('mousemove', onMove); section.removeEventListener('mouseleave', onLeave); };
+  }, []);
+  return null;
+}
+
 function HeroStars() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -209,8 +233,13 @@ export default function AboutUsPage() {
       {/* ── HERO ── */}
       <section id="au-hero-orig">
         <HeroStars />
+        <HeroParallaxButtons />
+        {/* galaxy rings */}
+        <div className="au-galaxy" aria-hidden="true">
+          {[320,240,170,110,60].map((r,i) => <div key={i} className="au-galaxy-ring" style={{'--gr':r+'px','--gd':`${i*0.4}s`} as React.CSSProperties} />)}
+        </div>
+
         <div className="au-hero-left">
-          {/* breadcrumb */}
           <nav className="au-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="au-bc-sep">/</span>
@@ -225,6 +254,16 @@ export default function AboutUsPage() {
           <p className="au-hero-sub-orig">
             Empowering brands to break boundaries and soar beyond expectations.
           </p>
+
+          <div className="au-hero-btns">
+            <Link href="/contact" className="au-hbtn au-hbtn-primary">
+              Free Consultation
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </Link>
+            <Link href="#au-team" className="au-hbtn au-hbtn-outline">
+              Team Members
+            </Link>
+          </div>
         </div>
       </section>
 
