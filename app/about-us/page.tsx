@@ -129,32 +129,30 @@ export default function AboutUsPage() {
 
       {/* ── HERO ── */}
       <section id="au-hero-orig">
-        <div className="au-hero-bg" />
-        <div className="au-hero-glow-1" />
-        <div className="au-hero-glow-2" />
-        <div className="au-hero-inner">
-          <div>
-            <div className="au-hero-badge">
-              <div className="au-hero-badge-dot" />
-              <span>About Us</span>
-            </div>
-            <h1 className="au-hero-h1-orig">
-              Wide Wings Media:<br />
-              A Digital Marketing Partner<br />
-              <em>You Can Trust</em>
-            </h1>
-            <p className="au-hero-sub-orig">
-              We believe in limitless potential. Our mission is to help brands break free from boundaries and explore new horizons — empowering businesses to spread their wings and soar way beyond expectations.
-            </p>
-            <div className="au-hero-actions">
-              <Link href="/contact" className="btn-primary">
-                Free Consultation
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-              <Link href="#au-team" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,.25)', color: '#fff' }}>
-                Meet the Team
-              </Link>
-            </div>
+        {/* LEFT — text */}
+        <div className="au-hero-left">
+          <div className="au-hero-badge">
+            <div className="au-hero-badge-dot" />
+            <span>About Us</span>
+          </div>
+          <h1 className="au-hero-h1-orig">
+            Wide Wings Media:<br />
+            A Digital Marketing<br />
+            Partner <em>You Can Trust</em>
+          </h1>
+          <p className="au-hero-sub-orig">
+            We believe in limitless potential. Our mission is to help brands break free
+            from boundaries and explore new horizons — empowering businesses to spread
+            their wings and soar way beyond expectations.
+          </p>
+          <div className="au-hero-actions">
+            <Link href="/contact" className="btn-primary">
+              Free Consultation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </Link>
+            <Link href="#au-team" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,.25)', color: '#fff' }}>
+              Meet the Team
+            </Link>
           </div>
           <div className="au-stat-cards">
             {[
@@ -169,6 +167,12 @@ export default function AboutUsPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* RIGHT — image */}
+        <div className="au-hero-right">
+          <Image src="/shutterstock_2626310227.jpg" alt="Wide Wings Media team at work" fill sizes="50vw" priority style={{ objectFit:'cover', objectPosition:'center top' }} />
+          <div className="au-hero-img-tint" />
         </div>
       </section>
 

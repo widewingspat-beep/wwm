@@ -1,82 +1,176 @@
-/* ─── ORIGINAL HERO ─────────────────────── */
+/* ─── HERO — cinematic split ─────────────── */
 #au-hero-orig {
   position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  background: var(--navy);
+  background: #080810;
 }
-.au-hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 80% 30%, rgba(167,49,132,.22) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(207,168,33,.12) 0%, transparent 55%),
-    linear-gradient(135deg, #0d0d2b 0%, #1a1a4a 50%, #2a1a3e 100%);
+
+/* ── left panel ── */
+.au-hero-left {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 160px 64px 80px 60px;
+  background: linear-gradient(135deg, #0d0d22 0%, #160f28 100%);
 }
-.au-hero-bg::after {
+/* subtle noise texture on left */
+.au-hero-left::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.3;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+  opacity: 0.06;
   pointer-events: none;
 }
-.au-hero-glow-1 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(167,49,132,.18); filter: blur(90px); top: -100px; right: -60px; pointer-events: none; }
-.au-hero-glow-2 { position: absolute; width: 350px; height: 350px; border-radius: 50%; background: rgba(207,168,33,.1); filter: blur(70px); bottom: -60px; left: 5%; pointer-events: none; }
-.au-hero-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 160px 40px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+/* coral accent line */
+.au-hero-left::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, var(--coral) 40%, var(--amber) 70%, transparent 100%);
+  opacity: 0.5;
 }
+
+/* ── right image panel ── */
+.au-hero-right {
+  position: relative;
+  overflow: hidden;
+}
+.au-hero-right img {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(0.25) brightness(0.75) contrast(1.05);
+}
+/* gradient fade left over image */
+.au-hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #0d0d22 0%, rgba(13,13,34,0.4) 35%, rgba(13,13,34,0) 70%);
+  z-index: 1;
+}
+/* dark bottom fade */
+.au-hero-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(0deg, #080810, transparent);
+  z-index: 1;
+}
+/* colour tint overlay */
+.au-hero-img-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,107,91,0.15) 0%, rgba(255,169,77,0.1) 50%, transparent 80%);
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+/* ── badge ── */
 .au-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(207,168,33,.4);
+  border: 1px solid rgba(255,107,91,0.35);
   padding: 7px 18px;
-  margin-bottom: 28px;
-  background: rgba(207,168,33,.07);
+  margin-bottom: 32px;
+  background: rgba(255,107,91,0.07);
+  width: fit-content;
 }
-.au-hero-badge-dot { width: 6px; height: 6px; background: #cfa821; border-radius: 50%; animation: pulse 2s infinite; }
-.au-hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #cfa821; }
+.au-hero-badge-dot { width: 6px; height: 6px; background: var(--coral); border-radius: 50%; animation: pulse 2s infinite; }
+.au-hero-badge span { font-family: 'Nexa','Calibri',sans-serif; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); }
+
+/* ── heading ── */
 .au-hero-h1-orig {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.05;
   color: #fff;
-  margin-bottom: 24px;
-  font-family: inherit;
+  margin-bottom: 28px;
   font-style: normal;
   background: none;
   -webkit-text-fill-color: #fff;
 }
-.au-hero-h1-orig em { font-style: normal; background: var(--grad-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.au-hero-sub-orig {
-  font-size: 1rem;
-  font-weight: 300;
-  color: rgba(255,255,255,.6);
-  line-height: 1.8;
-  max-width: 500px;
-  margin-bottom: 40px;
+.au-hero-h1-orig em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--coral), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.au-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-.au-stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.au-stat-card { padding: 28px 24px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); backdrop-filter: blur(10px); }
-.au-stat-num { font-size: 2.2rem; font-weight: 900; background: var(--grad-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 6px; }
-.au-stat-lbl { font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
 
-@media (max-width: 768px) {
-  .au-hero-inner { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
+/* ── sub ── */
+.au-hero-sub-orig {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 15px;
+  color: rgba(244,239,230,0.55);
+  line-height: 1.85;
+  max-width: 440px;
+  margin-bottom: 44px;
+}
+
+/* ── actions ── */
+.au-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+
+/* ── stat strip ── */
+.au-stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 32px;
+}
+.au-stat-card {
+  padding: 0 24px 0 0;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.au-stat-card:first-child { padding-left: 0; }
+.au-stat-card:last-child { border-right: none; }
+.au-stat-num {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--coral), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.au-stat-lbl {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ── glows (keep for bg depth) ── */
+.au-hero-glow-1 { display: none; }
+.au-hero-glow-2 { display: none; }
+.au-hero-bg     { display: none; }
+.au-hero-inner  { display: none; }
+
+@media (max-width: 860px) {
+  #au-hero-orig { grid-template-columns: 1fr; min-height: auto; }
+  .au-hero-left { padding: 140px 28px 60px; }
+  .au-hero-right { min-height: 380px; }
+  .au-stat-cards { grid-template-columns: 1fr 1fr; gap: 24px; border: none; padding-top: 0; }
+  .au-stat-card { border: 1px solid rgba(255,255,255,0.08); padding: 20px 16px; }
 }
 
 /* ─── FILM THEME ─────────────────────────── */
