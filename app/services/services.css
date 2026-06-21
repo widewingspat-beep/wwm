@@ -295,16 +295,16 @@
 /* keep content above the fill */
 .svc-row-title, .svc-row-arrow { position: relative; z-index: 1; }
 .svc-row-title {
-  font-family: 'Calibri', 'Nexa', sans-serif;
-  font-size: 1.1rem;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #111;
-  line-height: 1.5;
+  line-height: 1.3;
   transition: color 0.25s;
 }
 .svc-row:hover .svc-row-title { color: #fff; }
 .svc-row-arrow {
-  width: 28px; height: 28px;
+  width: 36px; height: 36px;
   color: #bbb;
   flex-shrink: 0;
   transition: color 0.25s, transform 0.25s;
