@@ -248,6 +248,15 @@ export default function ServicesPage() {
       {/* ── CTA ── */}
       <section className="svc-cta">
         <div className="svc-cta-blob" aria-hidden="true" />
+        {/* light animated wings watermark */}
+        <div className="svc-cta-wings" aria-hidden="true">
+          <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M250 160 C200 80 80 40 20 80 C80 100 140 130 180 160 C140 190 80 220 20 240 C80 280 200 240 250 160Z" fill="#a73184"/>
+            <path d="M250 160 C300 80 420 40 480 80 C420 100 360 130 320 160 C360 190 420 220 480 240 C420 280 300 240 250 160Z" fill="#cfa821"/>
+            <path d="M250 160 C230 100 170 60 110 70 C160 95 210 125 235 160 C210 195 160 225 110 250 C170 260 230 220 250 160Z" fill="#c55b03" opacity="0.7"/>
+            <path d="M250 160 C270 100 330 60 390 70 C340 95 290 125 265 160 C290 195 340 225 390 250 C330 260 270 220 250 160Z" fill="#2e2e62" opacity="0.5"/>
+          </svg>
+        </div>
         <div data-reveal className="svc-cta-inner">
           <h2 className="svc-cta-h2">Have Any Project in Mind?</h2>
           <p className="svc-cta-sub">
