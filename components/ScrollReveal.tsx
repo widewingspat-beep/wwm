@@ -1,9 +1,11 @@
 'use client';
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,9 +20,23 @@ export default function ScrollReveal() {
       },
       { threshold: 0.05, rootMargin: '0px 0px 0px 0px' }
     );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+
+    const observe = () => {
+      document.querySelectorAll('[data-reveal]:not(.revealed)').forEach((el) => observer.observe(el));
+    };
+
+    // Observe elements already in DOM
+    observe();
+
+    // Watch for new elements added by client navigation
+    const mutation = new MutationObserver(observe);
+    mutation.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutation.disconnect();
+    };
+  }, [pathname]); // re-run on every route change
 
   return null;
 }
