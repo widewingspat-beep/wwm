@@ -711,8 +711,8 @@ footer {
 @media (max-width: 768px) {
   .au-hero-left { padding: 130px 24px 48px; }
   .au-hero-blob { width: 100vw; height: 300px; }
-  .au-hero-btns { flex-direction: row; gap: 10px; }
-  .au-hbtn { padding: 13px 22px; font-size: 12px; }
+  .au-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
+  .au-hbtn { padding: 13px 18px !important; font-size: 11px !important; flex: 1; justify-content: center; white-space: nowrap; }
 }
 
 /* ── SCROLL REVEAL ── */
