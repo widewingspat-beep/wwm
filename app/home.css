@@ -94,7 +94,7 @@
 }
 .hw-thin .hw-inner { font-weight: 200; }
 .hw-block { display: block; margin-bottom: 0; }
-.hero-h1 em { font-style: normal; background: var(--grad-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-h1 em { font-style: normal; background: var(--grad-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding-bottom: 0.1em; }
 .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.65); line-height: 1.4; max-width: 520px; margin-bottom: 24px; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
@@ -420,11 +420,11 @@
   #hero { min-height: 100svh; }
   .hero-inner { padding: 100px 20px 64px; gap: 0; text-align: center; display: flex; flex-direction: column; }
   .hero-badge { margin: 20px auto 28px; }
-  .hero-h1 { font-size: clamp(3.2rem, 12vw, 4.6rem); margin-bottom: 24px; }
+  .hero-h1 { font-size: clamp(3.2rem, 12vw, 4.6rem); margin-top: 8px; margin-bottom: 28px; padding-bottom: 8px; overflow: visible; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; margin: 0 auto 36px; line-height: 1.6; }
-  .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; margin-bottom: 44px; }
+  .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; margin-bottom: 36px; }
   .hero-actions .btn-primary, .hero-actions .btn-outline { flex: 1; justify-content: center; text-align: center; padding: 13px 10px; font-size: 0.72rem; letter-spacing: 0.08em; min-width: 0; }
-  .hero-stats { justify-content: center; flex-wrap: wrap; gap: 20px 40px; margin-top: 0; padding-top: 28px; }
+  .hero-stats { justify-content: center; flex-wrap: wrap; gap: 20px 40px; margin-top: 0; padding-top: 24px; padding-bottom: 8px; }
   .hero-stats .stat-item { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
   .hero-stats .stat-item:first-child { display: none; }
   .scroll-hint { display: none; }
