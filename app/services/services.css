@@ -469,6 +469,16 @@
   position: relative;
   overflow: hidden;
 }
+.svc-values-watermark {
+  position: absolute;
+  right: -60px;
+  bottom: -40px;
+  width: 520px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) invert(1);
+}
 .svc-values::before {
   content: '';
   position: absolute;
