@@ -627,22 +627,23 @@
   max-width: 440px;
 }
 
-.au-fs-bottom {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 36px;
+.au-fs-bottom { display: none; }
+
+/* brand wing graphic at bottom of founder panels */
+.au-fs-brand-graphic {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 1;
 }
-.au-fs-arrow {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--coral), var(--amber));
-  color: #000;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+.au-brand-wings {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.22;
 }
-.au-fs-arrow:hover { transform: translate(3px, -3px); }
-.au-fs-arrow svg { width: 17px; height: 17px; }
 
 /* ─── CAST / TEAM ──────────────────────── */
 #au-team { padding: 100px 0 60px; background: var(--void); }
