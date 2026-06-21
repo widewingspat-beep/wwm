@@ -272,7 +272,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #a73184 0%, #7b2468 100%);
+  background: linear-gradient(180deg, #1e1e1e 0%, #111111 100%);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
