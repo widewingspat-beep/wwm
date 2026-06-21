@@ -10,16 +10,17 @@
   background: url('/shutterstock_1984521299.jpg') center/cover no-repeat;
   overflow: hidden;
 }
-/* dark gradient overlay so text stays readable */
+/* dark brand overlay for text clarity */
 .svc-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(8,6,24,0.78) 0%,
-    rgba(16,8,36,0.60) 50%,
-    rgba(8,6,24,0.82) 100%
+    rgba(5,3,18,0.91) 0%,
+    rgba(80,20,60,0.78) 40%,
+    rgba(30,10,50,0.88) 70%,
+    rgba(5,3,18,0.93) 100%
   );
   pointer-events: none;
   z-index: 0;
