@@ -134,44 +134,43 @@ export default function ServicesPage() {
       {/* ── YOU NEED A BREAK ── */}
       <section className="svc-break">
 
-        {/* floating chaos cards — outside the circle */}
-        <div className="svc-break-cards" aria-hidden="true">
-          <div className="svc-bc svc-bc--1">
-            <span className="svc-bc-label">Ads Manager</span>
-            <span className="svc-bc-val red">Campaign Not Performing · ROI ↓2.3%</span>
-          </div>
-          <div className="svc-bc svc-bc--2">
-            <span className="svc-bc-label">Engagement</span>
-            <span className="svc-bc-val red">1.2% ↓68%</span>
-          </div>
-          <div className="svc-bc svc-bc--3">
-            <span className="svc-bc-label">New Message</span>
-            <span className="svc-bc-val">23 Unread</span>
-          </div>
-          <div className="svc-bc svc-bc--4">
-            <span className="svc-bc-label">Deadlines</span>
-            <span className="svc-bc-val red">3 Tasks Overdue</span>
-          </div>
-          <div className="svc-bc svc-bc--5">
-            <span className="svc-bc-label">Email</span>
-            <span className="svc-bc-val">47 Unread Messages</span>
-          </div>
-          <div className="svc-bc svc-bc--6">
-            <span className="svc-bc-label">Ad Spend</span>
-            <span className="svc-bc-val green">↑32% Conversions</span>
-          </div>
-          <div className="svc-bc svc-bc--7">
-            <span className="svc-bc-label">Content Approval</span>
-            <span className="svc-bc-val">Pending ⏳</span>
-          </div>
-        </div>
-
-        {/* big circle with pulsing rings — everything inside */}
+        {/* big circle with pulsing rings + cards touching circle edge */}
         <div className="svc-break-orbit">
           <span className="svc-ring svc-ring--1" />
           <span className="svc-ring svc-ring--2" />
           <span className="svc-ring svc-ring--3" />
           <span className="svc-ring svc-ring--4" />
+
+          {/* cards — positioned relative to orbit, right at circle edge */}
+          <div className="svc-bc svc-bc--1" aria-hidden="true">
+            <span className="svc-bc-label">Ads Manager</span>
+            <span className="svc-bc-val red">Campaign Not Performing · ROI ↓2.3%</span>
+          </div>
+          <div className="svc-bc svc-bc--2" aria-hidden="true">
+            <span className="svc-bc-label">Engagement</span>
+            <span className="svc-bc-val red">1.2% ↓68%</span>
+          </div>
+          <div className="svc-bc svc-bc--3" aria-hidden="true">
+            <span className="svc-bc-label">New Message</span>
+            <span className="svc-bc-val">23 Unread</span>
+          </div>
+          <div className="svc-bc svc-bc--4" aria-hidden="true">
+            <span className="svc-bc-label">Deadlines</span>
+            <span className="svc-bc-val red">3 Tasks Overdue</span>
+          </div>
+          <div className="svc-bc svc-bc--5" aria-hidden="true">
+            <span className="svc-bc-label">Email</span>
+            <span className="svc-bc-val">47 Unread Messages</span>
+          </div>
+          <div className="svc-bc svc-bc--6" aria-hidden="true">
+            <span className="svc-bc-label">Ad Spend</span>
+            <span className="svc-bc-val green">↑32% Conversions</span>
+          </div>
+          <div className="svc-bc svc-bc--7" aria-hidden="true">
+            <span className="svc-bc-label">Content Approval</span>
+            <span className="svc-bc-val">Pending ⏳</span>
+          </div>
+
           <div className="svc-break-circle">
             <p className="svc-break-eyebrow">You need a break</p>
             <h2 className="svc-break-h2">We&apos;ll handle<br /><em>everything</em></h2>
