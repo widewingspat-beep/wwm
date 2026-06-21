@@ -402,7 +402,7 @@
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.8rem);
   font-weight: 900;
-  color: #111;
+  color: #3a3a3a;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
