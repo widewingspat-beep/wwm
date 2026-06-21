@@ -6,6 +6,11 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Wide Wings Media & Advertisement – Leading Digital Marketing Agency Dubai",
   description: "Dubai's leading digital marketing agency for the UAE and GCC market. We specialize in connecting communities and ideas that turn your vision into a reality.",
+  icons: {
+    icon: '/brand-wings.svg',
+    shortcut: '/brand-wings.svg',
+    apple: '/brand-wings.svg',
+  },
 };
 
 export default function RootLayout({
