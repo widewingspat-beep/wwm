@@ -466,12 +466,13 @@
   #why { padding: 64px 0; }
   .why-inner { grid-template-columns: 1fr; gap: 44px; }
   .why-left { text-align: center; }
-  .why-h2 { font-size: clamp(2.4rem, 9vw, 3.2rem); line-height: 1.15; }
+  .why-h2 { font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.2; }
   .why-body { text-align: center; }
-  .flip-word-wrap { display: block; width: 100% !important; height: auto !important; overflow: visible; margin: 2px 0; }
-  .flip-track { display: block; transition: none; }
-  .flip-item { display: none; white-space: normal; }
-  .flip-item.flip-active { display: block; width: 100%; text-align: center; background: linear-gradient(90deg, #b62d83 0%, #cfa821 30%, #c33b31 55%, #b62d83 80%, #cfa821 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientSweep 2.4s ease infinite; }
+  .flip-word-wrap { display: block; width: 100% !important; height: 1.2em !important; overflow: hidden; margin: 0; }
+  .flip-track { display: flex; flex-direction: column; transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1); }
+  .flip-item { display: block; height: 1.2em; line-height: 1.2em; white-space: normal; text-align: center; }
+  .flip-item.flip-active { background: linear-gradient(90deg, #b62d83 0%, #cfa821 30%, #c33b31 55%, #b62d83 80%, #cfa821 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientSweep 2.4s ease infinite; }
+  .why-left > div { justify-content: center; }
   @keyframes gradientSweep { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
   #reviews { padding: 64px 0; }
   .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
