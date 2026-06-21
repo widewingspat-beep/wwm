@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     siteName: 'Wide Wings Media',
     title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
     description: 'Full-service digital marketing agency in Dubai. SEO, paid ads, social media, web development and branding for UAE & GCC businesses.',
-    images: [{ url: '/og-home.jpg', width: 1200, height: 630, alt: 'Wide Wings Media – Digital Marketing Agency Dubai' }],
+    images: [{ url: '/LogoColour.svg', width: 1200, height: 630, alt: 'Wide Wings Media – Digital Marketing Agency Dubai' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
     description: 'Full-service digital marketing agency in Dubai – SEO, paid ads, social media, web & branding.',
-    images: ['/og-home.jpg'],
+    images: ['/LogoColour.svg'],
   },
   icons: {
     icon: '/brand-wings.svg',
