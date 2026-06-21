@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Wide Wings Media & Advertisement – Leading Digital Marketing Agency Dubai",
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ fontFamily: "'Calibri', 'Arial', sans-serif", background: "#ffffff", color: "#333333", overflowX: "hidden" }}>
+        <ScrollReveal />
         <Header />
         {children}
         <Footer />

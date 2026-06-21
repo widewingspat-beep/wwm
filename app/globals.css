@@ -537,3 +537,14 @@ footer {
   .wa-float { bottom: 20px; right: 20px; width: 52px; height: 52px; }
   .wa-float svg { width: 26px; height: 26px; }
 }
+
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}

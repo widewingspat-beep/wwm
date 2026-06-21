@@ -150,7 +150,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── PARTNER BAND ── */}
-      <div className="svc-band">
+      <div data-reveal className="svc-band">
         <span className="svc-band-tag">TOP RANKED</span>
         <p className="svc-band-text">
           <strong>Your Partner for Premier Digital Marketing Services</strong> — A trusted partner for startups, scaleups, and established enterprises.
@@ -169,11 +169,11 @@ export default function ServicesPage() {
 
           {/* LEFT COLUMN */}
           <div className="svc-list-left">
-            <div className="svc-list-heading">
+            <div data-reveal className="svc-list-heading">
               <strong className="svc-lh-main">Digital Marketing Services</strong>
             </div>
             {/* 3-image cinematic collage */}
-            <div className="svc-collage">
+            <div data-reveal data-reveal-delay="100" className="svc-collage">
               <div className="svc-collage-main">
                 <img src="/shutterstock_2421890557.jpg" alt="Digital strategy" />
               </div>
@@ -186,12 +186,12 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-            <p className="svc-list-desc">
+            <p data-reveal data-reveal-delay="200" className="svc-list-desc">
               Use digital marketing services that are based on data to make your brand stronger.
               Get a high return on investment (ROI) and more conversions with Wide Wings Media&apos;s
               digital marketing services, which are data-based. Request a quote now.
             </p>
-            <p className="svc-list-desc">
+            <p data-reveal data-reveal-delay="280" className="svc-list-desc">
               Work with a digital marketing services agency in Dubai that has won awards and is
               designed to help businesses thrive by making meaningful connections.
             </p>
@@ -199,8 +199,8 @@ export default function ServicesPage() {
 
           {/* RIGHT COLUMN — lined list */}
           <div className="svc-list-right">
-            {SERVICES.map((s) => (
-              <Link key={s.slug} href={s.slug} className="svc-row">
+            {SERVICES.map((s, i) => (
+              <Link key={s.slug} href={s.slug} className="svc-row" data-reveal data-reveal-delay={String(i * 60)}>
                 <span className="svc-row-title">{s.title}</span>
                 <svg className="svc-row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M7 17L17 7M9 7h8v8"/>
@@ -216,13 +216,13 @@ export default function ServicesPage() {
       <section className="svc-values">
         <span className="svc-values-watermark" aria-hidden="true">WIDE WINGS</span>
         <div className="svc-values-inner">
-          <div className="svc-values-head">
+          <div data-reveal className="svc-values-head">
             <div className="svc-eyebrow"><span className="svc-dot" />Why Choose Us</div>
             <h2 className="svc-values-h2">Take the Leap from<br /><em>Experiments to Conversions</em></h2>
           </div>
           <div className="svc-values-grid">
             {VALUE_PROPS.map((v, i) => (
-              <div key={i} className="svc-value-card">
+              <div key={i} className="svc-value-card" data-reveal data-reveal-delay={String(i * 100)}>
                 <div className="svc-value-icon">{v.icon}</div>
                 <h3 className="svc-value-title">{v.title}</h3>
                 <p className="svc-value-body">{v.body}</p>
@@ -235,7 +235,7 @@ export default function ServicesPage() {
       {/* ── CTA ── */}
       <section className="svc-cta">
         <div className="svc-cta-blob" aria-hidden="true" />
-        <div className="svc-cta-inner">
+        <div data-reveal className="svc-cta-inner">
           <h2 className="svc-cta-h2">Have Any Project in Mind?</h2>
           <p className="svc-cta-sub">
             Let&apos;s discuss how we can drive measurable growth for your business.
