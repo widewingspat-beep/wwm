@@ -491,7 +491,7 @@ footer {
   .container { padding: 0 18px; }
   header { height: 70px; }
   .header-inner { padding: 0 20px; }
-  header:not(.scrolled) { background: rgba(13,13,43,0.5); }
+  header:not(.scrolled) { background: transparent; }
   header.scrolled { background: rgba(255,255,255,0.98) !important; }
   header.scrolled .logo-white { display: none; }
   header.scrolled .logo-dark  { display: block; }
