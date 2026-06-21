@@ -470,7 +470,7 @@
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: clamp(40px, 5.5vw, 64px);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   color: var(--cream);
 }
 .au-cast-head p {
@@ -631,7 +631,7 @@
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: clamp(30px, 4.5vw, 46px);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   max-width: 700px;
   margin: 18px auto 0;
   line-height: 1.2;
@@ -669,6 +669,11 @@
   .au-founder-card.reverse .au-founder-panel { order: 0; }
   .au-founders-inner { padding: 0; max-width: 100%; }
   #au-founders { padding: 40px 0 60px; }
+}
+@media (max-width: 768px) {
+  .au-cast-head h2,
+  .au-mission-h2,
+  .au-cta-h2 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
 }
 @media (max-width: 700px) {
   .au-cast-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
