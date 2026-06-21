@@ -69,18 +69,50 @@ const VALUE_PROPS = [
   {
     title: 'Keywords Optimised for Conversion',
     body: 'Get in front of high-intent customers with hyper-targeted campaigns and display ads designed to drive action at every stage of the funnel.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="20"/>
+        <circle cx="24" cy="24" r="12"/>
+        <circle cx="24" cy="24" r="4" fill="currentColor" stroke="none"/>
+        <line x1="24" y1="4" x2="24" y2="10"/>
+        <line x1="24" y1="38" x2="24" y2="44"/>
+        <line x1="4" y1="24" x2="10" y2="24"/>
+        <line x1="38" y1="24" x2="44" y2="24"/>
+      </svg>
+    ),
   },
   {
     title: 'Top of Mind, Bottom of Funnel',
     body: 'We capture top-funnel traffic and transform it into bottom-funnel conversions through rapid experimentation and proven frameworks.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 10h32l-12 16v10l-8-4V26L8 10z"/>
+        <line x1="6" y1="10" x2="42" y2="10"/>
+      </svg>
+    ),
   },
   {
     title: 'Turn Intent into Measurable Growth',
     body: 'By unlocking high-quality consumer intent, we fuel rapid and measurable growth through quality leads and performance-first strategies.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6,36 18,22 26,30 42,12"/>
+        <polyline points="32,12 42,12 42,22"/>
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <line x1="6" y1="12" x2="6" y2="42"/>
+      </svg>
+    ),
   },
   {
     title: 'Proven Revenue Growth',
     body: 'Our team of growth experts measure and maximise search intent and keyword potential at every stage of the funnel — delivering results you can see.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 4l4.5 9 10 1.5-7.25 7 1.75 10L24 26.5 15 31.5l1.75-10L9.5 14.5l10-1.5z"/>
+        <line x1="24" y1="34" x2="24" y2="44"/>
+        <line x1="16" y1="44" x2="32" y2="44"/>
+      </svg>
+    ),
   },
 ];
 
@@ -191,7 +223,7 @@ export default function ServicesPage() {
           <div className="svc-values-grid">
             {VALUE_PROPS.map((v, i) => (
               <div key={i} className="svc-value-card">
-                <span className="svc-value-num">0{i + 1}</span>
+                <div className="svc-value-icon">{v.icon}</div>
                 <h3 className="svc-value-title">{v.title}</h3>
                 <p className="svc-value-body">{v.body}</p>
               </div>
