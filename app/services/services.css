@@ -637,22 +637,6 @@
   background: radial-gradient(ellipse, #a73184 0%, #cfa821 100%);
   pointer-events: none;
 }
-.svc-cta-wings {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.04;
-  animation: svcWingsPulse 6s ease-in-out infinite;
-}
-.svc-cta-wings svg { width: min(700px, 90vw); height: auto; }
-@keyframes svcWingsPulse {
-  0%, 100% { opacity: 0.03; transform: scale(1); }
-  50%       { opacity: 0.07; transform: scale(1.04); }
-}
 .svc-cta-inner {
   position: relative;
   z-index: 1;
