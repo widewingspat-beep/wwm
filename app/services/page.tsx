@@ -142,8 +142,19 @@ export default function ServicesPage() {
               <strong className="svc-lh-main">Digital Marketing</strong>
               <span className="svc-lh-services">SERVICES</span>
             </div>
-            <div className="svc-list-img-wrap">
-              <img src="/shutterstock_2421890557.jpg" alt="Digital Marketing" className="svc-list-img" />
+            {/* 3-image cinematic collage */}
+            <div className="svc-collage">
+              <div className="svc-collage-main">
+                <img src="/shutterstock_2421890557.jpg" alt="Digital strategy" />
+              </div>
+              <div className="svc-collage-side">
+                <div className="svc-collage-sm">
+                  <img src="/shutterstock_2619060609.jpg" alt="Dubai business" />
+                </div>
+                <div className="svc-collage-sm">
+                  <img src="/shutterstock_2584810093.jpg" alt="Brand marketing" />
+                </div>
+              </div>
             </div>
             <p className="svc-list-desc">
               Use digital marketing services that are based on data to make your brand stronger.
