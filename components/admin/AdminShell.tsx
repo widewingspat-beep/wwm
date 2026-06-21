@@ -1,0 +1,97 @@
+'use client';
+import { useRouter, usePathname } from 'next/navigation';
+import type { SessionPayload, AdminRole } from '@/lib/admin/auth';
+
+const NAV: { href: string; label: string; roles: AdminRole[]; icon: React.ReactNode }[] = [
+  {
+    href: '/admin/dashboard', label: 'Dashboard', roles: ['webadmin', 'seo', 'enquiry'],
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
+  },
+  {
+    href: '/admin/pages', label: 'Pages', roles: ['webadmin'],
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>,
+  },
+  {
+    href: '/admin/seo', label: 'SEO Manager', roles: ['seo', 'webadmin'],
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>,
+  },
+  {
+    href: '/admin/enquiries', label: 'Enquiries', roles: ['enquiry', 'webadmin'],
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+  },
+];
+
+export default function AdminShell({ session, children, title, subtitle }: {
+  session: SessionPayload;
+  children: React.ReactNode;
+  title: string;
+  subtitle?: string;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  async function logout() {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    router.push('/admin/login');
+    router.refresh();
+  }
+
+  const initials = session.displayName.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const roleLabel = { webadmin: 'Web Admin', seo: 'SEO Manager', enquiry: 'Enquiry Viewer' }[session.role];
+  const allowedNav = NAV.filter(n => n.roles.includes(session.role));
+
+  return (
+    <div className="adm-root">
+      {/* SIDEBAR */}
+      <aside className="adm-sidebar">
+        <div className="adm-sidebar-logo">
+          <img src="/LogoWhite.svg" alt="Wide Wings Media" style={{ height: 36 }} />
+          <div className="adm-sidebar-role">{roleLabel}</div>
+        </div>
+        <nav className="adm-nav">
+          <div className="adm-nav-section">Navigation</div>
+          {allowedNav.map(item => (
+            <a key={item.href} href={item.href}
+              className={`adm-nav-item ${pathname === item.href ? 'active' : ''}`}>
+              {item.icon}{item.label}
+            </a>
+          ))}
+        </nav>
+        <div className="adm-sidebar-footer">
+          <div className="adm-user-info">
+            <div className="adm-avatar">{initials}</div>
+            <div>
+              <div className="adm-user-name">{session.displayName}</div>
+              <div className="adm-user-role">{session.username}</div>
+            </div>
+          </div>
+          <button className="adm-logout-btn" onClick={logout}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Sign Out
+          </button>
+        </div>
+      </aside>
+
+      {/* MAIN */}
+      <main className="adm-main">
+        <div className="adm-topbar">
+          <div>
+            <div className="adm-topbar-title">{title}</div>
+            {subtitle && <div className="adm-topbar-sub">{subtitle}</div>}
+          </div>
+          <a href="/" target="_blank" className="adm-btn adm-btn-outline adm-btn-sm" style={{ textDecoration: 'none' }}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            View Site
+          </a>
+        </div>
+        <div className="adm-content">{children}</div>
+      </main>
+    </div>
+  );
+}
