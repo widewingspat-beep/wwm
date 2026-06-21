@@ -632,17 +632,17 @@
 /* brand wing graphic at bottom of founder panels */
 .au-fs-brand-graphic {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: -20px;
+  left: -10px;
+  width: 220px;
   pointer-events: none;
   z-index: 1;
+  opacity: 0.18;
 }
 .au-brand-wings {
   width: 100%;
   height: auto;
   display: block;
-  opacity: 0.22;
 }
 
 /* ─── CAST / TEAM ──────────────────────── */

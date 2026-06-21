@@ -339,34 +339,7 @@ export default function AboutUsPage() {
                 <p className="au-fs-bio">Our team&apos;s expertise and dedication are what let me make that promise with confidence. Together, we turn ambitious ideas into results our clients can measure.</p>
               </div>
               <div className="au-fs-brand-graphic" aria-hidden="true">
-                <svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" className="au-brand-wings">
-                  {/* main blue wing */}
-                  <polygon points="0,90 200,50 280,110 60,110" fill="url(#wingBlue)" opacity="0.9"/>
-                  {/* magenta triangle */}
-                  <polygon points="20,90 100,30 130,90" fill="url(#wingMagenta)" opacity="0.85"/>
-                  {/* gold spike */}
-                  <polygon points="200,50 230,0 245,55" fill="url(#wingGold)" opacity="0.9"/>
-                  {/* orange accent */}
-                  <polygon points="235,5 255,60 245,55" fill="url(#wingOrange)" opacity="0.85"/>
-                  <defs>
-                    <linearGradient id="wingBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#4a6fa5"/>
-                      <stop offset="100%" stopColor="#2e3f6e"/>
-                    </linearGradient>
-                    <linearGradient id="wingMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#a73184"/>
-                      <stop offset="100%" stopColor="#6b1f55"/>
-                    </linearGradient>
-                    <linearGradient id="wingGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#cfa821"/>
-                      <stop offset="100%" stopColor="#e07c20"/>
-                    </linearGradient>
-                    <linearGradient id="wingOrange" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#e07c20"/>
-                      <stop offset="100%" stopColor="#c33b31"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <img src="/brand-wings.svg" alt="" className="au-brand-wings" />
               </div>
             </div>
           </div>
@@ -386,26 +359,7 @@ export default function AboutUsPage() {
                 <p className="au-fs-bio">Every brand that works with us gets a partner that&apos;s as invested in their growth as they are. That&apos;s the standard we hold ourselves to, every single day.</p>
               </div>
               <div className="au-fs-brand-graphic" aria-hidden="true">
-                <svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" className="au-brand-wings">
-                  <polygon points="0,90 200,50 280,110 60,110" fill="url(#wingBlue2)" opacity="0.9"/>
-                  <polygon points="20,90 100,30 130,90" fill="url(#wingMagenta2)" opacity="0.85"/>
-                  <polygon points="200,50 230,0 245,55" fill="url(#wingGold2)" opacity="0.9"/>
-                  <polygon points="235,5 255,60 245,55" fill="url(#wingOrange2)" opacity="0.85"/>
-                  <defs>
-                    <linearGradient id="wingBlue2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#4a6fa5"/><stop offset="100%" stopColor="#2e3f6e"/>
-                    </linearGradient>
-                    <linearGradient id="wingMagenta2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#a73184"/><stop offset="100%" stopColor="#6b1f55"/>
-                    </linearGradient>
-                    <linearGradient id="wingGold2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#cfa821"/><stop offset="100%" stopColor="#e07c20"/>
-                    </linearGradient>
-                    <linearGradient id="wingOrange2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#e07c20"/><stop offset="100%" stopColor="#c33b31"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <img src="/brand-wings.svg" alt="" className="au-brand-wings" />
               </div>
             </div>
           </div>
