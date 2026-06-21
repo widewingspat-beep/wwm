@@ -186,6 +186,117 @@
 }
 .svc-band-cta:hover { color: #cfa821; }
 
+/* ── YOU NEED A BREAK ── */
+.svc-break {
+  background: linear-gradient(135deg, #c55b03 0%, #a73184 60%, #1a0a2e 100%);
+  padding: 100px 60px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.svc-break::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.svc-break-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.svc-break-eyebrow {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.svc-break-h2 {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+}
+.svc-break-h2 em {
+  font-style: normal;
+  color: #cfa821;
+}
+
+/* floating notification cards */
+.svc-break-cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.svc-bc {
+  position: absolute;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+  min-width: 150px;
+  animation: bcFloat 4s ease-in-out infinite alternate;
+}
+.svc-bc-label {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: 0.04em;
+}
+.svc-bc-val {
+  font-family: 'Calibri', 'Nexa', sans-serif;
+  font-size: 12px;
+  color: #555;
+}
+.svc-bc-val.red  { color: #e53935; font-weight: 700; }
+.svc-bc-val.green { color: #2e7d32; font-weight: 700; }
+
+/* positions + staggered float delays */
+.svc-bc--1 { top: 18%; left: 3%;  animation-delay: 0s;    animation-duration: 3.8s; }
+.svc-bc--2 { top: 12%; right: 4%; animation-delay: 0.6s;  animation-duration: 4.2s; }
+.svc-bc--3 { top: 38%; right: 2%; animation-delay: 1.1s;  animation-duration: 3.5s; }
+.svc-bc--4 { top: 55%; left: 2%;  animation-delay: 0.4s;  animation-duration: 4.5s; }
+.svc-bc--5 { bottom: 18%; left: 4%; animation-delay: 0.9s; animation-duration: 3.9s; }
+.svc-bc--6 { bottom: 20%; right: 3%; animation-delay: 0.2s; animation-duration: 4.1s; }
+.svc-bc--7 { top: 72%; right: 5%; animation-delay: 1.4s;  animation-duration: 3.6s; }
+
+@keyframes bcFloat {
+  0%   { transform: translateY(0px) rotate(-1deg); }
+  50%  { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(-4px) rotate(0deg); }
+}
+
+/* centre wings emblem */
+.svc-break-emblem {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 60px rgba(207,168,33,0.3);
+}
+.svc-break-wings {
+  width: 72px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
 /* ── SERVICE LIST ── */
 .svc-list-section {
   background: #fff;
