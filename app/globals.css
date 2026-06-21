@@ -495,7 +495,7 @@ footer {
   header.scrolled { background: rgba(255,255,255,0.98) !important; }
   header.scrolled .logo-white { display: none; }
   header.scrolled .logo-dark  { display: block; }
-  .nav-logo img { height: 58px; width: auto; object-fit: contain; }
+  .nav-logo img { height: 70px; width: auto; object-fit: contain; }
   .nav-hamburger { display: flex; }
   .nav-links, .nav-cta { display: none; }
 

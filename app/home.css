@@ -492,7 +492,7 @@
 }
 
 @media (max-width: 400px) {
-  .hero-h1 { font-size: 2.2rem; }
+  .hero-h1 { font-size: 2.7rem; }
   .about-stats-row { grid-template-columns: 1fr 1fr; }
   .svc-card { height: 200px; }
   .case-card { height: auto; aspect-ratio: 4/3; }
