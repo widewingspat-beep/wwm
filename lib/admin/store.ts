@@ -1,5 +1,17 @@
 // In-memory store — replace with a real DB (Supabase, Neon, etc.) for production
 
+export interface MediaItem {
+  id: string;
+  name: string;
+  fileType: 'image' | 'video' | 'pdf' | 'other';
+  mimeType: string;
+  url: string;           // data URL for images, external URL for video/pdf
+  sizeBytes: number;
+  altText: string;
+  keywords: string;
+  uploadedAt: string;
+}
+
 export interface Page {
   id: string;
   title: string;
@@ -81,6 +93,8 @@ const seoData: SeoData[] = [
 
 const redirects: Redirect[] = [];
 
+const mediaItems: MediaItem[] = [];
+
 const enquiries: Enquiry[] = [
   { id: 'enq-001', name: 'Ahmed Al Rashid', email: 'ahmed@example.com', phone: '+971 50 123 4567', service: 'SEO & Performance Management', message: 'We need help ranking our e-commerce site in the UAE. Please get in touch.', status: 'new', receivedAt: '2026-06-20T09:15:00Z' },
   { id: 'enq-002', name: 'Sara Mohammed', email: 'sara@techbiz.ae', phone: '+971 55 987 6543', service: 'Social Media Management', message: 'Looking for a full social media management package for our startup. Budget around AED 5,000/month.', status: 'read', receivedAt: '2026-06-19T14:30:00Z' },
@@ -132,5 +146,21 @@ export const store = {
       enquiries.unshift(enq);
       return enq;
     },
+  },
+  media: {
+    list: () => [...mediaItems].sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()),
+    get: (id: string) => mediaItems.find(m => m.id === id),
+    add: (item: Omit<MediaItem, 'id' | 'uploadedAt'>) => {
+      const m: MediaItem = { ...item, id: `media-${Date.now()}`, uploadedAt: new Date().toISOString() };
+      mediaItems.unshift(m);
+      return m;
+    },
+    update: (id: string, data: Partial<MediaItem>) => {
+      const idx = mediaItems.findIndex(m => m.id === id);
+      if (idx === -1) return null;
+      mediaItems[idx] = { ...mediaItems[idx], ...data };
+      return mediaItems[idx];
+    },
+    delete: (id: string) => { const idx = mediaItems.findIndex(m => m.id === id); if (idx > -1) mediaItems.splice(idx, 1); },
   },
 };
