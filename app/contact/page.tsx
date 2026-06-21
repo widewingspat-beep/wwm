@@ -32,23 +32,16 @@ export default function ContactPage() {
     <main>
       {/* HERO */}
       <section id="contact-hero">
-        <div className="hero-bg"></div>
-        <div className="hero-grid-overlay"></div>
-        <div className="hero-glow hero-glow-1"></div>
-        <div className="hero-glow hero-glow-2"></div>
-        <div className="hero-line hero-line-1"></div>
-        <div className="hero-line hero-line-2"></div>
-        <div className="hero-line hero-line-3"></div>
+        <div className="contact-hero-blob"></div>
         <div className="hero-inner">
-          <div className="hero-badge anim-fade-up anim-d1">
+          <div className="hero-badge">
             <div className="hero-badge-dot"></div>
             <span>Get In Touch</span>
           </div>
-          <h1 className="hero-title anim-fade-up anim-d2">
-            Let&apos;s Build Something<br/>
-            <em className="gradient-text">Extraordinary</em>
+          <h1 className="hero-title">
+            Let&apos;s Build Something <em>Extraordinary</em>
           </h1>
-          <p className="hero-subtitle anim-fade-up anim-d3">
+          <p className="hero-subtitle">
             We&apos;re a full-service digital marketing agency based in Dubai. Tell us about your project and we&apos;ll craft a strategy that delivers real results.
           </p>
         </div>

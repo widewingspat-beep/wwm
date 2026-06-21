@@ -1,52 +1,63 @@
-/* ─── CONTACT HERO ──────────────────────── */
+/* ─── CONTACT HERO — matches about-us dark style ── */
 #contact-hero {
   position: relative;
-  min-height: 52vh;
+  min-height: 620px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding-bottom: 80px;
-  background: #fafafa;
+  background: #0d0d20;
+  text-align: center;
 }
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 80% 40%, rgba(167,49,132,.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 70% at 10% 80%, rgba(207,168,33,.06) 0%, transparent 55%),
-    #fafafa;
-}
-.hero-bg::after {
+/* dot grid */
+#contact-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(167,49,132,.12) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.25;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
+  z-index: 0;
 }
-@keyframes beamRise {
-  0%   { transform: translateY(0) scaleY(0); opacity: 0; }
-  8%   { opacity: 1; }
-  50%  { transform: translateY(-55vh) scaleY(1); opacity: .45; }
-  85%  { opacity: .08; }
-  100% { transform: translateY(-110vh) scaleY(.6); opacity: 0; }
+/* bottom fade */
+#contact-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(0deg, #0d0d20, transparent);
+  pointer-events: none;
+  z-index: 2;
 }
-.hero-line { position: absolute; pointer-events: none; transform-origin: bottom center; border-radius: 999px; }
-.hero-line-1 { width: 2px; height: 45vh; bottom: 0; left: 52%; background: linear-gradient(to top, transparent 0%, rgba(182,45,131,.35) 30%, rgba(207,168,33,.3) 70%, transparent 100%); transform: rotate(8deg); animation: beamRise 4s cubic-bezier(0.4,0,0.6,1) infinite; }
-.hero-line-2 { width: 1.5px; height: 35vh; bottom: 0; right: 22%; background: linear-gradient(to top, transparent 0%, rgba(195,59,49,.3) 25%, rgba(207,168,33,.25) 65%, transparent 100%); transform: rotate(-6deg); animation: beamRise 4s cubic-bezier(0.4,0,0.6,1) infinite; animation-delay: 1.8s; }
-.hero-line-3 { width: 1px; height: 28vh; bottom: 0; left: 30%; background: linear-gradient(to top, transparent 0%, rgba(107,160,186,.3) 40%, transparent 100%); transform: rotate(3deg); animation: beamRise 5s cubic-bezier(0.4,0,0.6,1) infinite; animation-delay: 3s; }
-.hero-glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
-.hero-glow-1 { width: 500px; height: 500px; background: rgba(167,49,132,.08); top: -100px; right: -80px; }
-.hero-glow-2 { width: 400px; height: 400px; background: rgba(207,168,33,.06); bottom: -100px; left: 5%; }
-.hero-grid-overlay { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(167,49,132,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(167,49,132,.05) 1px, transparent 1px); background-size: 80px 80px; }
-.hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 160px 40px 0; }
-.hero-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(167,49,132,.25); padding: 7px 18px; margin-bottom: 24px; background: rgba(167,49,132,.06); }
-.hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); }
-.hero-badge-dot { width: 6px; height: 6px; background: var(--magenta); border-radius: 50%; animation: pulse 2s infinite; }
+/* animated colour blob */
+.contact-hero-blob {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 500px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(167,49,132,0.7) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(207,168,33,0.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 80%, rgba(197,91,3,0.4) 0%, transparent 50%);
+  animation: blobPulse 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes blobPulse {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 0.35; }
+  100% { transform: translate(-50%,-50%) scale(1.1); opacity: 0.45; }
+}
 @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.4); } }
-.hero-title { font-size: clamp(3rem, 6vw, 6rem); font-weight: 900; line-height: 1.0; letter-spacing: 0.06em; color: #111; margin-bottom: 20px; }
-.hero-subtitle { font-size: 1.05rem; font-weight: 300; color: rgba(0,0,0,.5); line-height: 1.7; max-width: 520px; }
+.hero-inner { position: relative; z-index: 3; width: 100%; max-width: 860px; margin: 0 auto; padding: 140px 40px 80px; display: flex; flex-direction: column; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(207,168,33,.4); padding: 7px 18px; margin-bottom: 28px; background: rgba(207,168,33,.07); }
+.hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.hero-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+.hero-title { font-family: 'Nexa', 'Arial Black', sans-serif; font-size: clamp(2.6rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 20px; letter-spacing: -0.02em; }
+.hero-title em { font-style: normal; background: linear-gradient(135deg, #b62d83 0%, #cfa821 60%, #c33b31 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-subtitle { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,.6); line-height: 1.7; max-width: 560px; }
 
 /* ─── DIVIDER ───────────────────────────── */
 .divider-line { height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(167,49,132,.2) 30%, rgba(207,168,33,.2) 70%, transparent 100%); margin: 0; }
@@ -156,8 +167,9 @@ select.form-control option { background: #fff; color: #111; }
 /* ─── RESPONSIVE ────────────────────────── */
 @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 60px; } }
 @media (max-width: 768px) {
-  .hero-inner { padding: 120px 24px 0; }
+  .hero-inner { padding: 110px 24px 60px; }
   .hero-title { font-size: clamp(2.4rem, 8vw, 4rem); }
+  #contact-hero { min-height: 480px; }
   #contact-main { padding: 60px 0 80px; }
   .form-wrapper { padding: 32px 24px; }
   .form-row { grid-template-columns: 1fr; }
