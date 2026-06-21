@@ -218,12 +218,12 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #a73184;
+  color: #cfa821;
   text-decoration: none;
   flex-shrink: 0;
   transition: color 0.2s;
 }
-.svc-band-cta:hover { color: #cfa821; }
+.svc-band-cta:hover { color: #fff; }
 
 /* ── YOU NEED A BREAK ── */
 .svc-break {
@@ -650,6 +650,8 @@
   .svc-cta { padding: 72px 32px; }
 }
 @media (max-width: 768px) {
+  .svc-band { flex-wrap: wrap; }
+  .svc-band-cta { margin-left: auto; }
   .svc-hero { min-height: auto; align-items: flex-start; justify-content: flex-start; }
   .svc-hero-inner { padding: 160px 24px 60px; }
   .svc-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
