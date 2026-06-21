@@ -1,6 +1,6 @@
 /* ─── SERVICES PAGE ─────────────────────────────────────── */
 
-/* ── HERO — identical to about-us ── */
+/* ── HERO ── */
 .svc-hero {
   position: relative;
   min-height: 620px;
@@ -10,7 +10,6 @@
   background: #0d0d20;
   overflow: hidden;
 }
-/* dot grid */
 .svc-hero::before {
   content: '';
   position: absolute;
@@ -20,7 +19,6 @@
   pointer-events: none;
   z-index: 0;
 }
-/* bottom edge fade */
 .svc-hero::after {
   content: '';
   position: absolute;
@@ -30,35 +28,156 @@
   pointer-events: none;
   z-index: 2;
 }
-/* parallax button CSS vars */
-.svc-hbtn {
-  transform: translate(var(--px,0px), var(--py,0px));
+.svc-hero-blob {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 500px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  background:
+    radial-gradient(ellipse 55% 60% at 30% 50%, rgba(103,202,249,0.9) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 55% at 70% 40%, rgba(255,107,91,0.8)  0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 55% 75%, rgba(134,239,172,0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 45% at 15% 70%, rgba(192,132,252,0.6) 0%, transparent 55%);
+  animation: svcBlobDrift 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
 }
-
-/* unused old classes — kept empty so no errors */
-.svc-hero-noise { display: none; }
-.svc-hero-after  { display: none; }
-.svc-hero-inner  { display: none; }
-.svc-btn-outline {
-  display: inline-flex;
+@keyframes svcBlobDrift {
+  0%   { transform: translate(-50%,-50%) scale(1)    rotate(0deg); }
+  33%  { transform: translate(-48%,-52%) scale(1.06) rotate(4deg); }
+  66%  { transform: translate(-52%,-48%) scale(0.97) rotate(-3deg); }
+  100% { transform: translate(-50%,-51%) scale(1.03) rotate(2deg); }
+}
+.svc-hero-sparks { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.svc-spark {
+  position: absolute;
+  border-radius: 50%;
+  width: var(--sz, 4px); height: var(--sz, 4px);
+  background: var(--sc, #FF6B5B);
+  opacity: 0;
+  animation: svcSparkBlink var(--sd, 2.4s) ease-in-out infinite;
+  animation-delay: var(--dl, 0s);
+}
+@keyframes svcSparkBlink {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50%       { opacity: var(--op, 0.7); transform: scale(1); }
+}
+.svc-hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 40px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 14px 34px;
-  border: 2px solid rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.7);
-  font-family: 'Nexa', 'Calibri', sans-serif;
+}
+.svc-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 40px;
+  justify-content: center;
+}
+.svc-breadcrumb a { color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
+.svc-breadcrumb a:hover { color: #FF6B5B; }
+.svc-breadcrumb span:last-child { color: #FF6B5B; }
+.svc-bc-sep { opacity: 0.35; }
+.svc-hero-h1 {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.svc-hero-h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #FF6B5B, #FFA94D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.svc-hero-sub {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 0 40px;
+}
+.svc-hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.svc-btn-primary {
+  font-family: 'Nexa','Calibri',sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
   border-radius: 100px;
-  transition: border-color 0.25s, color 0.25s, background 0.25s;
+  background: #a73184;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(167,49,132,0.35);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: transform 0.15s ease;
+}
+.svc-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #2e2e62;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index: -1;
+  border-radius: inherit;
+}
+.svc-btn-primary:hover { transform: translateY(-2px) scale(1.03); }
+.svc-btn-primary:hover::after { transform: scaleX(1); }
+.svc-btn-outline {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(255,255,255,0.48);
+  border: 2px solid rgba(255,255,255,0.48);
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
 }
 .svc-btn-outline:hover {
-  border-color: rgba(255,255,255,0.6);
-  color: #fff;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+  border-color: rgba(255,255,255,0.75);
+  transform: translateY(-2px) scale(1.03);
 }
 
 /* ── PARTNER BAND ── */
