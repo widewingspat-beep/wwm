@@ -419,8 +419,8 @@
   .section-label { font-size: 0.64rem; }
   #hero { min-height: 100svh; }
   .hero-inner { padding: 100px 20px 64px; gap: 0; text-align: center; display: flex; flex-direction: column; }
-  .hero-badge { margin: 20px auto 28px; }
-  .hero-h1 { font-size: clamp(3.2rem, 12vw, 4.6rem); margin-top: 8px; margin-bottom: 28px; padding-bottom: 8px; overflow: visible; }
+  .hero-badge { margin: 36px auto 28px; }
+  .hero-h1 { font-size: clamp(3.4rem, 12vw, 4.6rem); line-height: 1.15; margin-top: 8px; margin-bottom: 28px; padding-bottom: 8px; overflow: visible; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; margin: 0 auto 36px; line-height: 1.6; }
   .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; margin-bottom: 36px; }
   .hero-actions .btn-primary, .hero-actions .btn-outline { flex: 1; justify-content: center; text-align: center; padding: 13px 10px; font-size: 0.72rem; letter-spacing: 0.08em; min-width: 0; }
@@ -492,7 +492,7 @@
 }
 
 @media (max-width: 400px) {
-  .hero-h1 { font-size: 3.2rem; }
+  .hero-h1 { font-size: 3.6rem; line-height: 1.15; }
   .about-stats-row { grid-template-columns: 1fr 1fr; }
   .svc-card { height: 200px; }
   .case-card { height: auto; aspect-ratio: 4/3; }
