@@ -448,7 +448,7 @@
   .services-header { margin-bottom: 44px; }
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
   .svc-card { height: 320px; }
-  .services-h2 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .services-h2 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
   .services-sub { font-size: 0.9rem; }
   .btn-svc-more { width: 100%; max-width: 320px; justify-content: center; margin: 32px auto 0; display: flex; }
   #expertise { padding: 64px 0; }
@@ -466,7 +466,7 @@
   #why { padding: 64px 0; }
   .why-inner { grid-template-columns: 1fr; gap: 44px; }
   .why-left { text-align: center; }
-  .why-h2 { font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.2; }
+  .why-h2 { font-size: clamp(2.4rem, 9vw, 3.2rem); line-height: 1.2; }
   .why-body { text-align: center; }
   .flip-word-wrap { display: block; width: 100% !important; height: 1.2em !important; overflow: hidden; margin: 0; }
   .flip-track { display: flex; flex-direction: column; transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1); }
