@@ -651,7 +651,11 @@
   .svc-value-card { padding: 36px 28px; }
   .svc-cta { padding: 72px 32px; }
 }
+@media (max-width: 768px) {
+  .svc-hero-inner { padding: 130px 24px 60px; }
+  .svc-hero-btns { flex-direction: row; gap: 10px; }
+  .svc-btn-primary, .svc-btn-outline { padding: 13px 22px; font-size: 12px; }
+}
 @media (max-width: 600px) {
-  .svc-hero-inner { padding: 100px 24px 60px; }
   .svc-list-section, .svc-values { padding: 72px 0; }
 }

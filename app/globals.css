@@ -709,8 +709,10 @@ footer {
   50%       { opacity: var(--op, 0.7); transform: scale(1); }
 }
 @media (max-width: 768px) {
-  .au-hero-left { padding: 80px 24px 48px; }
+  .au-hero-left { padding: 130px 24px 48px; }
   .au-hero-blob { width: 100vw; height: 300px; }
+  .au-hero-btns { flex-direction: row; gap: 10px; }
+  .au-hbtn { padding: 13px 22px; font-size: 12px; }
 }
 
 /* ── SCROLL REVEAL ── */
