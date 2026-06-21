@@ -425,8 +425,8 @@
   .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; }
   .hero-actions .btn-primary, .hero-actions .btn-outline { flex: 1; justify-content: center; text-align: center; padding: 13px 10px; font-size: 0.72rem; letter-spacing: 0.08em; min-width: 0; }
   .hero-stats { justify-content: center; flex-wrap: wrap; gap: 24px 32px; }
-  .hero-stats .stat-item { display: flex; flex-direction: column; align-items: center; min-width: 100px; }
-  .hero-stats .stat-item:first-child { display: flex; }
+  .hero-stats .stat-item { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .hero-stats .stat-item:first-child { display: none; }
   .scroll-hint { display: none; }
   .hero-line { display: none; }
   #about { padding: 64px 0; }
