@@ -6,8 +6,31 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Wide Wings Media & Advertisement – Leading Digital Marketing Agency Dubai",
-  description: "Dubai's leading digital marketing agency for the UAE and GCC market. We specialize in connecting communities and ideas that turn your vision into a reality.",
+  title: {
+    default: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
+    template: '%s | Wide Wings Media',
+  },
+  description: 'Wide Wings Media is Dubai\'s leading full-service digital marketing agency. We specialize in SEO, paid advertising, social media management, web development, and branding across the UAE and GCC market.',
+  keywords: ['digital marketing agency Dubai', 'SEO Dubai', 'social media management UAE', 'paid advertising Dubai', 'web development UAE', 'branding agency Dubai', 'performance marketing GCC'],
+  authors: [{ name: 'Wide Wings Media' }],
+  creator: 'Wide Wings Media',
+  publisher: 'Wide Wings Media',
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AE',
+    url: 'https://wwm-mu.vercel.app',
+    siteName: 'Wide Wings Media',
+    title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
+    description: 'Full-service digital marketing agency in Dubai. SEO, paid ads, social media, web development and branding for UAE & GCC businesses.',
+    images: [{ url: '/og-home.jpg', width: 1200, height: 630, alt: 'Wide Wings Media – Digital Marketing Agency Dubai' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
+    description: 'Full-service digital marketing agency in Dubai – SEO, paid ads, social media, web & branding.',
+    images: ['/og-home.jpg'],
+  },
   icons: {
     icon: '/brand-wings.svg',
     shortcut: '/brand-wings.svg',
@@ -27,6 +50,53 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body style={{ fontFamily: "'Calibri', 'Arial', sans-serif", background: "#ffffff", color: "#333333", overflowX: "hidden" }}>
+        {!isAdmin && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://wwm-mu.vercel.app/#organization",
+                  "name": "Wide Wings Media",
+                  "url": "https://wwm-mu.vercel.app",
+                  "logo": { "@type": "ImageObject", "url": "https://wwm-mu.vercel.app/LogoColour.svg" },
+                  "description": "Full-service digital marketing agency in Dubai specialising in SEO, paid advertising, social media management, web development, branding, OOH advertising, and PR across UAE and GCC.",
+                  "foundingDate": "2020",
+                  "areaServed": ["Dubai", "UAE", "GCC"],
+                  "sameAs": ["https://wide-wings.ae"],
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+971-4-335-2645",
+                    "contactType": "customer service",
+                    "areaServed": "AE",
+                    "availableLanguage": ["English", "Arabic"]
+                  }
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://wwm-mu.vercel.app/#localbusiness",
+                  "name": "Wide Wings Media",
+                  "image": "https://wwm-mu.vercel.app/LogoColour.svg",
+                  "url": "https://wwm-mu.vercel.app",
+                  "telephone": "+971-4-335-2645",
+                  "email": "info@wide-wings.ae",
+                  "priceRange": "$$",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Al Quoz Industrial Area 3",
+                    "addressLocality": "Dubai",
+                    "addressCountry": "AE"
+                  },
+                  "geo": { "@type": "GeoCoordinates", "latitude": 25.1480, "longitude": 55.2200 },
+                  "openingHours": "Mo-Fr 09:00-18:00",
+                  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50" }
+                }
+              ]
+            })}}
+          />
+        )}
         {!isAdmin && <ScrollReveal />}
         {!isAdmin && <Header />}
         {children}
