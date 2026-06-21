@@ -598,11 +598,11 @@ footer {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.6);
   margin-bottom: 40px;
   justify-content: center;
 }
-.au-breadcrumb a { color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
+.au-breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
 .au-breadcrumb a:hover { color: var(--coral); }
 .au-breadcrumb span:last-child { color: var(--coral); }
 .au-bc-sep { opacity: 0.35; }
@@ -708,7 +708,7 @@ footer {
   50%       { opacity: var(--op, 0.7); transform: scale(1); }
 }
 @media (max-width: 768px) {
-  .au-hero-left { padding: 130px 24px 48px; }
+  .au-hero-left { padding: 110px 24px 60px; }
   .au-hero-blob { width: 100vw; height: 300px; }
   .au-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
   .au-hbtn { padding: 13px 18px !important; font-size: 11px !important; flex: 1; justify-content: center; white-space: nowrap; }

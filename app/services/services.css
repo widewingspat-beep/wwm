@@ -650,9 +650,12 @@
   .svc-cta { padding: 72px 32px; }
 }
 @media (max-width: 768px) {
-  .svc-hero-inner { padding: 130px 24px 60px; }
+  .svc-hero { min-height: auto; align-items: flex-start; justify-content: flex-start; }
+  .svc-hero-inner { padding: 110px 24px 60px; }
   .svc-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
   .svc-btn-primary, .svc-btn-outline { padding: 13px 18px !important; font-size: 11px !important; flex: 1; justify-content: center; white-space: nowrap; }
+  .svc-breadcrumb { color: rgba(255,255,255,0.6); }
+  .svc-breadcrumb a { color: rgba(255,255,255,0.6); }
 }
 @media (max-width: 600px) {
   .svc-list-section, .svc-values { padding: 72px 0; }
