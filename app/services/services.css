@@ -278,23 +278,48 @@
   100% { transform: translateY(-4px) rotate(0deg); }
 }
 
-/* centre wings emblem */
-.svc-break-emblem {
-  width: 120px;
-  height: 120px;
+/* centre emblem + pulsing rings */
+.svc-break-emblem-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
   margin: 0 auto;
-  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svc-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.35);
+  animation: ringPulse 3.2s ease-out infinite;
+}
+.svc-ring--1 { animation-delay: 0s; }
+.svc-ring--2 { animation-delay: 0.8s; }
+.svc-ring--3 { animation-delay: 1.6s; }
+.svc-ring--4 { animation-delay: 2.4s; border-color: rgba(207,168,33,0.4); }
+
+@keyframes ringPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+.svc-break-emblem {
+  position: relative;
+  z-index: 2;
+  width: 140px;
+  height: 140px;
+  background: rgba(255,255,255,0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 60px rgba(207,168,33,0.3);
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 60px rgba(207,168,33,0.35), inset 0 0 30px rgba(255,255,255,0.05);
 }
 .svc-break-wings {
-  width: 72px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+  width: 90px;
+  height: auto;
 }
 
 /* ── SERVICE LIST ── */

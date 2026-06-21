@@ -169,9 +169,15 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* centre emblem */}
-          <div className="svc-break-emblem">
-            <img src="/brand-wings.svg" alt="Wide Wings Media" className="svc-break-wings" />
+          {/* centre emblem with pulsing rings */}
+          <div className="svc-break-emblem-wrap">
+            <span className="svc-ring svc-ring--1" />
+            <span className="svc-ring svc-ring--2" />
+            <span className="svc-ring svc-ring--3" />
+            <span className="svc-ring svc-ring--4" />
+            <div className="svc-break-emblem">
+              <img src="/LogoWhite.svg" alt="Wide Wings Media" className="svc-break-wings" />
+            </div>
           </div>
         </div>
       </section>
