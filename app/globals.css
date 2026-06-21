@@ -512,12 +512,19 @@ footer {
     z-index: 1050;
   }
   nav.open { opacity: 1; pointer-events: all; }
-  /* When menu is open: kill backdrop-filter (it traps fixed children) and lift header above nav overlay */
+  /* When menu is open: instantly kill backdrop-filter (it traps fixed children), lift header above nav */
   header.menu-open {
+    transition: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     z-index: 1100 !important;
     background: transparent !important;
+    box-shadow: none !important;
+    border-bottom-color: transparent !important;
+  }
+  /* Force X spans white so they're visible over the dark nav overlay */
+  header.menu-open .nav-hamburger span {
+    background: #fff !important;
   }
   .nav-links { display: flex; flex-direction: column; align-items: center; gap: 32px; }
   .nav-links a { font-size: 1.3rem; letter-spacing: 0.12em; color: #fff !important; }
