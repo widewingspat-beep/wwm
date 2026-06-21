@@ -260,7 +260,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 24px 0;
   border-bottom: 1px solid #e0e0e0;
   text-decoration: none;
   transition: padding-left 0.25s;
@@ -280,15 +280,15 @@
 .svc-row:hover::before { transform: scaleY(1); }
 .svc-row-title {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #111;
   transition: color 0.25s;
 }
 .svc-row:hover .svc-row-title { color: #a73184; }
 .svc-row-arrow {
-  width: 20px; height: 20px;
-  color: #ccc;
+  width: 28px; height: 28px;
+  color: #bbb;
   flex-shrink: 0;
   transition: color 0.25s, transform 0.25s;
 }
