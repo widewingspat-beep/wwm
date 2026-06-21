@@ -158,7 +158,9 @@
 
 /* ── PARTNER BAND ── */
 .svc-band {
-  background: #111;
+  background: #1a1a1a;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   display: flex;
   align-items: center;
   gap: 24px;
