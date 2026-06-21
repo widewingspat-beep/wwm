@@ -50,29 +50,7 @@ export default function Header() {
       <nav id="site-nav" ref={navRef}>
         <ul className="nav-links">
           <li><Link href="/" className={isActive('/') ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
-          <li className="nav-has-dropdown">
-            <Link href="/services" className={pathname.startsWith('/services') ? 'active' : ''} onClick={closeMenu}>Services</Link>
-            <div className="nav-dropdown">
-              <div className="nav-dropdown-header">Our Services</div>
-              {[
-                ['01', 'Web & App Development', '/services/web-app-development'],
-                ['02', 'Creative & Branding', '/services/creative-branding'],
-                ['03', 'Paid Advertising & Media Buying', '/services/paid-advertising'],
-                ['04', 'Social Media Management', '/services/social-media-management'],
-                ['05', 'Content Creation & Graphic Design', '/services/content-creation'],
-                ['06', 'Email, SMS & CRM Marketing', '/services/email-sms-crm'],
-                ['07', 'SEO & Performance Management', '/services/seo-performance'],
-                ['08', 'OOH Advertising', '/services/ooh-advertising'],
-                ['09', 'Analytics & Performance Marketing', '/services/analytics-performance'],
-                ['10', 'PR Management', '/services/pr-management'],
-              ].map(([num, label, href]) => (
-                <Link key={href} href={href} onClick={closeMenu}>
-                  <span className="nav-dropdown-num">{num}</span>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </li>
+          <li><Link href="/services" className={pathname.startsWith('/services') ? 'active' : ''} onClick={closeMenu}>Services</Link></li>
           <li><Link href="/about-us" className={isActive('/about-us') ? 'active' : ''} onClick={closeMenu}>About Us</Link></li>
           <li><Link href="/blogs" className={isActive('/blogs') ? 'active' : ''} onClick={closeMenu}>Blogs</Link></li>
           <li><Link href="/news" className={isActive('/news') ? 'active' : ''} onClick={closeMenu}>News</Link></li>
