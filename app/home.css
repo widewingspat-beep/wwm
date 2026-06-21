@@ -419,7 +419,7 @@
   .section-label { font-size: 0.64rem; }
   #hero { min-height: 100svh; }
   .hero-inner { padding: 100px 20px 64px; gap: 0; text-align: center; display: flex; flex-direction: column; }
-  .hero-badge { margin: 0 auto 28px; }
+  .hero-badge { margin: 20px auto 28px; }
   .hero-h1 { font-size: clamp(3.2rem, 12vw, 4.6rem); margin-bottom: 24px; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; margin: 0 auto 36px; line-height: 1.6; }
   .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; margin-bottom: 44px; }
