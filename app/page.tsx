@@ -415,7 +415,7 @@ export default function HomePage() {
                     <span className="flip-item">Digital Marketing</span>
                   </span>
                 </span>
-                <br/>Companies <span className="gradient-text"> in Dubai</span>
+                Companies <span className="gradient-text"> in Dubai</span>
               </h2>
               <p className="why-body">We deliver strategic thinking, outstanding execution, and trackable results — which is why growing brands trust Wide Wings as their long-term marketing partner.</p>
               <div style={{display:'flex',gap:'14px',flexWrap:'wrap'}}>
