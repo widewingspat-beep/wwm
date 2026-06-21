@@ -134,28 +134,40 @@ export default function ServicesPage() {
       {/* ── SERVICE LIST ── */}
       <section id="svc-list" className="svc-list-section">
         <div className="svc-list-inner">
-          <div className="svc-list-head">
-            <div className="svc-eyebrow-dark"><span className="svc-dot-dark" />What We Do</div>
-            <h2 className="svc-list-h2">Our 10 Core Services</h2>
-            <p className="svc-list-sub">
-              Work with a digital marketing agency in Dubai designed to help businesses thrive by making meaningful connections.
+
+          {/* LEFT COLUMN */}
+          <div className="svc-list-left">
+            <div className="svc-list-heading">
+              <span className="svc-lh-our">OUR</span>
+              <strong className="svc-lh-main">Digital Marketing</strong>
+              <span className="svc-lh-services">SERVICES</span>
+            </div>
+            <div className="svc-list-img-wrap">
+              <img src="/shutterstock_2421890557.jpg" alt="Digital Marketing" className="svc-list-img" />
+            </div>
+            <p className="svc-list-desc">
+              Use digital marketing services that are based on data to make your brand stronger.
+              Get a high return on investment (ROI) and more conversions with Wide Wings Media&apos;s
+              digital marketing services, which are data-based. Request a quote now.
+            </p>
+            <p className="svc-list-desc">
+              Work with a digital marketing services agency in Dubai that has won awards and is
+              designed to help businesses thrive by making meaningful connections.
             </p>
           </div>
-          <div className="svc-grid">
+
+          {/* RIGHT COLUMN — lined list */}
+          <div className="svc-list-right">
             {SERVICES.map((s) => (
-              <Link key={s.slug} href={s.slug} className="svc-card">
-                <div className="svc-card-top">
-                  <span className="svc-card-num">{s.num}</span>
-                  <svg className="svc-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M9 7h8v8"/>
-                  </svg>
-                </div>
-                <h3 className="svc-card-title">{s.title}</h3>
-                <p className="svc-card-desc">{s.desc}</p>
-                <div className="svc-card-rule" />
+              <Link key={s.slug} href={s.slug} className="svc-row">
+                <span className="svc-row-title">{s.title}</span>
+                <svg className="svc-row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M9 7h8v8"/>
+                </svg>
               </Link>
             ))}
           </div>
+
         </div>
       </section>
 
