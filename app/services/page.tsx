@@ -1,6 +1,31 @@
 'use client';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import './services.css';
+
+function HeroParallaxButtons() {
+  useEffect(() => {
+    const section = document.getElementById('svc-hero-section');
+    if (!section) return;
+    const btns = section.querySelectorAll<HTMLElement>('.svc-hbtn');
+    const onMove = (e: MouseEvent) => {
+      const r = section.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const dx = (e.clientX - cx) / r.width;
+      const dy = (e.clientY - cy) / r.height;
+      btns.forEach((btn, i) => {
+        const depth = i === 0 ? 14 : 9;
+        btn.style.setProperty('--px', `${dx * depth}px`);
+        btn.style.setProperty('--py', `${dy * depth}px`);
+      });
+    };
+    const onLeave = () => btns.forEach(b => { b.style.setProperty('--px','0px'); b.style.setProperty('--py','0px'); });
+    section.addEventListener('mousemove', onMove);
+    section.addEventListener('mouseleave', onLeave);
+    return () => { section.removeEventListener('mousemove', onMove); section.removeEventListener('mouseleave', onLeave); };
+  }, []);
+  return null;
+}
 
 const SERVICES = [
   {
@@ -119,34 +144,57 @@ const VALUE_PROPS = [
 export default function ServicesPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="svc-hero">
-        <div className="svc-hero-noise" aria-hidden="true" />
-        <div className="svc-hero-blob" aria-hidden="true" />
-        <div className="svc-hero-inner">
-          <div className="svc-eyebrow">
-            <span className="svc-dot" />
-            Our Digital Marketing Services
-          </div>
-          <h1 className="svc-hero-h1">
+      {/* ── HERO — identical structure to about-us ── */}
+      <section id="svc-hero-section" className="svc-hero">
+        <div className="au-hero-blob" aria-hidden="true" />
+        <HeroParallaxButtons />
+        {/* multicolor blinking sparks */}
+        <div className="au-hero-sparks" aria-hidden="true">
+          {[
+            { l:'12%', t:'18%', c:'#FF6B5B', sz:'3px', op:0.65, sd:'2.1s', dl:'0s'   },
+            { l:'28%', t:'72%', c:'#FFA94D', sz:'4px', op:0.6,  sd:'3.0s', dl:'0.5s' },
+            { l:'45%', t:'15%', c:'#FFD166', sz:'3px', op:0.55, sd:'2.6s', dl:'1.1s' },
+            { l:'60%', t:'80%', c:'#06D6A0', sz:'3px', op:0.6,  sd:'2.8s', dl:'0.3s' },
+            { l:'73%', t:'30%', c:'#4CC9F0', sz:'4px', op:0.65, sd:'2.3s', dl:'0.8s' },
+            { l:'85%', t:'65%', c:'#9B5DE5', sz:'3px', op:0.55, sd:'3.2s', dl:'0.2s' },
+            { l:'18%', t:'45%', c:'#FF6B5B', sz:'2px', op:0.5,  sd:'2.5s', dl:'1.4s' },
+            { l:'52%', t:'55%', c:'#FFA94D', sz:'2px', op:0.5,  sd:'2.9s', dl:'0.7s' },
+            { l:'38%', t:'88%', c:'#4CC9F0', sz:'3px', op:0.6,  sd:'2.2s', dl:'1.8s' },
+            { l:'78%', t:'12%', c:'#FFD166', sz:'2px', op:0.5,  sd:'3.4s', dl:'0.4s' },
+            { l:'90%', t:'42%', c:'#06D6A0', sz:'3px', op:0.55, sd:'2.7s', dl:'1.2s' },
+            { l:'6%',  t:'60%', c:'#9B5DE5', sz:'2px', op:0.5,  sd:'2.4s', dl:'0.9s' },
+          ].map((s, i) => (
+            <div key={i} className="au-spark" style={{ left:s.l, top:s.t, '--sc':s.c, '--sz':s.sz, '--op':s.op, '--sd':s.sd, '--dl':s.dl } as React.CSSProperties} />
+          ))}
+        </div>
+
+        <div className="au-hero-left">
+          <nav className="au-breadcrumb" aria-label="breadcrumb">
+            <Link href="/">Home</Link>
+            <span className="au-bc-sep">/</span>
+            <span>Services</span>
+          </nav>
+
+          <h1 className="au-hero-h1-orig au-hero-glow-text">
             Boost ROI with<br />
             <em>Data-Driven</em> Marketing
           </h1>
-          <p className="svc-hero-sub">
-            Use digital marketing services that are based on data to make your brand stronger.
+
+          <p className="au-hero-sub-orig">
+            Use digital marketing services based on data to make your brand stronger.
             Get a high return on investment and more conversions with Wide Wings Media.
           </p>
-          <div className="svc-hero-btns">
-            <Link href="/contact" className="svc-btn-primary">
+
+          <div className="au-hero-btns">
+            <Link href="/contact" className="svc-hbtn au-hbtn au-hbtn-primary">
               Free Consultation
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-              </svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <a href="#svc-list" className="svc-btn-outline">View All Services</a>
+            <a href="#svc-list" className="svc-hbtn au-hbtn au-hbtn-outline">
+              View All Services
+            </a>
           </div>
         </div>
-        <div className="svc-hero-after" aria-hidden="true" />
       </section>
 
       {/* ── PARTNER BAND ── */}
