@@ -475,10 +475,10 @@
 }
 .au-cast-head p {
   font-family: 'Calibri', 'Nexa', sans-serif;
-  color: var(--dim);
+  color: #9a958c;
   margin-top: 14px;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
 }
 
 .au-cast-grid {
