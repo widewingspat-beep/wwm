@@ -188,14 +188,14 @@ export default function ServicesPage() {
             {/* 3-image cinematic collage */}
             <div data-reveal data-reveal-delay="100" className="svc-collage">
               <div className="svc-collage-main">
-                <img src="/shutterstock_2421890557.jpg" alt="Digital strategy" />
+                <img src="/img1.jpg" alt="Digital strategy" />
               </div>
               <div className="svc-collage-side">
                 <div className="svc-collage-sm">
-                  <img src="/shutterstock_2619060609.jpg" alt="Dubai business" />
+                  <img src="/img2.jpg" alt="Dubai business" />
                 </div>
                 <div className="svc-collage-sm">
-                  <img src="/shutterstock_2584810093.jpg" alt="Brand marketing" />
+                  <img src="/img3.jpg" alt="Brand marketing" />
                 </div>
               </div>
             </div>
