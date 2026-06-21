@@ -20,16 +20,6 @@
   pointer-events: none;
   z-index: 0;
 }
-/* bottom fade to white */
-.svc-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 100px;
-  background: linear-gradient(0deg, #fff, transparent);
-  pointer-events: none;
-  z-index: 2;
-}
 /* animated colour blob — same as about-us */
 .svc-hero-blob {
   display: block;
