@@ -214,7 +214,7 @@ export default function ServicesPage() {
 
       {/* ── VALUE PROPS ── */}
       <section className="svc-values">
-        <img src="/LogoWhite.svg" alt="" className="svc-values-watermark" aria-hidden="true" />
+        <span className="svc-values-watermark" aria-hidden="true">WIDE WINGS</span>
         <div className="svc-values-inner">
           <div className="svc-values-head">
             <div className="svc-eyebrow"><span className="svc-dot" />Why Choose Us</div>

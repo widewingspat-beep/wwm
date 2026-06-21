@@ -471,13 +471,19 @@
 }
 .svc-values-watermark {
   position: absolute;
-  right: -60px;
-  bottom: -40px;
-  width: 520px;
-  opacity: 0.04;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(80px, 14vw, 180px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.04);
   pointer-events: none;
   z-index: 0;
-  filter: brightness(0) invert(1);
+  line-height: 1;
+  user-select: none;
 }
 .svc-values::before {
   content: '';
