@@ -502,7 +502,7 @@ footer {
   nav {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(13,13,43,.97);
+    background: rgb(13,13,43);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -512,10 +512,12 @@ footer {
     z-index: 1050;
   }
   nav.open { opacity: 1; pointer-events: all; }
-  /* When menu is open, remove backdrop-filter so fixed nav isn't clipped to header height */
+  /* When menu is open: kill backdrop-filter (it traps fixed children) and lift header above nav overlay */
   header.menu-open {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    z-index: 1100 !important;
+    background: transparent !important;
   }
   .nav-links { display: flex; flex-direction: column; align-items: center; gap: 32px; }
   .nav-links a { font-size: 1.3rem; letter-spacing: 0.12em; color: #fff !important; }
