@@ -388,9 +388,9 @@
 }
 .svc-value-body {
   font-family: 'Calibri', 'Nexa', sans-serif;
-  font-size: 15px;
+  font-size: 1.1rem;
   line-height: 1.75;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.6);
 }
 
 /* ── CTA ── */
