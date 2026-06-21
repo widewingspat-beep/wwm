@@ -23,18 +23,22 @@ export default function Header() {
   function toggleMenu() {
     const btn = btnRef.current;
     const nav = navRef.current;
+    const header = headerRef.current;
     if (!btn || !nav) return;
     const open = btn.classList.toggle('open');
     nav.classList.toggle('open', open);
+    header?.classList.toggle('menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   }
 
   function closeMenu() {
     const btn = btnRef.current;
     const nav = navRef.current;
+    const header = headerRef.current;
     if (!btn || !nav) return;
     btn.classList.remove('open');
     nav.classList.remove('open');
+    header?.classList.remove('menu-open');
     document.body.style.overflow = '';
   }
 
