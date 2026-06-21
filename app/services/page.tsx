@@ -138,9 +138,7 @@ export default function ServicesPage() {
           {/* LEFT COLUMN */}
           <div className="svc-list-left">
             <div className="svc-list-heading">
-              <span className="svc-lh-our">OUR</span>
-              <strong className="svc-lh-main">Digital Marketing</strong>
-              <span className="svc-lh-services">SERVICES</span>
+              <strong className="svc-lh-main">Digital Marketing Services</strong>
             </div>
             {/* 3-image cinematic collage */}
             <div className="svc-collage">
