@@ -283,10 +283,11 @@
 /* keep content above the fill */
 .svc-row-title, .svc-row-arrow { position: relative; z-index: 1; }
 .svc-row-title {
-  font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 1.35rem;
+  font-family: 'Calibri', 'Nexa', sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #111;
+  line-height: 1.5;
   transition: color 0.25s;
 }
 .svc-row:hover .svc-row-title { color: #fff; }
