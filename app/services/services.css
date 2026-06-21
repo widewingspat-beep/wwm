@@ -189,10 +189,14 @@
 /* ── YOU NEED A BREAK ── */
 .svc-break {
   background: linear-gradient(135deg, #c55b03 0%, #a73184 60%, #1a0a2e 100%);
-  padding: 100px 60px;
+  padding: 80px 60px 100px;
   position: relative;
   overflow: hidden;
   text-align: center;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .svc-break::before {
   content: '';
@@ -218,12 +222,12 @@
 }
 .svc-break-h2 {
   font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   color: #fff;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 .svc-break-h2 em {
   font-style: normal;
@@ -278,48 +282,56 @@
   100% { transform: translateY(-4px) rotate(0deg); }
 }
 
-/* centre emblem + pulsing rings */
-.svc-break-emblem-wrap {
+/* big orbit wrapper — circle + rings */
+.svc-break-orbit {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 560px;
+  height: 560px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 .svc-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.35);
-  animation: ringPulse 3.2s ease-out infinite;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  animation: ringPulse 3.6s ease-out infinite;
 }
 .svc-ring--1 { animation-delay: 0s; }
-.svc-ring--2 { animation-delay: 0.8s; }
-.svc-ring--3 { animation-delay: 1.6s; }
-.svc-ring--4 { animation-delay: 2.4s; border-color: rgba(207,168,33,0.4); }
+.svc-ring--2 { animation-delay: 0.9s; }
+.svc-ring--3 { animation-delay: 1.8s; }
+.svc-ring--4 { animation-delay: 2.7s; border-color: rgba(207,168,33,0.45); }
 
 @keyframes ringPulse {
-  0%   { transform: scale(1);   opacity: 0.8; }
-  100% { transform: scale(2.8); opacity: 0; }
+  0%   { transform: scale(1);    opacity: 0.7; }
+  100% { transform: scale(1.55); opacity: 0; }
 }
-.svc-break-emblem {
+
+/* the main content circle */
+.svc-break-circle {
   position: relative;
   z-index: 2;
-  width: 140px;
-  height: 140px;
-  background: rgba(255,255,255,0.1);
+  width: 560px;
+  height: 560px;
   border-radius: 50%;
+  background: rgba(0,0,0,0.30);
+  border: 2px solid rgba(255,255,255,0.18);
+  box-shadow: 0 0 80px rgba(207,168,33,0.2), inset 0 0 60px rgba(0,0,0,0.25);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow: 0 0 60px rgba(207,168,33,0.35), inset 0 0 30px rgba(255,255,255,0.05);
+  text-align: center;
+  padding: 40px;
+  gap: 12px;
 }
 .svc-break-wings {
-  width: 90px;
+  width: 130px;
   height: auto;
+  margin-top: 16px;
 }
 
 /* ── SERVICE LIST ── */
