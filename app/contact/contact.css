@@ -81,7 +81,18 @@
 
 .contact-info-panel { position: relative; }
 .contact-info-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; color: #111; margin-bottom: 20px; }
-.contact-info-desc { font-size: 0.95rem; font-weight: 300; color: #666; line-height: 1.8; margin-bottom: 52px; }
+.contact-info-desc {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a73184;
+  line-height: 1.8;
+  margin-bottom: 52px;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(167,49,132,0.35);
+  background: rgba(167,49,132,0.07);
+  letter-spacing: 0.02em;
+}
 
 /* ── 3D CINEMATIC INFO CARDS ── */
 .info-cards-3d {
@@ -89,6 +100,11 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 52px;
+}
+.info-cards-3d .card-3d {
+  flex: 1;
+  min-height: 110px;
+  align-items: center;
 }
 .card-3d {
   position: relative;
