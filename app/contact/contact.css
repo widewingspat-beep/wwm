@@ -229,7 +229,7 @@ select.form-control option { background: #fff; color: #111; }
   align-items: center;
   gap: 12px;
   padding: 18px 52px;
-  border-radius: 100px;
+  border-radius: 0;
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
@@ -249,7 +249,7 @@ select.form-control option { background: #fff; color: #111; }
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 100px;
+  border-radius: 0;
   pointer-events: none;
 }
 /* top glass highlight */
@@ -259,7 +259,7 @@ select.form-control option { background: #fff; color: #111; }
   position: absolute;
   top: 2px; left: 10%; right: 10%;
   height: 40%;
-  border-radius: 100px;
+  border-radius: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%);
   pointer-events: none;
 }
