@@ -423,7 +423,7 @@ footer {
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.footer-logo { margin-bottom: 24px; margin-left: -18px; }
+.footer-logo { margin-bottom: 24px; margin-left: -40px; }
 .footer-logo img,
 .footer-logo svg { height: 96px; width: auto; display: block; overflow: visible; }
 .footer-tagline {
