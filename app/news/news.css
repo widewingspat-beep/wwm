@@ -158,7 +158,6 @@
   color: #111;
   line-height: 1.45;
   margin: 0;
-  flex: 1;
 }
 
 .nws-card-read {
@@ -169,7 +168,6 @@
   font-size: 0.82rem;
   font-weight: 700;
   color: #a73184;
-  margin-top: auto;
   transition: gap 0.2s;
 }
 .nws-card:hover .nws-card-read { gap: 10px; }
