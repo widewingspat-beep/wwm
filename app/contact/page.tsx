@@ -96,7 +96,6 @@ export default function ContactPage() {
             <div className="contact-info-panel">
               <span className="section-label anim-fade-up">Stay Connected</span>
               <h2 className="contact-info-h2 anim-fade-up anim-d1">Quick <span className="gradient-text">Connect</span></h2>
-              <p className="contact-info-desc anim-fade-up anim-d2">We reply to all inquiries within 24 hours.</p>
 
               <div className="info-cards-3d">
                 <div className="card-3d anim-fade-up anim-d2" onMouseMove={handleCard3D} onMouseLeave={resetCard3D}>
