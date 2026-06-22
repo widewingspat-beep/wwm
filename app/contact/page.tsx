@@ -1,11 +1,22 @@
 'use client';
 
-import { useState, useRef, MouseEvent } from 'react';
+import { useState, useRef, MouseEvent, useCallback } from 'react';
 import Link from 'next/link';
 import './contact.css';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const ctaRef = useRef<HTMLElement>(null);
+
+  const handleCtaMouseMove = useCallback((e: MouseEvent<HTMLElement>) => {
+    const el = ctaRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    el.style.setProperty('--mx', `${x}%`);
+    el.style.setProperty('--my', `${y}%`);
+  }, []);
   const [submitting, setSubmitting] = useState(false);
 
   function handleCard3D(e: MouseEvent<HTMLDivElement>) {
@@ -200,7 +211,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA STRIP */}
-      <section id="cta-strip">
+      <section id="cta-strip" ref={ctaRef} onMouseMove={handleCtaMouseMove}>
         <div className="container">
           <div className="cta-label">Ready to Grow?</div>
           <h2 className="cta-h2">Let&apos;s Turn Your Vision Into<br/><span className="gradient-text">Measurable Results</span></h2>

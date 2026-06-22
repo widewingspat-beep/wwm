@@ -214,8 +214,12 @@ select.form-control option { background: #fff; color: #111; }
 .map-container::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to top, #f7f7f7, transparent); z-index: 2; pointer-events: none; }
 
 /* ─── CTA STRIP ─────────────────────────── */
-#cta-strip { padding: 100px 0; background: #080816; position: relative; overflow: hidden; text-align: center; }
-#cta-strip::before { content: ''; position: absolute; top: 50%; left: 50%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(167,49,132,.14) 0%, transparent 65%); transform: translate(-50%, -50%); pointer-events: none; }
+#cta-strip { padding: 100px 0; background: #080816; position: relative; overflow: hidden; text-align: center; --mx: 50%; --my: 50%; }
+/* static center glow */
+#cta-strip::before { content: ''; position: absolute; top: 50%; left: 50%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(167,49,132,.1) 0%, transparent 65%); transform: translate(-50%, -50%); pointer-events: none; z-index: 0; }
+/* mouse-tracking spotlight */
+#cta-strip::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle 520px at var(--mx) var(--my), rgba(167,49,132,0.1) 0%, rgba(207,168,33,0.05) 40%, transparent 70%); pointer-events: none; z-index: 0; transition: background 0.05s; }
+#cta-strip .container { position: relative; z-index: 1; }
 .cta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .cta-h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 20px; color: #ffffff; }
 .cta-body { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.5); max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
