@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import LogoWhite from './LogoWhite';
 
 export default function Header() {
   const pathname = usePathname();
@@ -48,7 +49,7 @@ export default function Header() {
     <header ref={headerRef} id="site-header">
       <div className="header-inner">
       <Link href="/" className="nav-logo">
-        <Image src="/LogoWhite.svg" alt="Wide Wings Media" width={160} height={64} priority className="logo-white" />
+        <LogoWhite width={160} height={64} className="logo-white" />
         <Image src="/Logoblack.webp" alt="Wide Wings Media" width={160} height={64} priority className="logo-dark" />
       </Link>
       <nav id="site-nav" ref={navRef}>
