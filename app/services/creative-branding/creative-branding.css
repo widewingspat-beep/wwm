@@ -1,25 +1,3 @@
-/* ── SHARED ── */
-.container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
-@media (max-width: 768px) { .container { padding: 0 20px; } }
-
-.section-label {
-  display: inline-block;
-  font-family: 'Nexa', 'Calibri', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #a73184;
-  margin-bottom: 14px;
-}
-
-.gradient-text {
-  background: linear-gradient(90deg, #a73184, #cfa821);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* ── INTRO BAND ── */
 .cb-intro-band {
   background: #f8f8f8;
