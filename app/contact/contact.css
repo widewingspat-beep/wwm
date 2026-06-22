@@ -123,16 +123,16 @@
   z-index: 1;
   width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(167,49,132,0.12);
-  border: 1px solid rgba(167,49,132,0.3);
+  background: rgba(207,168,33,0.08);
+  border: 1px solid rgba(207,168,33,0.6);
   flex-shrink: 0;
   transition: background 0.3s, border-color 0.3s;
 }
 .card-3d:hover .card-3d-icon {
-  background: rgba(167,49,132,0.22);
-  border-color: rgba(167,49,132,0.6);
+  background: rgba(207,168,33,0.18);
+  border-color: #cfa821;
 }
-.card-3d-icon svg { width: 22px; height: 22px; color: #a73184; }
+.card-3d-icon svg { width: 22px; height: 22px; color: #cfa821; }
 .card-3d-body { position: relative; z-index: 1; flex: 1; }
 .card-3d-label {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
