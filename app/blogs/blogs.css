@@ -397,6 +397,44 @@
   overflow: hidden;
 }
 
+/* CTA widget */
+.blg-widget-cta {
+  background: linear-gradient(135deg, #a73184 0%, #7a2162 100%) !important;
+  border-color: transparent !important;
+  padding: 32px 28px;
+}
+.blg-cta-heading {
+  font-family: Nexa, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0 0 24px;
+}
+.blg-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: Nexa, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a73184;
+  text-decoration: none;
+  transition: background 0.2s, gap 0.2s;
+}
+.blg-cta-btn:hover {
+  background: rgba(255,255,255,0.9);
+  gap: 12px;
+}
+
 /* Category widget */
 .blg-cat-list {
   list-style: none;
