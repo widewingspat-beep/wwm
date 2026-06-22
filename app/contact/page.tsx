@@ -212,6 +212,7 @@ export default function ContactPage() {
 
       {/* CTA STRIP */}
       <section id="cta-strip" ref={ctaRef} onMouseMove={handleCtaMouseMove}>
+        <div className="cta-watermark" aria-hidden="true"><span>WIDE WINGS</span></div>
         <div className="container">
           <div className="cta-label">Ready to Grow?</div>
           <h2 className="cta-h2">Let&apos;s Turn Your Vision Into<br/><span className="gradient-text">Measurable Results</span></h2>
