@@ -219,13 +219,98 @@ select.form-control option { background: #fff; color: #111; }
 .cta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .cta-h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 20px; color: #ffffff; }
 .cta-body { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.5); max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
-.cta-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-.btn-cta-primary { display: inline-flex; align-items: center; gap: 12px; padding: 17px 44px; background: var(--magenta); color: #fff; font-family: 'Calibri', 'Arial', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; position: relative; overflow: hidden; transition: color .35s; z-index: 0; }
-.btn-cta-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #b62d83, #c33b31); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(0.4,0,0.2,1); z-index: -1; }
-.btn-cta-primary:hover { color: #fff; }
-.btn-cta-primary:hover::after { transform: scaleX(1); }
-.btn-cta-outline { display: inline-flex; align-items: center; gap: 12px; padding: 15px 40px; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.8); font-family: 'Calibri', 'Arial', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; background: transparent; cursor: pointer; transition: border-color .25s, color .25s, background .25s; }
-.btn-cta-outline:hover { border-color: rgba(255,255,255,.6); color: #fff; background: rgba(255,255,255,.06); }
+.cta-actions { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+
+/* ── GLASS PILL BUTTONS ── */
+.btn-cta-primary,
+.btn-cta-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 52px;
+  border-radius: 100px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  will-change: transform;
+}
+/* inner liquid fill */
+.btn-cta-primary::before,
+.btn-cta-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  pointer-events: none;
+}
+/* top glass highlight */
+.btn-cta-primary::after,
+.btn-cta-outline::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 10%; right: 10%;
+  height: 40%;
+  border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+/* PRIMARY — magenta liquid */
+.btn-cta-primary {
+  background: linear-gradient(145deg, rgba(180,40,120,0.75) 0%, rgba(120,10,80,0.9) 50%, rgba(90,5,60,0.95) 100%);
+  border: 1px solid rgba(220,80,160,0.5);
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(180,40,120,0.3),
+    0 8px 32px rgba(167,49,132,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -2px 8px rgba(80,0,60,0.6);
+}
+.btn-cta-primary::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(220,80,160,0.5) 0%, transparent 70%);
+}
+.btn-cta-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(220,80,160,0.5),
+    0 16px 48px rgba(167,49,132,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -2px 8px rgba(80,0,60,0.6);
+}
+
+/* OUTLINE — dark glass */
+.btn-cta-outline {
+  background: linear-gradient(145deg, rgba(40,40,60,0.7) 0%, rgba(20,20,35,0.85) 100%);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.9);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 8px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -2px 8px rgba(0,0,0,0.4);
+}
+.btn-cta-outline::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+.btn-cta-outline:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.18),
+    0 16px 48px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -2px 8px rgba(0,0,0,0.4);
+}
 
 /* ─── RESPONSIVE ────────────────────────── */
 @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 60px; } }
