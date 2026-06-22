@@ -375,7 +375,7 @@ export default function PrivacyPolicyPage() {
         {/* Table of Contents */}
         <nav style={{ background: '#f8f9fc', border: '1px solid #ebebeb', borderRadius: 16, padding: '32px 36px', marginBottom: 52 }}>
           <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 24 }}>Table of Contents</h2>
-          <ol style={{ columns: 2, columnGap: 48, paddingLeft: 20, margin: 0 }}>
+          <ul style={{ columns: 3, columnGap: 32, paddingLeft: 0, margin: 0, listStyle: 'none' }}>
             {sections.map(s => (
               <li key={s.id} style={{ marginBottom: 10, breakInside: 'avoid' }}>
                 <a href={`#${s.id}`} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.95rem', color: '#4a5568', textDecoration: 'none', lineHeight: 1.5 }}>
@@ -383,7 +383,7 @@ export default function PrivacyPolicyPage() {
                 </a>
               </li>
             ))}
-          </ol>
+          </ul>
         </nav>
 
         {/* First 3 sections — shown normally */}
