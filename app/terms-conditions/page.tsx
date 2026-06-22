@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PrivacyAccordion from '../privacy-policy/PrivacyAccordion';
 
 export const metadata = {
   title: 'Terms & Conditions – Wide Wings Media',
@@ -260,11 +261,12 @@ The Wide Wings Media, LLC Service and its contents are provided "as is" and "as 
 export default function TermsConditionsPage() {
   return (
     <main style={{ paddingBottom: '80px', background: '#fff' }}>
+
       {/* Hero */}
       <section style={{ position: 'relative', background: '#0d0d20', padding: '140px 0 80px', overflow: 'hidden' }}>
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 60% at 30% 50%, rgba(167,49,132,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <nav style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Calibri, sans-serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', marginBottom: 20 }} aria-label="breadcrumb">
+        <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontFamily: 'Calibri, sans-serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', marginBottom: 20 }} aria-label="breadcrumb">
             <Link href="/" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Home</Link>
             <span style={{ color: 'rgba(255,255,255,0.25)' }}>/</span>
             <span>Terms &amp; Conditions</span>
@@ -274,45 +276,68 @@ export default function TermsConditionsPage() {
             Terms &amp; Conditions
           </h1>
           <p style={{ fontFamily: 'Calibri, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.12rem)', color: 'rgba(255,255,255,0.6)', maxWidth: 620, lineHeight: 1.75, margin: 0 }}>
-            Last updated: January 1, 2026. Please read these Terms &amp; Conditions carefully before using the Wide Wings Media website.
+            Please read these Terms &amp; Conditions carefully before using the Wide Wings Media website.
           </p>
         </div>
       </section>
 
+      {/* Last Updated banner */}
+      <div style={{ background: '#111827', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '14px 0' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'Nexa, sans-serif', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#0d0d20', background: '#cfa821', padding: '4px 10px', borderRadius: 4, whiteSpace: 'nowrap' }}>
+            Last Updated
+          </span>
+          <p style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.92rem', color: 'rgba(255,255,255,0.75)', margin: 0, flex: 1 }}>
+            <strong style={{ fontFamily: 'Nexa, sans-serif', color: '#fff', fontWeight: 700 }}>January 1, 2026</strong>
+            {' '}— These terms may be updated periodically. Continued use of our services constitutes acceptance of any changes.
+          </p>
+        </div>
+      </div>
+
       {/* Content */}
-      <div className="container" style={{ maxWidth: 900, paddingTop: 60 }}>
-        {/* Table of contents */}
-        <nav style={{ background: '#f8f8fc', border: '1px solid rgba(0,0,0,.07)', padding: '28px 32px', marginBottom: 56 }}>
-          <p style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#333', marginBottom: 16 }}>Table of Contents</p>
-          <ol style={{ columns: 2, columnGap: 40, paddingLeft: 20 }}>
-            {sections.map((s, i) => (
-              <li key={s.id} style={{ marginBottom: 8 }}>
-                <a href={`#${s.id}`} style={{ color: '#b62d83', fontSize: '0.9rem', textDecoration: 'none' }}>
+      <div className="container" style={{ maxWidth: 1200, paddingTop: 60 }}>
+
+        {/* Table of Contents */}
+        <nav style={{ background: '#f8f9fc', border: '1px solid #ebebeb', borderRadius: 16, padding: '32px 36px', marginBottom: 52 }}>
+          <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 24 }}>Table of Contents</h2>
+          <ul style={{ columns: 3, columnGap: 32, paddingLeft: 0, margin: 0, listStyle: 'none' }}>
+            {sections.map(s => (
+              <li key={s.id} style={{ marginBottom: 4, breakInside: 'avoid' }}>
+                <a href={`#${s.id}`} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.95rem', color: '#4a5568', textDecoration: 'none', lineHeight: 1.5 }}>
                   {s.title}
                 </a>
               </li>
             ))}
-          </ol>
+          </ul>
         </nav>
 
-        {/* Sections */}
-        {sections.map((s, i) => (
-          <section key={s.id} id={s.id} style={{ marginBottom: 52, paddingBottom: 52, borderBottom: i < sections.length - 1 ? '1px solid rgba(0,0,0,.07)' : 'none' }}>
-            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#333', marginBottom: 18 }}>
+        {/* First 3 sections — shown normally */}
+        {sections.slice(0, 3).map((s) => (
+          <section key={s.id} id={s.id} style={{ marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #ebebeb' }}>
+            <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 16 }}>
               {s.title}
             </h2>
             {s.content.split('\n\n').map((para, j) => (
-              <p key={j} style={{ color: '#555', fontSize: '0.97rem', lineHeight: 1.85, marginBottom: 16 }}>
+              <p key={j} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '1rem', color: '#555', lineHeight: 1.85, marginBottom: 14, whiteSpace: 'pre-line' }}>
                 {para}
               </p>
             ))}
           </section>
         ))}
 
+        {/* Accordion from section 4 onwards */}
+        <p style={{ fontFamily: 'Nexa, sans-serif', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#a73184', marginBottom: 4 }}>
+          Detailed Terms
+        </p>
+        <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 0 }}>
+          Additional Terms &amp; Conditions
+        </h2>
+        <PrivacyAccordion sections={sections.slice(3)} />
+
         {/* Contact */}
-        <section style={{ background: 'var(--navy)', padding: '40px 36px', marginTop: 20 }}>
-          <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: 20 }}>Contact Us</h2>
-          <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '0.95rem', marginBottom: 16, lineHeight: 1.7 }}>
+        <section style={{ background: '#0d0d20', borderRadius: 16, padding: '40px 36px', marginTop: 56 }}>
+          <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: 16 }}>Contact Us</h2>
+          <p style={{ fontFamily: 'Calibri, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: '1rem', marginBottom: 20, lineHeight: 1.7 }}>
             If you have any questions about these Terms &amp; Conditions, please contact us:
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -322,12 +347,11 @@ export default function TermsConditionsPage() {
               { label: 'Mobile', value: '+971 55 565 7609', href: 'tel:+971555657609' },
               { label: 'Address', value: 'Al Quoz Industrial Area 3, Goshi Warehouse City, Warehouse #47, Dubai, United Arab Emirates', href: null },
             ].map(item => (
-              <p key={item.label} style={{ color: 'rgba(255,255,255,.6)', fontSize: '0.92rem', margin: 0 }}>
-                <strong style={{ color: '#cfa821' }}>{item.label}:</strong>{' '}
+              <p key={item.label} style={{ fontFamily: 'Calibri, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: '0.95rem', margin: 0 }}>
+                <strong style={{ fontFamily: 'Nexa, sans-serif', color: '#cfa821' }}>{item.label}:</strong>{' '}
                 {item.href
                   ? <a href={item.href} style={{ color: 'rgba(255,255,255,.75)', textDecoration: 'none' }}>{item.value}</a>
-                  : item.value
-                }
+                  : item.value}
               </p>
             ))}
           </div>
