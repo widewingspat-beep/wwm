@@ -216,11 +216,11 @@ function CtaSection() {
   }, []);
 
   return (
-    <section id="au-cta" className="au-cta-dark">
+    <section id="au-cta" className="au-cta-light">
       <CtaCanvas />
       <div className="au-cta-content" style={{ position: 'relative', zIndex: 1 }}>
-        <h2 data-reveal className="au-cta-h2">Ready to write the next scene for your brand?</h2>
-        <Link data-reveal data-reveal-delay="120" href="/contact" className="au-ticket au-ticket-dark">Free Consultation &nbsp;→</Link>
+        <h2 data-reveal className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
+        <Link data-reveal data-reveal-delay="120" href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
       </div>
     </section>
   );

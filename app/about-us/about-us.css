@@ -582,21 +582,14 @@
   padding-top: 2px;
 }
 
-/* ─── CLOSING CTA — DARK (matches services) ── */
-.au-cta-dark {
+/* ─── CLOSING CTA — LIGHT (matches services) ── */
+.au-cta-light {
   position: relative;
-  background: #0d0d20;
-  padding: 120px 40px;
+  background: #fff;
+  padding: 100px 60px;
   text-align: center;
   overflow: hidden;
 }
-.au-cta-dark .au-cta-h2 { color: #ffffff; }
-.au-ticket-dark {
-  background: #a73184;
-  color: #fff;
-  border: none;
-}
-.au-ticket-dark:hover { background: #8a2570; }
 
 /* ─── CLOSING CTA (old white) ──────────────────────── */
 /* white CTA with interactive grid */
