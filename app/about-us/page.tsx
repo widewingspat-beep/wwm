@@ -218,8 +218,8 @@ function CtaSection() {
     <section id="au-cta" className="au-cta-white">
       <div className="au-cta-blob" aria-hidden="true" />
       <div className="au-cta-content">
-        <h2 className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
-        <Link href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
+        <h2 data-reveal className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
+        <Link data-reveal data-reveal-delay="120" href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
       </div>
     </section>
   );
@@ -254,22 +254,22 @@ export default function AboutUsPage() {
         </div>
 
         <div className="au-hero-left">
-          <nav className="au-breadcrumb" aria-label="breadcrumb">
+          <nav data-reveal className="au-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="au-bc-sep">/</span>
             <span>About Us</span>
           </nav>
 
-          <h1 className="au-hero-h1-orig au-hero-glow-text">
+          <h1 data-reveal data-reveal-delay="80" className="au-hero-h1-orig au-hero-glow-text">
             A Digital Marketing Partner<br />
             <em>You Can Trust</em>
           </h1>
 
-          <p className="au-hero-sub-orig">
+          <p data-reveal data-reveal-delay="180" className="au-hero-sub-orig">
             Empowering brands to break boundaries and soar beyond expectations.
           </p>
 
-          <div className="au-hero-btns">
+          <div data-reveal data-reveal-delay="260" className="au-hero-btns">
             <Link href="/contact" className="au-hbtn au-hbtn-primary">
               Free Consultation
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -288,9 +288,9 @@ export default function AboutUsPage() {
         <div className="au-mission-bg" />
         <div className="au-mission-inner">
           <div className="au-mission-left">
-            <div className="au-eyebrow"><span className="dot" />OUR MISSION</div>
-            <h2 className="au-mission-h2">We believe in<br /><em>limitless potential.</em></h2>
-            <p className="au-mission-intro">
+            <div data-reveal className="au-eyebrow"><span className="dot" />OUR MISSION</div>
+            <h2 data-reveal data-reveal-delay="80" className="au-mission-h2">We believe in<br /><em>limitless potential.</em></h2>
+            <p data-reveal data-reveal-delay="160" className="au-mission-intro">
               At Wide Wings Media, our mission is to help brands break free from boundaries
               and explore new horizons. With proper research, tailored plans and creative
               solutions, we empower businesses to spread their wings and soar beyond expectations.
@@ -310,8 +310,8 @@ export default function AboutUsPage() {
                 n: '03',
                 text: 'We build lasting partnerships by combining strategic thinking with creative execution — turning ambitious visions into measurable, real-world results.',
               },
-            ].map(({ n, text }) => (
-              <div key={n} className="au-mission-point">
+            ].map(({ n, text }, i) => (
+              <div key={n} className="au-mission-point" data-reveal data-reveal-delay={String(i * 100)}>
                 <span className="au-mission-num">{n}</span>
                 <p>{text}</p>
               </div>
@@ -325,7 +325,7 @@ export default function AboutUsPage() {
         <div className="au-founders-inner">
 
           {/* Reem — photo left, content right */}
-          <div className="au-founder-card">
+          <div data-reveal className="au-founder-card">
             <div className="au-fc-photo">
               <Image src="/Reem.jpg" alt="Reem Osman" fill sizes="50vw" priority />
             </div>
@@ -345,7 +345,7 @@ export default function AboutUsPage() {
           </div>
 
           {/* Seham — content left, photo right */}
-          <div className="au-founder-card is-reversed">
+          <div data-reveal data-reveal-delay="100" className="au-founder-card is-reversed">
             <div className="au-fc-photo">
               <Image src="/SehamTeam.webp" alt="Seham Batterjee" fill sizes="50vw" />
             </div>
@@ -371,7 +371,7 @@ export default function AboutUsPage() {
 
       {/* ── TEAM ── */}
       <section id="au-team" className="au-wrap">
-        <div className="au-cast-head">
+        <div data-reveal className="au-cast-head">
           <div className="au-eyebrow"><span className="dot" />FEATURING</div>
           <h2>Expert Team Members</h2>
           <p>The best people to support your project</p>
@@ -382,7 +382,7 @@ export default function AboutUsPage() {
             const col  = i % 4;
             const delay = (row === 0 ? col : col) * 0.05;
             return (
-              <div key={m.name} className="au-cast-card" style={{ '--d': `${delay}s` } as React.CSSProperties}>
+              <div key={m.name} className="au-cast-card" data-reveal data-reveal-delay={String(Math.floor(i / 4) * 60 + (i % 4) * 50)} style={{ '--d': `${delay}s` } as React.CSSProperties}>
                 <div className="frame">
                   <Image src={m.img} alt={m.name} fill sizes="300px" style={{ objectFit:'cover', objectPosition:'center 12%' }} loading="lazy" />
                   <div className="spotlight" />
