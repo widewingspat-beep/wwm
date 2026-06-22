@@ -378,10 +378,7 @@ export default function PrivacyPolicyPage() {
           <ol style={{ columns: 2, columnGap: 48, paddingLeft: 20, margin: 0 }}>
             {sections.map(s => (
               <li key={s.id} style={{ marginBottom: 10, breakInside: 'avoid' }}>
-                <a href={`#${s.id}`} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.95rem', color: '#4a5568', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.15s' }}
-                  onMouseOver={e => (e.currentTarget.style.color = '#a73184')}
-                  onMouseOut={e => (e.currentTarget.style.color = '#4a5568')}
-                >
+                <a href={`#${s.id}`} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.95rem', color: '#4a5568', textDecoration: 'none', lineHeight: 1.5 }}>
                   {s.title}
                 </a>
               </li>
