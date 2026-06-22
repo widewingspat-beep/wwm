@@ -160,10 +160,14 @@ export default function WebAppDevelopmentPage() {
             </div>
           </div>
           <div data-reveal className="wad-intro-2col">
-            <p className="wad-para">We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.</p>
-            <p className="wad-para">As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.</p>
-            <p className="wad-para">Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.</p>
-            <p className="wad-para">We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.</p>
+            <div className="wad-intro-2col-left">
+              <p className="wad-para">We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.</p>
+              <p className="wad-para">As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.</p>
+            </div>
+            <div className="wad-intro-2col-right">
+              <p className="wad-para">Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.</p>
+              <p className="wad-para">We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.</p>
+            </div>
           </div>
         </div>
       </section>
