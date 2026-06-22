@@ -81,17 +81,12 @@
 
 .contact-info-panel { position: relative; }
 .contact-info-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; color: #111; margin-bottom: 20px; }
-.contact-info-desc {
+.contact-info-plain {
   font-size: 0.95rem;
-  font-weight: 600;
-  color: #a73184;
+  font-weight: 400;
+  color: #666;
   line-height: 1.8;
-  margin-bottom: 52px;
-  display: inline-block;
-  padding: 8px 18px;
-  border: 1px solid rgba(167,49,132,0.35);
-  background: rgba(167,49,132,0.07);
-  letter-spacing: 0.02em;
+  margin-bottom: 40px;
 }
 
 /* ── 3D CINEMATIC INFO CARDS ── */
