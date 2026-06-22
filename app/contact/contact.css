@@ -287,7 +287,7 @@ select.form-control option { background: #fff; color: #111; }
   user-select: none;
 }
 #cta-strip .container { position: relative; z-index: 1; }
-.cta-label { font-size: 1rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.cta-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .cta-h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 20px; color: #ffffff; }
 .cta-body { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.5); max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
 .cta-actions { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
