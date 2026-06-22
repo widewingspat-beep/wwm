@@ -122,6 +122,23 @@ export default function ServiceShowcase() {
       ctx.restore();
     }
 
+    function wrapText(text: string, maxWidth: number): string[] {
+      const words = text.split(' ');
+      const lines: string[] = [];
+      let current = '';
+      for (const word of words) {
+        const test = current ? current + ' ' + word : word;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          lines.push(current);
+          current = word;
+        } else {
+          current = test;
+        }
+      }
+      if (current) lines.push(current);
+      return lines;
+    }
+
     function drawServiceSlide(W: number, H: number, svcIdx: number, alpha: number) {
       const svc = SERVICES[svcIdx];
       ctx.save();
@@ -134,7 +151,15 @@ export default function ServiceShowcase() {
       ctx.textBaseline = 'middle';
       ctx.fillText(String(svcIdx + 1).padStart(2, '0'), W / 2, H / 2);
 
-      // Accent line
+      const fontSize = Math.min(W * 0.07, 46);
+      ctx.font = `700 ${fontSize}px 'Nexa', 'Calibri', sans-serif`;
+      const maxTextW = W * 0.82;
+      const lines = wrapText(svc.label, maxTextW);
+      const lineH = fontSize * 1.25;
+      const totalH = lines.length * lineH;
+
+      // Accent line above text block
+      const blockTop = H / 2 - totalH / 2;
       const lineW = W * 0.14;
       const lineGrad = ctx.createLinearGradient(W / 2 - lineW / 2, 0, W / 2 + lineW / 2, 0);
       lineGrad.addColorStop(0, 'transparent');
@@ -143,17 +168,17 @@ export default function ServiceShowcase() {
       ctx.strokeStyle = lineGrad;
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(W / 2 - lineW / 2, H / 2 - H * 0.11);
-      ctx.lineTo(W / 2 + lineW / 2, H / 2 - H * 0.11);
+      ctx.moveTo(W / 2 - lineW / 2, blockTop - 16);
+      ctx.lineTo(W / 2 + lineW / 2, blockTop - 16);
       ctx.stroke();
 
-      // Service name — bigger
-      const fontSize = Math.min(W * 0.07, 46);
-      ctx.font = `700 ${fontSize}px 'Nexa', 'Calibri', sans-serif`;
+      // Service name lines
       ctx.fillStyle = '#ffffff';
       ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(svc.label, W / 2, H / 2);
+      ctx.textBaseline = 'top';
+      lines.forEach((line, i) => {
+        ctx.fillText(line, W / 2, blockTop + i * lineH);
+      });
 
       ctx.restore();
     }
