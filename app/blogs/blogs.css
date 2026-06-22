@@ -59,25 +59,69 @@
   top: 0;
   z-index: 50;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
 }
 
-.blg-filter-inner {
+.blg-filter-wrap {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Pinned "All" button */
+.blg-filter-btn--all {
+  flex-shrink: 0;
+  padding: 14px 24px;
+  border: none;
+  border-right: 1px solid #ebebeb;
+  background: #f0e4f5;
+  font-family: Nexa, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #a73184;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+}
+.blg-filter-btn--all-active,
+.blg-filter-btn--all:hover {
+  background: #a73184;
+  color: #fff;
+}
+
+/* Marquee track */
+.blg-marquee-track {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.blg-marquee-inner {
   display: flex;
   align-items: center;
   gap: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 4px;
+  animation: blg-marquee 28s linear infinite;
+  width: max-content;
 }
-.blg-filter-inner::-webkit-scrollbar { display: none; }
+
+.blg-marquee-track:hover .blg-marquee-inner {
+  animation-play-state: paused;
+}
+
+@keyframes blg-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 .blg-filter-btn {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 16px 20px;
+  padding: 14px 22px;
   border: none;
   border-bottom: 3px solid transparent;
   background: transparent;
@@ -88,28 +132,12 @@
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.2s, border-color 0.2s;
-  position: relative;
   margin-bottom: -1px;
 }
 .blg-filter-btn:hover { color: #a73184; }
 .blg-filter-btn--active {
   color: #a73184;
   border-bottom-color: #a73184;
-}
-
-.blg-filter-count {
-  font-size: 0.68rem;
-  font-weight: 800;
-  background: #f0e4f5;
-  color: #a73184;
-  border-radius: 20px;
-  padding: 2px 7px;
-  line-height: 1.6;
-  transition: background 0.2s, color 0.2s;
-}
-.blg-filter-btn--active .blg-filter-count {
-  background: #a73184;
-  color: #fff;
 }
 
 /* ── Layout ── */

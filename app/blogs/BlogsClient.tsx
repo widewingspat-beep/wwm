@@ -55,18 +55,34 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
       {/* ── Sticky filter bar ── */}
       <div className="blg-filter-bar">
         <div className="container">
-          <div className="blg-filter-inner" role="tablist">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                className={`blg-filter-btn${activeCategory === cat ? ' blg-filter-btn--active' : ''}`}
-                onClick={() => changeCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="blg-filter-wrap">
+            {/* Pinned "All" tab */}
+            <button
+              role="tab"
+              aria-selected={activeCategory === 'All'}
+              className={`blg-filter-btn blg-filter-btn--all${activeCategory === 'All' ? ' blg-filter-btn--all-active' : ''}`}
+              onClick={() => changeCategory('All')}
+            >
+              All
+            </button>
+
+            {/* Scrolling marquee of other categories */}
+            <div className="blg-marquee-track" role="tablist">
+              <div className="blg-marquee-inner">
+                {/* Duplicate list for seamless loop */}
+                {[...categories.filter(c => c !== 'All'), ...categories.filter(c => c !== 'All')].map((cat, i) => (
+                  <button
+                    key={`${cat}-${i}`}
+                    role="tab"
+                    aria-selected={activeCategory === cat && i < categories.length - 1}
+                    className={`blg-filter-btn${activeCategory === cat ? ' blg-filter-btn--active' : ''}`}
+                    onClick={() => changeCategory(cat)}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
