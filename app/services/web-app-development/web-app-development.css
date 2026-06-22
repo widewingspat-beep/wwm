@@ -1,165 +1,148 @@
 /* web-app-development page */
 
-/* ── Shared text styles ── */
-.wad-lead {
+/* ── Shared paragraph style ── */
+.wad-para {
   font-family: Calibri, sans-serif;
-  font-size: clamp(1rem, 1.9vw, 1.12rem);
+  font-size: clamp(1rem, 1.8vw, 1.08rem);
   color: #444;
-  line-height: 1.8;
-  margin: 0 0 20px;
+  line-height: 1.85;
+  margin: 0 0 14px;
 }
+.wad-para:last-child { margin-bottom: 0; }
 
-.wad-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.wad-bullets li {
-  font-family: Calibri, sans-serif;
-  font-size: clamp(0.95rem, 1.7vw, 1.05rem);
-  color: #444;
-  line-height: 1.7;
-  padding-left: 28px;
-  position: relative;
-}
-
-.wad-bullets li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 9px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #a73184, #cfa821);
-  flex-shrink: 0;
-}
-
-.wad-bullets--light li { color: #333; }
-
-.wad-subheading {
-  font-family: Nexa, 'Nexa-Bold', sans-serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 20px;
-}
-
-/* ── Section 1: Split layout ── */
-.wad-split {
+/* ── Section 1: Intro split ── */
+.wad-intro-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: start;
   margin-top: 8px;
 }
 
-.wad-split-text { display: flex; flex-direction: column; gap: 0; }
-.wad-split-text .section-label { margin-bottom: 12px; }
+.wad-intro-text { display: flex; flex-direction: column; gap: 0; }
+.wad-intro-text .section-label { margin-bottom: 4px; }
 
-.wad-browser-svg {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  border-radius: 12px;
-  filter: drop-shadow(0 20px 60px rgba(167,49,132,0.18));
+/* Stats stack */
+.wad-stats-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
 }
 
-@media (max-width: 900px) {
-  .wad-split { grid-template-columns: 1fr; gap: 40px; }
-  .wad-split-visual { order: -1; }
-  .wad-browser-svg { max-width: 100%; }
-}
-
-/* ── Section 2: Expertise callout row ── */
-.wad-callout-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 40px 0 48px;
-}
-
-@media (max-width: 760px) {
-  .wad-callout-row { grid-template-columns: 1fr; gap: 14px; }
-}
-
-.wad-callout-stat {
+.wad-stat-card {
   display: flex;
   align-items: center;
   gap: 16px;
   background: #fff;
   border: 1px solid #ebebeb;
   border-radius: 12px;
-  padding: 20px 20px;
-  border-left: 4px solid #a73184;
+  padding: 18px 20px;
+  border-left: 4px solid #e0e0e0;
+  transition: transform 0.22s, box-shadow 0.22s;
+  color: #666;
 }
+.wad-stat-card:hover { transform: translateX(4px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+.wad-stat-card--accent { border-left-color: #a73184; color: #a73184; }
+.wad-stat-card--gold   { border-left-color: #cfa821; color: #cfa821; }
 
-.wad-callout-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  color: #a73184;
-}
-.wad-callout-icon svg { width: 100%; height: 100%; }
+.wad-stat-card svg { flex-shrink: 0; }
 
-.wad-stat-num {
+.wad-stat-val {
   font-family: Nexa, 'Nexa-Bold', sans-serif;
-  font-weight: 700;
   font-size: 1rem;
+  font-weight: 700;
   color: #111;
   margin-bottom: 2px;
 }
-
-.wad-stat-label {
+.wad-stat-lbl {
   font-family: Calibri, sans-serif;
-  font-size: 0.88rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #777;
   line-height: 1.4;
 }
 
-/* ── Expertise two-column ── */
+@media (max-width: 960px) {
+  .wad-intro-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .wad-stats-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: static;
+  }
+  .wad-stat-card { flex: 1 1 calc(50% - 8px); }
+}
+@media (max-width: 560px) {
+  .wad-stat-card { flex: 1 1 100%; }
+}
+
+/* ── Section 2: Expertise split ── */
 .wad-expertise-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
+  margin-top: 40px;
 }
 
-@media (max-width: 860px) {
-  .wad-expertise-split { grid-template-columns: 1fr; gap: 36px; }
+@media (max-width: 880px) {
+  .wad-expertise-split { grid-template-columns: 1fr; gap: 32px; }
 }
 
-/* ── Medical card (right column) ── */
+.wad-expertise-left { display: flex; flex-direction: column; }
+
+/* Medical highlight card */
 .wad-medical-card {
   background: #fff;
   border: 1px solid #ebebeb;
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 8px 40px rgba(167,49,132,0.07);
+  box-shadow: 0 8px 48px rgba(167,49,132,0.07);
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 880px) {
+  .wad-medical-card { position: static; }
 }
 
 .wad-medical-card-header {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: flex-start;
+  gap: 16px;
   margin-bottom: 24px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f0e6f7;
-  color: #a73184;
+  border-bottom: 1px solid #f5edf9;
 }
+
+.wad-medical-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: #a73184;
+  background: rgba(167,49,132,0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.wad-medical-icon svg { width: 100%; height: 100%; }
 
 .wad-medical-card-header h3 {
   font-family: Nexa, 'Nexa-Bold', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
   font-weight: 700;
   color: #111;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.35;
+  padding-top: 4px;
 }
+
+.wad-medical-card .wad-para { color: #555; font-size: 0.97rem; }
 
 /* ── Section 4: Hosting grid ── */
 .wad-hosting-grid {
@@ -179,7 +162,6 @@
   padding: 28px 24px;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-
 .wad-hosting-card:hover {
   border-color: #a73184;
   transform: translateY(-4px);
@@ -187,8 +169,8 @@
 }
 
 .wad-hosting-icon {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   color: #a73184;
   margin-bottom: 16px;
 }
@@ -196,12 +178,11 @@
 
 .wad-hosting-card h3 {
   font-family: Nexa, 'Nexa-Bold', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #111;
   margin: 0 0 10px;
 }
-
 .wad-hosting-card p {
   font-family: Calibri, sans-serif;
   font-size: 0.95rem;
