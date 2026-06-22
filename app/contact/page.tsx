@@ -122,7 +122,8 @@ export default function ContactPage() {
                   <div className="card-3d-body">
                     <div className="card-3d-label">Phone / WhatsApp</div>
                     <div className="card-3d-value">
-                      <a href="tel:+97143352645">+971 4 335 2645</a> &nbsp;·&nbsp; <a href="tel:+971555657609">+971 55 565 7609</a>
+                      <a href="tel:+97143352645">+971 4 335 2645</a><br/>
+                      <a href="tel:+971555657609">+971 55 565 7609</a>
                       <br/><a href="https://wa.me/971555657609" className="card-3d-cta">Chat on WhatsApp →</a>
                     </div>
                   </div>
@@ -214,7 +215,7 @@ export default function ContactPage() {
           <div className="container">
             <span className="section-label">Find Us</span>
             <h2 className="map-h2">Visit Our Dubai <span className="gradient-text">Office</span></h2>
-            <p className="map-desc">Sheikh Zayed Road, the heart of Dubai&apos;s business district</p>
+            <p className="map-desc">Al Quoz Industrial Area 3, Goshi Warehouse City, Warehouse #47, Dubai, United Arab Emirates</p>
           </div>
         </div>
         <div className="map-container">
