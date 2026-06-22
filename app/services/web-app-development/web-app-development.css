@@ -1,1 +1,85 @@
 /* web-app-development page — page-specific overrides only */
+
+.wad-intro-block,
+.wad-expertise-block,
+.wad-medical-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.wad-intro-block p,
+.wad-expertise-block p,
+.wad-medical-block p {
+  font-family: Calibri, sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: #444;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.wad-subheading {
+  font-family: Nexa, 'Nexa-Bold', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: #111;
+  margin: 24px 0 12px;
+}
+
+/* Hosting & care grid */
+.wad-hosting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .wad-hosting-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .wad-hosting-grid { grid-template-columns: 1fr; }
+}
+
+.wad-hosting-card {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.wad-hosting-card:hover {
+  border-color: #a73184;
+  transform: translateY(-4px);
+}
+
+.wad-hosting-icon {
+  width: 48px;
+  height: 48px;
+  color: #a73184;
+  margin-bottom: 16px;
+}
+
+.wad-hosting-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wad-hosting-card h3 {
+  font-family: Nexa, 'Nexa-Bold', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 10px;
+}
+
+.wad-hosting-card p {
+  font-family: Calibri, sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}

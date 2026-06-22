@@ -5,65 +5,30 @@ import '../service-page.css';
 import './web-app-development.css';
 
 const WHAT_WE_DO = [
-  { num: '01', title: 'Award-Winning Web Design', desc: 'Combining design and digital marketing to help businesses grow revenue online with websites that perform' },
-  { num: '02', title: 'Strategy & Consultancy', desc: 'Supporting businesses with complex needs, multi-country operations, and large website ecosystems' },
-  { num: '03', title: 'Content Creation for Websites', desc: 'Producing written content, photos, and videos to strengthen your digital presence and engage your audience' },
-  { num: '04', title: 'Full Website Design Services', desc: 'Designing award-winning websites that improve reputation, increase sales, and deliver measurable ROI' },
-  { num: '05', title: 'Transparent Pricing', desc: 'Clear pricing and custom solutions tailored to your business goals, industry, and budget' },
-];
-
-const EXPERTISE = [
-  {
-    title: 'UX-First Design',
-    desc: 'Every website we design starts with the user experience — intuitive navigation, fast load times, and mobile-first layouts',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="8" width="40" height="28" rx="3"/>
-        <line x1="16" y1="44" x2="32" y2="44"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <circle cx="24" cy="22" r="6"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Custom Development',
-    desc: 'From WordPress to fully custom builds, we develop solutions that match your exact requirements and scale with your business',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="12,18 6,24 12,30"/>
-        <polyline points="36,18 42,24 36,30"/>
-        <line x1="20" y1="10" x2="28" y2="38"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Medical & Healthcare Websites',
-    desc: 'We are the best medical web design company in Dubai, building HIPAA-aware, patient-friendly healthcare websites',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M24 42 C24 42 6 30 6 18 A10 10 0 0 1 24 14 A10 10 0 0 1 42 18 C42 30 24 42 24 42Z"/>
-        <line x1="24" y1="20" x2="24" y2="28"/><line x1="20" y1="24" x2="28" y2="24"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'SEO-Ready Builds',
-    desc: 'Every website is built with SEO best practices from day one — clean code, fast performance, and optimised structure',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="20" cy="20" r="14"/>
-        <line x1="30" y1="30" x2="42" y2="42"/>
-        <polyline points="14,20 19,25 28,14"/>
-      </svg>
-    ),
-  },
+  { num: '01', title: 'Web design that has won awards', desc: 'We combine design and digital marketing to help businesses grow revenue online.' },
+  { num: '02', title: 'Strategy and consultancy for websites', desc: 'We help businesses with complex needs, multi-country operations, and large website ecosystems.' },
+  { num: '03', title: 'Content creation for websites', desc: 'We produce written content, photos, and videos that support your digital presence.' },
+  { num: '04', title: 'Full website design services', desc: 'We design award-winning websites that improve reputation and increase sales.' },
+  { num: '05', title: 'Transparent pricing', desc: 'Clear pricing and custom solutions tailored to your business goals and industry.' },
 ];
 
 const FAQS = [
-  { q: 'Is static web design a good choice?', a: 'Static websites are fast, secure, and cost-effective for businesses with stable content needs. We recommend them for landing pages and portfolio sites.' },
-  { q: 'Are WordPress websites better than custom websites?', a: 'WordPress is excellent for content-heavy sites and easy management. Custom builds offer more flexibility and scalability for complex requirements.' },
-  { q: 'What is the difference between web design and web development?', a: 'Web design focuses on visual layout and user experience, while web development handles the technical build, functionality, and backend systems.' },
-  { q: 'Is Webflow a good option?', a: 'Yes. Webflow combines design flexibility with a no-code CMS, making it ideal for marketing teams who need to update content without developer help.' },
+  {
+    q: 'Is static web design a good choice?',
+    a: 'Static websites are a good choice for small websites that are meant for short-term use, like events and personal portfolio websites. If you want to market your business, a custom-designed dynamic website is recommended.',
+  },
+  {
+    q: 'Are WordPress websites better than custom websites?',
+    a: "If you don't have a large budget, WordPress is a good option. It offers many templates and allows you to launch quickly. However, custom-designed websites usually deliver better results but cost more.",
+  },
+  {
+    q: 'What is the difference between web design and web development?',
+    a: 'Web design focuses on UI and UX, while web development involves coding and programming the website to connect with databases and display content dynamically.',
+  },
+  {
+    q: 'Is Webflow a good option for website design?',
+    a: 'Webflow has been a reliable platform for over 10 years and is suitable for small and medium businesses. However, it has limitations when it comes to custom functionality.',
+  },
 ];
 
 const SPARKS = [
@@ -109,42 +74,45 @@ export default function WebAppDevelopmentPage() {
         </div>
       </section>
 
-      <div data-reveal className="cb-intro-band">
-        <p className="cb-intro-text">Your top web design company in Dubai — for all types of industries. Combining design and digital marketing to help businesses grow revenue online.</p>
-      </div>
-
+      {/* Your Top Web Design Company intro */}
       <section className="cb-section">
         <div className="container">
-          <span data-reveal className="section-label">What We Do</span>
-          <h2 data-reveal className="cb-section-h2">Websites that <span className="gradient-text">perform and convert</span></h2>
-          <div className="cb-services-grid">
-            {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
-                <h3 className="cb-svc-title">{s.title}</h3>
-                <p className="cb-svc-desc">{s.desc}</p>
-              </div>
-            ))}
+          <span data-reveal className="section-label">Your Top Web Design Company in Dubai</span>
+          <div data-reveal className="wad-intro-block">
+            <p>Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!</p>
+            <p>We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.</p>
+            <p>We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.</p>
+            <p>As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.</p>
+            <p>Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.</p>
+            <p>We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.</p>
           </div>
         </div>
       </section>
 
+      {/* Expertise & Insights */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Expertise &amp; Insights</span>
-          <h2 data-reveal className="cb-section-h2">Built on <span className="gradient-text">technical excellence</span></h2>
-          <div className="cb-expertise-grid">
-            {EXPERTISE.map((e, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card">
-                <div className="cb-expertise-icon">{e.icon}</div>
-                <h3 className="cb-expertise-title">{e.title}</h3>
-                <p className="cb-expertise-desc">{e.desc}</p>
-              </div>
-            ))}
+          <span data-reveal className="section-label">Web Design Company in Dubai: For all Types of Industries</span>
+          <h2 data-reveal className="cb-section-h2">Expertise &amp; <span className="gradient-text">Insights</span></h2>
+          <div data-reveal className="wad-expertise-block">
+            <p>Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.</p>
+            <p>Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client&apos;s needs.</p>
+            <p>Every business is different, and every business has its challenges and goals. It&apos;s very important to understand this idea if you&apos;re working on a website. At Wide Wings Media, we understand that each business is unique. We customize our web development services for each client.</p>
+            <p>Our team of expert web designers has a lot of experience building websites for healthcare and other industries that work with patients on all devices. Our services are designed to create cutting-edge digital experiences.</p>
+            <p>Make your website better than your competitors&apos; websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.</p>
+          </div>
+
+          <div data-reveal className="wad-medical-block">
+            <h3 className="wad-subheading">Designing websites for doctors and dental practices.</h3>
+            <p>We are an award-winning medical website design agency. We know how to design and develop a website that attracts and engages new patients. Our medical website design process includes making the website easy for patients to use and making sure that it ranks highly in online searches.</p>
+            <p>The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it&apos;s like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.</p>
+            <p>Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don&apos;t use digital marketing to their advantage.</p>
+            <p>Many medical websites don&apos;t make it easy for people to find what they&apos;re looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.</p>
           </div>
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="cb-section">
         <div className="container cb-faq-wrap">
           <span data-reveal className="section-label">FAQ</span>
@@ -155,6 +123,93 @@ export default function WebAppDevelopmentPage() {
                 <summary className="cb-faq-q">{f.q}</summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Builds and Hosts Websites */}
+      <section className="cb-section cb-section-alt">
+        <div className="container">
+          <span data-reveal className="section-label">Web Design Company in Dubai: Builds and Hosts Websites</span>
+          <div data-reveal className="wad-hosting-grid">
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="18" x2="44" y2="18"/>
+                  <circle cx="10" cy="14" r="1.5" fill="currentColor"/><circle cx="16" cy="14" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3>Launch &amp; Hosting</h3>
+              <p>Once we finish designing your website, we will launch it and provide you with secure hosting and website care plans to ensure smooth performance.</p>
+            </div>
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/>
+                  <polyline points="16,24 21,29 32,18"/>
+                </svg>
+              </div>
+              <h3>Care Plans</h3>
+              <p>Our care plans give you peace of mind and full support. Even if we&apos;re not developing your website, we can still host it as part of our marketing partnership.</p>
+            </div>
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="24" cy="24" r="20"/><line x1="24" y1="4" x2="24" y2="44"/>
+                  <path d="M4 24 Q14 16 24 24 Q34 32 44 24"/><path d="M4 24 Q14 32 24 24 Q34 16 44 24"/>
+                </svg>
+              </div>
+              <h3>Ongoing Maintenance</h3>
+              <p>We offer ongoing maintenance to keep your website updated, secure, and functional, including security checks, software updates, and bug fixes.</p>
+            </div>
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 36 L6 12 C6 10 8 8 10 8 L38 8 C40 8 42 10 42 12 L42 28"/>
+                  <line x1="6" y1="16" x2="42" y2="16"/><line x1="14" y1="24" x2="28" y2="24"/>
+                  <line x1="14" y1="30" x2="22" y2="30"/><path d="M28 36 L44 36 M36 28 L44 36 L36 44"/>
+                </svg>
+              </div>
+              <h3>Content Writing</h3>
+              <p>Our content writers help craft brand messages, build a strong brand voice, and improve your website&apos;s usability and visibility.</p>
+            </div>
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="24" cy="16" r="8"/><path d="M8 40 C8 32 15 26 24 26 C33 26 40 32 40 40"/>
+                  <circle cx="38" cy="20" r="5"/><line x1="38" y1="26" x2="38" y2="34"/>
+                </svg>
+              </div>
+              <h3>Dedicated Support</h3>
+              <p>Each client gets an experienced designer and a dedicated account manager to support every step of the project.</p>
+            </div>
+            <div className="wad-hosting-card">
+              <div className="wad-hosting-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="14" cy="20" r="6"/><circle cx="34" cy="20" r="6"/><circle cx="24" cy="34" r="6"/>
+                  <line x1="19" y1="23" x2="22" y2="29"/><line x1="29" y1="23" x2="26" y2="29"/>
+                </svg>
+              </div>
+              <h3>Full Team</h3>
+              <p>You&apos;ll have a full team working to deliver a website that attracts, converts, and educates new and existing patients.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Best Medical Web Design Company */}
+      <section className="cb-section">
+        <div className="container">
+          <span data-reveal className="section-label">The Best Medical Web Design Company in Dubai</span>
+          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
+          <div className="cb-services-grid">
+            {WHAT_WE_DO.map((s, i) => (
+              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
+                <div className="cb-svc-num">{s.num}</div>
+                <h3 className="cb-svc-title">{s.title}</h3>
+                <p className="cb-svc-desc">{s.desc}</p>
+              </div>
             ))}
           </div>
         </div>
