@@ -65,7 +65,6 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
                 onClick={() => changeCategory(cat)}
               >
                 {cat}
-                <span className="blg-filter-count">{catCounts[cat] ?? 0}</span>
               </button>
             ))}
           </div>
