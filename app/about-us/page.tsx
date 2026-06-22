@@ -8,7 +8,6 @@ import CtaCanvas from '../services/CtaCanvas';
 
 const team = [
   { name: 'Mina Banoub',              title: 'Sales Director',           img: '/Mina.webp' },
-  { name: 'Moamen Habrout',           title: 'Sales Manager',            img: '/Moamen.webp' },
   { name: 'Alaa Mokhless Ali',        title: 'Account Manager',          img: '/Alaa.webp' },
   { name: 'Nouran Mamdouh',           title: 'Account Manager',          img: '/nowran.webp' },
   { name: 'Ebtehal Elnoras',          title: 'Account Manager',          img: '/Ebtehal.webp' },
@@ -19,14 +18,11 @@ const team = [
   { name: 'Mahmoud Ismail',           title: 'Graphic Designer',         img: '/MahmoudIsmail.webp' },
   { name: 'Prasanna Veeramani',       title: 'Graphic Designer',         img: '/Prasanna.webp' },
   { name: 'Nesma Ibrahim',            title: 'Graphic Designer',         img: '/Nesma.webp' },
-  { name: 'Omar Mohamed',             title: 'Video Editor',             img: '/Omar.webp' },
   { name: 'Asmaa Mostafa',            title: 'Content Creator',          img: '/Asmaa.webp' },
   { name: 'Doha Ghareeb',             title: 'Content Creator',          img: '/Doha.webp' },
   { name: 'Eslam Deif',               title: 'Media Buyer',              img: '/Eslam.webp' },
-  { name: 'Muhammad Hamza Khalid',    title: 'Media Buyer',              img: '/Hamza.webp' },
   { name: 'Kareem Ayman Abdu',        title: 'Media Buyer',              img: '/Kareemayman.webp' },
   { name: 'Rana Amir Irshad',         title: 'Cash Flow In-charge',      img: '/Amir.webp' },
-  { name: 'Joy Donald Gomez',         title: 'Strategic Consultant',     img: '/Joydonald.webp' },
 ];
 
 function HeroParallaxButtons() {
