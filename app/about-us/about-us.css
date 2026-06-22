@@ -1,7 +1,7 @@
 /* ─── HERO — dark (shared au-* classes now live in globals.css) ── */
 #au-hero-orig {
   position: relative;
-  min-height: 620px;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;

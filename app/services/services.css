@@ -3,7 +3,7 @@
 /* ── HERO ── */
 .svc-hero {
   position: relative;
-  min-height: 620px;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -676,7 +676,7 @@
   .svc-hero-inner { padding: 100px 24px 60px; }
   .svc-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
   .svc-btn-primary, .svc-btn-outline { padding: 13px 18px !important; font-size: 11px !important; flex: 1; justify-content: center; white-space: nowrap; }
-  .svc-hero-h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .svc-hero-h1 { font-size: clamp(2.4rem, 9vw, 3.5rem); }
   .svc-breadcrumb { color: rgba(255,255,255,0.6); }
   .svc-breadcrumb a { color: rgba(255,255,255,0.6); }
   .svc-cta { padding: 72px 24px; }
