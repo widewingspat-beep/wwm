@@ -86,6 +86,14 @@
 }
 .wad-intro-2col-left {
   border-right: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.wad-watermark {
+  margin-top: auto;
+  padding-top: 32px;
+  opacity: 0.08;
+  filter: grayscale(1);
 }
 .wad-intro-2col-right {
   background: #0d0d20;
