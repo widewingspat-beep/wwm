@@ -135,12 +135,12 @@
 .card-3d-icon svg { width: 22px; height: 22px; color: #cfa821; }
 .card-3d-body { position: relative; z-index: 1; flex: 1; }
 .card-3d-label {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: #cfa821; margin-bottom: 6px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #cfa821; margin-bottom: 10px;
 }
 .card-3d-value {
-  font-size: 0.92rem; font-weight: 400; color: rgba(255,255,255,0.75);
-  line-height: 1.6;
+  font-size: 1.05rem; font-weight: 400; color: rgba(255,255,255,0.78);
+  line-height: 1.7;
 }
 .card-3d-value a { color: rgba(255,255,255,0.75); transition: color .2s; }
 .card-3d-value a:hover { color: #cfa821; }
