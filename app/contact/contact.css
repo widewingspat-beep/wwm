@@ -78,7 +78,7 @@
 .info-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(167,49,132,.08); border: 1px solid rgba(167,49,132,.15); flex-shrink: 0; transition: background .3s; }
 .info-card:hover .info-icon { background: rgba(167,49,132,.15); }
 .info-icon svg { width: 22px; height: 22px; }
-.info-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 6px; }
+.info-label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 6px; }
 .info-value { font-size: 0.95rem; font-weight: 500; color: #333; line-height: 1.5; }
 .info-value a { color: #333; transition: color .2s; }
 .info-value a:hover { color: var(--magenta); }
