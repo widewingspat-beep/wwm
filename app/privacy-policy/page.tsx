@@ -370,7 +370,7 @@ export default function PrivacyPolicyPage() {
       </div>
 
       {/* Content */}
-      <div className="container" style={{ maxWidth: 900, paddingTop: 60 }}>
+      <div className="container" style={{ maxWidth: 1200, paddingTop: 60 }}>
 
         {/* Table of Contents */}
         <nav style={{ background: '#f8f9fc', border: '1px solid #ebebeb', borderRadius: 16, padding: '32px 36px', marginBottom: 52 }}>
