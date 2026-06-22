@@ -351,10 +351,23 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p style={{ fontFamily: 'Calibri, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.12rem)', color: 'rgba(255,255,255,0.6)', maxWidth: 620, lineHeight: 1.75, margin: 0 }}>
-            Last updated: January 1, 2026. This Privacy Policy describes how Wide Wings Media, LLC collects, uses, and shares information about you when you use our services.
+            This Privacy Policy describes how Wide Wings Media, LLC collects, uses, and shares information about you when you use our services.
           </p>
         </div>
       </section>
+
+      {/* Last Updated banner */}
+      <div style={{ background: '#111827', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '14px 0' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'Nexa, sans-serif', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#0d0d20', background: '#cfa821', padding: '4px 10px', borderRadius: 4, whiteSpace: 'nowrap' }}>
+            Last Updated
+          </span>
+          <p style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.92rem', color: 'rgba(255,255,255,0.75)', margin: 0, flex: 1 }}>
+            <strong style={{ fontFamily: 'Nexa, sans-serif', color: '#fff', fontWeight: 700 }}>January 1, 2026</strong>
+            {' '}— This policy may be updated periodically. Continued use of our services constitutes acceptance of any changes.
+          </p>
+        </div>
+      </div>
 
       {/* Content */}
       <div className="container" style={{ maxWidth: 900, paddingTop: 60 }}>
