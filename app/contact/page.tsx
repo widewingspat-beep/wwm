@@ -77,8 +77,10 @@ export default function ContactPage() {
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
                     </svg>
                   </div>
-                  <div className="card-3d-label">Our Location</div>
-                  <div className="card-3d-value">Wide Wings Media, LLC<br/>Al Quoz Industrial Area 3<br/>Warehouse #47, Dubai, UAE</div>
+                  <div className="card-3d-body">
+                    <div className="card-3d-label">Our Location</div>
+                    <div className="card-3d-value">Wide Wings Media, LLC — Al Quoz Industrial Area 3, Warehouse #47, Dubai, UAE</div>
+                  </div>
                 </div>
 
                 <div className="card-3d anim-fade-up anim-d3" onMouseMove={handleCard3D} onMouseLeave={resetCard3D}>
@@ -88,11 +90,12 @@ export default function ContactPage() {
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/>
                     </svg>
                   </div>
-                  <div className="card-3d-label">Phone / WhatsApp</div>
-                  <div className="card-3d-value">
-                    <a href="tel:+97143352645">+971 4 335 2645</a><br/>
-                    <a href="tel:+971555657609">+971 55 565 7609</a><br/>
-                    <a href="https://wa.me/971555657609">WhatsApp →</a>
+                  <div className="card-3d-body">
+                    <div className="card-3d-label">Phone / WhatsApp</div>
+                    <div className="card-3d-value">
+                      <a href="tel:+97143352645">+971 4 335 2645</a> &nbsp;·&nbsp; <a href="tel:+971555657609">+971 55 565 7609</a>
+                      <br/><a href="https://wa.me/971555657609" className="card-3d-cta">Chat on WhatsApp →</a>
+                    </div>
                   </div>
                 </div>
 
@@ -103,9 +106,12 @@ export default function ContactPage() {
                       <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
                     </svg>
                   </div>
-                  <div className="card-3d-label">Email Address</div>
-                  <div className="card-3d-value">
-                    <a href="mailto:info@wide-wings.ae">info@wide-wings.ae</a>
+                  <div className="card-3d-body">
+                    <div className="card-3d-label">Email Address</div>
+                    <div className="card-3d-value">
+                      <a href="mailto:info@wide-wings.ae">info@wide-wings.ae</a>
+                      <br/><a href="mailto:info@wide-wings.ae" className="card-3d-cta">Send us an email →</a>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -72,70 +72,79 @@
 
 /* ── 3D CINEMATIC INFO CARDS ── */
 .info-cards-3d {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 52px;
 }
 .card-3d {
   position: relative;
-  background: #0d0d20;
-  border: 1px solid rgba(167,49,132,0.25);
-  padding: 32px 22px 28px;
+  background: linear-gradient(135deg, #13132a 0%, #0d0d20 100%);
+  border: 1px solid rgba(167,49,132,0.22);
+  padding: 24px 28px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 220px;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
   overflow: hidden;
   cursor: default;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.2s;
   transform-style: preserve-3d;
   will-change: transform;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+}
+.card-3d:hover {
+  border-color: rgba(167,49,132,0.55);
+  box-shadow: 0 12px 40px rgba(167,49,132,0.18), 0 2px 8px rgba(0,0,0,0.3);
 }
 .card-3d-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 20%, rgba(167,49,132,0.18) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 0% 50%, rgba(167,49,132,0.12) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.3s;
+  opacity: 0;
 }
-.card-3d:hover .card-3d-glow { opacity: 1.6; }
-/* shimmer line */
-.card-3d::after {
+.card-3d:hover .card-3d-glow { opacity: 1; }
+/* shimmer top line */
+.card-3d::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #a73184, #cfa821, transparent);
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #a73184 40%, #cfa821 60%, transparent 100%);
   opacity: 0;
   transition: opacity 0.3s;
 }
-.card-3d:hover::after { opacity: 1; }
+.card-3d:hover::before { opacity: 1; }
 .card-3d-icon {
   position: relative;
   z-index: 1;
-  width: 48px; height: 48px;
+  width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(167,49,132,0.15);
-  border: 1px solid rgba(167,49,132,0.35);
-  margin-bottom: 18px;
+  background: rgba(167,49,132,0.12);
+  border: 1px solid rgba(167,49,132,0.3);
   flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.card-3d:hover .card-3d-icon {
+  background: rgba(167,49,132,0.22);
+  border-color: rgba(167,49,132,0.6);
 }
 .card-3d-icon svg { width: 22px; height: 22px; color: #a73184; }
+.card-3d-body { position: relative; z-index: 1; flex: 1; }
 .card-3d-label {
-  position: relative; z-index: 1;
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; color: #cfa821; margin-bottom: 10px;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #cfa821; margin-bottom: 6px;
 }
 .card-3d-value {
-  position: relative; z-index: 1;
-  font-size: 0.88rem; font-weight: 400; color: rgba(255,255,255,0.78);
-  line-height: 1.7;
+  font-size: 0.92rem; font-weight: 400; color: rgba(255,255,255,0.75);
+  line-height: 1.6;
 }
-.card-3d-value a { color: rgba(255,255,255,0.78); transition: color .2s; }
+.card-3d-value a { color: rgba(255,255,255,0.75); transition: color .2s; }
 .card-3d-value a:hover { color: #cfa821; }
+.card-3d-cta { font-size: 0.78rem; color: #a73184 !important; font-weight: 600; letter-spacing: 0.04em; margin-top: 4px; display: inline-block; }
 
 .hours-block { padding: 28px; border: 1px solid #ebebeb; background: #fafafa; margin-bottom: 48px; }
 .hours-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
@@ -227,7 +236,6 @@ select.form-control option { background: #fff; color: #111; }
   #contact-main { padding: 60px 0 80px; }
   .form-wrapper { padding: 32px 24px; }
   .form-row { grid-template-columns: 1fr; }
-  .info-cards-3d { grid-template-columns: 1fr; }
   .form-submit-row { flex-direction: column; align-items: flex-start; }
   .cta-actions { flex-direction: column; align-items: center; }
   .map-container { height: 320px; }
