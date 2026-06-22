@@ -103,12 +103,12 @@
   width: 130px;
   height: 130px;
   background: url('/brand-wings.svg') no-repeat center / contain;
-  opacity: 0.06;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.3s;
 }
-.card-3d:hover::after { opacity: 0.11; }
+.card-3d:hover::after { opacity: 0.28; }
 .card-3d:hover {
   border-color: rgba(167,49,132,0.55);
   box-shadow: 0 12px 40px rgba(167,49,132,0.18), 0 2px 8px rgba(0,0,0,0.3);
