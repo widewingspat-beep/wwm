@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PrivacyAccordion from './PrivacyAccordion';
 
 export const metadata = {
   title: 'Privacy Policy – Wide Wings Media',
@@ -357,48 +358,38 @@ export default function PrivacyPolicyPage() {
 
       {/* Content */}
       <div className="container" style={{ maxWidth: 900, paddingTop: 60 }}>
-        {/* Table of contents */}
-        <nav style={{ background: '#f8f8fc', border: '1px solid rgba(0,0,0,.07)', padding: '28px 32px', marginBottom: 56 }}>
-          <p style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#333', marginBottom: 16 }}>
-            Table of Contents
-          </p>
-          <ol style={{ columns: 2, columnGap: 40, paddingLeft: 20 }}>
-            {sections.map((s) => (
-              <li key={s.id} style={{ marginBottom: 8 }}>
-                <a href={`#${s.id}`} style={{ color: '#b62d83', fontSize: '0.9rem', textDecoration: 'none' }}>
-                  {s.title}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
 
-        {/* Sections */}
-        {sections.map((s, i) => (
+        {/* First 3 sections — shown normally */}
+        {sections.slice(0, 3).map((s, i) => (
           <section
             key={s.id}
             id={s.id}
-            style={{
-              marginBottom: 52,
-              paddingBottom: 52,
-              borderBottom: i < sections.length - 1 ? '1px solid rgba(0,0,0,.07)' : 'none',
-            }}
+            style={{ marginBottom: 48, paddingBottom: 48, borderBottom: '1px solid #ebebeb' }}
           >
-            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#333', marginBottom: 18 }}>
+            <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 16 }}>
               {s.title}
             </h2>
             {s.content.split('\n\n').map((para, j) => (
-              <p key={j} style={{ color: '#555', fontSize: '0.97rem', lineHeight: 1.85, marginBottom: 16 }}>
+              <p key={j} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '1rem', color: '#555', lineHeight: 1.85, marginBottom: 14, whiteSpace: 'pre-line' }}>
                 {para}
               </p>
             ))}
           </section>
         ))}
 
+        {/* Toggle accordion — from "Third-Party End User Information" onwards */}
+        <p style={{ fontFamily: 'Nexa, sans-serif', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#a73184', marginBottom: 4 }}>
+          Detailed Policies
+        </p>
+        <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 0 }}>
+          Additional Privacy Information
+        </h2>
+        <PrivacyAccordion sections={sections.slice(3)} />
+
         {/* Contact */}
-        <section style={{ background: 'var(--navy)', padding: '40px 36px', marginTop: 20 }}>
-          <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: 20 }}>Contact Us</h2>
-          <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '0.95rem', marginBottom: 20, lineHeight: 1.7 }}>
+        <section style={{ background: '#0d0d20', borderRadius: 16, padding: '40px 36px', marginTop: 56 }}>
+          <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: 16 }}>Contact Us</h2>
+          <p style={{ fontFamily: 'Calibri, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: '1rem', marginBottom: 20, lineHeight: 1.7 }}>
             If you have any questions about this Privacy Policy or our data practices, please contact us:
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -408,8 +399,8 @@ export default function PrivacyPolicyPage() {
               { label: 'Mobile',  value: '+971 55 565 7609',       href: 'tel:+971555657609' },
               { label: 'Address', value: 'Al Quoz Industrial Area 3, Goshi Warehouse City, Warehouse #47, Dubai, United Arab Emirates', href: null },
             ].map(item => (
-              <p key={item.label} style={{ color: 'rgba(255,255,255,.6)', fontSize: '0.92rem', margin: 0 }}>
-                <strong style={{ color: '#cfa821' }}>{item.label}:</strong>{' '}
+              <p key={item.label} style={{ fontFamily: 'Calibri, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: '0.95rem', margin: 0 }}>
+                <strong style={{ fontFamily: 'Nexa, sans-serif', color: '#cfa821' }}>{item.label}:</strong>{' '}
                 {item.href
                   ? <a href={item.href} style={{ color: 'rgba(255,255,255,.75)', textDecoration: 'none' }}>{item.value}</a>
                   : item.value}
