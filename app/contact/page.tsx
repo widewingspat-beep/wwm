@@ -214,7 +214,7 @@ export default function ContactPage() {
         <div className="map-header">
           <div className="container">
             <span className="section-label">Find Us</span>
-            <h2 className="map-h2">Visit Our Dubai <span className="gradient-text">Office</span></h2>
+            <h2 className="map-h2">Our <span className="gradient-text">Location</span></h2>
             <p className="map-desc">Al Quoz Industrial Area 3, Goshi Warehouse City, Warehouse #47, Dubai, United Arab Emirates</p>
           </div>
         </div>
