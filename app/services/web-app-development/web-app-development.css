@@ -1,7 +1,10 @@
-/* web-app-development page */
+/* web-app-development page — Nexa headings, Calibri body throughout */
 
-/* ── Shared paragraph style ── */
-.wad-para {
+/* ── Enforce fonts for the whole page ── */
+.wad-para,
+.wad-hosting-card p,
+.wad-stat-lbl,
+.wad-medical-card .wad-para {
   font-family: Calibri, sans-serif;
   font-size: clamp(1rem, 1.8vw, 1.08rem);
   color: #444;
@@ -10,19 +13,26 @@
 }
 .wad-para:last-child { margin-bottom: 0; }
 
+.wad-stat-val,
+.wad-subheading,
+.wad-hosting-card h3,
+.wad-medical-card-header h3 {
+  font-family: Nexa, sans-serif;
+}
+
 /* ── Section 1: Intro split ── */
 .wad-intro-split {
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: 1fr 380px;
   gap: 60px;
   align-items: start;
   margin-top: 8px;
 }
 
-.wad-intro-text { display: flex; flex-direction: column; gap: 0; }
+.wad-intro-text { display: flex; flex-direction: column; }
 .wad-intro-text .section-label { margin-bottom: 4px; }
 
-/* Stats stack */
+/* ── Stats stack ── */
 .wad-stats-stack {
   display: flex;
   flex-direction: column;
@@ -41,38 +51,29 @@
   padding: 18px 20px;
   border-left: 4px solid #e0e0e0;
   transition: transform 0.22s, box-shadow 0.22s;
-  color: #666;
+  color: #888;
 }
 .wad-stat-card:hover { transform: translateX(4px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
 .wad-stat-card--accent { border-left-color: #a73184; color: #a73184; }
 .wad-stat-card--gold   { border-left-color: #cfa821; color: #cfa821; }
-
 .wad-stat-card svg { flex-shrink: 0; }
 
 .wad-stat-val {
-  font-family: Nexa, 'Nexa-Bold', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #111;
   margin-bottom: 2px;
 }
 .wad-stat-lbl {
-  font-family: Calibri, sans-serif;
   font-size: 0.85rem;
   color: #777;
   line-height: 1.4;
+  margin: 0;
 }
 
 @media (max-width: 960px) {
-  .wad-intro-split {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .wad-stats-stack {
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: static;
-  }
+  .wad-intro-split { grid-template-columns: 1fr; gap: 36px; }
+  .wad-stats-stack { flex-direction: row; flex-wrap: wrap; position: static; }
   .wad-stat-card { flex: 1 1 calc(50% - 8px); }
 }
 @media (max-width: 560px) {
@@ -94,7 +95,7 @@
 
 .wad-expertise-left { display: flex; flex-direction: column; }
 
-/* Medical highlight card */
+/* ── Medical highlight card ── */
 .wad-medical-card {
   background: #fff;
   border: 1px solid #ebebeb;
@@ -105,9 +106,7 @@
   top: 100px;
 }
 
-@media (max-width: 880px) {
-  .wad-medical-card { position: static; }
-}
+@media (max-width: 880px) { .wad-medical-card { position: static; } }
 
 .wad-medical-card-header {
   display: flex;
@@ -133,7 +132,6 @@
 .wad-medical-icon svg { width: 100%; height: 100%; }
 
 .wad-medical-card-header h3 {
-  font-family: Nexa, 'Nexa-Bold', sans-serif;
   font-size: clamp(1rem, 1.9vw, 1.2rem);
   font-weight: 700;
   color: #111;
@@ -144,7 +142,7 @@
 
 .wad-medical-card .wad-para { color: #555; font-size: 0.97rem; }
 
-/* ── Section 4: Hosting grid ── */
+/* ── Hosting grid ── */
 .wad-hosting-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -177,16 +175,10 @@
 .wad-hosting-icon svg { width: 100%; height: 100%; }
 
 .wad-hosting-card h3 {
-  font-family: Nexa, 'Nexa-Bold', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #111;
   margin: 0 0 10px;
 }
-.wad-hosting-card p {
-  font-family: Calibri, sans-serif;
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.7;
-  margin: 0;
-}
+
+.wad-hosting-card p { font-size: 0.95rem; margin: 0; }

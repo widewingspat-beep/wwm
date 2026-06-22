@@ -10,6 +10,7 @@ const WHAT_WE_DO = [
   { num: '03', title: 'Content creation for websites', desc: 'We produce written content, photos, and videos that support your digital presence.' },
   { num: '04', title: 'Full website design services', desc: 'We design award-winning websites that improve reputation and increase sales.' },
   { num: '05', title: 'Transparent pricing', desc: 'Clear pricing and custom solutions tailored to your business goals and industry.' },
+  { num: '06', title: 'Medical & healthcare websites', desc: 'We are the best medical web design company in Dubai, creating patient-friendly websites for doctors and dental practices.' },
 ];
 
 const FAQS = [
