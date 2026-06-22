@@ -255,22 +255,22 @@ export default function AboutUsPage() {
         </div>
 
         <div className="au-hero-left">
-          <nav data-reveal className="au-breadcrumb" aria-label="breadcrumb">
+          <nav className="au-breadcrumb au-hero-anim" style={{ animationDelay: '0ms' }} aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="au-bc-sep">/</span>
             <span>About Us</span>
           </nav>
 
-          <h1 data-reveal data-reveal-delay="80" className="au-hero-h1-orig au-hero-glow-text">
+          <h1 className="au-hero-h1-orig au-hero-glow-text au-hero-anim" style={{ animationDelay: '80ms' }}>
             A Digital Marketing Partner<br />
             <em>You Can Trust</em>
           </h1>
 
-          <p data-reveal data-reveal-delay="180" className="au-hero-sub-orig">
+          <p className="au-hero-sub-orig au-hero-anim" style={{ animationDelay: '180ms' }}>
             Empowering brands to break boundaries and soar beyond expectations.
           </p>
 
-          <div data-reveal data-reveal-delay="260" className="au-hero-btns">
+          <div className="au-hero-btns au-hero-anim" style={{ animationDelay: '260ms' }}>
             <Link href="/contact" className="au-hbtn au-hbtn-primary">
               Free Consultation
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
