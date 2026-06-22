@@ -113,13 +113,14 @@
 
 /* Body */
 .nws-card-body {
-  padding: 28px 28px 32px;
+  padding: 28px 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   flex: 1;
   position: relative;
   overflow: hidden;
+  justify-content: center;
 }
 
 /* Wide Wings logo watermark */
