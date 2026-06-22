@@ -407,19 +407,118 @@
   line-height: 1.1;
 }
 
-/* ── ANIMATED SERVICE SHOWCASE ── */
-.svc-showcase-wrap {
+/* ── CINEMATIC SERVICE SHOWCASE ── */
+.svc-showcase-wrap { width: 100%; margin-bottom: 40px; }
+
+.cwc {
+  position: relative;
   width: 100%;
-  border-radius: 12px;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
   overflow: hidden;
-  margin-bottom: 40px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  background: #06000f;
 }
-.svc-showcase-canvas {
-  display: block;
-  width: 100%;
-  height: 340px;
+.cwc-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
 }
+.cwc-vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 38%, rgba(0,0,0,0.78) 100%);
+}
+.cwc-scanlines {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px);
+}
+.cwc-corner {
+  position: absolute; width: 18px; height: 18px; z-index: 10; opacity: 0.55;
+}
+.cwc-tl { top:14px; left:14px;  border-top:1.5px solid #c084fc; border-left:1.5px solid #c084fc; }
+.cwc-tr { top:14px; right:14px; border-top:1.5px solid #c084fc; border-right:1.5px solid #c084fc; }
+.cwc-bl { bottom:14px; left:14px;  border-bottom:1.5px solid #c084fc; border-left:1.5px solid #c084fc; }
+.cwc-br { bottom:14px; right:14px; border-bottom:1.5px solid #c084fc; border-right:1.5px solid #c084fc; }
+
+.cwc-inner {
+  position: absolute; inset: 0; z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.cwc-eyebrow {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: rgba(255,255,255,0.38); margin-bottom: 14px;
+}
+.cwc-title-wrap {
+  text-align: center; padding: 0 1.8rem;
+  min-height: 80px; display: flex; align-items: center; justify-content: center;
+}
+.cwc-title {
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: clamp(18px, 3.8vw, 32px);
+  font-weight: 800; color: #fff;
+  text-align: center; line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 40px rgba(167,49,132,0.85), 0 2px 10px rgba(0,0,0,0.9);
+}
+.cwc-line {
+  width: 60px; height: 1px; margin-top: 14px;
+  background: linear-gradient(90deg, transparent, rgba(207,168,33,0.9), transparent);
+}
+
+/* Logo slide */
+.cwc-logo-slide {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+}
+.cwc-logo-img { width: clamp(140px, 30%, 210px); margin-bottom: 18px; }
+.cwc-logo-divider {
+  width: 140px; height: 1px; margin-bottom: 14px;
+  background: linear-gradient(90deg, transparent, #cfa821, transparent);
+}
+.cwc-logo-addr {
+  font-family: 'Calibri',sans-serif; font-size: clamp(10px, 1.5vw, 13px);
+  color: rgba(255,255,255,0.48); text-align: center; padding: 0 1rem;
+}
+.cwc-logo-phone {
+  font-family: 'Nexa','Calibri',sans-serif; font-size: clamp(11px, 1.6vw, 14px);
+  font-weight: 600; color: rgba(255,255,255,0.78); margin-top: 8px;
+}
+
+/* Counter */
+.cwc-counter {
+  position: absolute; bottom: 16px; right: 20px; z-index: 10;
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.12em;
+}
+/* Dots */
+.cwc-dots {
+  position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px; z-index: 10;
+}
+.cwc-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.cwc-dot-active { background: #a73184 !important; transform: scale(1.45); }
+/* Progress bar */
+.cwc-bar {
+  position: absolute; bottom: 0; left: 0; height: 2px; z-index: 10;
+  background: linear-gradient(90deg, #7c3aed, #a73184, #cfa821);
+  transition: width 0.08s linear;
+}
+/* Nav buttons */
+.cwc-nav {
+  display: flex; gap: 10px; margin-top: 12px;
+}
+.cwc-nav button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px; padding: 6px 18px;
+  font-family: 'Nexa','Calibri',sans-serif;
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.cwc-nav button:hover { background: rgba(255,255,255,0.07); color: #fff; }
 
 /* 3-image cinematic collage */
 .svc-collage {
