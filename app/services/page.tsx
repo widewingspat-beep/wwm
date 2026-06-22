@@ -137,23 +137,23 @@ export default function ServicesPage() {
         </div>
 
         <div className="svc-hero-inner">
-          <nav data-reveal className="svc-breadcrumb" aria-label="breadcrumb">
+          <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
             <span>Services</span>
           </nav>
 
-          <h1 data-reveal data-reveal-delay="80" className="svc-hero-h1">
+          <h1 className="svc-hero-h1">
             Boost ROI with<br />
             <em>Data-Driven</em> Marketing
           </h1>
 
-          <p data-reveal data-reveal-delay="180" className="svc-hero-sub">
+          <p className="svc-hero-sub">
             Use digital marketing services based on data to make your brand stronger.
             Get a high return on investment and more conversions with Wide Wings Media.
           </p>
 
-          <div data-reveal data-reveal-delay="260" className="svc-hero-btns">
+          <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Free Consultation
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>

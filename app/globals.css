@@ -708,7 +708,7 @@ footer {
   50%       { opacity: var(--op, 0.7); transform: scale(1); }
 }
 @media (max-width: 768px) {
-  .au-hero-left { padding: 100px 24px 48px; }
+  .au-hero-left { padding: 80px 24px 48px; }
   .au-breadcrumb { margin-bottom: 16px; }
   .au-hero-h1-orig { font-size: clamp(1.9rem, 8vw, 2.8rem); margin-bottom: 12px; }
   .au-hero-blob { width: 100vw; height: 300px; }

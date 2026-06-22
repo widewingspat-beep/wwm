@@ -672,8 +672,8 @@
 @media (max-width: 768px) {
   .svc-band { flex-wrap: wrap; }
   .svc-band-cta { margin-left: auto; }
-  .svc-hero { min-height: auto; align-items: flex-start; justify-content: flex-start; }
-  .svc-hero-inner { padding: 160px 24px 60px; }
+  .svc-hero { min-height: 100svh; align-items: center; justify-content: center; overflow: visible; }
+  .svc-hero-inner { padding: 100px 24px 60px; }
   .svc-hero-btns { flex-direction: row !important; flex-wrap: nowrap !important; gap: 10px; width: 100%; }
   .svc-btn-primary, .svc-btn-outline { padding: 13px 18px !important; font-size: 11px !important; flex: 1; justify-content: center; white-space: nowrap; }
   .svc-breadcrumb { color: rgba(255,255,255,0.6); }
