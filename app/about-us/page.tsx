@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import './about-us.css';
+import CtaCanvas from '../services/CtaCanvas';
 
 const team = [
   { name: 'Mina Banoub',              title: 'Sales Director',           img: '/Mina.webp' },
@@ -215,11 +216,11 @@ function CtaSection() {
   }, []);
 
   return (
-    <section id="au-cta" className="au-cta-white">
-      <div className="au-cta-blob" aria-hidden="true" />
-      <div className="au-cta-content">
-        <h2 data-reveal className="au-cta-h2 au-cta-h2-dark">Ready to write the next scene for your brand?</h2>
-        <Link data-reveal data-reveal-delay="120" href="/contact" className="au-ticket">Free Consultation &nbsp;→</Link>
+    <section id="au-cta" className="au-cta-dark">
+      <CtaCanvas />
+      <div className="au-cta-content" style={{ position: 'relative', zIndex: 1 }}>
+        <h2 data-reveal className="au-cta-h2">Ready to write the next scene for your brand?</h2>
+        <Link data-reveal data-reveal-delay="120" href="/contact" className="au-ticket au-ticket-dark">Free Consultation &nbsp;→</Link>
       </div>
     </section>
   );
