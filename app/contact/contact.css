@@ -257,10 +257,9 @@ select.form-control option { background: #fff; color: #111; }
 .btn-cta-outline::after {
   content: '';
   position: absolute;
-  top: 2px; left: 10%; right: 10%;
-  height: 40%;
-  border-radius: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 100%);
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%);
   pointer-events: none;
 }
 
