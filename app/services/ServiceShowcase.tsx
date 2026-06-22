@@ -1,88 +1,76 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const SERVICES = [
-  { label: 'Web & App Development',            icon: '⬡', color: '#4CC9F0' },
-  { label: 'Creative & Branding',              icon: '◈', color: '#FF6B5B' },
-  { label: 'Paid Advertising & Media Buying',  icon: '◎', color: '#FFA94D' },
-  { label: 'Social Media Management',          icon: '◉', color: '#a73184' },
-  { label: 'Content Creation & Design',        icon: '◆', color: '#FFD166' },
-  { label: 'Email, SMS & CRM Marketing',       icon: '◈', color: '#06D6A0' },
-  { label: 'SEO & Performance Management',     icon: '◎', color: '#9B5DE5' },
-  { label: 'OOH Advertising',                  icon: '◉', color: '#FF6B5B' },
-  { label: 'Analytics & Performance',          icon: '◆', color: '#4CC9F0' },
-  { label: 'PR Management',                    icon: '⬡', color: '#cfa821' },
+  { label: 'Web & App Development',           color: '#4CC9F0' },
+  { label: 'Creative & Branding',             color: '#FF6B5B' },
+  { label: 'Paid Advertising & Media Buying', color: '#FFA94D' },
+  { label: 'Social Media Management',         color: '#a73184' },
+  { label: 'Content Creation & Design',       color: '#FFD166' },
+  { label: 'Email, SMS & CRM Marketing',      color: '#06D6A0' },
+  { label: 'SEO & Performance Management',    color: '#9B5DE5' },
+  { label: 'OOH Advertising',                 color: '#FF6B5B' },
+  { label: 'Analytics & Performance',         color: '#4CC9F0' },
+  { label: 'PR Management',                   color: '#cfa821' },
 ];
+
+// null = logo/contact slide
+const SLIDE_ORDER: (number | null)[] = [null, ...SERVICES.map((_, i) => i), null];
+const DURATION = 210;
+const LOGO_DURATION = 300;
 
 export default function ServiceShowcase() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [active, setActive] = useState(0);
-  const frameRef = useRef(0);
-  const progressRef = useRef(0);
-  const DURATION = 200; // frames per slide
 
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
     let raf = 0;
 
+    const logo = new Image();
+    logo.src = '/LogoWhite.svg';
+    let logoReady = false;
+    logo.onload = () => { logoReady = true; };
+
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener('resize', resize);
 
-    // Particle pool
     type Particle = { x: number; y: number; vx: number; vy: number; r: number; alpha: number; color: string };
-    const particles: Particle[] = Array.from({ length: 60 }, () => ({
+    const particles: Particle[] = Array.from({ length: 70 }, () => ({
       x: Math.random(), y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.001,
-      vy: (Math.random() - 0.5) * 0.001,
-      r: 1 + Math.random() * 2,
-      alpha: 0.2 + Math.random() * 0.5,
+      vx: (Math.random() - 0.5) * 0.0008,
+      vy: (Math.random() - 0.5) * 0.0008,
+      r: 1 + Math.random() * 2.5,
+      alpha: 0.15 + Math.random() * 0.45,
       color: SERVICES[Math.floor(Math.random() * SERVICES.length)].color,
     }));
 
     let slideIdx = 0;
     let progress = 0;
-    let nextSlide = 1;
 
-    const draw = () => {
-      const W = canvas.offsetWidth;
-      const H = canvas.offsetHeight;
-      progress += 1 / DURATION;
-      if (progress >= 1) {
-        progress = 0;
-        slideIdx = nextSlide;
-        nextSlide = (nextSlide + 1) % SERVICES.length;
-        setActive(slideIdx);
-      }
-      progressRef.current = progress;
-      frameRef.current++;
-
-      const cur = SERVICES[slideIdx];
-      const nxt = SERVICES[nextSlide];
-      const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-
-      // Background gradient
+    function drawBackground(W: number, H: number, color: string) {
       const grad = ctx.createLinearGradient(0, 0, W, H);
       grad.addColorStop(0, '#0d0d20');
-      grad.addColorStop(0.5, hexAlpha(cur.color, 0.15));
+      grad.addColorStop(0.5, hexAlpha(color, 0.18));
       grad.addColorStop(1, '#0d0d20');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
-      // Dot grid
-      ctx.fillStyle = 'rgba(255,255,255,0.04)';
+      ctx.fillStyle = 'rgba(255,255,255,0.035)';
       const gs = 28;
       for (let x = gs; x < W; x += gs)
         for (let y = gs; y < H; y += gs) {
           ctx.beginPath(); ctx.arc(x, y, 1, 0, Math.PI * 2); ctx.fill();
         }
+    }
 
-      // Moving particles
+    function drawParticles(W: number, H: number) {
       particles.forEach(p => {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
@@ -94,77 +82,129 @@ export default function ServiceShowcase() {
         ctx.fill();
       });
       ctx.globalAlpha = 1;
+    }
 
-      // Service number background watermark
+    function drawLogoSlide(W: number, H: number, alpha: number) {
       ctx.save();
-      ctx.font = `bold ${H * 1.2}px 'Nexa', 'Calibri', sans-serif`;
-      ctx.fillStyle = hexAlpha(cur.color, 0.04);
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(String(slideIdx + 1).padStart(2, '0'), W / 2, H / 2);
-      ctx.restore();
+      ctx.globalAlpha = alpha;
 
-      // Slide-in text (current)
-      const curAlpha = progress > 0.75 ? 1 - (progress - 0.75) * 4 : 1;
-      const curY = H / 2 + ease * (-H * 0.1);
+      if (logoReady) {
+        const logoW = Math.min(W * 0.44, 230);
+        const logoH = logoW * 0.35;
+        ctx.drawImage(logo, W / 2 - logoW / 2, H / 2 - logoH / 2 - H * 0.1, logoW, logoH);
+      }
 
-      // Accent line
-      const lineW = W * 0.12;
-      ctx.save();
-      ctx.globalAlpha = curAlpha * 0.9;
+      const lineY = H / 2 + H * 0.02;
+      const lineW = W * 0.3;
       const lineGrad = ctx.createLinearGradient(W / 2 - lineW / 2, 0, W / 2 + lineW / 2, 0);
       lineGrad.addColorStop(0, 'transparent');
-      lineGrad.addColorStop(0.5, cur.color);
+      lineGrad.addColorStop(0.5, '#cfa821');
+      lineGrad.addColorStop(1, 'transparent');
+      ctx.strokeStyle = lineGrad;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(W / 2 - lineW / 2, lineY);
+      ctx.lineTo(W / 2 + lineW / 2, lineY);
+      ctx.stroke();
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      const addrSize = Math.min(W * 0.026, 13.5);
+      ctx.font = `400 ${addrSize}px 'Calibri', sans-serif`;
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.fillText('Al Quoz Industrial Area 3, Warehouse #47, Dubai, UAE', W / 2, lineY + 13);
+
+      const phoneSize = Math.min(W * 0.029, 15);
+      ctx.font = `600 ${phoneSize}px 'Nexa', 'Calibri', sans-serif`;
+      ctx.fillStyle = 'rgba(255,255,255,0.78)';
+      ctx.fillText('+971 4 335 2645   |   +971 55 565 7609', W / 2, lineY + 13 + addrSize + 10);
+
+      ctx.restore();
+    }
+
+    function drawServiceSlide(W: number, H: number, svcIdx: number, alpha: number) {
+      const svc = SERVICES[svcIdx];
+      ctx.save();
+      ctx.globalAlpha = alpha;
+
+      // Watermark number
+      ctx.font = `bold ${H * 1.3}px 'Nexa', 'Calibri', sans-serif`;
+      ctx.fillStyle = hexAlpha(svc.color, 0.045);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(String(svcIdx + 1).padStart(2, '0'), W / 2, H / 2);
+
+      // Accent line
+      const lineW = W * 0.14;
+      const lineGrad = ctx.createLinearGradient(W / 2 - lineW / 2, 0, W / 2 + lineW / 2, 0);
+      lineGrad.addColorStop(0, 'transparent');
+      lineGrad.addColorStop(0.5, svc.color);
       lineGrad.addColorStop(1, 'transparent');
       ctx.strokeStyle = lineGrad;
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(W / 2 - lineW / 2, curY - H * 0.14);
-      ctx.lineTo(W / 2 + lineW / 2, curY - H * 0.14);
+      ctx.moveTo(W / 2 - lineW / 2, H / 2 - H * 0.11);
+      ctx.lineTo(W / 2 + lineW / 2, H / 2 - H * 0.11);
       ctx.stroke();
-      ctx.restore();
 
-      // Service label
-      ctx.save();
-      ctx.globalAlpha = curAlpha;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      const fontSize = Math.min(W * 0.055, 36);
+      // Service name — bigger
+      const fontSize = Math.min(W * 0.07, 46);
       ctx.font = `700 ${fontSize}px 'Nexa', 'Calibri', sans-serif`;
       ctx.fillStyle = '#ffffff';
-      ctx.fillText(cur.label, W / 2, curY);
-      ctx.restore();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(svc.label, W / 2, H / 2);
 
-      // Next service fading in
-      if (progress > 0.8) {
-        const nxtAlpha = (progress - 0.8) * 5;
-        ctx.save();
-        ctx.globalAlpha = nxtAlpha * 0.9;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.font = `700 ${fontSize}px 'Nexa', 'Calibri', sans-serif`;
-        ctx.fillStyle = '#ffffff';
-        ctx.fillText(nxt.label, W / 2, H / 2 + H * 0.04);
-        ctx.restore();
+      ctx.restore();
+    }
+
+    const draw = () => {
+      const W = canvas.offsetWidth;
+      const H = canvas.offsetHeight;
+      const isLogo = SLIDE_ORDER[slideIdx] === null;
+      const dur = isLogo ? LOGO_DURATION : DURATION;
+      progress += 1 / dur;
+
+      if (progress >= 1) {
+        progress = 0;
+        slideIdx = (slideIdx + 1) % SLIDE_ORDER.length;
+      }
+
+      const nextIdx = (slideIdx + 1) % SLIDE_ORDER.length;
+      const svcCur = SLIDE_ORDER[slideIdx];
+      const svcNxt = SLIDE_ORDER[nextIdx];
+      const color = svcCur !== null ? SERVICES[svcCur].color : '#cfa821';
+      const colorNxt = svcNxt !== null ? SERVICES[svcNxt].color : '#cfa821';
+
+      drawBackground(W, H, color);
+      drawParticles(W, H);
+
+      const curAlpha = progress > 0.82 ? 1 - (progress - 0.82) * (1 / 0.18) : 1;
+      const nxtAlpha = progress > 0.82 ? (progress - 0.82) * (1 / 0.18) : 0;
+
+      if (svcCur === null) drawLogoSlide(W, H, curAlpha);
+      else drawServiceSlide(W, H, svcCur, curAlpha);
+
+      if (nxtAlpha > 0) {
+        if (svcNxt === null) drawLogoSlide(W, H, nxtAlpha);
+        else drawServiceSlide(W, H, svcNxt, nxtAlpha);
       }
 
       // Progress bar
-      ctx.save();
-      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      ctx.fillStyle = 'rgba(255,255,255,0.07)';
       ctx.fillRect(W * 0.1, H - 6, W * 0.8, 2);
       const barGrad = ctx.createLinearGradient(W * 0.1, 0, W * 0.1 + W * 0.8 * progress, 0);
-      barGrad.addColorStop(0, cur.color);
-      barGrad.addColorStop(1, nxt.color);
+      barGrad.addColorStop(0, color);
+      barGrad.addColorStop(1, colorNxt);
       ctx.fillStyle = barGrad;
       ctx.fillRect(W * 0.1, H - 6, W * 0.8 * progress, 2);
-      ctx.restore();
 
-      // Dots indicator
+      // Dots
       const dotR = 3, dotGap = 16, totalW = SERVICES.length * dotGap;
       SERVICES.forEach((s, i) => {
         ctx.beginPath();
         ctx.arc(W / 2 - totalW / 2 + i * dotGap + dotGap / 2, H - 20, dotR, 0, Math.PI * 2);
-        ctx.fillStyle = i === slideIdx ? s.color : 'rgba(255,255,255,0.2)';
+        ctx.fillStyle = svcCur === i ? s.color : 'rgba(255,255,255,0.18)';
         ctx.fill();
       });
 
