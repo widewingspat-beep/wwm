@@ -63,6 +63,8 @@ export default function NewsPage() {
                   <div className="nws-card-overlay" aria-hidden="true" />
                 </div>
                 <div className="nws-card-body">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/LogoWhite.svg" alt="" aria-hidden="true" className="nws-card-watermark" />
                   <span className="nws-card-source">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
