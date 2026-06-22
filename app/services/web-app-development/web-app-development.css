@@ -90,8 +90,6 @@
 .wad-intro-2col-right {
   background: #0d0d20;
   justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 .wad-intro-2col-right .wad-para {
   color: rgba(255,255,255,0.8);
