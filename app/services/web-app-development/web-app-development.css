@@ -68,6 +68,16 @@
 .wad-intro-text { display: flex; flex-direction: column; }
 .wad-intro-text .section-label { margin-bottom: 4px; }
 
+.wad-intro-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+  margin-top: 4px;
+}
+@media (max-width: 640px) {
+  .wad-intro-2col { grid-template-columns: 1fr; }
+}
+
 /* ── Stats stack ── */
 .wad-stats-stack {
   display: flex;
