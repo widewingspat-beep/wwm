@@ -175,25 +175,6 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               </a>
             </div>
 
-            {/* Categories */}
-            <div className="blg-widget">
-              <div className="blg-widget-hd">
-                <span className="blg-widget-icon blg-widget-icon--gold">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                </span>
-                <h3>Categories</h3>
-              </div>
-              <ul className="blg-cat-list">
-                {categories.map(cat => (
-                  <li key={cat}>
-                    <button className={`blg-cat-item${activeCategory === cat ? ' blg-cat-item--active' : ''}`} onClick={() => changeCategory(cat)}>
-                      <span>{cat}</span>
-                      <span className="blg-cat-badge">{catCounts[cat] ?? 0}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
           </aside>
         </div>
