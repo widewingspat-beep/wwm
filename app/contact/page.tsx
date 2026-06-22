@@ -5,7 +5,6 @@ import Link from 'next/link';
 import './contact.css';
 
 export default function ContactPage() {
-  const [activeBudget, setActiveBudget] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -26,7 +25,6 @@ export default function ContactPage() {
     setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1400);
   }
 
-  const budgets = ['Under AED 5K', 'AED 5K – 15K', 'AED 15K – 30K', 'AED 30K – 60K', 'AED 60K+'];
 
   return (
     <main>
@@ -137,12 +135,12 @@ export default function ContactPage() {
                     <p className="form-subtitle anim-fade-up anim-d1">Fill in the details below and our team will get back to you within 24 hours.</p>
                     <form onSubmit={handleSubmit} noValidate>
                       <div className="form-row">
-                        <div className="form-group"><label>Full Name <span>*</span></label><input type="text" className="form-control" placeholder="John Doe" required /></div>
-                        <div className="form-group"><label>Company Name</label><input type="text" className="form-control" placeholder="Your Company" /></div>
+                        <div className="form-group"><label>Full Name <span>*</span></label><input type="text" className="form-control" placeholder="Your Name" required /></div>
+                        <div className="form-group"><label>Email Address <span>*</span></label><input type="email" className="form-control" placeholder="Email" required /></div>
                       </div>
-                      <div className="form-row">
-                        <div className="form-group"><label>Email Address <span>*</span></label><input type="email" className="form-control" placeholder="you@company.com" required /></div>
-                        <div className="form-group"><label>Phone Number</label><input type="tel" className="form-control" placeholder="+971 50 000 0000" /></div>
+                      <div className="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" className="form-control" placeholder="Phone" />
                       </div>
                       <div className="form-group">
                         <label>Service Interested In <span>*</span></label>
@@ -159,14 +157,6 @@ export default function ContactPage() {
                           <option>Full-Service Package</option>
                           <option>Other</option>
                         </select>
-                      </div>
-                      <div className="form-group">
-                        <label>Estimated Budget</label>
-                        <div className="budget-chips">
-                          {budgets.map(b => (
-                            <button key={b} type="button" className={`budget-chip${activeBudget === b ? ' active' : ''}`} onClick={() => setActiveBudget(b)}>{b}</button>
-                          ))}
-                        </div>
                       </div>
                       <div className="form-group">
                         <label>Your Message <span>*</span></label>
