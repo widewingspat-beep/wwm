@@ -13,6 +13,42 @@
 }
 .wad-para:last-child { margin-bottom: 0; }
 
+/* ── Paragraph separators in expertise column ── */
+.wad-expertise-left .wad-para {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.wad-expertise-left .wad-para:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+/* Accent dot at start of each paragraph separator */
+.wad-expertise-left .wad-para:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #a73184, #cfa821);
+  border-radius: 2px;
+}
+
+/* Same treatment inside the medical card */
+.wad-medical-card .wad-para {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f5edf9;
+}
+.wad-medical-card .wad-para:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .wad-stat-val,
 .wad-subheading,
 .wad-hosting-card h3,
