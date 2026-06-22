@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <LogoWhite width={160} height={52} />
+              <LogoWhite width={160} height={52} uid="ftr" />
             </div>
             <p className="footer-tagline">
               We specialize in connecting communities and ideas that turn your vision into a reality. Dubai&apos;s leading digital marketing agency for the UAE and GCC market.

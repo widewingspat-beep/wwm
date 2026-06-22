@@ -49,7 +49,7 @@ export default function Header() {
     <header ref={headerRef} id="site-header">
       <div className="header-inner">
       <Link href="/" className="nav-logo">
-        <LogoWhite width={160} height={64} className="logo-white" />
+        <LogoWhite width={160} height={64} className="logo-white" uid="hdr" />
         <Image src="/Logoblack.webp" alt="Wide Wings Media" width={160} height={64} priority className="logo-dark" />
       </Link>
       <nav id="site-nav" ref={navRef}>
