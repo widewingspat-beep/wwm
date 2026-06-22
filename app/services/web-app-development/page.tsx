@@ -10,7 +10,6 @@ const WHAT_WE_DO = [
   { num: '03', title: 'Content creation for websites', desc: 'We produce written content, photos, and videos that support your digital presence.' },
   { num: '04', title: 'Full website design services', desc: 'We design award-winning websites that improve reputation and increase sales.' },
   { num: '05', title: 'Transparent pricing', desc: 'Clear pricing and custom solutions tailored to your business goals and industry.' },
-  { num: '06', title: 'Medical & healthcare websites', desc: 'We are the best medical web design company in Dubai, creating patient-friendly websites for doctors and dental practices.' },
 ];
 
 const FAQS = [
@@ -251,6 +250,13 @@ export default function WebAppDevelopmentPage() {
                 <p className="cb-svc-desc">{s.desc}</p>
               </div>
             ))}
+            <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
+              <p className="wad-cta-card-text">Ready to build a website that works as hard as you do?</p>
+              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
+                Free Consultation
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

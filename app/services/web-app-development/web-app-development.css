@@ -178,6 +178,38 @@
 
 .wad-medical-card .wad-para { color: #555; font-size: 0.97rem; }
 
+/* ── 6th card CTA ── */
+.wad-cta-card {
+  background: linear-gradient(135deg, #a73184 0%, #7a2162 100%) !important;
+  border-color: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+.wad-cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(167,49,132,0.35) !important;
+  border-color: transparent !important;
+}
+.wad-cta-card-text {
+  font-family: Nexa, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0;
+}
+.wad-cta-card-btn {
+  background: #fff !important;
+  color: #a73184 !important;
+  font-family: Nexa, sans-serif;
+}
+.wad-cta-card-btn:hover {
+  background: rgba(255,255,255,0.9) !important;
+}
+
 /* ── Hosting grid ── */
 .wad-hosting-grid {
   display: grid;
