@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import './services.css';
 import CtaCanvas from './CtaCanvas';
+import ServiceShowcase from './ServiceShowcase';
 
 const SERVICES = [
   {
@@ -186,19 +187,9 @@ export default function ServicesPage() {
             <div data-reveal className="svc-list-heading">
               <strong className="svc-lh-main">Digital Marketing Services</strong>
             </div>
-            {/* 3-image cinematic collage */}
-            <div data-reveal data-reveal-delay="100" className="svc-collage">
-              <div className="svc-collage-main">
-                <img src="/img1.jpg" alt="Digital strategy" />
-              </div>
-              <div className="svc-collage-side">
-                <div className="svc-collage-sm">
-                  <img src="/img2.jpg" alt="Dubai business" />
-                </div>
-                <div className="svc-collage-sm">
-                  <img src="/img3.jpg" alt="Brand marketing" />
-                </div>
-              </div>
+            {/* Animated service showcase */}
+            <div data-reveal data-reveal-delay="100">
+              <ServiceShowcase />
             </div>
             <p data-reveal data-reveal-delay="200" className="svc-list-desc">
               Use digital marketing services that are based on data to make your brand stronger.

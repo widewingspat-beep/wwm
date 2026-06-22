@@ -407,6 +407,20 @@
   line-height: 1.1;
 }
 
+/* ── ANIMATED SERVICE SHOWCASE ── */
+.svc-showcase-wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.svc-showcase-canvas {
+  display: block;
+  width: 100%;
+  height: 340px;
+}
+
 /* 3-image cinematic collage */
 .svc-collage {
   display: grid;
