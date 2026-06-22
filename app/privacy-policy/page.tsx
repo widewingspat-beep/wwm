@@ -377,7 +377,7 @@ export default function PrivacyPolicyPage() {
           <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 24 }}>Table of Contents</h2>
           <ul style={{ columns: 3, columnGap: 32, paddingLeft: 0, margin: 0, listStyle: 'none' }}>
             {sections.map(s => (
-              <li key={s.id} style={{ marginBottom: 10, breakInside: 'avoid' }}>
+              <li key={s.id} style={{ marginBottom: 4, breakInside: 'avoid' }}>
                 <a href={`#${s.id}`} style={{ fontFamily: 'Calibri, sans-serif', fontSize: '0.95rem', color: '#4a5568', textDecoration: 'none', lineHeight: 1.5 }}>
                   {s.title}
                 </a>
