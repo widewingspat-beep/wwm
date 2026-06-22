@@ -384,6 +384,16 @@
 }
 .au-fs-top .role { color: var(--au-gold); }
 
+.au-fs-role {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #cfa821;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
 .au-fs-name {
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-size: clamp(36px, 4vw, 64px);

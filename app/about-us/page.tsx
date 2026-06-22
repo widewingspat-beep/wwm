@@ -329,6 +329,7 @@ export default function AboutUsPage() {
             <div className="au-fc-panel">
               <div className="au-fc-watermark">WIDE WINGS</div>
               <div className="au-fs-name">Reem Osman</div>
+              <div className="au-fs-role">CEO &amp; FOUNDER</div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
                   <blockquote>&ldquo;As the CEO of Wide Wings Media, I carry the responsibility of every brand that puts its trust in us.&rdquo;</blockquote>
@@ -349,6 +350,7 @@ export default function AboutUsPage() {
             <div className="au-fc-panel">
               <div className="au-fc-watermark">WIDE WINGS</div>
               <div className="au-fs-name">Seham Batterjee</div>
+              <div className="au-fs-role">FOUNDER</div>
               <div className="au-fs-middle">
                 <div className="au-fs-quote">
                   <blockquote>&ldquo;I built Wide Wings Media because I believe great marketing should never feel like guesswork.&rdquo;</blockquote>
