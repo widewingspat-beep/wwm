@@ -393,6 +393,7 @@ select.form-control option { background: #fff; color: #111; }
   .form-wrapper { padding: 32px 24px; }
   .form-row { grid-template-columns: 1fr; }
   .form-submit-row { flex-direction: column; align-items: flex-start; }
-  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions { flex-direction: row; flex-wrap: nowrap; gap: 12px; }
+  .btn-cta-primary, .btn-cta-outline { padding: 16px 20px; font-size: 0.68rem; flex: 1; justify-content: center; }
   .map-container { height: 320px; }
 }
