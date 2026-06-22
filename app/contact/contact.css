@@ -51,6 +51,19 @@
   100% { transform: translate(-50%,-50%) scale(1.1); opacity: 0.45; }
 }
 @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.4); } }
+.contact-hero-sparks { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.contact-spark {
+  position: absolute;
+  width: var(--sz, 3px); height: var(--sz, 3px);
+  border-radius: 50%;
+  background: var(--sc, #fff);
+  opacity: 0;
+  animation: sparkBlink var(--sd, 2.5s) ease-in-out infinite var(--dl, 0s);
+}
+@keyframes sparkBlink {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50%       { opacity: var(--op, 0.7); transform: scale(1); }
+}
 .hero-inner { position: relative; z-index: 3; width: 100%; max-width: 860px; margin: 0 auto; padding: 140px 40px 80px; display: flex; flex-direction: column; align-items: center; }
 .hero-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(207,168,33,.4); padding: 7px 18px; margin-bottom: 28px; background: rgba(207,168,33,.07); }
 .hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }

@@ -53,6 +53,24 @@ export default function ContactPage() {
       {/* HERO */}
       <section id="contact-hero">
         <div className="contact-hero-blob"></div>
+        <div className="contact-hero-sparks" aria-hidden="true">
+          {[
+            { l:'12%', t:'18%', c:'#FF6B5B', sz:'3px', op:0.65, sd:'2.1s', dl:'0s'   },
+            { l:'28%', t:'72%', c:'#FFA94D', sz:'4px', op:0.6,  sd:'3.0s', dl:'0.5s' },
+            { l:'45%', t:'15%', c:'#FFD166', sz:'3px', op:0.55, sd:'2.6s', dl:'1.1s' },
+            { l:'60%', t:'80%', c:'#06D6A0', sz:'3px', op:0.6,  sd:'2.8s', dl:'0.3s' },
+            { l:'73%', t:'30%', c:'#4CC9F0', sz:'4px', op:0.65, sd:'2.3s', dl:'0.8s' },
+            { l:'85%', t:'65%', c:'#9B5DE5', sz:'3px', op:0.55, sd:'3.2s', dl:'0.2s' },
+            { l:'18%', t:'45%', c:'#FF6B5B', sz:'2px', op:0.5,  sd:'2.5s', dl:'1.4s' },
+            { l:'52%', t:'55%', c:'#FFA94D', sz:'2px', op:0.5,  sd:'2.9s', dl:'0.7s' },
+            { l:'38%', t:'88%', c:'#4CC9F0', sz:'3px', op:0.6,  sd:'2.2s', dl:'1.8s' },
+            { l:'78%', t:'12%', c:'#FFD166', sz:'2px', op:0.5,  sd:'3.4s', dl:'0.4s' },
+            { l:'90%', t:'42%', c:'#06D6A0', sz:'3px', op:0.55, sd:'2.7s', dl:'1.2s' },
+            { l:'6%',  t:'60%', c:'#9B5DE5', sz:'2px', op:0.5,  sd:'2.4s', dl:'0.9s' },
+          ].map((s, i) => (
+            <div key={i} className="contact-spark" style={{ left:s.l, top:s.t, '--sc':s.c, '--sz':s.sz, '--op':s.op, '--sd':s.sd, '--dl':s.dl } as React.CSSProperties} />
+          ))}
+        </div>
         <div className="hero-inner">
           <div className="hero-badge">
             <div className="hero-badge-dot"></div>
