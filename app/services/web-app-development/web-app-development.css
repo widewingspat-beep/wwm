@@ -91,9 +91,16 @@
 
 .wad-watermark {
   margin-top: auto;
-  padding-top: 32px;
-  opacity: 0.08;
-  filter: grayscale(1);
+  padding-top: 24px;
+  font-family: Nexa, sans-serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(167,49,132,0.12);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
 }
 .wad-intro-2col-right {
   background: #0d0d20;

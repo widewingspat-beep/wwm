@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import LogoWhite from '../../../components/LogoWhite';
 import '../services.css';
 import '../service-page.css';
 import './web-app-development.css';
@@ -164,9 +163,7 @@ export default function WebAppDevelopmentPage() {
             <div className="wad-intro-2col-left">
               <p className="wad-para">We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.</p>
               <p className="wad-para">As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.</p>
-              <div className="wad-watermark" aria-hidden="true">
-                <LogoWhite width={200} height={80} uid="wad-wm" />
-              </div>
+              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
             </div>
             <div className="wad-intro-2col-right">
               <p className="wad-para">Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.</p>
