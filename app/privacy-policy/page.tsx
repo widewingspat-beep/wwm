@@ -340,8 +340,8 @@ export default function PrivacyPolicyPage() {
       {/* Hero */}
       <section style={{ position: 'relative', background: '#0d0d20', padding: '140px 0 80px', overflow: 'hidden' }}>
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 60% at 30% 50%, rgba(167,49,132,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <nav style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Calibri, sans-serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', marginBottom: 20 }} aria-label="breadcrumb">
+        <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontFamily: 'Calibri, sans-serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', marginBottom: 20 }} aria-label="breadcrumb">
             <Link href="/" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Home</Link>
             <span style={{ color: 'rgba(255,255,255,0.25)' }}>/</span>
             <span>Privacy Policy</span>
@@ -364,7 +364,7 @@ export default function PrivacyPolicyPage() {
           <section
             key={s.id}
             id={s.id}
-            style={{ marginBottom: 48, paddingBottom: 48, borderBottom: '1px solid #ebebeb' }}
+            style={{ marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #ebebeb' }}
           >
             <h2 style={{ fontFamily: 'Nexa, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#1a1a2e', marginBottom: 16 }}>
               {s.title}
