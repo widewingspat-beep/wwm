@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ServiceFlipText from '@/components/ServiceFlipText';
+import LogoWhite from '@/components/LogoWhite';
 import './home.css';
 
 export default function HomePage() {
@@ -210,7 +211,7 @@ export default function HomePage() {
             <div className="hero-logo-display">
               <div className="hero-orbit hero-orbit-1"><div className="orbit-dot od1"></div><div className="orbit-dot od2"></div><div className="orbit-dot od3"></div></div>
               <div className="hero-orbit hero-orbit-2"></div>
-              <Image src="/LogoWhite.svg" alt="Wide Wings Media" width={340} height={340} priority />
+              <LogoWhite width={340} height={340} uid="hero" />
             </div>
           </div>
         </div>
