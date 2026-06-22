@@ -290,10 +290,6 @@ export default function ServiceShowcase() {
         <div className="cwc-bar" style={{ width: `${prog}%` }} />
       </div>
 
-      <div className="cwc-nav">
-        <button onClick={() => goTo(cur - 1)}>← Prev</button>
-        <button onClick={() => goTo(cur + 1)}>Next →</button>
-      </div>
     </div>
   );
 }
