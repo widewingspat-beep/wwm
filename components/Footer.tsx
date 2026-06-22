@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import LogoWhite from './LogoWhite';
 
 export default function Footer() {
   const [visible, setVisible] = useState(false);
@@ -48,7 +49,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <Image src="/LogoWhite.svg" alt="Wide Wings Media" width={160} height={52} />
+              <LogoWhite width={160} height={52} />
             </div>
             <p className="footer-tagline">
               We specialize in connecting communities and ideas that turn your vision into a reality. Dubai&apos;s leading digital marketing agency for the UAE and GCC market.
