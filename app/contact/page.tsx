@@ -1,12 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import './contact.css';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  function handleCard3D(e: MouseEvent<HTMLDivElement>) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 22;
+    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 22;
+    card.style.transform = `perspective(600px) rotateX(${y}deg) rotateY(${x}deg) translateY(-6px) scale(1.03)`;
+  }
+  function resetCard3D(e: MouseEvent<HTMLDivElement>) {
+    e.currentTarget.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -58,44 +69,43 @@ export default function ContactPage() {
               <h2 className="contact-info-h2 anim-fade-up anim-d1">Quick <span className="gradient-text">Connect</span></h2>
               <p className="contact-info-desc anim-fade-up anim-d2">We reply to all inquiries within 24 hours.</p>
 
-              <div className="info-cards">
-                <div className="info-card anim-fade-up anim-d2">
-                  <div className="info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" color="#a73184">
+              <div className="info-cards-3d">
+                <div className="card-3d anim-fade-up anim-d2" onMouseMove={handleCard3D} onMouseLeave={resetCard3D}>
+                  <div className="card-3d-glow" />
+                  <div className="card-3d-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
                     </svg>
                   </div>
-                  <div className="info-content">
-                    <div className="info-label">Our Location</div>
-                    <div className="info-value">Wide Wings Media, LLC<br/>Al Quoz Industrial Area 3, Goshi Warehouse City<br/>Warehouse #47, Dubai, United Arab Emirates</div>
-                  </div>
+                  <div className="card-3d-label">Our Location</div>
+                  <div className="card-3d-value">Wide Wings Media, LLC<br/>Al Quoz Industrial Area 3<br/>Warehouse #47, Dubai, UAE</div>
                 </div>
-                <div className="info-card anim-fade-up anim-d3">
-                  <div className="info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" color="#a73184">
+
+                <div className="card-3d anim-fade-up anim-d3" onMouseMove={handleCard3D} onMouseLeave={resetCard3D}>
+                  <div className="card-3d-glow" />
+                  <div className="card-3d-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/>
                     </svg>
                   </div>
-                  <div className="info-content">
-                    <div className="info-label">Phone / WhatsApp</div>
-                    <div className="info-value">
-                      <a href="tel:+97143352645">+971 4 335 2645</a><br/>
-                      <a href="tel:+971555657609">+971 55 565 7609</a><br/>
-                      <a href="https://wa.me/971555657609">WhatsApp Us Directly →</a>
-                    </div>
+                  <div className="card-3d-label">Phone / WhatsApp</div>
+                  <div className="card-3d-value">
+                    <a href="tel:+97143352645">+971 4 335 2645</a><br/>
+                    <a href="tel:+971555657609">+971 55 565 7609</a><br/>
+                    <a href="https://wa.me/971555657609">WhatsApp →</a>
                   </div>
                 </div>
-                <div className="info-card anim-fade-up anim-d4">
-                  <div className="info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" color="#a73184">
+
+                <div className="card-3d anim-fade-up anim-d4" onMouseMove={handleCard3D} onMouseLeave={resetCard3D}>
+                  <div className="card-3d-glow" />
+                  <div className="card-3d-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
                     </svg>
                   </div>
-                  <div className="info-content">
-                    <div className="info-label">Email Address</div>
-                    <div className="info-value">
-                      <a href="mailto:info@wide-wings.ae">info@wide-wings.ae</a>
-                    </div>
+                  <div className="card-3d-label">Email Address</div>
+                  <div className="card-3d-value">
+                    <a href="mailto:info@wide-wings.ae">info@wide-wings.ae</a>
                   </div>
                 </div>
               </div>
