@@ -329,6 +329,38 @@ details[open] .cb-faq-q::after { transform: rotate(45deg); }
 .cb-cta.cb-cta-light {
   background: #ffffff !important;
 }
+
+/* Dot grids for CTA (service-page.css not imported here) */
+.cb-cta-deco { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.cb-cta-deco-dots { position: absolute; width: 160px; height: 160px; background-image: radial-gradient(circle, rgba(167,49,132,0.25) 1.5px, transparent 1.5px); background-size: 18px 18px; }
+.cb-cta-deco-dots--tl { top: 24px; left: 32px; }
+.cb-cta-deco-dots--br { bottom: 24px; right: 32px; opacity: 0.6; }
+.cb-cta-deco-dots--tr { top: 24px; right: 32px; opacity: 0.5; }
+.cb-cta-deco-dots--bl { bottom: 24px; left: 32px; opacity: 0.4; }
+
+/* Floating blob circles */
+.cb-brand-cta-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: cbCtaFloat 6s ease-in-out infinite;
+}
+.cb-brand-cta-circle--1 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(167,49,132,0.12) 0%, transparent 70%);
+  top: -80px; right: 10%;
+  animation-delay: 0s;
+}
+.cb-brand-cta-circle--2 {
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(207,168,33,0.1) 0%, transparent 70%);
+  bottom: -60px; left: 8%;
+  animation-delay: 2s;
+}
+@keyframes cbCtaFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
 .cb-cta.cb-cta-light::before { display: none; }
 .cb-cta.cb-cta-light .cb-cta-h2 { color: #0d0d20; }
 .cb-cta.cb-cta-light .cb-cta-body { color: #555; }

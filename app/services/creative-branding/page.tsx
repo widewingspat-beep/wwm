@@ -347,7 +347,8 @@ export default function CreativeBrandingPage() {
           <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
           <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
           <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
-          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+          <div className="cb-brand-cta-circle cb-brand-cta-circle--1" />
+          <div className="cb-brand-cta-circle cb-brand-cta-circle--2" />
         </div>
         <div className="container cb-cta-inner">
           <span data-reveal className="section-label">Let&apos;s Create</span>
