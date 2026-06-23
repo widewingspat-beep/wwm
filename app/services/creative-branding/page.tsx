@@ -94,19 +94,35 @@ const EXPERTISE = [
 
 const PROCESS = [
   {
-    step: '01',
     title: 'Strategy & Messaging',
     desc: 'Speak your truth through scripts that tell your story and deliver the message. Then we shape the message, build the identity, and roll it out across everything your audience sees.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 12h32M8 20h20M8 28h24M8 36h16"/>
+        <circle cx="38" cy="32" r="7"/>
+        <line x1="38" y1="29" x2="38" y2="35"/><line x1="35" y1="32" x2="41" y2="32"/>
+      </svg>
+    ),
   },
   {
-    step: '02',
     title: 'Feedback & Delivery',
     desc: 'You get exactly what you ask for, we leave safe space for providing feedback, ensuring your vision is perfectly delivered.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 8h36v24H6z"/><polyline points="6,32 18,20 26,28 34,18 42,26"/>
+        <line x1="14" y1="40" x2="34" y2="40"/><line x1="24" y1="32" x2="24" y2="40"/>
+      </svg>
+    ),
   },
   {
-    step: '03',
     title: 'Flexibility & Execution',
     desc: 'Flexibility and punctuality are two sides of our coin, keeping your marketing channels active.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="20"/>
+        <polyline points="24,12 24,24 32,30"/>
+      </svg>
+    ),
   },
 ];
 
@@ -310,9 +326,8 @@ export default function CreativeBrandingPage() {
           </h2>
           <div className="cb-process-grid">
             {PROCESS.map((p, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
-                <div className="cb-process-step">{p.step}</div>
-                <div className="cb-process-line" />
+              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card cb-process-card--center">
+                <div className="cb-process-icon-circle">{p.icon}</div>
                 <h3 className="cb-process-title">{p.title}</h3>
                 <p className="cb-process-desc">{p.desc}</p>
               </div>

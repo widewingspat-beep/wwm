@@ -53,6 +53,32 @@
   .cb-brand-intro-divider { display: none; }
 }
 
+/* ── PROCESS CENTERED WITH ICON CIRCLES ── */
+.cb-process-card--center {
+  text-align: center;
+  align-items: center;
+}
+.cb-process-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(167,49,132,0.15), rgba(207,168,33,0.1));
+  border: 2px solid rgba(167,49,132,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #a73184;
+}
+.cb-process-icon-circle svg {
+  width: 36px;
+  height: 36px;
+}
+.cb-process-card--center .cb-process-title { text-align: center; }
+.cb-process-card--center .cb-process-desc { text-align: center; }
+.cb-section-alt .section-label,
+.cb-section-alt .cb-section-h2 { text-align: center; }
+
 /* ── WHY SECTION DARK ── */
 .cb-brand-why-section {
   background: #1a1a2e !important;
