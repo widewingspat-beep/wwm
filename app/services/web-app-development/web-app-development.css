@@ -322,6 +322,25 @@ details[open] .wad-faq-icon {
   height: 240px;
 }
 
+/* Small moving dot along watermark */
+.wad-cta-moving-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a73184, #cfa821);
+  top: 50%;
+  animation: wadDotTravel 6s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(167,49,132,0.6), 0 0 24px rgba(207,168,33,0.3);
+}
+@keyframes wadDotTravel {
+  0%   { left: 5%;  transform: translateY(-50%) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { left: 95%; transform: translateY(-50%) scale(1.4); }
+  90%  { opacity: 1; }
+  100% { left: 5%;  transform: translateY(-50%) scale(1); opacity: 0; }
+}
+
 /* Wide Wings watermark */
 .wad-cta-watermark {
   position: absolute;
