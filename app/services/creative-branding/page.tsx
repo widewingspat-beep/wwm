@@ -205,7 +205,7 @@ const SPARKS = [
 
 export default function CreativeBrandingPage() {
   return (
-    <>
+    <div className="cb-brand-page">
       {/* ── HERO ── */}
       <section className="svc-hero">
         <div className="svc-hero-blob" aria-hidden="true" />
@@ -362,6 +362,6 @@ export default function CreativeBrandingPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

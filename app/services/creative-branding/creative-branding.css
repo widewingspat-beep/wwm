@@ -53,10 +53,10 @@
   .cb-brand-intro-divider { display: none; }
 }
 
-/* ── FAQ — exact match to web-app-development ── */
-.cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
-.cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
-.cb-faq-item {
+/* ── FAQ — scoped to cb-brand-page, exact match to wad-page ── */
+.cb-brand-page .cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
+.cb-brand-page .cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
+.cb-brand-page .cb-faq-item {
   background: #fff;
   border: 1px solid #ebebeb !important;
   border-bottom: 1px solid #ebebeb !important;
@@ -64,8 +64,8 @@
   padding: 4px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
-.cb-faq-item:first-child { border-top: 1px solid #ebebeb !important; }
-.cb-faq-q {
+.cb-brand-page .cb-faq-item:first-child { border-top: 1px solid #ebebeb !important; }
+.cb-brand-page .cb-faq-q {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,10 +73,14 @@
   list-style: none;
   cursor: pointer;
   gap: 20px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
 }
-.cb-faq-q::-webkit-details-marker { display: none; }
-.cb-faq-q::after { display: none; }
-.wad-faq-icon {
+.cb-brand-page .cb-faq-q::-webkit-details-marker { display: none; }
+.cb-brand-page .cb-faq-q::after { display: none; }
+.cb-brand-page .wad-faq-icon {
   width: 36px; height: 36px;
   border-radius: 50%;
   flex-shrink: 0;
@@ -91,12 +95,8 @@
   font-weight: 300;
   line-height: 1;
 }
-details[open] .wad-faq-icon { transform: rotate(45deg); background: #a73184; }
-@keyframes wadFaqPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(123,45,139,0.4); }
-  50%       { box-shadow: 0 0 0 8px rgba(123,45,139,0); }
-}
-.cb-faq-a { padding-top: 14px; color: #555; line-height: 1.7; margin: 0; }
+.cb-brand-page details[open] .wad-faq-icon { transform: rotate(45deg); background: #a73184; }
+.cb-brand-page .cb-faq-a { padding-top: 14px; color: #555; line-height: 1.7; margin: 0; }
 
 /* ── PROCESS CENTERED WITH ICON CIRCLES ── */
 .cb-process-card--center {
