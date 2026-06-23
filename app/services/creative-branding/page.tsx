@@ -290,7 +290,7 @@ export default function CreativeBrandingPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
+                <summary className="cb-faq-q">{f.q}<span className="wad-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}

@@ -53,33 +53,30 @@
   .cb-brand-intro-divider { display: none; }
 }
 
-/* ── FAQ BOX STYLE ── */
+/* ── FAQ — exact match to web-app-development ── */
 .cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
-.cb-faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+.cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
 .cb-faq-item {
   background: #fff;
   border: 1px solid #ebebeb !important;
+  border-bottom: 1px solid #ebebeb !important;
   border-radius: 12px;
   padding: 4px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  list-style: none;
 }
-.cb-faq-item[open] { border-color: rgba(167,49,132,0.3) !important; }
+.cb-faq-item:first-child { border-top: 1px solid #ebebeb !important; }
 .cb-faq-q {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  gap: 20px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #0d0d20;
   list-style: none;
+  cursor: pointer;
+  gap: 20px;
 }
 .cb-faq-q::-webkit-details-marker { display: none; }
 .cb-faq-q::after { display: none; }
-.cb-faq-icon {
+.wad-faq-icon {
   width: 36px; height: 36px;
   border-radius: 50%;
   flex-shrink: 0;
@@ -87,17 +84,17 @@
   align-items: center;
   justify-content: center;
   background: #7b2d8b;
-  animation: cbFaqPulse 2.5s ease-in-out infinite;
+  animation: wadFaqPulse 2.5s ease-in-out infinite;
   transition: transform 0.3s ease;
   color: #fff;
   font-size: 1.3rem;
   font-weight: 300;
   line-height: 1;
 }
-details[open] .cb-faq-icon { transform: rotate(45deg); background: #a73184; }
-@keyframes cbFaqPulse {
+details[open] .wad-faq-icon { transform: rotate(45deg); background: #a73184; }
+@keyframes wadFaqPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(123,45,139,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(123,45,139,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(123,45,139,0); }
 }
 .cb-faq-a { padding-top: 14px; color: #555; line-height: 1.7; margin: 0; }
 
