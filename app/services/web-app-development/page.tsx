@@ -228,10 +228,10 @@ export default function WebAppDevelopmentPage() {
       {/* ── What We Deliver ── */}
       <section className="cb-section wad-deliver-section">
         <div className="container">
-          <h2 data-reveal className="cb-section-h2">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
           <div className="wad-deliver-2col">
-            {/* Col 1 — small: cards 01 & 02 */}
+            {/* Col 1 — small: title + cards 01 & 02 */}
             <div className="wad-deliver-col-small">
+              <h2 data-reveal className="cb-section-h2wad">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
               {WHAT_WE_DO.slice(0, 2).map((s, i) => (
                 <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
                   <div className="cb-svc-num">{s.num}</div>
