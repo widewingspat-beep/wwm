@@ -1,5 +1,19 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* ── Deliver section — deep grey ── */
+.wad-deliver-section {
+  background: #1a1a2e !important;
+}
+.wad-deliver-section .cb-section-h2 { color: #ffffff; }
+.wad-deliver-section .cb-svc-card {
+  background: #252540;
+  border-color: rgba(255,255,255,0.08);
+}
+.wad-deliver-section .cb-svc-num { color: #a73184; }
+.wad-deliver-section .cb-svc-title { color: #ffffff; }
+.wad-deliver-section .cb-svc-desc { color: rgba(255,255,255,0.6); }
+.wad-deliver-section .wad-deliver-line { background: rgba(255,255,255,0.1); }
+
 /* ── CTA — white background override ── */
 .wad-cta-white.cb-cta {
   background: #ffffff;

@@ -226,7 +226,7 @@ export default function WebAppDevelopmentPage() {
       </section>
 
       {/* ── What We Deliver ── */}
-      <section className="cb-section">
+      <section className="cb-section wad-deliver-section">
         <div className="container">
           <h2 data-reveal className="cb-section-h2">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
           <div className="cb-services-grid">
