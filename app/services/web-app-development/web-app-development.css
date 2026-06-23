@@ -325,7 +325,7 @@ details[open] .wad-faq-icon {
 /* Logo background on inner CTA card */
 .wad-cta-card-logo {
   position: absolute;
-  right: -10px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   width: 160px;
