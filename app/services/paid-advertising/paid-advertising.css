@@ -109,6 +109,52 @@
 @media (max-width: 768px) {
   .pad-expertise-2col { grid-template-columns: 1fr; }
 }
+
+/* ── PERFORMANCE SECTION ── */
+.pad-perf-desc {
+  font-family: Calibri, sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 32px;
+  max-width: 700px;
+}
+.pad-perf-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.pad-perf-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.pad-perf-dot {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a73184, #cfa821);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.pad-perf-point p {
+  font-family: Calibri, sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .pad-perf-points { grid-template-columns: 1fr; }
+}
 .svc-hero-h1,
 .cb-section-h2,
 .cb-cta-h2 {

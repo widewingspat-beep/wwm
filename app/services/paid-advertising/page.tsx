@@ -156,8 +156,8 @@ export default function PaidAdvertisingPage() {
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Expertise &amp; Insights</span>
-          <h2 data-reveal className="cb-section-h2">Google Ads tailored to your <span className="gradient-text">business and customers</span></h2>
+          <span data-reveal className="section-label" style={{display:'block', textAlign:'center'}}>Expertise &amp; Insights</span>
+          <h2 data-reveal className="cb-section-h2" style={{textAlign:'center'}}>Google Ads tailored to your <span className="gradient-text">business and customers</span></h2>
           <div className="pad-expertise-2col">
             {[EXPERTISE.slice(0,3), EXPERTISE.slice(3)].map((col, ci) => (
               <div key={ci} className="pad-expertise-col">
@@ -197,26 +197,23 @@ export default function PaidAdvertisingPage() {
         <div className="container">
           <span data-reveal className="section-label">Performance</span>
           <h2 data-reveal className="cb-section-h2">Turn 1 AED into 15 AED with <span className="gradient-text">Expert Google Ads Strategy</span></h2>
-          <div className="wad-expertise-split">
-            <div data-reveal className="wad-expertise-left">
-              <p className="wad-para">Our PPC agency handles planning, execution, and management of PPC campaigns to help businesses scale profitably.</p>
-              <p className="wad-para">Wide Wings Media provides a complete PPC management system that supports long-term growth.</p>
-              <p className="wad-para">Many agencies struggle with Google Ads, but our decade-long experience allows us to deliver exceptional returns.</p>
-            </div>
-            <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
-              <div className="wad-medical-card">
-                <div className="wad-medical-card-header">
-                  <div className="wad-medical-icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6,38 18,26 28,32 42,14"/>
-                      <polyline points="34,14 42,14 42,22"/>
-                    </svg>
-                  </div>
-                  <h3>We treat Google Ads as a business growth engine, not just an advertising platform.</h3>
+          <p data-reveal className="pad-perf-desc">Our PPC agency handles planning, execution, and management of PPC campaigns to help businesses scale profitably.</p>
+          <div className="pad-perf-points">
+            {[
+              'Wide Wings Media provides a complete PPC management system that supports long-term growth.',
+              'Many agencies struggle with Google Ads, but our decade-long experience allows us to deliver exceptional returns.',
+              'We treat Google Ads as a business growth engine, not just an advertising platform.',
+              'Our strategic PPC approach ensures your ads reach the right users at the right time to maximize conversions.',
+            ].map((point, i) => (
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="pad-perf-point">
+                <div className="pad-perf-dot">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
                 </div>
-                <p className="wad-para">Our strategic PPC approach ensures your ads reach the right users at the right time to maximize conversions.</p>
+                <p>{point}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
