@@ -199,19 +199,15 @@ export default function PaidAdvertisingPage() {
           <h2 data-reveal className="cb-section-h2">Turn 1 AED into 15 AED with <span className="gradient-text">Expert Google Ads Strategy</span></h2>
           <p data-reveal className="pad-perf-desc">Our PPC agency handles planning, execution, and management of PPC campaigns to help businesses scale profitably.</p>
           <div className="pad-perf-points">
-            {[
-              'Wide Wings Media provides a complete PPC management system that supports long-term growth.',
-              'Many agencies struggle with Google Ads, but our decade-long experience allows us to deliver exceptional returns.',
-              'We treat Google Ads as a business growth engine, not just an advertising platform.',
-              'Our strategic PPC approach ensures your ads reach the right users at the right time to maximize conversions.',
-            ].map((point, i) => (
+            {([
+              { text: 'Wide Wings Media provides a complete PPC management system that supports long-term growth.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> },
+              { text: 'Many agencies struggle with Google Ads, but our decade-long experience allows us to deliver exceptional returns.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> },
+              { text: 'We treat Google Ads as a business growth engine, not just an advertising platform.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> },
+              { text: 'Our strategic PPC approach ensures your ads reach the right users at the right time to maximize conversions.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> },
+            ] as {text:string, icon:React.ReactNode}[]).map((item, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="pad-perf-point">
-                <div className="pad-perf-dot">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                </div>
-                <p>{point}</p>
+                <div className="pad-perf-dot">{item.icon}</div>
+                <p>{item.text}</p>
               </div>
             ))}
           </div>
