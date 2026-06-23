@@ -94,6 +94,17 @@
 .svc-breadcrumb a:hover { color: #FF6B5B; }
 .svc-breadcrumb span:last-child { color: #FF6B5B; }
 .svc-bc-sep { opacity: 0.35; }
+
+.svc-hero-eyebrow {
+  font-family: Nexa, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FF6B5B;
+  margin: 0 0 14px;
+}
+
 .svc-hero-h1 {
   font-family: 'Nexa','Calibri',sans-serif;
   font-size: clamp(2.6rem, 5vw, 4.2rem);

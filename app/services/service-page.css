@@ -36,6 +36,15 @@
   margin: 0 0 52px;
 }
 
+.cb-section-lead {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.75;
+  margin-top: -36px;
+  margin-bottom: 40px;
+}
+
 /* ── WHAT WE DO GRID ── */
 .cb-services-grid {
   display: grid;

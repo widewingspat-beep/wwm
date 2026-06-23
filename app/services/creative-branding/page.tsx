@@ -7,27 +7,27 @@ const WHAT_WE_DO = [
   {
     num: '01',
     title: 'Brand Strategy',
-    desc: 'We define how your brand thinks, speaks, and shows up. Positioning, tone of voice, messaging frameworks — built to last.',
+    desc: 'We define how your brand thinks, speaks, and shows up. Positioning, tone of voice, messaging frameworks, built to last.',
   },
   {
     num: '02',
     title: 'Visual Identity & Design',
-    desc: 'We create identities that are consistent, memorable, and flexible — logo design, brand guidelines, and full visual systems.',
+    desc: 'We create identities that are consistent, memorable, and flexible.',
   },
   {
     num: '03',
-    title: 'Logo Design',
-    desc: 'Brand guidelines, social media design system, packaging & print assets, and graphic design services. Make the first thing your audience views stand out.',
+    title: 'Logo Design Services',
+    desc: 'Brand guidelines, social media design system, packaging & print assets, and graphic design services. Make the first thing your audience view stand out.',
   },
   {
     num: '04',
     title: 'Strategic Branding',
-    desc: 'Every decision we make ties back to how your brand performs in the real world — competitive analysis, brand audits, and positioning.',
+    desc: 'Every decision we make ties back to how your brand performs in the real world.',
   },
   {
     num: '05',
-    title: 'Clarity & Creative Impact',
-    desc: 'Marketing creatives, campaign visuals, digital & social assets, presentation design, brochure & print design — and everything in between.',
+    title: 'Clarity and Impact',
+    desc: 'Marketing creatives, campaign visuals, digital & social assets, presentation design, brochure & print design, and of course,',
   },
 ];
 
@@ -70,7 +70,7 @@ const EXPERTISE = [
   },
   {
     title: 'Design Evolution',
-    desc: 'We keep up with evolving design trends to ensure your brand consistently feels fresh, current, and aligned with market expectations.',
+    desc: 'Your brand is growing? We keep up with evolving design trends to ensure your brand consistently feels fresh, current, and aligned with market expectations.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 24a16 16 0 1 1 32 0"/>
@@ -96,17 +96,17 @@ const PROCESS = [
   {
     step: '01',
     title: 'Strategy & Messaging',
-    desc: 'Speak your truth through scripts that tell your story and deliver the message. Then we shape the identity and roll it out across everything your audience sees.',
+    desc: 'Speak your truth through scripts that tell your story and deliver the message. Then we shape the message, build the identity, and roll it out across everything your audience sees.',
   },
   {
     step: '02',
     title: 'Feedback & Delivery',
-    desc: 'You get exactly what you ask for. We leave safe space for providing feedback, ensuring your vision is perfectly delivered.',
+    desc: 'You get exactly what you ask for, we leave safe space for providing feedback, ensuring your vision is perfectly delivered.',
   },
   {
     step: '03',
     title: 'Flexibility & Execution',
-    desc: 'Flexibility and punctuality are two sides of our coin, keeping your marketing channels active and your brand always on.',
+    desc: 'Flexibility and punctuality are two sides of our coin, keeping your marketing channels active.',
   },
 ];
 
@@ -134,7 +134,7 @@ const WHY_US = [
   },
   {
     title: 'Full-Service Agency',
-    desc: 'We extend your new brand into web, social, and marketing campaigns seamlessly.',
+    desc: 'We can extend your new brand into web, social, and marketing campaigns seamlessly.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="4" width="18" height="18" rx="2"/><rect x="26" y="4" width="18" height="18" rx="2"/>
@@ -144,7 +144,7 @@ const WHY_US = [
   },
   {
     title: 'Market Expertise',
-    desc: 'We understand the Dubai and GCC market nuances, ensuring cultural relevance across every campaign.',
+    desc: 'We understand the Dubai and GCC market nuances, ensuring cultural relevance.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="24" cy="24" r="20"/>
@@ -158,19 +158,19 @@ const WHY_US = [
 const FAQS = [
   {
     q: 'What is included in a branding package?',
-    a: 'Our packages typically include logo design, colour palette, typography, brand voice guidelines, and stationery design. We also offer extended packages covering social media design systems, packaging, and full brand guidelines.',
+    a: 'Our packages typically include logo design, color palette, typography, brand voice guidelines, and stationery design.',
   },
   {
     q: 'How long does the branding process take?',
-    a: 'A typical branding project takes between 3 to 6 weeks depending on scope and complexity. We provide a clear timeline at the start of every project so you always know what to expect.',
+    a: 'A comprehensive branding project usually takes 4-8 weeks, depending on the scope and number of deliverables.',
   },
   {
     q: 'Do you offer re-branding services?',
-    a: 'Yes. Whether you need a full rebrand or a brand refresh, we audit your existing identity, identify what is working, and evolve your brand without losing equity you have already built.',
+    a: 'Yes. We specialize in revitalizing existing brands to make them relevant for modern audiences.',
   },
   {
     q: 'Can you help with naming my business?',
-    a: 'Absolutely. Our brand strategy team offers naming services including name development, trademark consideration guidance, and domain availability checks to help you launch with confidence.',
+    a: 'Absolutely. We offer naming services that include linguistic checks and availability research.',
   },
 ];
 
@@ -206,13 +206,12 @@ export default function CreativeBrandingPage() {
             <span className="svc-bc-sep">/</span>
             <span>Creative &amp; Branding</span>
           </nav>
+          <p className="svc-hero-eyebrow">Visionary</p>
           <h1 className="svc-hero-h1">
-            Build a brand people<br />
-            <em>don&apos;t scroll past</em>
+            Build a brand people don&apos;t scroll past
           </h1>
           <p className="svc-hero-sub">
-            Not every brand needs more noise — most need clarity. We create brands that look sharp,
-            speak clearly, and actually perform, from strategy to design and content.
+            We create brands that look sharp, speak clearly, and actually perform, from strategy to design and content.
           </p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
@@ -227,7 +226,7 @@ export default function CreativeBrandingPage() {
       {/* ── INTRO BAND ── */}
       <div data-reveal className="cb-intro-band">
         <p className="cb-intro-text">
-          Design isn&apos;t decoration — it&apos;s communication. We deliver graphic design services in Dubai and across the MENA region.
+          Not every brand needs more noise. Most need clarity.
         </p>
       </div>
 
@@ -236,8 +235,9 @@ export default function CreativeBrandingPage() {
         <div className="container">
           <span data-reveal className="section-label">What We Do</span>
           <h2 data-reveal className="cb-section-h2">
-            Soar your persona through <span className="gradient-text">branding</span>
+            Design isn&apos;t decoration — it&apos;s <span className="gradient-text">communication</span>
           </h2>
+          <p data-reveal className="cb-section-lead">We deliver graphic design services in Dubai and all around the MENA region.</p>
           <div className="cb-services-grid">
             {WHAT_WE_DO.map((s, i) => (
               <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
@@ -255,7 +255,7 @@ export default function CreativeBrandingPage() {
         <div className="container">
           <span data-reveal className="section-label">Expertise &amp; Insights</span>
           <h2 data-reveal className="cb-section-h2">
-            Built on <span className="gradient-text">creative excellence</span>
+            Soar your persona through <span className="gradient-text">branding</span>
           </h2>
           <div className="cb-expertise-grid">
             {EXPERTISE.map((e, i) => (
@@ -263,45 +263,6 @@ export default function CreativeBrandingPage() {
                 <div className="cb-expertise-icon">{e.icon}</div>
                 <h3 className="cb-expertise-title">{e.title}</h3>
                 <p className="cb-expertise-desc">{e.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PROCESS ── */}
-      <section className="cb-section">
-        <div className="container">
-          <span data-reveal className="section-label">Our Process</span>
-          <h2 data-reveal className="cb-section-h2">
-            Wide Wings gives you <span className="gradient-text">wings!</span>
-          </h2>
-          <div className="cb-process-grid">
-            {PROCESS.map((p, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
-                <div className="cb-process-step">{p.step}</div>
-                <div className="cb-process-line" />
-                <h3 className="cb-process-title">{p.title}</h3>
-                <p className="cb-process-desc">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY WIDE WINGS ── */}
-      <section className="cb-section cb-section-alt">
-        <div className="container">
-          <span data-reveal className="section-label">Why Choose Us</span>
-          <h2 data-reveal className="cb-section-h2">
-            Why choose Wide Wings for <span className="gradient-text">branding?</span>
-          </h2>
-          <div className="cb-why-grid">
-            {WHY_US.map((w, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-why-card">
-                <div className="cb-why-icon">{w.icon}</div>
-                <h3 className="cb-why-title">{w.title}</h3>
-                <p className="cb-why-desc">{w.desc}</p>
               </div>
             ))}
           </div>
@@ -326,6 +287,45 @@ export default function CreativeBrandingPage() {
         </div>
       </section>
 
+      {/* ── PROCESS ── */}
+      <section className="cb-section cb-section-alt">
+        <div className="container">
+          <span data-reveal className="section-label">Our Process</span>
+          <h2 data-reveal className="cb-section-h2">
+            Wide Wings gives you <span className="gradient-text">wings!</span>
+          </h2>
+          <div className="cb-process-grid">
+            {PROCESS.map((p, i) => (
+              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
+                <div className="cb-process-step">{p.step}</div>
+                <div className="cb-process-line" />
+                <h3 className="cb-process-title">{p.title}</h3>
+                <p className="cb-process-desc">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY WIDE WINGS ── */}
+      <section className="cb-section">
+        <div className="container">
+          <span data-reveal className="section-label">Why Choose Us</span>
+          <h2 data-reveal className="cb-section-h2">
+            Why choose Wide Wings for <span className="gradient-text">branding?</span>
+          </h2>
+          <div className="cb-why-grid">
+            {WHY_US.map((w, i) => (
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-why-card">
+                <div className="cb-why-icon">{w.icon}</div>
+                <h3 className="cb-why-title">{w.title}</h3>
+                <p className="cb-why-desc">{w.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="cb-cta">
         <div className="container cb-cta-inner">
@@ -334,12 +334,11 @@ export default function CreativeBrandingPage() {
             Build a brand that<br /><span className="gradient-text">actually works.</span>
           </h2>
           <p data-reveal className="cb-cta-body">
-            Start your project with a leading branding agency in Dubai. We specialise in connecting
-            communities and ideas that turn your vision into a reality.
+            Start your project with a leading branding agency in Dubai.
           </p>
           <div data-reveal className="cb-cta-btns">
             <Link href="/contact" className="svc-btn-primary">
-              Free Consultation
+              Request a Creative Quote
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
             <Link href="/services" className="svc-btn-outline cb-cta-outline">View All Services</Link>
