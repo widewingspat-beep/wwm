@@ -194,8 +194,11 @@ export default function WebAppDevelopmentPage() {
               <div className="wad-deliver-2col">
                 {/* Col 1 — title + first 2 cards */}
                 <div className="wad-deliver-col-small">
-                  <h2 data-reveal className="cb-section-h2wad">Web Design Company in Dubai: For all Types of Industries.</h2>
-                  <p data-reveal className="wad-exp-sub-label" style={{ marginBottom: '20px' }}>Expertise &amp; Insights</p>
+                  <h2 data-reveal className="wad-exp-section-title">Web Design Company in Dubai: <span className="wad-exp-title-purple">For all Types of Industries.</span></h2>
+                  <p data-reveal className="wad-exp-sub-label" style={{ marginBottom: '16px' }}>Expertise &amp; Insights</p>
+                  <div data-reveal className="wad-exp-section-img-wrap">
+                    <img src="/shutterstock_2421890557.jpg" alt="Web development expertise" className="wad-exp-section-img" />
+                  </div>
                   {EXP_TEXTS.slice(0, 2).map((text, i) => (
                     <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-exp-card">
                       <p className="wad-exp-card-text">{text}</p>
