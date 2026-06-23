@@ -133,21 +133,21 @@ export default function PaidAdvertisingPage() {
         </div>
       </section>
 
-      {/* ── INTRO ── */}
-      <section className="cb-section">
+      {/* ── INTRO EDITORIAL ── */}
+      <section className="cb-section pad-intro-section">
         <div className="container">
-          <h2 data-reveal className="cb-section-h2">Leading PPC Agency for More Leads &amp; <span className="gradient-text">Sales</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">Launch promotions and earn more with Wide Wings Media, the best PPC agency in Dubai. Drive more traffic and increase sales with expert PPC advertising.</p>
-              <p className="wad-para">Leverage our expertise in PPC campaigns to maximize your return on investment. We focus on delivering strong results regardless of your business size.</p>
-              <p className="wad-para">Wide Wings Media is a leading PPC advertising agency in Dubai. We help businesses reach marketing goals by attracting the right users through strategic ad placements.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="pad-intro-editorial">
+            <div className="pad-intro-left">
+              <h2 className="pad-intro-title">Leading PPC Agency for More Leads &amp; <span className="gradient-text">Sales</span></h2>
+              <div className="pad-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">Our PPC strategies help businesses generate qualified leads, increase conversions, and grow sales across multiple industries.</p>
-              <p className="wad-para">We are your trusted PPC advertising partner, delivering measurable ROI and proven success for businesses of all sizes, including enterprise-level organizations.</p>
-              <p className="wad-para">We align every PPC campaign with your personal and business goals to ensure long-term growth and profitability.</p>
+            <div className="pad-intro-right">
+              <p>Launch promotions and earn more with Wide Wings Media, the best PPC agency in Dubai. Drive more traffic and increase sales with expert PPC advertising.</p>
+              <p>Leverage our expertise in PPC campaigns to maximize your return on investment. We focus on delivering strong results regardless of your business size.</p>
+              <p>Wide Wings Media is a leading PPC advertising agency in Dubai. We help businesses reach marketing goals by attracting the right users through strategic ad placements.</p>
+              <p>Our PPC strategies help businesses generate qualified leads, increase conversions, and grow sales across multiple industries.</p>
+              <p>We are your trusted PPC advertising partner, delivering measurable ROI and proven success for businesses of all sizes, including enterprise-level organizations.</p>
+              <p>We align every PPC campaign with your personal and business goals to ensure long-term growth and profitability.</p>
             </div>
           </div>
         </div>
