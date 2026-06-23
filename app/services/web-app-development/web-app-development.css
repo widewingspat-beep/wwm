@@ -1,7 +1,11 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
 /* ── FAQ overrides ── */
-.wad-page .cb-faq-wrap { max-width: 100%; }
+.wad-page .cb-faq-wrap {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+}
 
 .wad-page .cb-faq-list {
   display: flex;
