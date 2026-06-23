@@ -345,3 +345,48 @@ details[open] .cb-faq-icon { transform: rotate(45deg); background: #a73184; }
   .cb-cta { padding: 70px 24px; }
   .cb-intro-band { padding: 20px 24px; }
 }
+
+/* ── FAQ scoped override — exact match to wad-page ── */
+.cb-svc-page .cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
+.cb-svc-page .cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
+.cb-svc-page .cb-faq-item {
+  background: #fff;
+  border: 1px solid #ebebeb !important;
+  border-bottom: 1px solid #ebebeb !important;
+  border-radius: 12px;
+  padding: 4px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.cb-svc-page .cb-faq-item:first-child { border-top: 1px solid #ebebeb !important; }
+.cb-svc-page .cb-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  list-style: none;
+  cursor: pointer;
+  gap: 20px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+}
+.cb-svc-page .cb-faq-q::-webkit-details-marker { display: none; }
+.cb-svc-page .cb-faq-q::after { display: none; }
+.cb-svc-page .wad-faq-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #7b2d8b;
+  animation: wadFaqPulse 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.cb-svc-page details[open] .wad-faq-icon { transform: rotate(45deg); background: #a73184; }
+.cb-svc-page .cb-faq-a { padding-top: 14px; color: #555; line-height: 1.7; margin: 0; }

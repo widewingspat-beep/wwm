@@ -111,7 +111,7 @@ const SPARKS = [
 
 export default function PrManagementPage() {
   return (
-    <>
+    <div className="cb-svc-page">
       {/* ── HERO ── */}
       <section className="svc-hero">
         <div className="svc-hero-blob" aria-hidden="true" />
@@ -185,7 +185,7 @@ export default function PrManagementPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
+                <summary className="cb-faq-q">{f.q}<span className="wad-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -257,6 +257,6 @@ export default function PrManagementPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
