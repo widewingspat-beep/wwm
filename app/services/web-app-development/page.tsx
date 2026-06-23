@@ -3,6 +3,7 @@ import Link from 'next/link';
 import '../services.css';
 import '../service-page.css';
 import './web-app-development.css';
+import WadExpertiseAccordion from './WadExpertiseAccordion';
 
 const WHAT_WE_DO = [
   { num: '01', title: 'Web design that has won awards', desc: 'We combine design and digital marketing to help businesses grow revenue online.' },
@@ -196,11 +197,7 @@ export default function WebAppDevelopmentPage() {
 
           <div className="wad-expertise-split">
             <div data-reveal className="wad-expertise-left">
-              <p className="wad-para">Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.</p>
-              <p className="wad-para">Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client&apos;s needs.</p>
-              <p className="wad-para">Every business is different, and every business has its challenges and goals. It&apos;s very important to understand this idea if you&apos;re working on a website. At Wide Wings Media, we understand that each business is unique. We customize our web development services for each client.</p>
-              <p className="wad-para">Our team of expert web designers has a lot of experience building websites for healthcare and other industries that work with patients on all devices. Our services are designed to create cutting-edge digital experiences.</p>
-              <p className="wad-para">Make your website better than your competitors&apos; websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.</p>
+              <WadExpertiseAccordion />
             </div>
 
             <div data-reveal data-reveal-delay="120" className="wad-expertise-right">

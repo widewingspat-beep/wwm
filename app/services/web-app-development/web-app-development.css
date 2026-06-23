@@ -670,3 +670,90 @@
   .wad-intro-2col-left { border-right: none; border-bottom: 1px solid #f0f0f0; }
   .wad-chip-row { gap: 8px; }
 }
+
+/* ══════════════════════════════════════
+   EXPERTISE ACCORDION
+══════════════════════════════════════ */
+.wad-acc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.wad-acc-item {
+  border-bottom: 1px solid #ebebeb;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+.wad-acc-item:first-child { border-top: 1px solid #ebebeb; }
+
+.wad-acc-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.wad-acc-icon-wrap {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(167,49,132,0.08);
+  color: #a73184;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, color 0.25s;
+}
+.wad-acc-icon-wrap svg { width: 18px; height: 18px; }
+
+.wad-acc-item--open .wad-acc-icon-wrap {
+  background: linear-gradient(135deg, #a73184, #cfa821);
+  color: #fff;
+}
+
+.wad-acc-title {
+  flex: 1;
+  font-family: Nexa, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.35;
+  transition: color 0.2s;
+}
+.wad-acc-item--open .wad-acc-title { color: #a73184; }
+
+.wad-acc-chevron {
+  flex-shrink: 0;
+  color: #bbb;
+  transition: transform 0.3s ease, color 0.25s;
+}
+.wad-acc-item--open .wad-acc-chevron {
+  transform: rotate(180deg);
+  color: #a73184;
+}
+
+.wad-acc-body {
+  padding: 0 0 20px 54px;
+}
+
+.wad-acc-text {
+  font-family: Calibri, sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+  animation: wadAccBodyIn 0.3s ease both;
+}
+
+@keyframes wadAccBodyIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
