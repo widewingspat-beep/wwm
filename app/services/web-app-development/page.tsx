@@ -315,8 +315,6 @@ export default function WebAppDevelopmentPage() {
           {/* Circles */}
           <div className="wad-cta-circle wad-cta-circle--1" />
           <div className="wad-cta-circle wad-cta-circle--2" />
-          {/* Small moving dot */}
-          <div className="wad-cta-moving-dot" />
           {/* Dot grids — more positions */}
           <div className="wad-cta-dots wad-cta-dots--tl" />
           <div className="wad-cta-dots wad-cta-dots--br" />
