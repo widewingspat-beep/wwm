@@ -54,9 +54,13 @@
 }
 
 /* ── WHY SECTION DARK ── */
+.cb-brand-why-section {
+  background: #1a1a2e !important;
+}
 .cb-brand-why-section .cb-section-h2,
 .cb-brand-why-section .section-label {
   text-align: center;
+  color: #fff;
 }
 .cb-brand-why-section .cb-why-title { color: #fff; }
 .cb-brand-why-section .cb-why-desc { color: rgba(255,255,255,0.6); }
