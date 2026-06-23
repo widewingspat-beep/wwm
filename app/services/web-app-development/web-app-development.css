@@ -147,6 +147,15 @@
   font-family: Nexa, sans-serif;
 }
 
+/* "Services" tag on dark hero */
+.wad-hero-service-tag-dark {
+  font-family: Calibri, sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.45);
+  margin: -10px 0 24px;
+  letter-spacing: 0.04em;
+}
+
 /* ══════════════════════════════════════
    TECH STRIP MARQUEE
 ══════════════════════════════════════ */
