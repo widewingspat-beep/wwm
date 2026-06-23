@@ -236,7 +236,9 @@ export default function CreativeBrandingPage() {
               <p>Design isn&apos;t decoration, it&apos;s communication: We deliver graphic design services in Dubai and all around the MENA region.</p>
               <p>Brand Strategy: we define how your brand thinks, speaks, and shows up. Positioning, tone of voice, messaging frameworks, built to last.</p>
               <p>Visual Identity &amp; Design: we create identities that are consistent, memorable, and flexible.</p>
+              <p>Logo design services: brand guidelines, social media design system, packaging &amp; print assets, and graphic design services. Make the first thing your audience view stand out.</p>
               <p>Strategic Branding: every decision we make ties back to how your brand performs in the real world.</p>
+              <p>Clarity and Impact: marketing creatives, campaign visuals, digital &amp; social assets, presentation design, brochure &amp; print design, and of course, graphic design services.</p>
             </div>
           </div>
         </div>
