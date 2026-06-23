@@ -1,5 +1,51 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* ── FAQ overrides ── */
+.wad-page .cb-faq-wrap { max-width: 100%; }
+
+.wad-page .cb-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  list-style: none;
+  cursor: pointer;
+  gap: 20px;
+}
+.wad-page .cb-faq-q::after { display: none; }
+
+.wad-page .cb-faq-item {
+  position: relative;
+}
+
+/* Animated + button */
+.wad-faq-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a73184, #cfa821);
+  background-size: 200% 200%;
+  animation: wadFaqGradient 3s ease infinite;
+  transition: transform 0.3s ease;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1;
+}
+details[open] .wad-faq-icon {
+  transform: rotate(45deg);
+}
+
+@keyframes wadFaqGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* All section titles uppercase on this page only */
 .wad-page .cb-section-h2,
 .wad-page .cb-cta-h2,
