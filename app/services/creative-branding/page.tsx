@@ -327,9 +327,16 @@ export default function CreativeBrandingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Let&apos;s Create</span>
+          <span data-reveal className="section-label">Let&apos;s Create</span>
           <h2 data-reveal className="cb-cta-h2">
             Build a brand that<br /><span className="gradient-text">actually works.</span>
           </h2>

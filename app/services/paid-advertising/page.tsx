@@ -241,9 +241,16 @@ export default function PaidAdvertisingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Get Started</span>
+          <span data-reveal className="section-label">Get Started</span>
           <h2 data-reveal className="cb-cta-h2">Scale Faster with High-Performance<br /><span className="gradient-text">PPC Campaigns</span></h2>
           <p data-reveal className="cb-cta-body">Work with a trusted PPC advertising agency in Dubai and turn clicks into real revenue.</p>
           <div data-reveal className="cb-cta-btns">
