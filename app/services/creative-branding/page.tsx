@@ -324,7 +324,6 @@ export default function CreativeBrandingPage() {
       {/* ── WHY WIDE WINGS ── */}
       <section className="cb-section cb-section-dark cb-brand-why-section">
         <div className="container">
-          <span data-reveal className="section-label">Why Choose Us</span>
           <h2 data-reveal className="cb-section-h2">
             Why choose Wide Wings for <span className="gradient-text">branding?</span>
           </h2>
