@@ -147,6 +147,16 @@
   font-family: Nexa, sans-serif;
 }
 
+/* Eyebrow "LEADING" — gold/yellow on this page */
+.svc-hero .svc-hero-eyebrow {
+  color: #cfa821;
+  font-family: Nexa, sans-serif;
+}
+
+/* Ensure all hero text uses correct fonts */
+.svc-hero .svc-hero-h1   { font-family: Nexa, sans-serif; }
+.svc-hero .svc-hero-sub  { font-family: Calibri, sans-serif; }
+
 /* "Services" tag on dark hero */
 .wad-hero-service-tag-dark {
   font-family: Calibri, sans-serif;
