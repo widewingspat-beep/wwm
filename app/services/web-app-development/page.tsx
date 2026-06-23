@@ -132,43 +132,39 @@ export default function WebAppDevelopmentPage() {
       <section className="cb-section wad-intro-section">
         <div className="wad-section-orb wad-orb-1" aria-hidden="true" />
         <div className="container">
-          <div className="wad-exp-layout">
-            {/* Left — sticky big title */}
-            <div className="wad-exp-title-col" data-reveal>
-              <h2 className="wad-exp-big-title">Your Top Web Design Company in Dubai</h2>
-              <div className="wad-exp-gold-bar" aria-hidden="true" />
-              {/* Stat chips */}
-              <div className="wad-chip-row" style={{ marginTop: '28px' }}>
-                <div className="wad-chip wad-chip--magenta">
-                  <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 21,29 32,18"/></svg>
-                  Award Winning
-                </div>
-                <div className="wad-chip wad-chip--gold">
-                  <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="4,36 16,20 24,28 32,14 44,24"/></svg>
-                  500+ Projects
-                </div>
-                <div className="wad-chip">
-                  <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="24" cy="24" r="20"/><line x1="24" y1="4" x2="24" y2="44"/><path d="M4 24 Q14 16 24 24 Q34 32 44 24"/></svg>
-                  10+ Years UAE
-                </div>
+          {/* Centered header */}
+          <div className="wad-intro-header" data-reveal>
+            <h2 className="wad-intro-center-title">Your Top Web Design <span className="wad-exp-title-purple">Company in Dubai</span></h2>
+            <div className="wad-chip-row wad-chip-row--center">
+              <div className="wad-chip wad-chip--magenta">
+                <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 21,29 32,18"/></svg>
+                Award Winning
+              </div>
+              <div className="wad-chip wad-chip--gold">
+                <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="4,36 16,20 24,28 32,14 44,24"/></svg>
+                500+ Projects
+              </div>
+              <div className="wad-chip">
+                <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="24" cy="24" r="20"/><line x1="24" y1="4" x2="24" y2="44"/><path d="M4 24 Q14 16 24 24 Q34 32 44 24"/></svg>
+                10+ Years UAE
               </div>
             </div>
-
-            {/* Right — paragraphs */}
-            <div className="wad-exp-cards-col" data-reveal data-reveal-delay="80">
-              {[
-                "Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!",
-                "We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.",
-                "We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.",
-                "As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.",
-                "Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.",
-                "We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.",
-              ].map((text, i) => (
-                <div key={i} className="wad-exp-card">
-                  <p className="wad-exp-card-text">{text}</p>
-                </div>
-              ))}
-            </div>
+          </div>
+          {/* 3-col card grid */}
+          <div className="wad-intro-3col">
+            {[
+              "Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!",
+              "We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.",
+              "We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.",
+              "As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.",
+              "Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.",
+              "We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.",
+            ].map((text, i) => (
+              <div key={i} data-reveal data-reveal-delay={`${(i % 3) * 80}`} className="wad-intro-3card">
+                <div className="wad-intro-3card-num">{String(i + 1).padStart(2, '0')}</div>
+                <p className="wad-exp-card-text">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -102,6 +102,56 @@ details[open] .wad-faq-icon {
   .wad-deliver-2col { grid-template-columns: 1fr; }
 }
 
+/* ── Intro 3-col new layout ── */
+.wad-intro-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.wad-intro-center-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #0d0d20;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+.wad-chip-row--center {
+  justify-content: center;
+}
+.wad-intro-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.wad-intro-3card {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.wad-intro-3card:hover {
+  box-shadow: 0 8px 32px rgba(167,49,132,0.1);
+  transform: translateY(-4px);
+}
+.wad-intro-3card-num {
+  font-family: Nexa, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(167,49,132,0.08);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+@media (max-width: 900px) {
+  .wad-intro-3col { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .wad-intro-3col { grid-template-columns: 1fr; }
+}
+
 /* ── Expertise section title ── */
 .wad-exp-section-title {
   font-family: Nexa, sans-serif;
