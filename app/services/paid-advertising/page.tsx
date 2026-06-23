@@ -136,8 +136,7 @@ export default function PaidAdvertisingPage() {
       {/* ── INTRO ── */}
       <section className="cb-section">
         <div className="container">
-          <span data-reveal className="section-label">Leading PPC Agency for More Leads &amp; Sales</span>
-          <h2 data-reveal className="cb-section-h2">Driving results with <span className="gradient-text">expert PPC</span></h2>
+          <h2 data-reveal className="cb-section-h2">Leading PPC Agency for More Leads &amp; <span className="gradient-text">Sales</span></h2>
           <div className="wad-intro-2col">
             <div className="wad-intro-2col-left">
               <p className="wad-para">Launch promotions and earn more with Wide Wings Media, the best PPC agency in Dubai. Drive more traffic and increase sales with expert PPC advertising.</p>
