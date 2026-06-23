@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import '../services.css';
 import '../service-page.css';
 import './web-app-development.css';
@@ -197,7 +198,7 @@ export default function WebAppDevelopmentPage() {
                   <h2 data-reveal className="wad-exp-section-title">Web Design Company in Dubai: <span className="wad-exp-title-purple">For all Types of Industries.</span></h2>
                   <p data-reveal className="wad-exp-sub-label" style={{ marginBottom: '16px' }}>Expertise &amp; Insights</p>
                   <div data-reveal className="wad-exp-section-img-wrap">
-                    <img src="/webdev.jpg" alt="Web development expertise" className="wad-exp-section-img" />
+                    <Image src="/webdev.jpg" alt="Web development expertise" width={600} height={300} className="wad-exp-section-img" />
                   </div>
                   {EXP_TEXTS.slice(0, 2).map((text, i) => (
                     <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-exp-card">
