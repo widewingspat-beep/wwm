@@ -247,7 +247,6 @@ export default function CreativeBrandingPage() {
               <h2 className="cb-brand-intro-title">Not every brand needs more noise.<span className="gradient-text"> Most need clarity.</span></h2>
               <div className="cb-brand-intro-bar" />
             </div>
-            <div className="cb-brand-intro-divider" aria-hidden="true" />
             <div className="cb-brand-intro-right">
               <p>Design isn&apos;t decoration, it&apos;s communication: We deliver graphic design services in Dubai and all around the MENA region.</p>
               <p>Brand Strategy: we define how your brand thinks, speaks, and shows up. Positioning, tone of voice, messaging frameworks, built to last.</p>
