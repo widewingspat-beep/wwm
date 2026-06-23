@@ -14,13 +14,12 @@
   gap: 20px;
 }
 .wad-deliver-col-big-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 @media (max-width: 900px) {
   .wad-deliver-2col { grid-template-columns: 1fr; }
-  .wad-deliver-col-big-inner { grid-template-columns: 1fr; }
 }
 
 /* ── Deliver section — deep grey ── */
