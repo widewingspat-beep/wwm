@@ -52,6 +52,8 @@ const HOSTING = [
   },
 ];
 
+const TECH_ITEMS = ['React', 'Next.js', 'WordPress', 'Webflow', 'Sitecore', 'Node.js', 'TypeScript', 'Tailwind CSS', 'Figma', 'AWS', 'Vercel', 'MySQL'];
+
 const SPARKS = [
   { l:'12%', t:'18%', c:'#FF6B5B', sz:'3px', op:'0.65', sd:'2.1s', dl:'0s'   },
   { l:'28%', t:'72%', c:'#FFA94D', sz:'4px', op:'0.6',  sd:'3.0s', dl:'0.5s' },
@@ -94,8 +96,18 @@ export default function WebAppDevelopmentPage() {
         </div>
       </section>
 
+      {/* ── TECH STRIP ── */}
+      <div className="wad-tech-strip" aria-hidden="true">
+        <div className="wad-tech-track">
+          {[...TECH_ITEMS, ...TECH_ITEMS].map((t, i) => (
+            <span key={i} className="wad-tech-pill">{t}</span>
+          ))}
+        </div>
+      </div>
+
       {/* ── Your Top Web Design Company ── */}
-      <section className="cb-section">
+      <section className="cb-section wad-intro-section">
+        <div className="wad-section-orb wad-orb-1" aria-hidden="true" />
         <div className="container">
           <div className="wad-intro-split">
             <div className="wad-intro-text" data-reveal>
@@ -105,60 +117,62 @@ export default function WebAppDevelopmentPage() {
               </h2>
               <p className="wad-para">Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!</p>
               <p className="wad-para">We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.</p>
+
+              {/* Inline stat chips */}
+              <div className="wad-chip-row">
+                <div className="wad-chip wad-chip--magenta">
+                  <svg width="16" height="16" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 21,29 32,18"/></svg>
+                  Award Winning
+                </div>
+                <div className="wad-chip wad-chip--gold">
+                  <svg width="16" height="16" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="4,36 16,20 24,28 32,14 44,24"/></svg>
+                  500+ Projects
+                </div>
+                <div className="wad-chip">
+                  <svg width="16" height="16" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="24" cy="24" r="20"/><line x1="24" y1="4" x2="24" y2="44"/><path d="M4 24 Q14 16 24 24 Q34 32 44 24"/></svg>
+                  10+ Years UAE
+                </div>
+              </div>
             </div>
 
+            {/* Browser Mockup Visual */}
             <div className="wad-intro-visual" data-reveal data-reveal-delay="120">
-              {/* Stats card block */}
-              <div className="wad-stats-stack">
-                <div className="wad-stat-card wad-stat-card--accent">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-                    <rect x="4" y="8" width="40" height="28" rx="3"/>
-                    <line x1="16" y1="44" x2="32" y2="44"/>
-                    <line x1="24" y1="36" x2="24" y2="44"/>
-                    <rect x="10" y="14" width="12" height="10" rx="1"/>
-                    <line x1="26" y1="16" x2="38" y2="16"/>
-                    <line x1="26" y1="20" x2="34" y2="20"/>
-                    <line x1="26" y1="24" x2="36" y2="24"/>
-                  </svg>
-                  <div>
-                    <div className="wad-stat-val">10+ Years</div>
-                    <div className="wad-stat-lbl">Web Design Experience in UAE</div>
+              <div className="wad-browser-wrap">
+                <div className="wad-browser-chrome">
+                  <span className="wad-dot wad-dot--red" />
+                  <span className="wad-dot wad-dot--yellow" />
+                  <span className="wad-dot wad-dot--green" />
+                  <div className="wad-browser-bar">wide-wings.ae</div>
+                </div>
+                <div className="wad-browser-body">
+                  {/* Simulated page layout */}
+                  <div className="wad-sim-nav" />
+                  <div className="wad-sim-hero">
+                    <div className="wad-sim-h1" />
+                    <div className="wad-sim-h2" />
+                    <div className="wad-sim-btn" />
+                  </div>
+                  <div className="wad-sim-cards">
+                    <div className="wad-sim-card" />
+                    <div className="wad-sim-card" style={{ animationDelay: '0.3s' }} />
+                    <div className="wad-sim-card" style={{ animationDelay: '0.6s' }} />
+                  </div>
+                  <div className="wad-sim-text-block">
+                    <div className="wad-sim-line" />
+                    <div className="wad-sim-line wad-sim-line--short" />
+                    <div className="wad-sim-line" />
+                    <div className="wad-sim-line wad-sim-line--mid" />
                   </div>
                 </div>
-                <div className="wad-stat-card">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-                    <polyline points="4,36 16,20 24,28 32,14 44,24"/>
-                    <polyline points="36,14 44,14 44,22"/>
-                  </svg>
-                  <div>
-                    <div className="wad-stat-val">500+ Projects</div>
-                    <div className="wad-stat-lbl">Delivered across multiple industries</div>
-                  </div>
-                </div>
-                <div className="wad-stat-card">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-                    <circle cx="24" cy="24" r="20"/>
-                    <line x1="24" y1="4" x2="24" y2="44"/>
-                    <path d="M4 24 Q14 16 24 24 Q34 32 44 24"/>
-                  </svg>
-                  <div>
-                    <div className="wad-stat-val">Dubai · Abu Dhabi · Sharjah</div>
-                    <div className="wad-stat-lbl">Serving businesses across the UAE</div>
-                  </div>
-                </div>
-                <div className="wad-stat-card wad-stat-card--gold">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-                    <path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/>
-                    <polyline points="16,24 21,29 32,18"/>
-                  </svg>
-                  <div>
-                    <div className="wad-stat-val">Award Winning</div>
-                    <div className="wad-stat-lbl">Best medical web design company in Dubai</div>
-                  </div>
+                {/* Floating badge */}
+                <div className="wad-browser-badge">
+                  <svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 21,29 32,18"/></svg>
+                  Best in Dubai
                 </div>
               </div>
             </div>
           </div>
+
           <div data-reveal className="wad-intro-2col">
             <div className="wad-intro-2col-left">
               <p className="wad-para">We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.</p>
@@ -174,13 +188,13 @@ export default function WebAppDevelopmentPage() {
       </section>
 
       {/* ── Expertise & Insights ── */}
-      <section className="cb-section cb-section-alt">
+      <section className="cb-section cb-section-alt wad-expertise-section">
+        <div className="wad-section-orb wad-orb-2" aria-hidden="true" />
         <div className="container">
           <span data-reveal className="section-label">Web Design Company in Dubai: For all Types of Industries</span>
           <h2 data-reveal className="cb-section-h2">Expertise &amp; <span className="gradient-text">Insights</span></h2>
 
           <div className="wad-expertise-split">
-            {/* Left column: main expertise paragraphs */}
             <div data-reveal className="wad-expertise-left">
               <p className="wad-para">Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.</p>
               <p className="wad-para">Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client&apos;s needs.</p>
@@ -189,7 +203,6 @@ export default function WebAppDevelopmentPage() {
               <p className="wad-para">Make your website better than your competitors&apos; websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.</p>
             </div>
 
-            {/* Right column: medical highlight card */}
             <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
               <div className="wad-medical-card">
                 <div className="wad-medical-card-header">
@@ -205,6 +218,20 @@ export default function WebAppDevelopmentPage() {
                 <p className="wad-para">The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it&apos;s like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.</p>
                 <p className="wad-para">Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don&apos;t use digital marketing to their advantage.</p>
                 <p className="wad-para">Many medical websites don&apos;t make it easy for people to find what they&apos;re looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.</p>
+
+                {/* Mobile device mockup */}
+                <div className="wad-mobile-wrap" aria-hidden="true">
+                  <div className="wad-mobile-frame">
+                    <div className="wad-mobile-notch" />
+                    <div className="wad-mobile-screen">
+                      <div className="wad-mob-hero" />
+                      <div className="wad-mob-line" />
+                      <div className="wad-mob-line wad-mob-line--short" />
+                      <div className="wad-mob-cta" />
+                    </div>
+                  </div>
+                  <div className="wad-mobile-glow" />
+                </div>
               </div>
             </div>
           </div>
@@ -228,16 +255,22 @@ export default function WebAppDevelopmentPage() {
       </section>
 
       {/* ── Builds and Hosts ── */}
-      <section className="cb-section cb-section-alt">
+      <section className="cb-section cb-section-alt wad-hosting-section">
+        <div className="wad-section-orb wad-orb-3" aria-hidden="true" />
         <div className="container">
           <span data-reveal className="section-label">Web Design Company in Dubai: Builds and Hosts Websites</span>
           <h2 data-reveal className="cb-section-h2">Everything <span className="gradient-text">after launch</span></h2>
           <div className="wad-hosting-grid">
             {HOSTING.map((h, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-hosting-card">
-                <div className="wad-hosting-icon">{h.icon}</div>
+                <div className="wad-hosting-icon-wrap">
+                  <div className="wad-hosting-icon">{h.icon}</div>
+                </div>
                 <h3>{h.title}</h3>
                 <p>{h.desc}</p>
+                <div className="wad-hosting-arrow">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
               </div>
             ))}
           </div>
@@ -251,10 +284,13 @@ export default function WebAppDevelopmentPage() {
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
           <div className="cb-services-grid">
             {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
+              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
+                <div className="wad-deliver-num-wrap">
+                  <div className="cb-svc-num">{s.num}</div>
+                </div>
                 <h3 className="cb-svc-title">{s.title}</h3>
                 <p className="cb-svc-desc">{s.desc}</p>
+                <div className="wad-deliver-line" />
               </div>
             ))}
             <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
