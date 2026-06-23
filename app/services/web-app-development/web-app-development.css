@@ -1,5 +1,12 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* All section titles uppercase on this page only */
+.wad-page .cb-section-h2,
+.wad-page .cb-cta-h2,
+.wad-page .cb-section-h2wad {
+  text-transform: uppercase;
+}
+
 /* ── Deliver 2-column layout ── */
 .wad-deliver-2col {
   display: grid;

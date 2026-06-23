@@ -90,7 +90,7 @@ const SPARKS = [
 
 export default function WebAppDevelopmentPage() {
   return (
-    <>
+    <div className="wad-page">
       <section className="svc-hero">
         <div className="svc-hero-blob" aria-hidden="true" />
         <div className="svc-hero-sparks" aria-hidden="true">
@@ -311,6 +311,6 @@ export default function WebAppDevelopmentPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
