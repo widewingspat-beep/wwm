@@ -134,7 +134,7 @@ export default function WebAppDevelopmentPage() {
         <div className="container">
           {/* Centered header */}
           <div className="wad-intro-header" data-reveal>
-            <h2 className="wad-intro-center-title">Your Top Web Design<br /><span className="wad-exp-title-purple">Company in Dubai</span></h2>
+            <h2 className="wad-intro-center-title">Your Top Web Design<br /><span className="gradient-text">Company in Dubai</span></h2>
             <div className="wad-chip-row wad-chip-row--center">
               <div className="wad-chip wad-chip--magenta">
                 <svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 21,29 32,18"/></svg>
@@ -194,7 +194,7 @@ export default function WebAppDevelopmentPage() {
               <div className="wad-deliver-2col">
                 {/* Col 1 — title + first 2 cards */}
                 <div className="wad-deliver-col-small">
-                  <h2 data-reveal className="wad-exp-section-title">Web Design Company in Dubai: <span className="wad-exp-title-purple">For all Types of Industries.</span></h2>
+                  <h2 data-reveal className="wad-exp-section-title">Web Design Company in Dubai:<br /><span className="gradient-text">For all Types of Industries.</span></h2>
                   <p data-reveal className="wad-exp-sub-label" style={{ marginBottom: '16px' }}>Expertise &amp; Insights</p>
                   <div data-reveal className="wad-exp-section-img-wrap">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
