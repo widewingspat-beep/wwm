@@ -228,8 +228,7 @@ export default function WebAppDevelopmentPage() {
       {/* ── What We Deliver ── */}
       <section className="cb-section">
         <div className="container">
-          <span data-reveal className="section-label">The Best Medical Web Design Company in Dubai</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
+          <h2 data-reveal className="cb-section-h2">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
           <div className="cb-services-grid">
             {WHAT_WE_DO.map((s, i) => (
               <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
