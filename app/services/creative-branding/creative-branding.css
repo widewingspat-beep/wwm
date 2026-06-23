@@ -257,6 +257,14 @@ details[open] .cb-faq-q::after { transform: rotate(45deg); }
   position: relative;
   overflow: hidden;
 }
+.cb-cta.cb-cta-light {
+  background: #ffffff !important;
+}
+.cb-cta.cb-cta-light::before { display: none; }
+.cb-cta.cb-cta-light .cb-cta-h2 { color: #0d0d20; }
+.cb-cta.cb-cta-light .cb-cta-body { color: #555; }
+.cb-cta.cb-cta-light .section-label { color: #a73184 !important; }
+.cb-cta.cb-cta-light .cb-cta-outline { border-color: #0d0d20 !important; color: #0d0d20 !important; }
 .cb-cta::before {
   content: '';
   position: absolute;
