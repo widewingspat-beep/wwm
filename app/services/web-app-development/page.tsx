@@ -150,21 +150,25 @@ export default function WebAppDevelopmentPage() {
               </div>
             </div>
           </div>
-          {/* 3-col card grid */}
-          <div className="wad-intro-3col">
-            {[
-              "Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!",
-              "We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.",
-              "We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.",
-              "As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.",
-              "Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.",
-              "We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.",
-            ].map((text, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${(i % 3) * 80}`} className="wad-intro-3card">
-                <div className="wad-intro-3card-num">{String(i + 1).padStart(2, '0')}</div>
-                <p className="wad-exp-card-text">{text}</p>
-              </div>
-            ))}
+          {/* 2-col editorial text layout */}
+          <div className="wad-intro-editorial">
+            <div className="wad-intro-editorial-col">
+              {["Wide Wings Media was chosen as the best medical web design company in Dubai by one of the best hospitals in Dubai. We create good websites for doctors and other medical practices to help them get new patients. Let Wide Wings Media, the best web design company in Dubai, make your online presence better with great websites!",
+                "We design websites that get results. We specialize in custom websites, personalizing Sitecore and WordPress, 3D experiences, and more.",
+                "Wide Wings Media is one of the best web design companies in Dubai. We build websites that are beautiful and work well. These websites help businesses reach their goals. Our talented team combines creativity, strategy, and technology to make websites that attract your target audience and make your Dubai business look successful.",
+              ].map((text, i) => (
+                <p key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-editorial-para">{text}</p>
+              ))}
+            </div>
+            <div className="wad-intro-editorial-divider" aria-hidden="true" />
+            <div className="wad-intro-editorial-col">
+              {["We are a marketing leader in web development and design agencies in the UAE. We provide affordable, modern, and responsive web design services in Dubai, Abu Dhabi, and Sharjah. Hire our talented web designers and developers to create stunning websites that will impress.",
+                "As the world moves more and more into the digital age, the first and most important digital encounter between potential customers and your brand is through your website. It affects how users see the site and how many people visit and buy things from it.",
+                "We have successfully changed many businesses in different markets. We are committed to developing excellent digital solutions that deliver tangible results and extended business growth.",
+              ].map((text, i) => (
+                <p key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-editorial-para">{text}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>

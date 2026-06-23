@@ -152,6 +152,52 @@ details[open] .wad-faq-icon {
   .wad-intro-3col { grid-template-columns: 1fr; }
 }
 
+/* ── Intro editorial 2-col layout ── */
+.wad-intro-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 48px;
+  margin-top: 48px;
+  align-items: start;
+}
+.wad-intro-editorial-divider {
+  background: linear-gradient(to bottom, transparent, #a73184 20%, #cfa821 80%, transparent);
+  width: 1px;
+  align-self: stretch;
+}
+.wad-intro-editorial-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.wad-editorial-para {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.8;
+  padding: 24px 0;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.wad-editorial-para:first-child { padding-top: 0; }
+.wad-editorial-para:last-child { border-bottom: none; }
+.wad-editorial-para::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: linear-gradient(90deg, #a73184, #cfa821);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+@media (max-width: 768px) {
+  .wad-intro-editorial {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .wad-intro-editorial-divider { display: none; }
+}
+
 /* ── Expertise section title ── */
 .wad-exp-section-title {
   font-family: Nexa, sans-serif;
