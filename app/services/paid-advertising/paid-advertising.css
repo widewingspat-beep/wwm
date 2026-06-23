@@ -54,7 +54,7 @@
 
 /* ── EXPERTISE 2-COL LAYOUT ── */
 .cb-section-alt .section-label,
-.cb-section-alt .cb-section-h2 { text-align: center; }
+.cb-section-alt .cb-section-h2 { text-align: center; display: block; }
 
 .pad-expertise-2col {
   display: grid;
