@@ -121,7 +121,7 @@ export default function PaidAdvertisingPage() {
             <span>Paid Advertising</span>
           </nav>
           <p className="svc-hero-eyebrow">#Best</p>
-          <h1 className="svc-hero-h1">PPC Advertising Company in Dubai</h1>
+          <h1 className="svc-hero-h1">PPC Advertising<br />Company in Dubai</h1>
           <p className="svc-hero-sub">We plan, execute, and optimize paid advertising campaigns that maximize reach, conversions, and ROI. Our data-driven media buying ensures your budget delivers measurable results across platforms.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
