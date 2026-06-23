@@ -186,7 +186,7 @@ export default function OohAdvertisingPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}</summary>
+                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -226,7 +226,7 @@ export default function OohAdvertisingPage() {
       </section>
 
       {/* ── WHY INVEST ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark">
         <div className="container">
           <span data-reveal className="section-label">Why Invest in Outdoor Advertising in Dubai?</span>
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
@@ -250,9 +250,16 @@ export default function OohAdvertisingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Get Started</span>
+          <span data-reveal className="section-label">Get Started</span>
           <h2 data-reveal className="cb-cta-h2">Make Your Brand<br /><span className="gradient-text">Impossible to Ignore</span></h2>
           <p data-reveal className="cb-cta-body">Launch high-impact outdoor advertising campaigns in Dubai and reach audiences where it matters most.</p>
           <div data-reveal className="cb-cta-btns">

@@ -185,7 +185,7 @@ export default function PrManagementPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}</summary>
+                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -212,7 +212,7 @@ export default function PrManagementPage() {
       </section>
 
       {/* ── PROTECT & GROW ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark">
         <div className="container">
           <span data-reveal className="section-label">Protect and Grow Your Reputation</span>
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
@@ -236,9 +236,16 @@ export default function PrManagementPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Be Heard</span>
+          <span data-reveal className="section-label">Be Heard</span>
           <h2 data-reveal className="cb-cta-h2">Tell Your Story<br /><span className="gradient-text">to the World</span></h2>
           <p data-reveal className="cb-cta-body">Build a reputation that opens doors. Let&apos;s craft a PR strategy that elevates your brand.</p>
           <div data-reveal className="cb-cta-btns">

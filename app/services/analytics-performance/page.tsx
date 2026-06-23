@@ -191,7 +191,7 @@ export default function AnalyticsPerformancePage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}</summary>
+                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -218,7 +218,7 @@ export default function AnalyticsPerformancePage() {
       </section>
 
       {/* ── MASTER YOUR DATA ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark">
         <div className="container">
           <span data-reveal className="section-label">Master Your Marketing Data</span>
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
@@ -242,9 +242,16 @@ export default function AnalyticsPerformancePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Get Clarity</span>
+          <span data-reveal className="section-label">Get Clarity</span>
           <h2 data-reveal className="cb-cta-h2">Scale Your Business<br /><span className="gradient-text">with Confidence</span></h2>
           <p data-reveal className="cb-cta-body">Unlock the power of your data. Let&apos;s build a marketing engine that is predictable and scalable.</p>
           <div data-reveal className="cb-cta-btns">

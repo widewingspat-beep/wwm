@@ -165,7 +165,7 @@ export default function EmailSmsCrmPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}</summary>
+                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -203,7 +203,7 @@ export default function EmailSmsCrmPage() {
       </section>
 
       {/* ── WHAT WE DELIVER ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark">
         <div className="container">
           <span data-reveal className="section-label">Unlock Hidden Revenue in Your Database</span>
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
@@ -227,9 +227,16 @@ export default function EmailSmsCrmPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Stay Ahead of the Game</span>
+          <span data-reveal className="section-label">Stay Ahead of the Game</span>
           <h2 data-reveal className="cb-cta-h2">Turn Subscribers into<br /><span className="gradient-text">Loyal Customers</span></h2>
           <p data-reveal className="cb-cta-body">Use your customer data to the optimal point, build relationships that last and drive repeat sales.</p>
           <div data-reveal className="cb-cta-btns">

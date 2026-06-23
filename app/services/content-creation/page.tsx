@@ -214,7 +214,7 @@ export default function ContentCreationPage() {
           <div className="cb-faq-list">
             {FAQS.map((f, i) => (
               <details key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-faq-item">
-                <summary className="cb-faq-q">{f.q}</summary>
+                <summary className="cb-faq-q">{f.q}<span className="cb-faq-icon">+</span></summary>
                 <p className="cb-faq-a">{f.a}</p>
               </details>
             ))}
@@ -241,7 +241,7 @@ export default function ContentCreationPage() {
       </section>
 
       {/* ── WHY CHOOSE ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark">
         <div className="container">
           <span data-reveal className="section-label">Elevate Your Brand&apos;s Visual Language</span>
           <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
@@ -265,9 +265,16 @@ export default function ContentCreationPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta cb-cta-light">
+        <div className="cb-cta-deco" aria-hidden="true">
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tl" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--br" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--tr" />
+          <div className="cb-cta-deco-dots cb-cta-deco-dots--bl" />
+          <div className="cb-cta-watermark-text">WIDE WINGS</div>
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Get Noticed</span>
+          <span data-reveal className="section-label">Get Noticed</span>
           <h2 data-reveal className="cb-cta-h2">Create Content<br /><span className="gradient-text">That Converts</span></h2>
           <p data-reveal className="cb-cta-body">Stop using stock photos and generic copy. Create specific content that tells your unique story.</p>
           <div data-reveal className="cb-cta-btns">
