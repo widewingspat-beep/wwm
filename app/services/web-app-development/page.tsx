@@ -308,13 +308,20 @@ export default function WebAppDevelopmentPage() {
 
       {/* ── CTA ── */}
       <section className="cb-cta wad-cta-white">
-        {/* Decorative dots & circles */}
+        {/* Decorative background */}
         <div className="wad-cta-bg" aria-hidden="true">
+          {/* Wide Wings watermark text */}
+          <div className="wad-cta-watermark">WIDE WINGS</div>
+          {/* Circles */}
           <div className="wad-cta-circle wad-cta-circle--1" />
           <div className="wad-cta-circle wad-cta-circle--2" />
           <div className="wad-cta-circle wad-cta-circle--3" />
+          {/* Dot grids — more positions */}
           <div className="wad-cta-dots wad-cta-dots--tl" />
           <div className="wad-cta-dots wad-cta-dots--br" />
+          <div className="wad-cta-dots wad-cta-dots--tr" />
+          <div className="wad-cta-dots wad-cta-dots--bl" />
+          <div className="wad-cta-dots wad-cta-dots--center" />
         </div>
         <div className="container cb-cta-inner">
           <span data-reveal className="section-label">Let&apos;s Build</span>
