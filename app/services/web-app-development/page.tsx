@@ -294,6 +294,8 @@ export default function WebAppDevelopmentPage() {
                   </div>
                 ))}
                 <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/LogoWhite.svg" alt="" className="wad-cta-card-logo" aria-hidden="true" />
                   <p className="wad-cta-card-text">Ready to build a website that works as hard as you do?</p>
                   <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
                     Free Consultation

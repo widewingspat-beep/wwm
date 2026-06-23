@@ -322,6 +322,20 @@ details[open] .wad-faq-icon {
   height: 240px;
 }
 
+/* Logo background on inner CTA card */
+.wad-cta-card-logo {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: auto;
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+  filter: brightness(10);
+}
+
 /* Small moving dot along watermark */
 .wad-cta-moving-dot {
   position: absolute;
