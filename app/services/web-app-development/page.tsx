@@ -252,7 +252,7 @@ export default function WebAppDevelopmentPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="cb-cta">
+      <section className="cb-cta wad-cta-white">
         <div className="container cb-cta-inner">
           <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Let&apos;s Build</span>
           <h2 data-reveal className="cb-cta-h2">Ready to Dominate<br /><span className="gradient-text">Your Market?</span></h2>

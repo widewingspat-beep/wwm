@@ -1,5 +1,22 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* ── CTA — white background override ── */
+.wad-cta-white.cb-cta {
+  background: #ffffff;
+}
+.wad-cta-white.cb-cta::before { display: none; }
+.wad-cta-white .cb-cta-h2 { color: #0d0d20; }
+.wad-cta-white .cb-cta-body { color: #555; }
+.wad-cta-white .cb-cta-outline {
+  border-color: #0d0d20 !important;
+  color: #0d0d20 !important;
+}
+.wad-cta-white .cb-cta-outline:hover {
+  background: #0d0d20 !important;
+  color: #fff !important;
+}
+.wad-cta-white .section-label { color: #a73184 !important; }
+
 /* ══════════════════════════════════════
    LIGHT HERO (page-specific override)
 ══════════════════════════════════════ */
