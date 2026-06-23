@@ -158,10 +158,10 @@ export default function PaidAdvertisingPage() {
         <div className="container">
           <span data-reveal className="section-label">Expertise &amp; Insights</span>
           <h2 data-reveal className="cb-section-h2">Google Ads tailored to your <span className="gradient-text">business and customers</span></h2>
-          <div className="cb-expertise-grid">
+          <div className="cb-expertise-grid pad-expertise-grid">
             {EXPERTISE.map((e, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card">
-                <div className="cb-expertise-icon">{e.icon}</div>
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card pad-expertise-card">
+                <div className="pad-expertise-circle">{e.icon}</div>
                 <h3 className="cb-expertise-title">{e.title}</h3>
                 <p className="cb-expertise-desc">{e.desc}</p>
               </div>

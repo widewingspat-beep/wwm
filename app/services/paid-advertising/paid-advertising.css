@@ -51,6 +51,40 @@
 @media (max-width: 768px) {
   .pad-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
 }
+
+/* ── EXPERTISE CIRCLE STYLE ── */
+.pad-expertise-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  align-items: center;
+}
+.pad-expertise-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(167,49,132,0.12), rgba(207,168,33,0.08));
+  border: 2px solid rgba(167,49,132,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #a73184;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.pad-expertise-circle svg { width: 40px; height: 40px; }
+.pad-expertise-card:hover .pad-expertise-circle {
+  background: linear-gradient(135deg, rgba(167,49,132,0.22), rgba(207,168,33,0.15));
+  border-color: #a73184;
+  transform: scale(1.08);
+}
+.pad-expertise-grid .cb-expertise-title { text-align: center; }
+.pad-expertise-grid .cb-expertise-desc { text-align: center; }
+.pad-expertise-grid .section-label,
+.pad-expertise-grid ~ * { text-align: center; }
+.cb-section-alt .section-label,
+.cb-section-alt .cb-section-h2 { text-align: center; }
 .svc-hero-h1,
 .cb-section-h2,
 .cb-cta-h2 {
