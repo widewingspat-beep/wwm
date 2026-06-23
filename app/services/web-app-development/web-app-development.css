@@ -1,5 +1,132 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* ══════════════════════════════════════
+   LIGHT HERO (page-specific override)
+══════════════════════════════════════ */
+.wad-hero-light {
+  position: relative;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f3ef;
+  overflow: hidden;
+}
+
+/* Gold corner accent — matches screenshot top-right */
+.wad-hero-corner {
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #cfa821 0%, #e8c84a 50%, #cfa821 100%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.wad-hero-light-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Breadcrumb on light bg */
+.wad-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Nexa, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 48px;
+}
+.wad-hero-breadcrumb a { color: #999; text-decoration: none; transition: color 0.2s; }
+.wad-hero-breadcrumb a:hover { color: #a73184; }
+.wad-hero-breadcrumb span:last-child { color: #a73184; }
+
+/* "LEADING" eyebrow */
+.wad-hero-eyebrow {
+  font-family: Nexa, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #cfa821;
+  margin: 0 0 18px;
+}
+
+/* Main H1 */
+.wad-hero-h1 {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #0d0d20;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* "Services" tag below H1 */
+.wad-hero-service-tag {
+  font-family: Calibri, sans-serif;
+  font-size: 1rem;
+  color: #888;
+  margin: 0 0 28px;
+  letter-spacing: 0.04em;
+}
+
+/* Subtitle */
+.wad-hero-sub {
+  font-family: Calibri, sans-serif;
+  font-size: 1.08rem;
+  color: #555;
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 0 44px;
+}
+
+/* Button */
+.wad-hero-btns { display: flex; justify-content: center; }
+
+.wad-hero-btn {
+  font-family: Nexa, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 17px 42px;
+  background: #0d0d20;
+  color: #fff;
+  border-radius: 100px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 28px rgba(13,13,32,0.2);
+}
+.wad-hero-btn:hover {
+  background: #1e1e3a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(13,13,32,0.3);
+}
+
+@media (max-width: 640px) {
+  .wad-hero-light-inner { padding: 100px 24px 60px; }
+  .wad-hero-h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+}
+
 /* ── Enforce fonts ── */
 .wad-para,
 .wad-hosting-card p,

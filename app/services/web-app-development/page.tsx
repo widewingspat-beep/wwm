@@ -71,25 +71,23 @@ const SPARKS = [
 export default function WebAppDevelopmentPage() {
   return (
     <>
-      <section className="svc-hero">
-        <div className="svc-hero-blob" aria-hidden="true" />
-        <div className="svc-hero-sparks" aria-hidden="true">
-          {SPARKS.map((s, i) => (
-            <span key={i} className="svc-spark" style={{ left:s.l, top:s.t, '--sc':s.c, '--sz':s.sz, '--op':s.op, '--sd':s.sd, '--dl':s.dl } as React.CSSProperties} />
-          ))}
-        </div>
-        <div className="svc-hero-inner">
-          <nav className="svc-breadcrumb" aria-label="breadcrumb">
+      <section className="wad-hero-light">
+        {/* Decorative gold corner shape */}
+        <div className="wad-hero-corner" aria-hidden="true" />
+        <div className="wad-hero-light-inner">
+          <nav className="wad-hero-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
-            <span className="svc-bc-sep">/</span>
+            <span>/</span>
             <Link href="/services">Services</Link>
-            <span className="svc-bc-sep">/</span>
+            <span>/</span>
             <span>Web &amp; App Development</span>
           </nav>
-          <h1 className="svc-hero-h1">Leading Web Design Company in Dubai</h1>
-          <p className="svc-hero-sub">We design and develop high-performing websites and mobile applications that are fast, secure, and user-focused — optimized for user experience, scalability, and business growth.</p>
-          <div className="svc-hero-btns">
-            <Link href="/contact" className="svc-btn-primary">
+          <p className="wad-hero-eyebrow">Leading</p>
+          <h1 className="wad-hero-h1">Web Design<br />Company in Dubai</h1>
+          <p className="wad-hero-service-tag">Services</p>
+          <p className="wad-hero-sub">We design and develop high-performing websites and mobile applications that are fast, secure, and user-focused. Every build is optimized for user experience, scalability, and business growth.</p>
+          <div className="wad-hero-btns">
+            <Link href="/contact" className="wad-hero-btn">
               Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
