@@ -162,6 +162,35 @@
 @media (max-width: 768px) {
   .pad-perf-points { grid-template-columns: 1fr; }
 }
+
+/* ── WHAT WE DELIVER CTA CARD ── */
+.cb-svc-page .wad-cta-card {
+  background: linear-gradient(135deg, #a73184 0%, #6b1a5a 60%, #0d0d20 100%) !important;
+  border-color: transparent !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.cb-svc-page .wad-cta-card-text {
+  font-family: Nexa, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0;
+}
+.cb-svc-page .wad-cta-card-btn {
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  width: 100%;
+  justify-content: center;
+}
+.cb-svc-page .wad-cta-card-btn:hover {
+  background: rgba(255,255,255,0.92) !important;
+  color: #a73184 !important;
+}
 .svc-hero-h1,
 .cb-section-h2,
 .cb-cta-h2 {
