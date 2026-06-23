@@ -223,12 +223,24 @@ export default function CreativeBrandingPage() {
         </div>
       </section>
 
-      {/* ── INTRO BAND ── */}
-      <div data-reveal className="cb-intro-band">
-        <p className="cb-intro-text">
-          Not every brand needs more noise. Most need clarity.
-        </p>
-      </div>
+      {/* ── INTRO EDITORIAL ── */}
+      <section className="cb-section cb-brand-intro-section">
+        <div className="container">
+          <div className="cb-brand-intro-editorial">
+            <div className="cb-brand-intro-left">
+              <h2 className="cb-brand-intro-title">Not every brand needs more noise.<span className="gradient-text"> Most need clarity.</span></h2>
+              <div className="cb-brand-intro-bar" />
+            </div>
+            <div className="cb-brand-intro-divider" aria-hidden="true" />
+            <div className="cb-brand-intro-right">
+              <p>Design isn&apos;t decoration, it&apos;s communication: We deliver graphic design services in Dubai and all around the MENA region.</p>
+              <p>Brand Strategy: we define how your brand thinks, speaks, and shows up. Positioning, tone of voice, messaging frameworks, built to last.</p>
+              <p>Visual Identity &amp; Design: we create identities that are consistent, memorable, and flexible.</p>
+              <p>Strategic Branding: every decision we make ties back to how your brand performs in the real world.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── WHAT WE DO ── */}
       <section className="cb-section">

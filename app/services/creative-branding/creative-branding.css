@@ -5,6 +5,54 @@
   text-transform: uppercase;
 }
 
+/* ── INTRO EDITORIAL ── */
+.cb-brand-intro-section { background: #fff; padding: 80px 0; }
+.cb-brand-intro-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 48px;
+  align-items: start;
+}
+.cb-brand-intro-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #0d0d20;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.cb-brand-intro-bar {
+  width: 60px;
+  height: 4px;
+  background: #cfa821;
+  border-radius: 2px;
+}
+.cb-brand-intro-divider {
+  background: linear-gradient(to bottom, transparent, #a73184 30%, #cfa821 70%, transparent);
+  align-self: stretch;
+  min-height: 200px;
+  opacity: 0.4;
+}
+.cb-brand-intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cb-brand-intro-right p {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  padding-left: 16px;
+  border-left: 3px solid #cfa821;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .cb-brand-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
+  .cb-brand-intro-divider { display: none; }
+}
+
 /* ── INTRO BAND ── */
 .cb-intro-band {
   background: #f8f8f8;
