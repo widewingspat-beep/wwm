@@ -190,44 +190,31 @@ export default function WebAppDevelopmentPage() {
       <section className="cb-section cb-section-alt wad-expertise-section">
         <div className="wad-section-orb wad-orb-2" aria-hidden="true" />
         <div className="container">
-          <span data-reveal className="section-label">Web Design Company in Dubai: For all Types of Industries</span>
-          <h2 data-reveal className="cb-section-h2">Expertise &amp; <span className="gradient-text">Insights</span></h2>
-
-          <div className="wad-expertise-split">
-            <div data-reveal className="wad-expertise-left">
-              <WadExpertiseAccordion />
+          <div className="wad-exp-layout">
+            {/* Left — sticky large title */}
+            <div className="wad-exp-title-col" data-reveal>
+              <h2 className="wad-exp-big-title">Web Design Company in Dubai: For all Types of Industries.</h2>
+              <p className="wad-exp-sub-label">Expertise &amp; Insights</p>
             </div>
 
-            <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
-              <div className="wad-medical-card">
-                <div className="wad-medical-card-header">
-                  <div className="wad-medical-icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M24 4 C14 4 6 12 6 22 C6 34 24 44 24 44 C24 44 42 34 42 22 C42 12 34 4 24 4Z"/>
-                      <line x1="24" y1="14" x2="24" y2="30"/><line x1="16" y1="22" x2="32" y2="22"/>
-                    </svg>
-                  </div>
-                  <h3>Designing websites for doctors and dental practices.</h3>
+            {/* Right — 2-col card grid */}
+            <div className="wad-exp-cards-col">
+              {[
+                "Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.",
+                "Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client's needs.",
+                "Every business is different, and every business has its challenges and goals. It's very important to understand this idea if you're working on a website. At Wide Wings Media, we understand that each business is unique. We customize our web development services for each client.",
+                "Our team of expert web designers has a lot of experience building websites for healthcare and other industries that work with patients on all devices. Our services are designed to create cutting-edge digital experiences.",
+                "Make your website better than your competitors' websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.",
+                "Designing websites for doctors and dental practices.",
+                "We are an award-winning medical website design agency. We know how to design and develop a website that attracts and engages new patients. Our medical website design process includes making the website easy for patients to use and making sure that it ranks highly in online searches.",
+                "The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it's like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.",
+                "Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don't use digital marketing to their advantage.",
+                "Many medical websites don't make it easy for people to find what they're looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.",
+              ].map((text, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${(i % 4) * 80}`} className="wad-exp-card">
+                  <p className="wad-exp-card-text">{text}</p>
                 </div>
-                <p className="wad-para">We are an award-winning medical website design agency. We know how to design and develop a website that attracts and engages new patients. Our medical website design process includes making the website easy for patients to use and making sure that it ranks highly in online searches.</p>
-                <p className="wad-para">The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it&apos;s like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.</p>
-                <p className="wad-para">Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don&apos;t use digital marketing to their advantage.</p>
-                <p className="wad-para">Many medical websites don&apos;t make it easy for people to find what they&apos;re looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.</p>
-
-                {/* Mobile device mockup */}
-                <div className="wad-mobile-wrap" aria-hidden="true">
-                  <div className="wad-mobile-frame">
-                    <div className="wad-mobile-notch" />
-                    <div className="wad-mobile-screen">
-                      <div className="wad-mob-hero" />
-                      <div className="wad-mob-line" />
-                      <div className="wad-mob-line wad-mob-line--short" />
-                      <div className="wad-mob-cta" />
-                    </div>
-                  </div>
-                  <div className="wad-mobile-glow" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

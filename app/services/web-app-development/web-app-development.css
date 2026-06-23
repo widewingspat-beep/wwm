@@ -799,6 +799,77 @@
 }
 
 /* ══════════════════════════════════════
+   EXPERTISE — NEW TITLE + CARD GRID LAYOUT
+══════════════════════════════════════ */
+.wad-exp-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.wad-exp-title-col {
+  position: sticky;
+  top: 100px;
+}
+
+.wad-exp-big-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 900;
+  color: #0d0d20;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.wad-exp-sub-label {
+  font-family: Nexa, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a73184;
+  margin: 0;
+}
+
+.wad-exp-cards-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.wad-exp-card {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.wad-exp-card:hover {
+  border-color: rgba(167,49,132,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(167,49,132,0.08);
+}
+
+.wad-exp-card-text {
+  font-family: Calibri, sans-serif;
+  font-size: 0.97rem;
+  color: #444;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .wad-exp-layout { grid-template-columns: 1fr; gap: 32px; }
+  .wad-exp-title-col { position: static; }
+}
+@media (max-width: 640px) {
+  .wad-exp-cards-col { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════
    EXPERTISE ACCORDION
 ══════════════════════════════════════ */
 .wad-acc-list {
