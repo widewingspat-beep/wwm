@@ -320,7 +320,7 @@ export default function CreativeBrandingPage() {
       </section>
 
       {/* ── WHY WIDE WINGS ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark cb-brand-why-section">
         <div className="container">
           <span data-reveal className="section-label">Why Choose Us</span>
           <h2 data-reveal className="cb-section-h2">

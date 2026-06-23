@@ -53,6 +53,16 @@
   .cb-brand-intro-divider { display: none; }
 }
 
+/* ── WHY SECTION DARK ── */
+.cb-brand-why-section .cb-section-h2,
+.cb-brand-why-section .section-label {
+  text-align: center;
+}
+.cb-brand-why-section .cb-why-title { color: #fff; }
+.cb-brand-why-section .cb-why-desc { color: rgba(255,255,255,0.6); }
+.cb-brand-why-section .cb-why-card { background: #252540; border-color: rgba(255,255,255,0.08); }
+.cb-brand-why-section .cb-why-icon { color: #a73184; }
+
 /* ── INTRO BAND ── */
 .cb-intro-band {
   background: #f8f8f8;
