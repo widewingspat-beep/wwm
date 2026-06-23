@@ -54,7 +54,7 @@
 }
 
 /* ── FAQ BOX STYLE ── */
-.cb-faq-wrap { max-width: 100%; width: 100%; margin: 0 auto; }
+.cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
 .cb-faq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
 .cb-faq-item {
   background: #fff;
