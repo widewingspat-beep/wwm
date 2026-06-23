@@ -1,3 +1,9 @@
+/* ── UPPERCASE TITLES ── */
+.cb-section-h2,
+.cb-cta-h2 {
+  text-transform: uppercase;
+}
+
 /* ── INTRO BAND ── */
 .cb-intro-band {
   background: #f8f8f8;
