@@ -177,33 +177,44 @@ export default function WebAppDevelopmentPage() {
       <section className="cb-section cb-section-alt wad-expertise-section">
         <div className="wad-section-orb wad-orb-2" aria-hidden="true" />
         <div className="container">
-          <div className="wad-exp-layout">
-            {/* Left — sticky large title */}
-            <div className="wad-exp-title-col" data-reveal>
-              <h2 className="wad-exp-big-title">Web Design Company in Dubai: For all Types of Industries.</h2>
-              <p className="wad-exp-sub-label">Expertise &amp; Insights</p>
-            </div>
-
-            {/* Right — 2-col card grid */}
-            <div className="wad-exp-cards-col">
-              {[
-                "Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.",
-                "Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client's needs.",
-                "Every business is different, and every business has its challenges and goals. It's very important to understand this idea if you're working on a website. At Wide Wings Media, we understand that each business is unique. We customize our web development services for each client.",
-                "Our team of expert web designers has a lot of experience building websites for healthcare and other industries that work with patients on all devices. Our services are designed to create cutting-edge digital experiences.",
-                "Make your website better than your competitors' websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.",
-                "Designing websites for doctors and dental practices.",
-                "We are an award-winning medical website design agency. We know how to design and develop a website that attracts and engages new patients. Our medical website design process includes making the website easy for patients to use and making sure that it ranks highly in online searches.",
-                "The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it's like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.",
-                "Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don't use digital marketing to their advantage.",
-                "Many medical websites don't make it easy for people to find what they're looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.",
-              ].map((text, i) => (
-                <div key={i} data-reveal data-reveal-delay={`${(i % 4) * 80}`} className="wad-exp-card">
-                  <p className="wad-exp-card-text">{text}</p>
+          {(() => {
+            const EXP_TEXTS = [
+              "Did you know that most people now use mobile devices to browse the internet? Google now shows the mobile version of your website first in its search results. So, your medical website design must work perfectly on mobile devices, just like it does on laptops or desktops.",
+              "Having a strong online presence is not just a good idea; businesses need to thrive and succeed. Wide Wings Media recognizes this and provides web development services that are customized according to each client's needs.",
+              "Every business is different, and every business has its challenges and goals. It's very important to understand this idea if you're working on a website. At Wide Wings Media, we understand that each business is unique. We customize our web development services for each client.",
+              "Our team of expert web designers has a lot of experience building websites for healthcare and other industries that work with patients on all devices. Our services are designed to create cutting-edge digital experiences.",
+              "Make your website better than your competitors' websites. Make people want to use your website by giving them a great experience. Improve the chances that users will complete a conversion by offering them a positive experience. Our company has been in business for years, and we build custom-designed websites.",
+              "Designing websites for doctors and dental practices.",
+              "We are an award-winning medical website design agency. We know how to design and develop a website that attracts and engages new patients. Our medical website design process includes making the website easy for patients to use and making sure that it ranks highly in online searches.",
+              "The website design for medical practices is made to make the patient experience better and get more new patients. Your medical website is your best tool for digital marketing because it's like your digital billboard, the foundation of your marketing traffic, and a doorway to provide valuable information to patients.",
+              "Turn your old or slow-loading website into an award-winning one with our website redesigns. Often, medical websites don't use digital marketing to their advantage.",
+              "Many medical websites don't make it easy for people to find what they're looking for. Is it time to check if your website is up to date? Just like medicine, your online presence should always be improving to meet the needs of patients.",
+            ];
+            return (
+              <div className="wad-deliver-2col">
+                {/* Col 1 — title + first 2 cards */}
+                <div className="wad-deliver-col-small">
+                  <h2 data-reveal className="cb-section-h2wad">Web Design Company in Dubai: For all Types of Industries.</h2>
+                  <p data-reveal className="wad-exp-sub-label" style={{ marginBottom: '20px' }}>Expertise &amp; Insights</p>
+                  {EXP_TEXTS.slice(0, 2).map((text, i) => (
+                    <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-exp-card">
+                      <p className="wad-exp-card-text">{text}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+                {/* Col 2 — remaining cards stacked */}
+                <div className="wad-deliver-col-big">
+                  <div className="wad-deliver-col-big-inner">
+                    {EXP_TEXTS.slice(2).map((text, i) => (
+                      <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-exp-card">
+                        <p className="wad-exp-card-text">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
