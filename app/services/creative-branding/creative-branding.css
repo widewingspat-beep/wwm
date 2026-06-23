@@ -1,6 +1,7 @@
 /* ── UPPERCASE TITLES ── */
 .cb-section-h2,
-.cb-cta-h2 {
+.cb-cta-h2,
+.svc-hero-h1 {
   text-transform: uppercase;
 }
 
