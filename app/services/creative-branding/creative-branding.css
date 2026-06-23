@@ -124,7 +124,8 @@ details[open] .cb-faq-icon { transform: rotate(45deg); background: #a73184; }
 .cb-process-card--center .cb-process-title { text-align: center; }
 .cb-process-card--center .cb-process-desc { text-align: center; }
 .cb-section-alt .section-label,
-.cb-section-alt .cb-section-h2 { text-align: center; }
+.cb-section-alt .cb-section-h2,
+.cb-section-alt .section-label { text-align: center; display: block; }
 
 /* ── WHY SECTION DARK ── */
 .cb-brand-why-section {
