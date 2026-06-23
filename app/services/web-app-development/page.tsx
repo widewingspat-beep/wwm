@@ -253,8 +253,16 @@ export default function WebAppDevelopmentPage() {
 
       {/* ── CTA ── */}
       <section className="cb-cta wad-cta-white">
+        {/* Decorative dots & circles */}
+        <div className="wad-cta-bg" aria-hidden="true">
+          <div className="wad-cta-circle wad-cta-circle--1" />
+          <div className="wad-cta-circle wad-cta-circle--2" />
+          <div className="wad-cta-circle wad-cta-circle--3" />
+          <div className="wad-cta-dots wad-cta-dots--tl" />
+          <div className="wad-cta-dots wad-cta-dots--br" />
+        </div>
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Let&apos;s Build</span>
+          <span data-reveal className="section-label">Let&apos;s Build</span>
           <h2 data-reveal className="cb-cta-h2">Ready to Dominate<br /><span className="gradient-text">Your Market?</span></h2>
           <p data-reveal className="cb-cta-body">Start your project with a leading web design company in Dubai. We build websites that perform, convert, and grow with your business.</p>
           <div data-reveal className="cb-cta-btns">

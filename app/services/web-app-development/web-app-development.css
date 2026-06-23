@@ -14,6 +14,56 @@
 .wad-deliver-section .cb-svc-desc { color: rgba(255,255,255,0.6); }
 .wad-deliver-section .wad-deliver-line { background: rgba(255,255,255,0.1); }
 
+/* ── CTA background decorations ── */
+.wad-cta-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Floating circles */
+.wad-cta-circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: wadCtaFloat 8s ease-in-out infinite;
+}
+.wad-cta-circle--1 {
+  width: 320px; height: 320px;
+  top: -100px; left: -80px;
+  background: radial-gradient(circle, rgba(167,49,132,0.08) 0%, transparent 70%);
+  animation-duration: 9s;
+}
+.wad-cta-circle--2 {
+  width: 240px; height: 240px;
+  bottom: -60px; right: 10%;
+  background: radial-gradient(circle, rgba(207,168,33,0.1) 0%, transparent 70%);
+  animation-duration: 11s;
+  animation-delay: 1.5s;
+}
+.wad-cta-circle--3 {
+  width: 160px; height: 160px;
+  top: 20px; right: 20%;
+  border: 2px solid rgba(167,49,132,0.12);
+  animation-duration: 13s;
+  animation-delay: 3s;
+}
+
+/* Dot grids */
+.wad-cta-dots {
+  position: absolute;
+  width: 160px; height: 160px;
+  background-image: radial-gradient(circle, rgba(167,49,132,0.25) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+.wad-cta-dots--tl { top: 24px; left: 32px; }
+.wad-cta-dots--br { bottom: 24px; right: 32px; opacity: 0.6; }
+
+@keyframes wadCtaFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-18px) scale(1.04); }
+}
+
 /* ── CTA — white background override ── */
 .wad-cta-white.cb-cta {
   background: #ffffff;
