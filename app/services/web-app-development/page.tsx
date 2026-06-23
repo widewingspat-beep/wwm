@@ -229,23 +229,37 @@ export default function WebAppDevelopmentPage() {
       <section className="cb-section wad-deliver-section">
         <div className="container">
           <h2 data-reveal className="cb-section-h2">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
-          <div className="cb-services-grid">
-            {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
-                <div className="wad-deliver-num-wrap">
+          <div className="wad-deliver-2col">
+            {/* Col 1 — small: cards 01 & 02 */}
+            <div className="wad-deliver-col-small">
+              {WHAT_WE_DO.slice(0, 2).map((s, i) => (
+                <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
                   <div className="cb-svc-num">{s.num}</div>
+                  <h3 className="cb-svc-title">{s.title}</h3>
+                  <p className="cb-svc-desc">{s.desc}</p>
+                  <div className="wad-deliver-line" />
                 </div>
-                <h3 className="cb-svc-title">{s.title}</h3>
-                <p className="cb-svc-desc">{s.desc}</p>
-                <div className="wad-deliver-line" />
+              ))}
+            </div>
+            {/* Col 2 — big: cards 03-05 + CTA */}
+            <div className="wad-deliver-col-big">
+              <div className="wad-deliver-col-big-inner">
+                {WHAT_WE_DO.slice(2).map((s, i) => (
+                  <div key={s.num} data-reveal data-reveal-delay={`${(i + 2) * 80}`} className="cb-svc-card wad-deliver-card">
+                    <div className="cb-svc-num">{s.num}</div>
+                    <h3 className="cb-svc-title">{s.title}</h3>
+                    <p className="cb-svc-desc">{s.desc}</p>
+                    <div className="wad-deliver-line" />
+                  </div>
+                ))}
+                <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
+                  <p className="wad-cta-card-text">Ready to build a website that works as hard as you do?</p>
+                  <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
+                    Free Consultation
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </Link>
+                </div>
               </div>
-            ))}
-            <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
-              <p className="wad-cta-card-text">Ready to build a website that works as hard as you do?</p>
-              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Free Consultation
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
             </div>
           </div>
         </div>

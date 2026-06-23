@@ -1,5 +1,28 @@
 /* web-app-development page — Nexa headings, Calibri body throughout */
 
+/* ── Deliver 2-column layout ── */
+.wad-deliver-2col {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 48px;
+}
+.wad-deliver-col-small {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wad-deliver-col-big-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .wad-deliver-2col { grid-template-columns: 1fr; }
+  .wad-deliver-col-big-inner { grid-template-columns: 1fr; }
+}
+
 /* ── Deliver section — deep grey ── */
 .wad-deliver-section {
   background: #1a1a2e !important;
