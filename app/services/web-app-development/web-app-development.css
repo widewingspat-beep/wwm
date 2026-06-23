@@ -843,6 +843,14 @@
   letter-spacing: -0.01em;
 }
 
+.wad-exp-gold-bar {
+  width: 60px;
+  height: 4px;
+  background: #cfa821;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
 .wad-exp-sub-label {
   font-family: Nexa, sans-serif;
   font-size: 0.82rem;
