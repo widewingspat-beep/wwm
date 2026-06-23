@@ -4,65 +4,59 @@ import '../services.css';
 import '../service-page.css';
 import './ooh-advertising.css';
 
-const WHAT_WE_DO = [
-  { num: '01', title: 'Billboard Advertising', desc: 'Large-format billboards and unipoles in prime Dubai locations to maximize your brand\'s reach and visibility' },
-  { num: '02', title: 'Bridge Banners & Hoardings', desc: 'High-impact bridge banners and hoardings that capture attention in high-traffic areas across the UAE' },
-  { num: '03', title: 'LED & Digital Billboards', desc: 'Dynamic LED digital billboard campaigns that stand out in Dubai\'s competitive outdoor advertising landscape' },
-  { num: '04', title: 'Transit & Metro Advertising', desc: 'Airport, metro, mall, and transit advertising that reaches commuters and travellers across Dubai' },
-  { num: '05', title: 'Mobile Billboards', desc: 'Mobile billboard and street furniture options that bring your brand message directly to your target audience' },
-];
-
 const EXPERTISE = [
   {
-    title: 'Massive Reach',
-    desc: 'High visibility reaching millions of people in Dubai\'s busy streets, highways, and commercial areas',
+    title: 'Wide OOH Solutions',
+    desc: 'We provide a wide range of outdoor and out-of-home (OOH) advertising solutions placed in key locations across the Emirates.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="8" width="40" height="24" rx="3"/>
+        <line x1="16" y1="32" x2="10" y2="44"/>
+        <line x1="32" y1="32" x2="38" y2="44"/>
+        <line x1="10" y1="44" x2="38" y2="44"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Full-Service Formats',
+    desc: 'Our services include billboard advertising, mobile billboards, street furniture advertising, unipole advertising, hoardings, and airport advertising.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="4" width="18" height="18" rx="2"/>
+        <rect x="26" y="4" width="18" height="18" rx="2"/>
+        <rect x="4" y="26" width="18" height="18" rx="2"/>
+        <rect x="26" y="26" width="18" height="18" rx="2"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Smart Technology',
+    desc: 'We use smart thinking, modern technology, and attention to detail to make brands stand out and remain memorable.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="24" cy="24" r="20"/>
-        <path d="M24 4 C14 14, 14 34, 24 44"/><path d="M24 4 C34 14, 34 34, 24 44"/>
-        <line x1="4" y1="24" x2="44" y2="24"/>
+        <polyline points="16,24 22,30 34,18"/>
       </svg>
     ),
   },
   {
-    title: 'Targeted Locations',
-    desc: 'Strategic placement in high-traffic and luxury districts to reach your specific target demographic',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="24" cy="20" r="10"/>
-        <path d="M24 44 C24 44 8 30 8 20 A16 16 0 0 1 40 20 C40 30 24 44 24 44Z"/>
-        <circle cx="24" cy="20" r="4" fill="currentColor" stroke="none"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Cost-Effective',
-    desc: 'Outdoor advertising delivers strong cost-per-impression value compared to traditional media channels',
+    title: 'Ideal Dubai Market',
+    desc: 'Dubai is an ideal market for outdoor advertising due to its fast growth, diverse population, and global business presence.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="24" cy="24" r="20"/>
-        <path d="M18 28 C18 32 30 32 30 24 C30 16 18 20 18 14 C18 8 30 8 30 14"/>
-        <line x1="24" y1="6" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="42"/>
+        <path d="M4 24 Q14 12 24 24 Q34 36 44 24"/>
+        <line x1="24" y1="4" x2="24" y2="44"/>
       </svg>
     ),
   },
   {
-    title: 'Brand Recognition',
-    desc: 'Repeated exposure through outdoor advertising builds strong brand recognition and top-of-mind awareness',
+    title: 'Brand Visibility',
+    desc: 'Successful outdoor advertising increases brand visibility, recognition, and audience interaction.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M24 4 L30 14 L42 16 L33 25 L35 38 L24 32 L13 38 L15 25 L6 16 L18 14 Z"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Captive Audience',
-    desc: 'Reach a captive audience in traffic, public spaces, and transit environments where attention is focused',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="24" cy="18" r="10"/>
-        <path d="M6 44 C6 34 14 28 24 28 C34 28 42 34 42 44"/>
-        <polyline points="30,12 36,18 30,24"/>
+        <path d="M4 24 C4 24 12 10 24 10 C36 10 44 24 44 24 C44 24 36 38 24 38 C12 38 4 24 4 24Z"/>
+        <circle cx="24" cy="24" r="7"/>
       </svg>
     ),
   },
@@ -70,53 +64,37 @@ const EXPERTISE = [
 
 const WHY_US = [
   {
-    title: 'Massive Reach',
-    desc: 'High visibility reaching millions of people in Dubai\'s busy streets, highways, and commercial areas',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="24" cy="24" r="20"/>
-        <path d="M24 4 C14 14, 14 34, 24 44"/><path d="M24 4 C34 14, 34 34, 24 44"/>
-        <line x1="4" y1="24" x2="44" y2="24"/>
-      </svg>
-    ),
+    num: '01',
+    title: 'High Visibility',
+    desc: "Dubai's landmarks and busy streets allow outdoor ads to reach millions of residents, tourists, and professionals.",
   },
   {
-    title: 'Targeted Locations',
-    desc: 'Strategic placement in high-traffic and luxury districts to reach your specific target demographic',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="24" cy="20" r="10"/>
-        <path d="M24 44 C24 44 8 30 8 20 A16 16 0 0 1 40 20 C40 30 24 44 24 44Z"/>
-        <circle cx="24" cy="20" r="4" fill="currentColor" stroke="none"/>
-      </svg>
-    ),
+    num: '02',
+    title: 'Targeted Reach',
+    desc: 'Outdoor advertising reaches specific audiences in high-traffic areas, luxury districts, and business centers.',
   },
   {
-    title: 'Brand Recognition',
-    desc: 'Repeated exposure through outdoor advertising builds strong brand recognition and top-of-mind awareness',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M24 4 L30 14 L42 16 L33 25 L35 38 L24 32 L13 38 L15 25 L6 16 L18 14 Z"/>
-      </svg>
-    ),
+    num: '03',
+    title: 'Cost-Effective Advertising',
+    desc: 'Outdoor advertising is more affordable than traditional media like TV and newspapers.',
   },
   {
+    num: '04',
+    title: 'Strong Brand Recognition',
+    desc: 'Frequent exposure helps audiences remember and recognize brands more easily.',
+  },
+  {
+    num: '05',
     title: 'Captive Audience',
-    desc: 'Reach a captive audience in traffic, public spaces, and transit environments where attention is focused',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="24" cy="18" r="10"/>
-        <path d="M6 44 C6 34 14 28 24 28 C34 28 42 34 42 44"/>
-      </svg>
-    ),
+    desc: 'People in traffic or public spaces are more likely to notice and remember outdoor advertisements.',
   },
 ];
 
 const FAQS = [
-  { q: 'What types of outdoor advertising do you offer?', a: 'We offer billboards, bridge banners, LED digital boards, unipoles, lampposts, hoardings, airport, metro, mall, and mobile billboard advertising.' },
-  { q: 'Can you help plan outdoor advertising locations?', a: 'Yes. We analyze traffic data and demographics to recommend the most effective outdoor advertising locations for your campaign goals.' },
-  { q: 'How long does an outdoor advertising campaign run?', a: 'Campaign durations vary based on your goals and budget. We offer flexible packages from short-term activations to long-term brand campaigns.' },
-  { q: 'Do you handle production of the advertising materials?', a: 'Yes. We manage the full production process including design, printing, and installation of all outdoor advertising materials.' },
+  { q: 'What types of outdoor advertising do you offer?', a: 'We offer billboard advertising, bridge banners, LED billboards, lampposts, unipolar, hoardings, airport, metro, mall, and transit advertising.' },
+  { q: 'Where are outdoor advertisements placed in Dubai?', a: "Outdoor ads are placed on highways, main roads, bridges, busy intersections, malls, metro stations, airports, and high-traffic locations." },
+  { q: 'Is outdoor advertising effective in Dubai?', a: "Yes. Dubai's busy streets, landmarks, and high traffic make outdoor advertising one of the most effective branding strategies." },
+  { q: 'Can outdoor advertising help brand awareness?', a: 'Outdoor advertising ensures constant visibility, helping brands stay top-of-mind with repeated exposure.' },
 ];
 
 const SPARKS = [
@@ -135,6 +113,7 @@ const SPARKS = [
 export default function OohAdvertisingPage() {
   return (
     <>
+      {/* ── HERO ── */}
       <section className="svc-hero">
         <div className="svc-hero-blob" aria-hidden="true" />
         <div className="svc-hero-sparks" aria-hidden="true">
@@ -150,8 +129,9 @@ export default function OohAdvertisingPage() {
             <span className="svc-bc-sep">/</span>
             <span>OOH Advertising</span>
           </nav>
-          <h1 className="svc-hero-h1">Outdoor Advertising Services in Dubai</h1>
-          <p className="svc-hero-sub">We deliver impactful out-of-home advertising that amplifies brand visibility across key locations throughout Dubai and the UAE.</p>
+          <p className="svc-hero-eyebrow">Premium</p>
+          <h1 className="svc-hero-h1">Outdoor Advertising Services</h1>
+          <p className="svc-hero-sub">We deliver impactful out-of-home advertising that amplifies brand visibility across key locations. From billboards to transit media, we help your message reach audiences beyond digital screens.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Get a Proposal
@@ -162,30 +142,30 @@ export default function OohAdvertisingPage() {
         </div>
       </section>
 
-      <div data-reveal className="cb-intro-band">
-        <p className="cb-intro-text">Premium outdoor advertising solutions including billboards, bridge banners, LED billboards, lampposts, unipoles, hoardings, airport, metro, mall, and transit advertising.</p>
-      </div>
-
+      {/* ── INTRO ── */}
       <section className="cb-section">
         <div className="container">
-          <span data-reveal className="section-label">What We Do</span>
-          <h2 data-reveal className="cb-section-h2">Outdoor advertising that <span className="gradient-text">commands attention</span></h2>
-          <div className="cb-services-grid">
-            {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
-                <h3 className="cb-svc-title">{s.title}</h3>
-                <p className="cb-svc-desc">{s.desc}</p>
-              </div>
-            ))}
+          <span data-reveal className="section-label">Premium Outdoor Advertising Services in Dubai</span>
+          <h2 data-reveal className="cb-section-h2">Outdoor advertising that <span className="gradient-text">gets noticed</span></h2>
+          <div className="wad-intro-2col">
+            <div className="wad-intro-2col-left">
+              <p className="wad-para">Get exposure with effective outdoor advertising in Dubai. We run strategic outdoor advertising campaigns that help brands reach their target audiences.</p>
+              <p className="wad-para">Wide Wings Media is a leading outdoor advertising agency in Dubai. Founded in 2020, the company delivers premium hoardings and unipolar advertising solutions.</p>
+              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+            </div>
+            <div className="wad-intro-2col-right">
+              <p className="wad-para">Outdoor advertising includes billboards on bridges and lampposts, unipolar, wall banners, scaffolding, and taxi advertising.</p>
+              <p className="wad-para">We are leaders in outdoor advertising across Dubai and the Emirates, offering a wide range of placements including billboards, bridge banners, lampposts, rooftops, metro, airport, malls, and transit advertising.</p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
           <span data-reveal className="section-label">Expertise &amp; Insights</span>
-          <h2 data-reveal className="cb-section-h2">Why invest in <span className="gradient-text">outdoor advertising?</span></h2>
+          <h2 data-reveal className="cb-section-h2">Outdoor advertising for <span className="gradient-text">business growth</span></h2>
           <div className="cb-expertise-grid">
             {EXPERTISE.map((e, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card">
@@ -198,23 +178,8 @@ export default function OohAdvertisingPage() {
         </div>
       </section>
 
+      {/* ── FAQ ── */}
       <section className="cb-section">
-        <div className="container">
-          <span data-reveal className="section-label">Why Choose Us</span>
-          <h2 data-reveal className="cb-section-h2">Why choose Wide Wings for <span className="gradient-text">outdoor advertising?</span></h2>
-          <div className="cb-why-grid">
-            {WHY_US.map((w, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-why-card">
-                <div className="cb-why-icon">{w.icon}</div>
-                <h3 className="cb-why-title">{w.title}</h3>
-                <p className="cb-why-desc">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cb-section cb-section-alt">
         <div className="container cb-faq-wrap">
           <span data-reveal className="section-label">FAQ</span>
           <h2 data-reveal className="cb-section-h2">Frequently asked <span className="gradient-text">questions</span></h2>
@@ -229,14 +194,70 @@ export default function OohAdvertisingPage() {
         </div>
       </section>
 
+      {/* ── OOH VS OTHER ── */}
+      <section className="cb-section cb-section-alt">
+        <div className="container">
+          <span data-reveal className="section-label">Comparison</span>
+          <h2 data-reveal className="cb-section-h2">Outdoor advertising vs. <span className="gradient-text">other forms of advertising</span></h2>
+          <div className="wad-expertise-split">
+            <div data-reveal className="wad-expertise-left">
+              <p className="wad-para">Outdoor advertising differs from newspaper, television, and digital advertising by offering continuous brand visibility.</p>
+              <p className="wad-para">Billboards and street advertising are always visible, allowing brands to communicate messages throughout the day.</p>
+              <p className="wad-para">Repeated exposure increases brand recognition and recall among audiences.</p>
+            </div>
+            <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
+              <div className="wad-medical-card">
+                <div className="wad-medical-card-header">
+                  <div className="wad-medical-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="4" y="8" width="40" height="24" rx="3"/>
+                      <line x1="16" y1="32" x2="10" y2="44"/>
+                      <line x1="32" y1="32" x2="38" y2="44"/>
+                      <line x1="10" y1="44" x2="38" y2="44"/>
+                    </svg>
+                  </div>
+                  <h3>Outdoor advertising in Dubai is especially effective due to the city&apos;s constant development and movement.</h3>
+                </div>
+                <p className="wad-para">Dubai&apos;s constantly evolving landscape makes it one of the world&apos;s most dynamic environments for outdoor brand exposure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY INVEST ── */}
+      <section className="cb-section">
+        <div className="container">
+          <span data-reveal className="section-label">Why Invest in Outdoor Advertising in Dubai?</span>
+          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
+          <div className="cb-services-grid">
+            {WHY_US.map((s, i) => (
+              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
+                <div className="cb-svc-num">{s.num}</div>
+                <h3 className="cb-svc-title">{s.title}</h3>
+                <p className="cb-svc-desc">{s.desc}</p>
+              </div>
+            ))}
+            <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
+              <p className="wad-cta-card-text">Make Your Brand Impossible to Ignore</p>
+              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
+                Request an Outdoor Advertising Plan
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
       <section className="cb-cta">
         <div className="container cb-cta-inner">
-          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Let&apos;s Amplify</span>
+          <span data-reveal className="section-label" style={{ color: 'rgba(255,255,255,0.5)' }}>Get Started</span>
           <h2 data-reveal className="cb-cta-h2">Make Your Brand<br /><span className="gradient-text">Impossible to Ignore</span></h2>
-          <p data-reveal className="cb-cta-body">Premium outdoor advertising services in Dubai. Why invest in outdoor advertising? High visibility, targeted reach, and strong brand recognition.</p>
+          <p data-reveal className="cb-cta-body">Launch high-impact outdoor advertising campaigns in Dubai and reach audiences where it matters most.</p>
           <div data-reveal className="cb-cta-btns">
             <Link href="/contact" className="svc-btn-primary">
-              Get a Proposal
+              Request an Outdoor Advertising Plan
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
             <Link href="/contact" className="svc-btn-outline cb-cta-outline">Free Consultation</Link>
