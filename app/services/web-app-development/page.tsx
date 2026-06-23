@@ -227,7 +227,10 @@ export default function WebAppDevelopmentPage() {
       <section className="cb-section cb-section-alt wad-hosting-section">
         <div className="wad-section-orb wad-orb-3" aria-hidden="true" />
         <div className="container">
-          <h2 data-reveal className="cb-section-h2">Web Design Company in Dubai: <span className="gradient-text">Builds and Hosts Websites</span></h2>
+          <h2 data-reveal className="cb-section-h2" style={{ textAlign: 'center' }}>
+            Web Design Company in Dubai:<br />
+            <span className="gradient-text">Builds and Hosts Websites</span>
+          </h2>
           <div className="wad-hosting-grid">
             {HOSTING.map((h, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-hosting-card">
