@@ -3,22 +3,34 @@
 /* ── FAQ overrides ── */
 .wad-page .cb-faq-wrap { max-width: 100%; }
 
+.wad-page .cb-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wad-page .cb-faq-item {
+  background: #fff;
+  border: 1px solid #ebebeb !important;
+  border-bottom: 1px solid #ebebeb !important;
+  border-radius: 12px;
+  padding: 4px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.wad-page .cb-faq-item:first-child { border-top: 1px solid #ebebeb !important; }
+
 .wad-page .cb-faq-q {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 0;
+  padding: 20px 0;
   list-style: none;
   cursor: pointer;
   gap: 20px;
 }
 .wad-page .cb-faq-q::after { display: none; }
 
-.wad-page .cb-faq-item {
-  position: relative;
-}
-
-/* Animated + button */
+/* Purple animated circle icon */
 .wad-faq-icon {
   width: 36px;
   height: 36px;
@@ -27,9 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #a73184, #cfa821);
-  background-size: 200% 200%;
-  animation: wadFaqGradient 3s ease infinite;
+  background: #7b2d8b;
+  animation: wadFaqPulse 2.5s ease-in-out infinite;
   transition: transform 0.3s ease;
   color: #fff;
   font-size: 1.3rem;
@@ -38,12 +49,12 @@
 }
 details[open] .wad-faq-icon {
   transform: rotate(45deg);
+  background: #a73184;
 }
 
-@keyframes wadFaqGradient {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes wadFaqPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(123,45,139,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(123,45,139,0); }
 }
 
 /* All section titles uppercase on this page only */
