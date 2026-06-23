@@ -125,6 +125,42 @@
 .cb-section-alt .cb-section-h2,
 .cb-section-alt .section-label { text-align: center; display: block; }
 
+/* ── Expertise CTA colored card ── */
+.cb-brand-cta-expertise-card {
+  background: linear-gradient(135deg, #a73184 0%, #6b1a5a 60%, #0d0d20 100%) !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.cb-brand-cta-expertise-text {
+  font-family: Nexa, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0;
+}
+.cb-brand-cta-expertise-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #a73184;
+  font-family: Nexa, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+.cb-brand-cta-expertise-btn:hover { background: #cfa821; color: #fff; }
+
 /* ── WHY SECTION DARK ── */
 .cb-brand-why-section {
   background: #1a1a2e !important;
