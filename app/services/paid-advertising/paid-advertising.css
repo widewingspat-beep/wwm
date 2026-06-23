@@ -1,1 +1,6 @@
 /* paid-advertising page — page-specific overrides only */
+.svc-hero-h1,
+.cb-section-h2,
+.cb-cta-h2 {
+  text-transform: uppercase;
+}
