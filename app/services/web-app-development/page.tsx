@@ -6,11 +6,31 @@ import './web-app-development.css';
 import WadExpertiseAccordion from './WadExpertiseAccordion';
 
 const WHAT_WE_DO = [
-  { num: '01', title: 'Web design that has won awards', desc: 'We combine design and digital marketing to help businesses grow revenue online.' },
-  { num: '02', title: 'Strategy and consultancy for websites', desc: 'We help businesses with complex needs, multi-country operations, and large website ecosystems.' },
-  { num: '03', title: 'Content creation for websites', desc: 'We produce written content, photos, and videos that support your digital presence.' },
-  { num: '04', title: 'Full website design services', desc: 'We design award-winning websites that improve reputation and increase sales.' },
-  { num: '05', title: 'Transparent pricing', desc: 'Clear pricing and custom solutions tailored to your business goals and industry.' },
+  {
+    title: 'Web design that has won awards',
+    desc: 'We combine design and digital marketing to help businesses grow revenue online.',
+    icon: (<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M24 4 L44 14 L44 26 C44 36 35 43 24 46 C13 43 4 36 4 26 L4 14 Z"/><polyline points="16,24 22,30 34,18"/></svg>),
+  },
+  {
+    title: 'Strategy and consultancy for websites',
+    desc: 'We help businesses with complex needs, multi-country operations, and large website ecosystems.',
+    icon: (<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="24" cy="14" r="8"/><path d="M8 44 C8 34 40 34 40 44"/><line x1="32" y1="28" x2="44" y2="28"/><line x1="38" y1="22" x2="38" y2="34"/></svg>),
+  },
+  {
+    title: 'Content creation for websites',
+    desc: 'We produce written content, photos, and videos that support your digital presence.',
+    icon: (<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="6" width="36" height="28" rx="3"/><line x1="14" y1="16" x2="34" y2="16"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="28" x2="24" y2="28"/><polyline points="18,40 24,34 30,40"/></svg>),
+  },
+  {
+    title: 'Full website design services',
+    desc: 'We design award-winning websites that improve reputation and increase sales.',
+    icon: (<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="8" width="40" height="28" rx="3"/><line x1="4" y1="16" x2="44" y2="16"/><circle cx="9" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none"/><line x1="16" y1="40" x2="32" y2="40"/><line x1="24" y1="36" x2="24" y2="40"/></svg>),
+  },
+  {
+    title: 'Transparent pricing',
+    desc: 'Clear pricing and custom solutions tailored to your business goals and industry.',
+    icon: (<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="24" cy="24" r="20"/><line x1="24" y1="12" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="36"/><path d="M18 20 C18 16 30 16 30 22 C30 28 18 26 18 32 C18 36 30 36 30 32"/></svg>),
+  },
 ];
 
 const FAQS = [
@@ -233,8 +253,8 @@ export default function WebAppDevelopmentPage() {
             <div className="wad-deliver-col-small">
               <h2 data-reveal className="cb-section-h2wad">The Best Medical Web Design <span className="gradient-text">Company in Dubai</span></h2>
               {WHAT_WE_DO.slice(0, 2).map((s, i) => (
-                <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
-                  <div className="cb-svc-num">{s.num}</div>
+                <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
+                  <div className="wad-deliver-icon">{s.icon}</div>
                   <h3 className="cb-svc-title">{s.title}</h3>
                   <p className="cb-svc-desc">{s.desc}</p>
                   <div className="wad-deliver-line" />
@@ -245,8 +265,8 @@ export default function WebAppDevelopmentPage() {
             <div className="wad-deliver-col-big">
               <div className="wad-deliver-col-big-inner">
                 {WHAT_WE_DO.slice(2).map((s, i) => (
-                  <div key={s.num} data-reveal data-reveal-delay={`${(i + 2) * 80}`} className="cb-svc-card wad-deliver-card">
-                    <div className="cb-svc-num">{s.num}</div>
+                  <div key={i} data-reveal data-reveal-delay={`${(i + 2) * 80}`} className="cb-svc-card wad-deliver-card">
+                    <div className="wad-deliver-icon">{s.icon}</div>
                     <h3 className="cb-svc-title">{s.title}</h3>
                     <p className="cb-svc-desc">{s.desc}</p>
                     <div className="wad-deliver-line" />
