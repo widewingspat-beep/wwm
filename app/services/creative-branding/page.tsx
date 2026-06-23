@@ -260,25 +260,6 @@ export default function CreativeBrandingPage() {
         </div>
       </section>
 
-      {/* ── WHAT WE DO ── */}
-      <section className="cb-section">
-        <div className="container">
-          <span data-reveal className="section-label">What We Do</span>
-          <h2 data-reveal className="cb-section-h2">
-            Design isn&apos;t decoration — it&apos;s <span className="gradient-text">communication</span>
-          </h2>
-          <p data-reveal className="cb-section-lead">We deliver graphic design services in Dubai and all around the MENA region.</p>
-          <div className="cb-services-grid">
-            {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
-                <h3 className="cb-svc-title">{s.title}</h3>
-                <p className="cb-svc-desc">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
