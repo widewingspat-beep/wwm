@@ -241,10 +241,9 @@ export default function EmailSmsCrmPage() {
           <p data-reveal className="cb-cta-body">Use your customer data to the optimal point, build relationships that last and drive repeat sales.</p>
           <div data-reveal className="cb-cta-btns">
             <Link href="/contact" className="svc-btn-primary">
-              Audit My CRM Strategy
+              Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline cb-cta-outline">Free Consultation</Link>
           </div>
         </div>
       </section>

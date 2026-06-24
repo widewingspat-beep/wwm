@@ -279,10 +279,9 @@ export default function ContentCreationPage() {
           <p data-reveal className="cb-cta-body">Stop using stock photos and generic copy. Create specific content that tells your unique story.</p>
           <div data-reveal className="cb-cta-btns">
             <Link href="/contact" className="svc-btn-primary">
-              Request a Creative Quote
+              Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline cb-cta-outline">Free Consultation</Link>
           </div>
         </div>
       </section>
