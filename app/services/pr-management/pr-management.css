@@ -1,1 +1,40 @@
 /* pr-management page — page-specific overrides only */
+
+/* ── INTRO EDITORIAL 30/70 ── */
+.prm-intro-section { background: #fff; }
+.prm-intro-editorial {
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  gap: 0 48px;
+  align-items: start;
+}
+.prm-intro-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #0d0d20;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.prm-intro-bar {
+  width: 60px;
+  height: 4px;
+  background: #cfa821;
+  border-radius: 2px;
+}
+.prm-intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.prm-intro-right p {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .prm-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
+}

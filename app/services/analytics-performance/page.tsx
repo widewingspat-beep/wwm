@@ -145,21 +145,20 @@ export default function AnalyticsPerformancePage() {
         </div>
       </section>
 
-      {/* ── INTRO ── */}
-      <section className="cb-section">
+      {/* ── INTRO EDITORIAL ── */}
+      <section className="cb-section apm-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">The Only Measurable Way Is Ours. Data without insight is noise.</span>
-          <h2 data-reveal className="cb-section-h2">Analytics that <span className="gradient-text">drive decisions</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">We turn complex datasets into clear, actionable strategies that drive real business decisions. Our data analytics and marketing insights services in the UAE help brands uncover opportunities, improve performance, and scale with confidence across competitive MENA markets.</p>
-              <p className="wad-para">For Conversion Rate Optimization (CRO), we test proven frameworks and user behavior strategies to improve how your website performs. In addition, we focus on increasing conversions, reducing drop-offs, and maximizing the value of every visitor.</p>
-              <p className="wad-para">Attribution shouldn&apos;t be a guessing game. We solve tracking and attribution challenges to give you a clear picture of what&apos;s actually driving results. Our marketing attribution solutions in the UAE help you understand the true impact of your top-of-funnel campaigns and optimize your media spend accordingly.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="apm-intro-editorial">
+            <div className="apm-intro-left">
+              <h2 className="apm-intro-title">The Only Measurable Way Is Ours. Data without insight is noise.</h2>
+              <div className="apm-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">Accurate tracking is the foundation of smart marketing. We implement advanced tracking systems to ensure reliable data collection across all platforms. With our conversion tracking and analytics setup services in Dubai, you can build high-performing retargeting campaigns and scalable lookalike audiences with confidence.</p>
-              <p className="wad-para">Understanding your numbers is key to sustainable growth. We help you calculate and optimize critical metrics like Customer Lifetime Value (LTV) and Customer Acquisition Cost (CAC). Our marketing consultancy services in the MENA region focus on improving profitability, refining your business model, and driving long-term success.</p>
+            <div className="apm-intro-right">
+              <p>We turn complex datasets into clear, actionable strategies that drive real business decisions. Our data analytics and marketing insights services in the UAE help brands uncover opportunities, improve performance, and scale with confidence across competitive MENA markets.</p>
+              <p>For Conversion Rate Optimization (CRO), we test proven frameworks and user behavior strategies to improve how your website performs. In addition, we focus on increasing conversions, reducing drop-offs, and maximizing the value of every visitor.</p>
+              <p>Attribution shouldn&apos;t be a guessing game. We solve tracking and attribution challenges to give you a clear picture of what&apos;s actually driving results. Our marketing attribution solutions in the UAE help you understand the true impact of your top-of-funnel campaigns and optimize your media spend accordingly.</p>
+              <p>Accurate tracking is the foundation of smart marketing. We implement advanced tracking systems to ensure reliable data collection across all platforms. With our conversion tracking and analytics setup services in Dubai, you can build high-performing retargeting campaigns and scalable lookalike audiences with confidence.</p>
+              <p>Understanding your numbers is key to sustainable growth. We help you calculate and optimize critical metrics like Customer Lifetime Value (LTV) and Customer Acquisition Cost (CAC). Our marketing consultancy services in the MENA region focus on improving profitability, refining your business model, and driving long-term success.</p>
             </div>
           </div>
         </div>

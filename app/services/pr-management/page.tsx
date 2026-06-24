@@ -141,20 +141,19 @@ export default function PrManagementPage() {
         </div>
       </section>
 
-      {/* ── INTRO ── */}
-      <section className="cb-section">
+      {/* ── INTRO EDITORIAL ── */}
+      <section className="cb-section prm-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">Shaping Perceptions &amp; Building Trust</span>
-          <h2 data-reveal className="cb-section-h2">PR that <span className="gradient-text">builds real credibility</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">Our PR management approach is rooted in consistency, control, and strategic visibility. We build and maintain strong relationships with key media outlets to secure meaningful coverage. Our PR agency services in Dubai and the UAE focus on targeted media relations and press outreach that position your brand where it matters most.</p>
-              <p className="wad-para">Your story deserves more than just exposure, it needs direction. We craft compelling press releases and brand narratives that align with your identity and business goals. Through our press release and brand storytelling services in the MENA region, we ensure your message is clear, credible, and impactful across all channels.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="prm-intro-editorial">
+            <div className="prm-intro-left">
+              <h2 className="prm-intro-title">Shaping Perceptions &amp; Building Trust</h2>
+              <div className="prm-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">Influence today is built on alignment, not reach alone. We connect your brand with the right influencers and partners to create authentic, high-value collaborations. Our influencer marketing and partnership strategies in the UAE are designed to expand your reach while maintaining brand integrity and audience trust.</p>
-              <p className="wad-para">Reputation is your most valuable asset, and it needs constant protection. We monitor brand perception, manage public sentiment, and respond proactively to potential risks. With our reputation management services in Dubai, you stay in control of your narrative while building long-term credibility in the MENA market.</p>
+            <div className="prm-intro-right">
+              <p>Our PR management approach is rooted in consistency, control, and strategic visibility. We build and maintain strong relationships with key media outlets to secure meaningful coverage. Our PR agency services in Dubai and the UAE focus on targeted media relations and press outreach that position your brand where it matters most.</p>
+              <p>Your story deserves more than just exposure, it needs direction. We craft compelling press releases and brand narratives that align with your identity and business goals. Through our press release and brand storytelling services in the MENA region, we ensure your message is clear, credible, and impactful across all channels.</p>
+              <p>Influence today is built on alignment, not reach alone. We connect your brand with the right influencers and partners to create authentic, high-value collaborations. Our influencer marketing and partnership strategies in the UAE are designed to expand your reach while maintaining brand integrity and audience trust.</p>
+              <p>Reputation is your most valuable asset, and it needs constant protection. We monitor brand perception, manage public sentiment, and respond proactively to potential risks. With our reputation management services in Dubai, you stay in control of your narrative while building long-term credibility in the MENA market.</p>
             </div>
           </div>
         </div>
