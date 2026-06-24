@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { POSTS } from '../posts-data';
 import '../blog-post.css';
+import FaqAccordion from './FaqAccordion';
 
 /* ── Real page titles (from old site) — separate from SEO listing titles ── */
 const PAGE_TITLES: Record<string, string> = {
@@ -683,24 +684,44 @@ const CONTENT: Record<string, React.ReactNode> = {
       <p>Managing PPC campaigns requires continuous optimization, advanced tools, and expertise typically provided by professional PPC marketing services. They also have skills for global platforms. This helps improve paid media performance. They work with ambitious clients in the UAE.</p>
 
       <h2>Frequently Asked Questions (FAQs)</h2>
-      <p><strong>Is PPC cost-effective for e-commerce websites in Dubai?</strong></p>
-      <p>Yes. PPC can be very cost-effective when campaigns are properly structured and optimized for conversions. Unlike traditional advertising, businesses only pay when someone clicks on their ad. With accurate tracking, optimized landing pages, and retargeting, many e-commerce brands achieve a 3–5x return on ad spend (ROAS), while seasonal campaigns may reach up to 6x ROAS.</p>
-      <p><strong>Which PPC platform is best for e-commerce in Dubai?</strong></p>
-      <p>Google Ads is generally the most effective platform because it captures users with high purchase intent through Search and Shopping Ads. A strong strategy often combines: Google Ads for conversions, Meta Ads (Facebook &amp; Instagram) for discovery and retargeting, TikTok Ads for engagement and brand awareness, Bing Ads for cost-efficient additional conversions.</p>
-      <p><strong>How much should e-commerce brands spend on PPC in the UAE?</strong></p>
-      <p>There is no fixed budget. Spending depends on product margins, competition, and growth goals. Many businesses start with AED 3,000–6,000 per month for testing and scale to AED 15,000–50,000+ once profitable campaigns are identified. Budgets are often increased during Ramadan, Eid, Dubai Shopping Festival, and Black Friday.</p>
-      <p><strong>How long does it take to see results from PPC campaigns in Dubai?</strong></p>
-      <p>PPC campaigns can start generating traffic and sales almost immediately after launch. However, meaningful performance data typically becomes available within 2–4 weeks, allowing for optimization and improved ROAS over time.</p>
-      <p><strong>Is PPC better than SEO for e-commerce websites in Dubai?</strong></p>
-      <p>PPC and SEO serve different purposes. PPC provides immediate visibility and sales, while SEO focuses on long-term organic growth and brand authority. Most successful e-commerce businesses use both strategies together to maximize results.</p>
-      <p><strong>Can PPC generate leads as well as sales for e-commerce brands?</strong></p>
-      <p>Yes. PPC can be used to generate leads through: Email newsletter sign-ups, First-purchase discount offers, Early access promotions, Product catalog downloads. These leads can later be nurtured through email marketing and retargeting campaigns to increase repeat purchases.</p>
-      <p><strong>What is the expected ROI from e-commerce PPC campaigns in Dubai?</strong></p>
-      <p>Most optimized e-commerce PPC campaigns achieve a 3–5x ROAS within the first 30–60 days. High-demand products and seasonal campaigns can sometimes achieve 6x ROAS or higher, depending on competition, pricing, and optimization.</p>
-      <p><strong>Should e-commerce PPC campaigns in Dubai support Cash on Delivery (COD)?</strong></p>
-      <p>Yes. Cash on Delivery remains a popular payment option in the UAE, particularly among first-time buyers. Highlighting COD in ads and landing pages can improve trust and increase conversion rates.</p>
-      <p><strong>Why should e-commerce brands work with a PPC agency in Dubai?</strong></p>
-      <p>A professional PPC agency brings expertise in campaign management, optimization, tracking, and local market knowledge. Agencies understand UAE consumer behavior, seasonal demand, VAT pricing, and advertising best practices, helping businesses improve ROAS and scale more efficiently.</p>
+      <FaqAccordion items={[
+        {
+          q: 'Is PPC cost-effective for e-commerce websites in Dubai?',
+          a: <p>Yes. PPC can be very cost-effective when campaigns are properly structured and optimized for conversions. Unlike traditional advertising, businesses only pay when someone clicks on their ad. With accurate tracking, optimized landing pages, and retargeting, many e-commerce brands achieve a 3–5x return on ad spend (ROAS), while seasonal campaigns may reach up to 6x ROAS.</p>,
+        },
+        {
+          q: 'Which PPC platform is best for e-commerce in Dubai?',
+          a: <><p>Google Ads is generally the most effective platform because it captures users with high purchase intent through Search and Shopping Ads. A strong strategy often combines:</p><ul><li>Google Ads for conversions</li><li>Meta Ads (Facebook &amp; Instagram) for discovery and retargeting</li><li>TikTok Ads for engagement and brand awareness</li><li>Bing Ads for cost-efficient additional conversions</li></ul></>,
+        },
+        {
+          q: 'How much should e-commerce brands spend on PPC in the UAE?',
+          a: <p>There is no fixed budget. Spending depends on product margins, competition, and growth goals. Many businesses start with AED 3,000–6,000 per month for testing and scale to AED 15,000–50,000+ once profitable campaigns are identified. Budgets are often increased during Ramadan, Eid, Dubai Shopping Festival, and Black Friday.</p>,
+        },
+        {
+          q: 'How long does it take to see results from PPC campaigns in Dubai?',
+          a: <p>PPC campaigns can start generating traffic and sales almost immediately after launch. However, meaningful performance data typically becomes available within 2–4 weeks, allowing for optimization and improved ROAS over time.</p>,
+        },
+        {
+          q: 'Is PPC better than SEO for e-commerce websites in Dubai?',
+          a: <p>PPC and SEO serve different purposes. PPC provides immediate visibility and sales, while SEO focuses on long-term organic growth and brand authority. Most successful e-commerce businesses use both strategies together to maximize results.</p>,
+        },
+        {
+          q: 'Can PPC generate leads as well as sales for e-commerce brands?',
+          a: <><p>Yes. PPC can be used to generate leads through:</p><ul><li>Email newsletter sign-ups</li><li>First-purchase discount offers</li><li>Early access promotions</li><li>Product catalog downloads</li></ul><p>These leads can later be nurtured through email marketing and retargeting campaigns to increase repeat purchases.</p></>,
+        },
+        {
+          q: 'What is the expected ROI from e-commerce PPC campaigns in Dubai?',
+          a: <p>Most optimized e-commerce PPC campaigns achieve a 3–5x ROAS within the first 30–60 days. High-demand products and seasonal campaigns can sometimes achieve 6x ROAS or higher, depending on competition, pricing, and optimization.</p>,
+        },
+        {
+          q: 'Should e-commerce PPC campaigns in Dubai support Cash on Delivery (COD)?',
+          a: <p>Yes. Cash on Delivery remains a popular payment option in the UAE, particularly among first-time buyers. Highlighting COD in ads and landing pages can improve trust and increase conversion rates.</p>,
+        },
+        {
+          q: 'Why should e-commerce brands work with a PPC agency in Dubai?',
+          a: <p>A professional PPC agency brings expertise in campaign management, optimization, tracking, and local market knowledge. Agencies understand UAE consumer behavior, seasonal demand, VAT pricing, and advertising best practices, helping businesses improve ROAS and scale more efficiently.</p>,
+        },
+      ]} />
 
       <h2>Get a Custom PPC Strategy for Your E-commerce Website in Dubai</h2>
       <p>Every e-commerce business is different—and your PPC strategy should be too.</p>
