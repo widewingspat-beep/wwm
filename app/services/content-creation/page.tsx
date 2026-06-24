@@ -184,7 +184,6 @@ export default function ContentCreationPage() {
               <p>Whether you need a monthly content calendar or a one-off campaign asset, our creative team is ready to bring your ideas to life.</p>
             </div>
           </div>
-          </div>
         </div>
       </section>
 
