@@ -224,7 +224,7 @@ export default function CreativeBrandingPage() {
           </nav>
           <p className="svc-hero-eyebrow">Visionary</p>
           <h1 className="svc-hero-h1">
-            Build a brand people don&apos;t scroll past
+            Build a brand people<br />don&apos;t scroll past
           </h1>
           <p className="svc-hero-sub">
             We create brands that look sharp, speak clearly, and actually perform, from strategy to design and content.
