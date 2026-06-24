@@ -145,8 +145,8 @@ export default function ServicesPage() {
           </nav>
 
           <h1 className="svc-hero-h1">
-            Boost ROI with<br />
-            <em>Data-Driven</em> Marketing
+            Our<br />
+            <em>Digital Marketing</em> Services
           </h1>
 
           <p className="svc-hero-sub">
