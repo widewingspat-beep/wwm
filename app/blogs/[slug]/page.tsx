@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { POSTS } from '../page';
+import { POSTS } from '../posts-data';
 import '../blog-post.css';
 
 /* ── per-post content map ── */
