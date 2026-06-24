@@ -5,6 +5,11 @@ import { notFound } from 'next/navigation';
 import { POSTS } from '../posts-data';
 import '../blog-post.css';
 
+/* ── Real page titles (from old site) — separate from SEO listing titles ── */
+const PAGE_TITLES: Record<string, string> = {
+  'ecommerce-website-development-dubai': 'Ecommerce Website Development Company in Dubai, UAE',
+};
+
 /* ── per-post content map ── */
 const CONTENT: Record<string, React.ReactNode> = {
 
@@ -198,7 +203,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span>{post.category}</span>
           </nav>
           <div className="bp-cat-chip">{post.category}</div>
-          <h1 className="bp-hero-h1">{post.title}</h1>
+          <h1 className="bp-hero-h1">{PAGE_TITLES[slug] ?? post.title}</h1>
           <div className="bp-meta">
             <span className="bp-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
