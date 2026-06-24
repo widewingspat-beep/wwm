@@ -234,18 +234,31 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* ── DEDICATED EXPERTS ── */}
-      <section className="cb-section cb-section-alt">
+      <section className="cb-section cb-section-alt smm-dedicated-section">
         <div className="container">
-          <span data-reveal className="section-label">Dedicated Social Media Experts &amp; Data-Driven Growth</span>
-          <h2 data-reveal className="cb-section-h2">Everything you need to <span className="gradient-text">grow online</span></h2>
-          <div className="wad-hosting-grid">
-            {DEDICATED.map((d, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="wad-hosting-card">
-                <div className="wad-hosting-icon">{d.icon}</div>
-                <h3>{d.title}</h3>
-                <p>{d.desc}</p>
-              </div>
-            ))}
+          <div className="smm-dedicated-layout">
+            <div className="smm-dedicated-left">
+              <h2 data-reveal className="smm-dedicated-title">Dedicated Social Media Experts &amp; <span className="gradient-text">Data-Driven Growth</span></h2>
+              <p data-reveal className="smm-dedicated-sub">Each client gets a dedicated social media marketing expert who supports strategy, execution, and performance optimization.</p>
+            </div>
+            <div className="smm-dedicated-right">
+              {[
+                'Our experts meet with clients monthly to plan content, evaluate performance, and ensure marketing success.',
+                'You get access to a 24/7 marketing growth dashboard where analytics and results are tracked in real time.',
+                'This ensures transparency, accountability, and continuous improvement for your social media campaigns.',
+              ].map((point, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="smm-dedicated-point">
+                  <div className="smm-dedicated-dot">
+                    {[
+                      <svg key={0} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg>,
+                      <svg key={1} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 12 11 14 15 10"/></svg>,
+                      <svg key={2} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+                    ][i]}
+                  </div>
+                  <p>{point}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
