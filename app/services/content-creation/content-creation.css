@@ -57,7 +57,7 @@
 /* ── PROCESS LAYOUT ── */
 .cc-process-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30fr 70fr;
   gap: 0 64px;
   align-items: start;
 }
@@ -109,10 +109,9 @@
   align-items: center;
   justify-content: center;
 }
-.cc-process-num {
-  font-family: Nexa, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 900;
+.cc-process-dot svg {
+  width: 22px;
+  height: 22px;
   color: #a73184;
 }
 .cc-process-point-title {

@@ -66,10 +66,22 @@ const EXPERTISE = [
 ];
 
 const PROCESS = [
-  { step: '01', title: 'Strategy Session', desc: 'We begin with a content strategy session to understand your goals and upcoming campaigns.' },
-  { step: '02', title: 'Full Production', desc: 'Our team handles everything from scriptwriting and storyboarding to shooting, editing, and designing.' },
-  { step: '03', title: 'Feedback & Approval', desc: 'We provide drafts for your feedback, ensuring the final output matches your vision perfectly.' },
-  { step: '04', title: 'Fast Delivery', desc: 'Quick turnaround times and scalable production allow you to keep your marketing channels active and fresh.' },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    title: 'Strategy Session', desc: 'We begin with a content strategy session to understand your goals and upcoming campaigns.',
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>,
+    title: 'Full Production', desc: 'Our team handles everything from scriptwriting and storyboarding to shooting, editing, and designing.',
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+    title: 'Feedback & Approval', desc: 'We provide drafts for your feedback, ensuring the final output matches your vision perfectly.',
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    title: 'Fast Delivery', desc: 'Quick turnaround times and scalable production allow you to keep your marketing channels active and fresh.',
+  },
 ];
 
 const WHY_US = [
@@ -243,7 +255,7 @@ export default function ContentCreationPage() {
               {PROCESS.map((p, i) => (
                 <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cc-process-point">
                   <div className="cc-process-dot">
-                    <span className="cc-process-num">{p.step}</span>
+                    {p.icon}
                   </div>
                   <div>
                     <h3 className="cc-process-point-title">{p.title}</h3>
