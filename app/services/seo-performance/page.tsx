@@ -211,27 +211,35 @@ export default function SeoPerformancePage() {
       {/* ── PROVEN STRATEGIES ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Why Choose Us</span>
-          <h2 data-reveal className="cb-section-h2">Grow your business with <span className="gradient-text">proven SEO strategies</span></h2>
-          <div className="wad-expertise-split">
-            <div data-reveal className="wad-expertise-left">
-              <p className="wad-para">Choosing the right SEO agency in Dubai can have a major impact on your online success.</p>
-              <p className="wad-para">Wide Wings Media stands out through innovative strategies, skilled professionals, and measurable results.</p>
-              <p className="wad-para">We build custom SEO plans tailored to the Dubai marketplace and your business goals.</p>
+          <div className="seo-strat-split">
+            <div data-reveal className="seo-strat-left">
+              <h2 className="seo-strat-title">Grow Your Business with<br /><span className="gradient-text">Proven SEO Strategies</span></h2>
+              <p className="seo-strat-sub">Choosing the right SEO agency in Dubai can have a major impact on your online success.</p>
+              <Link href="/contact" className="svc-btn-primary seo-strat-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
             </div>
-            <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
-              <div className="wad-medical-card">
-                <div className="wad-medical-card-header">
-                  <div className="wad-medical-icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="24" cy="24" r="20"/>
-                      <polyline points="16,24 22,30 34,18"/>
-                    </svg>
-                  </div>
-                  <h3>Long-term visibility, brand trust, and sustainable growth.</h3>
+            <div className="seo-strat-right">
+              {[
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+                  text: 'Wide Wings Media stands out through innovative strategies, skilled professionals, and measurable results.',
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>,
+                  text: 'We build custom SEO plans tailored to the Dubai marketplace and your business goals.',
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+                  text: 'Our focus is on long-term visibility, brand trust, and sustainable growth through ethical SEO practices.',
+                },
+              ].map((item, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="seo-strat-card">
+                  <div className="seo-strat-icon">{item.icon}</div>
+                  <p className="seo-strat-card-text">{item.text}</p>
                 </div>
-                <p className="wad-para">Our focus is on long-term visibility, brand trust, and sustainable growth through ethical SEO practices.</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
