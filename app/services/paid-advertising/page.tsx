@@ -229,7 +229,7 @@ export default function PaidAdvertisingPage() {
             <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
               <p className="wad-cta-card-text">Scale Faster with High-Performance PPC Campaigns</p>
               <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Request a PPC Proposal
+                Get a Proposal
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </Link>
             </div>
