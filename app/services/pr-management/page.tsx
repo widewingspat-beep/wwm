@@ -60,10 +60,39 @@ const EXPERTISE = [
 ];
 
 const PROCESS = [
-  { step: '01', title: 'Narrative Definition', desc: 'We define your core narrative and identify the most compelling angles for your story.' },
-  { step: '02', title: 'Media Targeting', desc: 'We create a targeted media list of journalists and outlets relevant to your industry.' },
-  { step: '03', title: 'Story Pitching', desc: 'We pitch your story effectively, managing all media inquiries and interview requests.' },
-  { step: '04', title: 'Reporting', desc: 'We monitor coverage and sentiment, providing detailed reports on the impact of your campaigns.' },
+  {
+    desc: 'We create a targeted media list of journalists and outlets relevant to your industry.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="18" r="10"/>
+        <path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16"/>
+        <line x1="30" y1="14" x2="38" y2="10"/>
+        <line x1="32" y1="20" x2="40" y2="20"/>
+        <line x1="30" y1="26" x2="38" y2="30"/>
+      </svg>
+    ),
+  },
+  {
+    desc: 'We pitch your story effectively, managing all media inquiries and interview requests.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 36 L4 44 L20 38 L36 44 L44 36 L40 20 C38 10 30 6 24 6 C18 6 10 10 8 20 Z"/>
+        <line x1="16" y1="22" x2="32" y2="22"/>
+        <line x1="16" y1="29" x2="26" y2="29"/>
+      </svg>
+    ),
+  },
+  {
+    desc: 'We monitor coverage and sentiment, providing detailed reports on the impact of your campaigns.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6,36 18,22 26,30 42,12"/>
+        <polyline points="32,12 42,12 42,22"/>
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <line x1="6" y1="12" x2="6" y2="42"/>
+      </svg>
+    ),
+  },
 ];
 
 const WHY_US = [
@@ -193,19 +222,25 @@ export default function PrManagementPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="cb-section cb-section-alt">
+      <section className="cb-section cb-section-alt prm-process-section">
         <div className="container">
-          <span data-reveal className="section-label">Our Process</span>
-          <h2 data-reveal className="cb-section-h2">Position your brand where <span className="gradient-text">it actually matters</span></h2>
-          <div className="cb-process-grid-4">
-            {PROCESS.map((p, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
-                <div className="cb-process-step">{p.step}</div>
-                <div className="cb-process-line" />
-                <h3 className="cb-process-title">{p.title}</h3>
-                <p className="cb-process-desc">{p.desc}</p>
-              </div>
-            ))}
+          <div className="prm-process-split">
+            <div className="prm-process-left">
+              <h2 data-reveal className="prm-process-title">Position your brand where <span className="gradient-text">it actually matters</span></h2>
+              <p data-reveal className="prm-process-sub">We define your core narrative and identify the most compelling angles for your story.</p>
+              <Link href="/contact" className="svc-btn-primary prm-process-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
+            <div className="prm-process-right">
+              {PROCESS.map((p, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="prm-process-card">
+                  <div className="prm-process-icon">{p.icon}</div>
+                  <p className="prm-process-card-text">{p.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
