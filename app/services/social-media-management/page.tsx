@@ -176,21 +176,20 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* ── INTRO ── */}
-      <section className="cb-section">
+      <section className="cb-section smm-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">360° Social Media Marketing Agency in Dubai</span>
-          <h2 data-reveal className="cb-section-h2">Social media that <span className="gradient-text">builds communities</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">Make your stories come to life on social media with Wide Wings Media. We are your trusted social media marketing agency in Dubai.</p>
-              <p className="wad-para">We will help your brand stand out online by creating interesting and informative content that people enjoy and learn from. Our agency focuses on excellent content supported by analytics and key performance indicators (KPIs).</p>
-              <p className="wad-para">Social media marketing is essential for building strong brand presence in today's fast-changing digital world. People rely on social platforms to discover brands, make buying decisions, and contact businesses directly.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="smm-intro-editorial">
+            <div className="smm-intro-left">
+              <h2 className="smm-intro-title">360° Social Media Marketing <span className="gradient-text">Agency in Dubai</span></h2>
+              <div className="smm-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">If you want to market effectively today, social media is the most powerful channel. It requires creativity, strategy, and data-driven management. Wide Wings Media understands how this market works.</p>
-              <p className="wad-para">Our team has extensive experience creating social media strategies that connect people with brands and help businesses reach their goals.</p>
-              <p className="wad-para">This approach helps position your business as a market leader and achieve sustainable long-term growth.</p>
+            <div className="smm-intro-right">
+              <p>Make your stories come to life on social media with Wide Wings Media. We are your trusted social media marketing agency in Dubai.</p>
+              <p>We will help your brand stand out online by creating interesting and informative content that people enjoy and learn from. Our agency focuses on excellent content supported by analytics and key performance indicators (KPIs).</p>
+              <p>Social media marketing is essential for building strong brand presence in today&apos;s fast-changing digital world. People rely on social platforms to discover brands, make buying decisions, and contact businesses directly.</p>
+              <p>If you want to market effectively today, social media is the most powerful channel. It requires creativity, strategy, and data-driven management. Wide Wings Media understands how this market works.</p>
+              <p>Our team has extensive experience creating social media strategies that connect people with brands and help businesses reach their goals.</p>
+              <p>This approach helps position your business as a market leader and achieve sustainable long-term growth.</p>
             </div>
           </div>
         </div>
