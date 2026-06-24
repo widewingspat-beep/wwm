@@ -551,7 +551,7 @@ details[open] .wad-faq-icon {
 
 /* Ensure all hero text uses correct fonts */
 .svc-hero .svc-hero-h1   { font-family: Nexa, sans-serif; text-transform: uppercase; }
-.svc-hero .svc-hero-sub  { font-family: Calibri, sans-serif; }
+.svc-hero .svc-hero-sub  { font-family: 'Nexa', 'Calibri', sans-serif; }
 
 /* "Services" tag on dark hero */
 .wad-hero-service-tag-dark {

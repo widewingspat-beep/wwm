@@ -108,7 +108,6 @@ export default function WebAppDevelopmentPage() {
           </nav>
           <p className="svc-hero-eyebrow">Leading</p>
           <h1 className="svc-hero-h1">Web Design<br />Company in Dubai</h1>
-          <p className="wad-hero-service-tag-dark">Services</p>
           <p className="svc-hero-sub">We design and develop high-performing websites and mobile applications that are fast, secure, and user-focused. Every build is optimized for user experience, scalability, and business growth.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
