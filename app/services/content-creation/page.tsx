@@ -158,14 +158,13 @@ export default function ContentCreationPage() {
             <span>Content Creation</span>
           </nav>
           <p className="svc-hero-eyebrow">Engaging</p>
-          <h1 className="svc-hero-h1">Content Creation &amp; Graphic Design</h1>
+          <h1 className="svc-hero-h1">CONTENT CREATION<br />&amp; GRAPHIC DESIGN</h1>
           <p className="svc-hero-sub">We create compelling content and visuals that capture attention and communicate your brand story clearly. From graphics to copy, every asset is designed to inspire action and strengthen brand recall.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline">Request a Creative Quote</Link>
           </div>
         </div>
       </section>
