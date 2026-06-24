@@ -201,19 +201,18 @@ export default function SocialMediaManagementPage() {
           <span data-reveal className="section-label" style={{display:'block',textAlign:'center'}}>Expertise &amp; Insights</span>
           <h2 data-reveal className="cb-section-h2 smm-exp-title">Managing social media for healthcare, hospitals <span className="gradient-text">&amp; luxury brands</span></h2>
           <div className="smm-exp-2col">
-            {[EXPERTISE.slice(0,3), EXPERTISE.slice(3)].map((col, ci) => (
-              <div key={ci} className="smm-exp-col">
-                {col.map((e, i) => (
-                  <div key={i} data-reveal data-reveal-delay={`${(ci*3+i)*80}`} className="smm-exp-row">
-                    <div className="smm-exp-circle">{e.icon}</div>
-                    <div className="smm-exp-content">
-                      <h3 className="smm-exp-title-card">{e.title}</h3>
-                      <p className="smm-exp-desc">{e.desc}</p>
-                    </div>
+            {[0,3,1,4,2,5].map((idx, i) => {
+              const e = EXPERTISE[idx];
+              return (
+                <div key={idx} data-reveal data-reveal-delay={`${i*80}`} className="smm-exp-row">
+                  <div className="smm-exp-circle">{e.icon}</div>
+                  <div className="smm-exp-content">
+                    <h3 className="smm-exp-title-card">{e.title}</h3>
+                    <p className="smm-exp-desc">{e.desc}</p>
                   </div>
-                ))}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
