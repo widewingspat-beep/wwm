@@ -31,7 +31,6 @@ export default function NewsPage() {
             <span className="nws-bc-sep">/</span>
             <span>News</span>
           </nav>
-          <p className="nws-hero-eyebrow">Wide Wings Media</p>
           <h1 className="nws-hero-h1">News &amp; Media</h1>
           <p className="nws-hero-sub">
             Stay updated with the latest press mentions, media coverage, and company announcements.
