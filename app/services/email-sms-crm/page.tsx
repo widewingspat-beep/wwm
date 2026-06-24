@@ -120,20 +120,19 @@ export default function EmailSmsCrmPage() {
       </section>
 
       {/* ── INTRO ── */}
-      <section className="cb-section">
+      <section className="cb-section esc-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">Built for Performance, Not Noise</span>
-          <h2 data-reveal className="cb-section-h2">Email that <span className="gradient-text">drives revenue</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">Winning a customer is just the beginning. At Wide Wings Media, we focus on increasing lifetime value through strategic Email, SMS, and CRM-driven marketing.</p>
-              <p className="wad-para">We turn your data into smart, automated journeys that guide leads, onboard new customers, and bring inactive users back into the loop.</p>
-              <p className="wad-para">Email marketing continues to deliver exceptional ROI. We create visually refined, mobile-optimized campaigns designed to drive open and meaningful engagement.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="esc-intro-editorial">
+            <div className="esc-intro-left">
+              <h2 className="esc-intro-title">Built for Performance,<br /><span className="gradient-text">Not Noise</span></h2>
+              <div className="esc-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">SMS marketing delivers immediate impact, making it ideal for urgent promotions and time-sensitive communication.</p>
-              <p className="wad-para">Using CRM insights, we ensure every message is timely, relevant, and delivered to the right audience.</p>
+            <div className="esc-intro-right">
+              <p>Winning a customer is just the beginning. At Wide Wings Media, we focus on increasing lifetime value through strategic Email, SMS, and CRM-driven marketing.</p>
+              <p>We turn your data into smart, automated journeys that guide leads, onboard new customers, and bring inactive users back into the loop.</p>
+              <p>Email marketing continues to deliver exceptional ROI. We create visually refined, mobile-optimized campaigns designed to drive open and meaningful engagement.</p>
+              <p>SMS marketing delivers immediate impact, making it ideal for urgent promotions and time-sensitive communication.</p>
+              <p>Using CRM insights, we ensure every message is timely, relevant, and delivered to the right audience.</p>
             </div>
           </div>
         </div>
