@@ -228,6 +228,8 @@
 
 /* ── FAQ ── */
 .cb-faq-wrap { max-width: 780px; }
+.cb-faq-wrap .section-label,
+.cb-faq-wrap .cb-section-h2 { text-align: center; display: block; }
 
 .cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
 
