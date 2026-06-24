@@ -1317,12 +1317,19 @@ details[open] .wad-faq-icon {
   gap: 0 48px;
   align-items: start;
 }
-.wad-exp-editorial-left { position: sticky; top: 100px; }
+.wad-exp-editorial-left {
+  position: sticky;
+  top: 90px;
+  padding-top: 0;
+  align-self: start;
+}
 .wad-exp-editorial-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
+/* Ensure section doesn't clip sticky */
+.wad-expertise-section { overflow: visible !important; }
 @media (max-width: 1024px) {
   .wad-exp-editorial { grid-template-columns: 1fr; gap: 32px 0; }
   .wad-exp-editorial-left { position: static; }
