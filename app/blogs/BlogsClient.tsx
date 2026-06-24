@@ -111,7 +111,7 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
                     <div className="blg-card-body">
                       <h2 className="blg-card-title">{post.title}</h2>
                       <p className="blg-card-excerpt">{post.excerpt}</p>
-                      <a href={`https://wide-wings.ae/${post.slug}/`} target="_blank" rel="noopener noreferrer" className="blg-card-link">
+                      <a href={`/blogs/${post.slug}`} className="blg-card-link">
                         Read More
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -152,7 +152,7 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               <ul className="blg-recent-list">
                 {recent.map(post => (
                   <li key={post.slug} className="blg-recent-item">
-                    <a href={`https://wide-wings.ae/${post.slug}/`} target="_blank" rel="noopener noreferrer" className="blg-recent-link">
+                    <a href={`/blogs/${post.slug}`} className="blg-recent-link">
                       <div className="blg-recent-thumb">
                         <Image src={post.image} alt={post.title} width={58} height={42} className="blg-recent-img" />
                       </div>
