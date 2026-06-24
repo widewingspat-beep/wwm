@@ -6,22 +6,22 @@ import './social-media-management.css';
 
 const WHY_US = [
   {
-    num: '01',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
     title: 'Get 96% More Followers on Social Media',
     desc: 'We help brands grow their audience by generating qualified leads and running targeted campaigns.',
   },
   {
-    num: '02',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
     title: 'Content is King on Social Media',
     desc: 'Our strategy follows the 80/20 rule, focusing on educational and engaging content.',
   },
   {
-    num: '03',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
     title: 'More Customers Come When a Business Grows',
     desc: 'We use analytics and ROI tracking to show real business impact and growth.',
   },
   {
-    num: '04',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
     title: 'Dedicated Social Media Expert',
     desc: 'Every client works with a dedicated expert supported by monthly planning and reporting.',
   },
@@ -248,25 +248,17 @@ export default function SocialMediaManagementPage() {
       </section>
 
       {/* ── WHY CHOOSE ── */}
-      <section className="cb-section">
+      <section className="cb-section cb-section-dark smm-why-section">
         <div className="container">
-          <span data-reveal className="section-label">Why Choose Our Social Media Marketing Agency in Dubai?</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
-          <div className="cb-services-grid">
+          <h2 data-reveal className="cb-section-h2 smm-why-title">Why Choose Our Social Media Marketing <span className="gradient-text">Agency in Dubai?</span></h2>
+          <div className="smm-why-grid">
             {WHY_US.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
-                <h3 className="cb-svc-title">{s.title}</h3>
-                <p className="cb-svc-desc">{s.desc}</p>
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="smm-why-card">
+                <div className="smm-why-icon">{s.icon}</div>
+                <h3 className="smm-why-card-title">{s.title}</h3>
+                <p className="smm-why-card-desc">{s.desc}</p>
               </div>
             ))}
-            <div data-reveal data-reveal-delay="320" className="cb-svc-card wad-cta-card">
-              <p className="wad-cta-card-text">Grow Your Brand with Social Media That Converts</p>
-              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Get Your Social Media Audit
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>

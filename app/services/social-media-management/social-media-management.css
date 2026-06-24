@@ -1,1 +1,61 @@
 /* social-media-management page — page-specific overrides only */
+
+/* ── WHY CHOOSE SECTION ── */
+.smm-why-section { background: #1a1a2e !important; }
+.smm-why-title {
+  text-align: center;
+  color: #fff !important;
+  margin-bottom: 48px;
+}
+.smm-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.smm-why-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.smm-why-card:hover {
+  background: rgba(167,49,132,0.12);
+  border-color: rgba(167,49,132,0.4);
+  transform: translateY(-4px);
+}
+.smm-why-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(167,49,132,0.2), rgba(207,168,33,0.1));
+  border: 2px solid rgba(167,49,132,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a73184;
+  margin: 0 auto 20px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.smm-why-card:hover .smm-why-icon {
+  background: linear-gradient(135deg, rgba(167,49,132,0.3), rgba(207,168,33,0.15));
+  border-color: #a73184;
+}
+.smm-why-card-title {
+  font-family: Nexa, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+.smm-why-card-desc {
+  font-family: Calibri, sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 1024px) { .smm-why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .smm-why-grid { grid-template-columns: 1fr; } }
