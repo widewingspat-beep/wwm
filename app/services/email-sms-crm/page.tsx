@@ -108,14 +108,13 @@ export default function EmailSmsCrmPage() {
             <span>Email, SMS &amp; CRM</span>
           </nav>
           <p className="svc-hero-eyebrow">Direct Value</p>
-          <h1 className="svc-hero-h1">Email Marketing That Actually Converts</h1>
+          <h1 className="svc-hero-h1">EMAIL MARKETING THAT<br />ACTUALLY CONVERTS</h1>
           <p className="svc-hero-sub">We create campaigns that people open, read, and act on. From welcome flows to retention sequences, every message has a purpose and a result behind it.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline">Audit My CRM Strategy</Link>
           </div>
         </div>
       </section>
