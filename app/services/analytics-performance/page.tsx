@@ -134,14 +134,13 @@ export default function AnalyticsPerformancePage() {
             <span>Analytics &amp; Performance</span>
           </nav>
           <p className="svc-hero-eyebrow">Measurable</p>
-          <h1 className="svc-hero-h1">Media Buying &mdash; Turn ad spend into measurable growth.</h1>
+          <h1 className="svc-hero-h1">Media Buying<br />Turn ad spend into measurable growth.</h1>
           <p className="svc-hero-sub">We&apos;re not just a media buying agency, we build performance systems that scale. From strategy to execution, every campaign is designed to convert, not just reach.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline">Get a Data Audit</Link>
           </div>
         </div>
       </section>
