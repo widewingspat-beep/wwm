@@ -102,3 +102,35 @@
 @media (max-width: 900px) {
   .prm-process-split { grid-template-columns: 1fr; gap: 40px 0; }
 }
+
+/* ── DELIVER 4-COL GRID ── */
+.prm-deliver-title {
+  text-align: center !important;
+  display: block;
+  margin-bottom: 48px !important;
+}
+.prm-deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.prm-deliver-card { position: relative; }
+.prm-deliver-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(167,49,132,0.18);
+  border: 1.5px solid rgba(167,49,132,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a73184;
+  margin-bottom: 16px;
+}
+.prm-deliver-icon svg { width: 22px; height: 22px; }
+@media (max-width: 900px) {
+  .prm-deliver-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .prm-deliver-grid { grid-template-columns: 1fr; }
+}

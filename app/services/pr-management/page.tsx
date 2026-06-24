@@ -97,22 +97,46 @@ const PROCESS = [
 
 const WHY_US = [
   {
-    num: '01',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="16" r="10"/>
+        <path d="M6 44c0-9.9 8.1-18 18-18s18 8.1 18 18"/>
+        <line x1="34" y1="10" x2="42" y2="6"/>
+        <line x1="36" y1="16" x2="44" y2="16"/>
+        <line x1="34" y1="22" x2="42" y2="26"/>
+      </svg>
+    ),
     title: 'Media Network',
     desc: 'Access to established relationships with key media outlets in the GCC.',
   },
   {
-    num: '02',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 4 L4 14 L4 26 C4 36 13 44 24 46 C35 44 44 36 44 26 L44 14 Z"/>
+        <polyline points="16,24 22,30 34,18"/>
+      </svg>
+    ),
     title: 'Crisis Ready',
     desc: 'Confidence knowing you have a team ready to handle any PR emergency.',
   },
   {
-    num: '03',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="24,4 30,18 44,18 33,28 37,42 24,34 11,42 15,28 4,18 18,18"/>
+      </svg>
+    ),
     title: 'Thought Leadership',
     desc: 'Position your CEO and experts as go-to voices in your industry.',
   },
   {
-    num: '04',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="6" y="6" width="16" height="16" rx="2"/>
+        <rect x="26" y="6" width="16" height="16" rx="2"/>
+        <rect x="6" y="26" width="16" height="16" rx="2"/>
+        <rect x="26" y="26" width="16" height="16" rx="2"/>
+      </svg>
+    ),
     title: 'Integrated Approach',
     desc: 'We align PR with your social and marketing strategies for a unified brand voice.',
   },
@@ -248,23 +272,15 @@ export default function PrManagementPage() {
       {/* ── PROTECT & GROW ── */}
       <section className="cb-section cb-section-dark">
         <div className="container">
-          <span data-reveal className="section-label">Protect and Grow Your Reputation</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
-          <div className="cb-services-grid">
+          <h2 data-reveal className="cb-section-h2 prm-deliver-title">Protect and Grow Your <span className="gradient-text">Reputation</span></h2>
+          <div className="prm-deliver-grid">
             {WHY_US.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card prm-deliver-card">
+                <div className="prm-deliver-icon">{s.icon}</div>
                 <h3 className="cb-svc-title">{s.title}</h3>
                 <p className="cb-svc-desc">{s.desc}</p>
               </div>
             ))}
-            <div data-reveal data-reveal-delay="320" className="cb-svc-card wad-cta-card">
-              <p className="wad-cta-card-text">Build a reputation that opens doors. Let&apos;s craft a PR strategy that elevates your brand.</p>
-              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Consult with a PR Expert
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
