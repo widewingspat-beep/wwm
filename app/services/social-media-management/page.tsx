@@ -198,14 +198,20 @@ export default function SocialMediaManagementPage() {
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Expertise &amp; Insights</span>
-          <h2 data-reveal className="cb-section-h2">Managing social media for healthcare, hospitals <span className="gradient-text">&amp; luxury brands</span></h2>
-          <div className="cb-expertise-grid">
-            {EXPERTISE.map((e, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card">
-                <div className="cb-expertise-icon">{e.icon}</div>
-                <h3 className="cb-expertise-title">{e.title}</h3>
-                <p className="cb-expertise-desc">{e.desc}</p>
+          <span data-reveal className="section-label" style={{display:'block',textAlign:'center'}}>Expertise &amp; Insights</span>
+          <h2 data-reveal className="cb-section-h2 smm-exp-title">Managing social media for healthcare, hospitals <span className="gradient-text">&amp; luxury brands</span></h2>
+          <div className="smm-exp-2col">
+            {[EXPERTISE.slice(0,3), EXPERTISE.slice(3)].map((col, ci) => (
+              <div key={ci} className="smm-exp-col">
+                {col.map((e, i) => (
+                  <div key={i} data-reveal data-reveal-delay={`${(ci*3+i)*80}`} className="smm-exp-row">
+                    <div className="smm-exp-circle">{e.icon}</div>
+                    <div className="smm-exp-content">
+                      <h3 className="smm-exp-title-card">{e.title}</h3>
+                      <p className="smm-exp-desc">{e.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
