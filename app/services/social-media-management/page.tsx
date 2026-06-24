@@ -164,14 +164,13 @@ export default function SocialMediaManagementPage() {
             <span>Social Media Management</span>
           </nav>
           <p className="svc-hero-eyebrow">#1 Ranked</p>
-          <h1 className="svc-hero-h1">Social Media Marketing Agency in Dubai</h1>
+          <h1 className="svc-hero-h1">SOCIAL MEDIA MARKETING<br />AGENCY IN DUBAI</h1>
           <p className="svc-hero-sub">We manage your social media presence with strategic content, consistent engagement, and platform-specific growth tactics. Our approach builds communities, increases visibility, and drives meaningful interactions.</p>
           <div className="svc-hero-btns">
             <Link href="/contact" className="svc-btn-primary">
               Get a Proposal
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <Link href="/contact" className="svc-btn-outline">Get Your Social Media Audit</Link>
           </div>
         </div>
       </section>
