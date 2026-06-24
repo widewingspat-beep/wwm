@@ -73,22 +73,51 @@ const PROCESS = [
 
 const WHY_US = [
   {
-    num: '01',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="10" width="40" height="28" rx="3"/>
+        <polyline points="12,30 20,20 28,26 36,16"/>
+        <line x1="12" y1="38" x2="12" y2="44"/>
+        <line x1="36" y1="38" x2="36" y2="44"/>
+        <line x1="6" y1="44" x2="42" y2="44"/>
+      </svg>
+    ),
     title: 'Crystal Clear Reporting',
     desc: 'No more confusing spreadsheets. Get visual, easy-to-understand dashboards.',
   },
   {
-    num: '02',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="18"/>
+        <path d="M24 14v10l6 6"/>
+        <polyline points="32,8 38,14 32,14"/>
+        <line x1="38" y1="8" x2="32" y2="14"/>
+      </svg>
+    ),
     title: 'Higher Profitability',
     desc: 'Eliminate wasted spend and focus budget on high-performing channels.',
   },
   {
-    num: '03',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6,36 18,22 26,30 42,12"/>
+        <polyline points="32,12 42,12 42,22"/>
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <line x1="6" y1="12" x2="6" y2="42"/>
+      </svg>
+    ),
     title: 'Technical Expertise',
     desc: 'We handle complex tracking setups involving GTM, API conversions, and server-side tracking.',
   },
   {
-    num: '04',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="18"/>
+        <line x1="24" y1="14" x2="24" y2="24"/>
+        <line x1="24" y1="24" x2="32" y2="30"/>
+        <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+      </svg>
+    ),
     title: 'Proactive Insights',
     desc: "We don't just report history; we predict trends and suggest future moves.",
   },
@@ -218,23 +247,15 @@ export default function AnalyticsPerformancePage() {
       {/* ── MASTER YOUR DATA ── */}
       <section className="cb-section cb-section-dark">
         <div className="container">
-          <span data-reveal className="section-label">Master Your Marketing Data</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
-          <div className="cb-services-grid">
+          <h2 data-reveal className="cb-section-h2 apm-deliver-title">Master Your <span className="gradient-text">Marketing Data</span></h2>
+          <div className="apm-deliver-grid">
             {WHY_US.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card apm-deliver-card">
+                <div className="apm-deliver-icon">{s.icon}</div>
                 <h3 className="cb-svc-title">{s.title}</h3>
                 <p className="cb-svc-desc">{s.desc}</p>
               </div>
             ))}
-            <div data-reveal data-reveal-delay="320" className="cb-svc-card wad-cta-card">
-              <p className="wad-cta-card-text">Unlock the power of your data. Build a marketing engine that is predictable and scalable.</p>
-              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Get a Data Audit
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
