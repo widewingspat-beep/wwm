@@ -521,7 +521,7 @@ footer {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .35s ease;
+    transition: opacity .15s ease;
     z-index: 1050;
   }
   nav.open { opacity: 1; pointer-events: all; }
@@ -745,8 +745,8 @@ footer {
 /* ── SCROLL REVEAL ── */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(32px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 [data-reveal].revealed {
   opacity: 1;
