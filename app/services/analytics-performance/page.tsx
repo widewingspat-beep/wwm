@@ -65,10 +65,38 @@ const EXPERTISE = [
 ];
 
 const PROCESS = [
-  { step: '01', title: 'Technical Audit', desc: 'We start with a technical audit of your tagging setup (GTM, Pixel, Analytics) to ensure data accuracy.' },
-  { step: '02', title: 'Custom Dashboards', desc: 'We create custom dashboards using Looker Studio, designed around your core business KPIs for clear, actionable insights.' },
-  { step: '03', title: 'A/B Testing', desc: 'We continuously test and optimize through A/B experiments across landing pages and ad creatives to improve performance over time.' },
-  { step: '04', title: 'Monthly Reports', desc: 'Our monthly in-depth reports break down key trends, performance wins, and strategic opportunities to guide the next phase of growth.' },
+  {
+    desc: 'We create custom dashboards using Looker Studio, designed around your core business KPIs for clear, actionable insights.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="6" width="40" height="36" rx="3"/>
+        <line x1="4" y1="16" x2="44" y2="16"/>
+        <line x1="16" y1="16" x2="16" y2="42"/>
+        <rect x="20" y="22" width="6" height="12" rx="1"/>
+        <rect x="29" y="26" width="6" height="8" rx="1"/>
+      </svg>
+    ),
+  },
+  {
+    desc: 'We continuously test and optimize through A/B experiments across landing pages and ad creatives to improve performance over time.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="18"/>
+        <polyline points="16,24 22,30 34,18"/>
+      </svg>
+    ),
+  },
+  {
+    desc: 'Our monthly in-depth reports break down key trends, performance wins, and strategic opportunities to guide the next phase of growth.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6,36 18,22 26,30 42,12"/>
+        <polyline points="32,12 42,12 42,22"/>
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <line x1="6" y1="12" x2="6" y2="42"/>
+      </svg>
+    ),
+  },
 ];
 
 const WHY_US = [
@@ -227,19 +255,25 @@ export default function AnalyticsPerformancePage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="cb-section cb-section-alt">
+      <section className="cb-section cb-section-alt apm-process-section">
         <div className="container">
-          <span data-reveal className="section-label">Our Process</span>
-          <h2 data-reveal className="cb-section-h2">Measure, Optimize, <span className="gradient-text">Scale</span></h2>
-          <div className="cb-process-grid-4">
-            {PROCESS.map((p, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
-                <div className="cb-process-step">{p.step}</div>
-                <div className="cb-process-line" />
-                <h3 className="cb-process-title">{p.title}</h3>
-                <p className="cb-process-desc">{p.desc}</p>
-              </div>
-            ))}
+          <div className="apm-process-split">
+            <div className="apm-process-left">
+              <h2 data-reveal className="apm-process-title">Measure, Optimize, <span className="gradient-text">Scale</span></h2>
+              <p data-reveal className="apm-process-sub">We start with a technical audit of your tagging setup (GTM, Pixel, Analytics) to ensure data accuracy.</p>
+              <Link href="/contact" className="svc-btn-primary apm-process-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
+            <div className="apm-process-right">
+              {PROCESS.map((p, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="apm-process-card">
+                  <div className="apm-process-icon">{p.icon}</div>
+                  <p className="apm-process-card-text">{p.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
