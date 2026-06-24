@@ -140,7 +140,7 @@ export default function EmailSmsCrmPage() {
 
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
-        <div className="container">
+        <div className="container esc-expertise-wrap">
           <span data-reveal className="section-label">Expertise &amp; Insights</span>
           <h2 data-reveal className="cb-section-h2">We don&apos;t do random <span className="gradient-text">newsletters.</span></h2>
           <div className="cb-expertise-grid">

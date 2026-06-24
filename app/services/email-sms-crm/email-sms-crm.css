@@ -1,5 +1,14 @@
 /* email-sms-crm page — page-specific overrides only */
 
+/* ── EXPERTISE: 1-col + centered labels ── */
+.esc-expertise-wrap .section-label,
+.esc-expertise-wrap .cb-section-h2 { text-align: center; display: block; }
+.esc-expertise-wrap .cb-expertise-grid {
+  grid-template-columns: 1fr !important;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 /* ── INTRO EDITORIAL ── */
 .esc-intro-section { background: #fff; }
 .esc-intro-editorial {
