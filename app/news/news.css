@@ -13,11 +13,12 @@
   background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(167,49,132,0.18) 0%, transparent 70%);
   pointer-events: none;
 }
-.nws-hero-inner { position: relative; z-index: 1; }
+.nws-hero-inner { position: relative; z-index: 1; text-align: center; }
 
 .nws-breadcrumb {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: Calibri, sans-serif;
   font-size: 0.88rem;
