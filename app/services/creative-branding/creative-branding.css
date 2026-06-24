@@ -80,6 +80,8 @@
 
 /* ── FAQ — scoped to cb-brand-page, exact match to wad-page ── */
 .cb-brand-page .cb-faq-wrap { max-width: 1000px; width: 100%; margin: 0 auto; }
+.cb-brand-page .cb-faq-wrap .section-label,
+.cb-brand-page .cb-faq-wrap .cb-section-h2 { text-align: center; display: block; }
 .cb-brand-page .cb-faq-list { display: flex; flex-direction: column; gap: 12px; }
 .cb-brand-page .cb-faq-item {
   background: #fff;
