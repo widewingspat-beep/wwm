@@ -177,7 +177,7 @@ export default function SeoPerformancePage() {
 
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
-        <div className="container">
+        <div className="container seo-expertise-wrap">
           <span data-reveal className="section-label">Expertise &amp; Insights</span>
           <h2 data-reveal className="cb-section-h2">Best SEO services in Dubai by a <span className="gradient-text">leading local SEO company</span></h2>
           <div className="cb-expertise-grid">

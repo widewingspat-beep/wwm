@@ -50,3 +50,12 @@
 @media (max-width: 768px) {
   .seo-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
 }
+
+/* ── EXPERTISE: 1-col + centered labels ── */
+.seo-expertise-wrap .section-label,
+.seo-expertise-wrap .cb-section-h2 { text-align: center; display: block; }
+.seo-expertise-wrap .cb-expertise-grid {
+  grid-template-columns: 1fr !important;
+  max-width: 860px;
+  margin: 0 auto;
+}
