@@ -1284,6 +1284,32 @@ details[open] .wad-faq-icon {
   margin: 0;
 }
 
+/* ── Deliver centered 2-col 3×3 grid ── */
+.wad-deliver-center-title {
+  text-align: center !important;
+  display: block;
+  margin-bottom: 48px !important;
+}
+.wad-deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.wad-deliver-cta {
+  background: var(--cb-svc-card-bg, #1a1a2e) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.wad-deliver-cta .wad-cta-card-text { color: #fff !important; }
+.wad-deliver-cta .wad-cta-card-btn {
+  background: #fff !important;
+  color: #a73184 !important;
+  align-self: flex-start;
+}
+@media (max-width: 640px) { .wad-deliver-grid { grid-template-columns: 1fr; } }
+
 /* ── Expertise editorial 30/70 layout ── */
 .wad-exp-editorial {
   display: grid;
