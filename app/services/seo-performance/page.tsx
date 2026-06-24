@@ -97,11 +97,11 @@ const EXPERTISE = [
 ];
 
 const WHAT_WE_DO = [
-  { num: '01', title: 'Competitor Analysis', desc: 'We study your competitors to identify gaps and opportunities that help you outperform them.' },
-  { num: '02', title: 'Comprehensive SEO Audits', desc: 'We analyze your website using advanced SEO tools to uncover technical and content improvements.' },
-  { num: '03', title: 'Targeted Keyword Strategy', desc: 'We focus on high-intent search terms based on market trends, user behavior, and competitor data.' },
-  { num: '04', title: 'Link Building Strategies', desc: 'We build high-quality backlinks safely to improve authority without risking penalties.' },
-  { num: '05', title: 'Website Optimisation', desc: 'We optimize site structure and performance to improve search engine rankings.' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>, title: 'Competitor Analysis', desc: 'We study your competitors to identify gaps and opportunities that help you outperform them.' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>, title: 'Comprehensive SEO Audits', desc: 'We analyze your website using advanced SEO tools to uncover technical and content improvements.' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>, title: 'Targeted Keyword Strategy', desc: 'We focus on high-intent search terms based on market trends, user behavior, and competitor data.' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>, title: 'Link Building Strategies', desc: 'We build high-quality backlinks safely to improve authority without risking penalties.' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>, title: 'Website Optimisation', desc: 'We optimize site structure and performance to improve search engine rankings.' },
 ];
 
 const FAQS = [
@@ -248,17 +248,16 @@ export default function SeoPerformancePage() {
       {/* ── WHAT WE DELIVER ── */}
       <section className="cb-section cb-section-dark">
         <div className="container">
-          <span data-reveal className="section-label">Local SEO Services in Dubai for All Businesses</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
+          <h2 data-reveal className="cb-section-h2 seo-deliver-title">Local SEO Services in Dubai<br />for <span className="gradient-text">All Businesses</span></h2>
           <div className="cb-services-grid">
             {WHAT_WE_DO.map((s, i) => (
-              <div key={s.num} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
-                <div className="cb-svc-num">{s.num}</div>
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card seo-deliver-card">
+                <div className="seo-deliver-icon">{s.icon}</div>
                 <h3 className="cb-svc-title">{s.title}</h3>
                 <p className="cb-svc-desc">{s.desc}</p>
               </div>
             ))}
-            <div data-reveal data-reveal-delay="400" className="cb-svc-card wad-cta-card">
+            <div data-reveal data-reveal-delay="400" className="cb-svc-card seo-deliver-card seo-deliver-purple">
               <p className="wad-cta-card-text">Rank Higher and Grow with Local SEO in Dubai</p>
               <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
                 Get Your Free SEO Consultation
