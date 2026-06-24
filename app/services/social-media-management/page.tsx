@@ -240,6 +240,10 @@ export default function SocialMediaManagementPage() {
             <div className="smm-dedicated-left">
               <h2 data-reveal className="smm-dedicated-title">Dedicated Social Media Experts &amp; <span className="gradient-text">Data-Driven Growth</span></h2>
               <p data-reveal className="smm-dedicated-sub">Each client gets a dedicated social media marketing expert who supports strategy, execution, and performance optimization.</p>
+              <Link href="/contact" className="svc-btn-primary smm-dedicated-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
             </div>
             <div className="smm-dedicated-right">
               {[

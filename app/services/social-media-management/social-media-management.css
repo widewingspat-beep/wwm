@@ -177,6 +177,8 @@
   text-transform: uppercase;
   margin: 0 0 24px;
 }
+.smm-dedicated-btn { margin-top: 28px; display: inline-flex; }
+
 .smm-dedicated-sub {
   font-family: Calibri, sans-serif;
   font-size: 1.05rem;
