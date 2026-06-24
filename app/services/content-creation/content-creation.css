@@ -133,6 +133,26 @@
   .cc-process-layout { grid-template-columns: 1fr; gap: 40px 0; }
 }
 
+/* ── DELIVER 4-COL ── */
+.cc-deliver-title {
+  text-align: center !important;
+  display: block;
+  margin-bottom: 48px !important;
+}
+.cc-deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.cc-deliver-card {
+  text-align: center;
+}
+.cc-deliver-card .cb-why-icon {
+  margin: 0 auto 20px;
+}
+@media (max-width: 1024px) { .cc-deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .cc-deliver-grid { grid-template-columns: 1fr; } }
+
 /* ── DARK CTA CARD ── */
 .cc-dark-card {
   background: linear-gradient(135deg, #a73184 0%, #6b1a5a 60%, #0d0d20 100%) !important;

@@ -259,23 +259,15 @@ export default function ContentCreationPage() {
       {/* ── WHY CHOOSE ── */}
       <section className="cb-section cb-section-dark">
         <div className="container">
-          <span data-reveal className="section-label">Elevate Your Brand&apos;s Visual Language</span>
-          <h2 data-reveal className="cb-section-h2">What we <span className="gradient-text">deliver</span></h2>
-          <div className="cb-services-grid">
+          <h2 data-reveal className="cb-section-h2 cc-deliver-title">Elevate Your Brand&apos;s <span className="gradient-text">Visual Language</span></h2>
+          <div className="cc-deliver-grid">
             {WHY_US.map((w, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card">
+              <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card cc-deliver-card">
                 <div className="cb-why-icon">{w.icon}</div>
                 <h3 className="cb-svc-title">{w.title}</h3>
                 <p className="cb-svc-desc">{w.desc}</p>
               </div>
             ))}
-            <div data-reveal data-reveal-delay="320" className="cb-svc-card wad-cta-card">
-              <p className="wad-cta-card-text">Stop using stock photos and generic copy. Create specific content that tells your unique story.</p>
-              <Link href="/contact" className="svc-btn-primary wad-cta-card-btn">
-                Request a Creative Quote
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
