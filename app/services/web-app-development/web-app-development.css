@@ -1311,16 +1311,22 @@ details[open] .wad-faq-icon {
 @media (max-width: 640px) { .wad-deliver-grid { grid-template-columns: 1fr; } }
 
 /* ── Expertise editorial 30/70 layout ── */
+/* Remove overflow:hidden from ALL ancestors so position:sticky works */
+.wad-expertise-section,
+.wad-expertise-section .container {
+  overflow: visible !important;
+}
 .wad-exp-editorial {
   display: grid;
   grid-template-columns: 30fr 70fr;
   gap: 0 48px;
   align-items: start;
+  /* must NOT have overflow:hidden */
+  overflow: visible;
 }
 .wad-exp-editorial-left {
   position: sticky;
   top: 90px;
-  padding-top: 0;
   align-self: start;
 }
 .wad-exp-editorial-right {
@@ -1328,8 +1334,6 @@ details[open] .wad-faq-icon {
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-/* Ensure section doesn't clip sticky */
-.wad-expertise-section { overflow: visible !important; }
 @media (max-width: 1024px) {
   .wad-exp-editorial { grid-template-columns: 1fr; gap: 32px 0; }
   .wad-exp-editorial-left { position: static; }
