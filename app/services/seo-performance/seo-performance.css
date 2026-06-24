@@ -138,6 +138,12 @@
 .seo-deliver-purple {
   background: linear-gradient(135deg, #a73184, #6b1a5a, #0d0d20) !important;
 }
+.seo-deliver-purple .wad-cta-card-text { color: #fff !important; }
+.seo-deliver-purple .wad-cta-card-btn {
+  background: #fff !important;
+  color: #a73184 !important;
+}
+.seo-deliver-purple .wad-cta-card-btn:hover { background: rgba(255,255,255,0.9) !important; }
 
 /* ── EXPERTISE: 1-col + centered labels ── */
 .seo-expertise-wrap .section-label,
