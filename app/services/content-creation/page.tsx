@@ -200,6 +200,13 @@ export default function ContentCreationPage() {
                 <p className="cb-expertise-desc">{e.desc}</p>
               </div>
             ))}
+            <div data-reveal data-reveal-delay="400" className="cb-expertise-card cc-dark-card">
+              <p className="cc-dark-card-text">Ready to create content that converts?</p>
+              <Link href="/contact" className="svc-btn-primary cc-dark-card-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
