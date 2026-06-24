@@ -146,7 +146,7 @@ export default function PrManagementPage() {
         <div className="container">
           <div className="prm-intro-editorial">
             <div className="prm-intro-left">
-              <h2 className="prm-intro-title">Shaping Perceptions &amp; Building Trust</h2>
+              <h2 className="prm-intro-title">Shaping Perceptions &amp; <span className="gradient-text">Building Trust</span></h2>
               <div className="prm-intro-bar" />
             </div>
             <div className="prm-intro-right">

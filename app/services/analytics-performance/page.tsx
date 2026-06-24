@@ -150,7 +150,7 @@ export default function AnalyticsPerformancePage() {
         <div className="container">
           <div className="apm-intro-editorial">
             <div className="apm-intro-left">
-              <h2 className="apm-intro-title">The Only Measurable Way Is Ours. Data without insight is noise.</h2>
+              <h2 className="apm-intro-title">The Only Measurable Way Is Ours. Data without insight is <span className="gradient-text">noise.</span></h2>
               <div className="apm-intro-bar" />
             </div>
             <div className="apm-intro-right">
