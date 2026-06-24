@@ -170,20 +170,20 @@ export default function ContentCreationPage() {
       </section>
 
       {/* ── INTRO ── */}
-      <section className="cb-section">
+      <section className="cb-section cc-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">Visuals and Words That Captivate</span>
-          <h2 data-reveal className="cb-section-h2">High-quality content for <span className="gradient-text">every channel</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">In the digital world, content is the currency of attention. Wide Wings Media offers premium content creation and graphic design services in Dubai to help your brand speak clearly and look stunning.</p>
-              <p className="wad-para">From social media graphics and motion design to professional copywriting and photography, we produce assets that stop the scroll and drive action.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="cc-intro-editorial">
+            <div className="cc-intro-left">
+              <h2 className="cc-intro-title">Visuals and Words That <span className="gradient-text">Captivate</span></h2>
+              <div className="cc-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">Quality content builds trust. We ensure every piece of content we create is on-brand, high-quality, and optimised for the platform it lives on.</p>
-              <p className="wad-para">Whether you need a monthly content calendar or a one-off campaign asset, our creative team is ready to bring your ideas to life.</p>
+            <div className="cc-intro-right">
+              <p>In the digital world, content is the currency of attention. Wide Wings Media offers premium content creation and graphic design services in Dubai to help your brand speak clearly and look stunning.</p>
+              <p>From social media graphics and motion design to professional copywriting and photography, we produce assets that stop the scroll and drive action.</p>
+              <p>Quality content builds trust. We ensure every piece of content we create is on-brand, high-quality, and optimised for the platform it lives on.</p>
+              <p>Whether you need a monthly content calendar or a one-off campaign asset, our creative team is ready to bring your ideas to life.</p>
             </div>
+          </div>
           </div>
         </div>
       </section>

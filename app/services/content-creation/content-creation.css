@@ -1,1 +1,52 @@
 /* content-creation page — page-specific overrides only */
+
+/* ── INTRO EDITORIAL ── */
+.cc-intro-section { background: #fff; }
+.cc-intro-editorial {
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  gap: 0 48px;
+  align-items: start;
+}
+.cc-intro-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #0d0d20;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.cc-intro-bar {
+  width: 60px;
+  height: 4px;
+  background: #cfa821;
+  border-radius: 2px;
+}
+.cc-intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  perspective: 800px;
+}
+.cc-intro-right p {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  padding: 14px 16px 14px 20px;
+  border-left: 3px solid #cfa821;
+  margin: 0;
+  background: #fff;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 4px 6px 18px rgba(167,49,132,0.08), 0 2px 4px rgba(0,0,0,0.05);
+  transform: rotateY(-2deg) translateZ(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cc-intro-right p:hover {
+  transform: rotateY(0deg) translateX(6px);
+  box-shadow: 8px 12px 28px rgba(167,49,132,0.14), 0 4px 8px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  .cc-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
+}
