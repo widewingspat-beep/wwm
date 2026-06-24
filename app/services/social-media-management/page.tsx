@@ -270,7 +270,7 @@ export default function SocialMediaManagementPage() {
       {/* ── WHY CHOOSE ── */}
       <section className="cb-section cb-section-dark smm-why-section">
         <div className="container">
-          <h2 data-reveal className="cb-section-h2 smm-why-title">Why Choose Our Social Media Marketing <span className="gradient-text">Agency in Dubai?</span></h2>
+          <h2 data-reveal className="cb-section-h2 smm-why-title">Why Choose Our Social Media<br /><span className="gradient-text">Marketing Agency in Dubai?</span></h2>
           <div className="smm-why-grid">
             {WHY_US.map((s, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="smm-why-card">
