@@ -256,8 +256,10 @@ export default function WebAppDevelopmentPage() {
           <div className="wad-deliver-grid">
             {WHAT_WE_DO.map((s, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-svc-card wad-deliver-card">
-                <div className="wad-deliver-icon">{s.icon}</div>
-                <h3 className="cb-svc-title">{s.title}</h3>
+                <div className="wad-deliver-icon-title">
+                  <div className="wad-deliver-icon">{s.icon}</div>
+                  <h3 className="cb-svc-title">{s.title}</h3>
+                </div>
                 <p className="cb-svc-desc">{s.desc}</p>
               </div>
             ))}

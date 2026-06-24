@@ -224,6 +224,19 @@ details[open] .wad-faq-icon {
   mix-blend-mode: multiply;
 }
 
+/* ── Deliver card — icon + title on same row ── */
+.wad-deliver-card {
+  display: flex !important;
+  flex-direction: column;
+}
+.wad-deliver-card .wad-deliver-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.wad-deliver-card .cb-svc-title { margin: 0 !important; }
+
 /* ── Deliver card icon ── */
 .wad-deliver-icon {
   width: 44px;
@@ -1296,7 +1309,8 @@ details[open] .wad-faq-icon {
   gap: 20px;
 }
 .wad-deliver-cta {
-  background: var(--cb-svc-card-bg, #1a1a2e) !important;
+  background: #252540 !important;
+  border-color: rgba(255,255,255,0.08) !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
