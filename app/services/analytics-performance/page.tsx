@@ -309,7 +309,7 @@ export default function AnalyticsPerformancePage() {
           <p data-reveal className="cb-cta-body">Unlock the power of your data. Let&apos;s build a marketing engine that is predictable and scalable.</p>
           <div data-reveal className="cb-cta-btns">
             <Link href="/contact" className="svc-btn-primary">
-              Get a Proposal
+              Get a Data Audit
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
           </div>
