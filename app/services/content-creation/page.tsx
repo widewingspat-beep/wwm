@@ -190,8 +190,8 @@ export default function ContentCreationPage() {
       {/* ── EXPERTISE ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Expertise &amp; Insights</span>
-          <h2 data-reveal className="cb-section-h2">High-quality content for <span className="gradient-text">every channel</span></h2>
+          <span data-reveal className="section-label cc-expertise-center">Expertise &amp; Insights</span>
+          <h2 data-reveal className="cb-section-h2 cc-expertise-center">High-quality content for <span className="gradient-text">every channel</span></h2>
           <div className="cb-expertise-grid">
             {EXPERTISE.map((e, i) => (
               <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cb-expertise-card">

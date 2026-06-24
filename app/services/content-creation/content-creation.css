@@ -51,6 +51,9 @@
   .cc-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
 }
 
+/* ── EXPERTISE CENTER ── */
+.cc-expertise-center { text-align: center; display: block; }
+
 /* ── DARK CTA CARD ── */
 .cc-dark-card {
   background: linear-gradient(135deg, #a73184 0%, #6b1a5a 60%, #0d0d20 100%) !important;
