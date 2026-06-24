@@ -50,3 +50,31 @@
 @media (max-width: 768px) {
   .esc-intro-editorial { grid-template-columns: 1fr; gap: 32px 0; }
 }
+
+/* ── DELIVER 4-COL ── */
+.esc-deliver-title {
+  text-align: center !important;
+  display: block;
+  margin-bottom: 48px !important;
+}
+.esc-deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.esc-deliver-card { text-align: center; }
+.esc-deliver-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(167,49,132,0.2), rgba(207,168,33,0.1));
+  border: 2px solid rgba(167,49,132,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a73184;
+  margin: 0 auto 20px;
+}
+.esc-deliver-icon svg { width: 24px; height: 24px; }
+@media (max-width: 1024px) { .esc-deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .esc-deliver-grid { grid-template-columns: 1fr; } }
