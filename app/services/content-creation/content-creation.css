@@ -54,6 +54,85 @@
 /* ── EXPERTISE CENTER ── */
 .cc-expertise-center { text-align: center; display: block; }
 
+/* ── PROCESS LAYOUT ── */
+.cc-process-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 64px;
+  align-items: start;
+}
+.cc-process-title {
+  font-family: Nexa, sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 900;
+  color: #0d0d20;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.cc-process-sub {
+  font-family: Calibri, sans-serif;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.75;
+  margin: 0;
+}
+.cc-process-btn { margin-top: 28px; display: inline-flex; }
+.cc-process-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cc-process-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.cc-process-point:hover {
+  border-color: rgba(167,49,132,0.3);
+  box-shadow: 0 4px 16px rgba(167,49,132,0.08);
+}
+.cc-process-dot {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(167,49,132,0.12), rgba(207,168,33,0.08));
+  border: 2px solid rgba(167,49,132,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cc-process-num {
+  font-family: Nexa, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #a73184;
+}
+.cc-process-point-title {
+  font-family: Nexa, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d0d20;
+  margin: 0 0 6px;
+}
+.cc-process-point-desc {
+  font-family: Calibri, sans-serif;
+  font-size: 0.97rem;
+  color: #555;
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .cc-process-layout { grid-template-columns: 1fr; gap: 40px 0; }
+}
+
 /* ── DARK CTA CARD ── */
 .cc-dark-card {
   background: linear-gradient(135deg, #a73184 0%, #6b1a5a 60%, #0d0d20 100%) !important;

@@ -230,17 +230,28 @@ export default function ContentCreationPage() {
       {/* ── PROCESS ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Our Process</span>
-          <h2 data-reveal className="cb-section-h2">Creative production <span className="gradient-text">made simple</span></h2>
-          <div className="cb-process-grid-4">
-            {PROCESS.map((p, i) => (
-              <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="cb-process-card">
-                <div className="cb-process-step">{p.step}</div>
-                <div className="cb-process-line" />
-                <h3 className="cb-process-title">{p.title}</h3>
-                <p className="cb-process-desc">{p.desc}</p>
-              </div>
-            ))}
+          <div className="cc-process-layout">
+            <div className="cc-process-left">
+              <h2 data-reveal className="cc-process-title">Creative Production <span className="gradient-text">Made Simple</span></h2>
+              <p data-reveal className="cc-process-sub">From the first strategy call to final delivery, our streamlined process keeps your brand moving forward without the hassle.</p>
+              <Link href="/contact" className="svc-btn-primary cc-process-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
+            </div>
+            <div className="cc-process-right">
+              {PROCESS.map((p, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="cc-process-point">
+                  <div className="cc-process-dot">
+                    <span className="cc-process-num">{p.step}</span>
+                  </div>
+                  <div>
+                    <h3 className="cc-process-point-title">{p.title}</h3>
+                    <p className="cc-process-point-desc">{p.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
