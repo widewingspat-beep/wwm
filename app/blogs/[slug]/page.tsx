@@ -235,6 +235,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {content ?? (
               <p>Full article coming soon. Check back shortly for the complete post.</p>
             )}
+            <p className="bp-copyright">All content belongs to Wide Wings Media.</p>
           </article>
 
           {/* Sidebar */}
@@ -288,18 +289,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </div>
 
-      {/* ── BOTTOM CTA ── */}
-      <section className="bp-bottom-cta">
-        <div className="bp-bottom-cta-inner">
-          <p className="bp-bottom-cta-eyebrow">Let&apos;s Work Together</p>
-          <h2 className="bp-bottom-cta-h2">Ready to Build Something<br /><span style={{color:'#a73184'}}>That Actually Sells?</span></h2>
-          <p className="bp-bottom-cta-sub">Talk to our ecommerce experts and get a free strategy session tailored to your business goals.</p>
-          <Link href="/contact" className="bp-bottom-cta-btn">
-            Get a Free Consultation
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
