@@ -193,7 +193,7 @@ export default function ServiceShowcase() {
 
   const startProg = () => {
     autoRef.current = setInterval(() => {
-      progRef.current += 0.45;
+      progRef.current += 0.65;
       setProg(progRef.current);
       if (progRef.current >= 100) {
         progRef.current = 0;
