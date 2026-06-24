@@ -156,21 +156,20 @@ export default function SeoPerformancePage() {
       </section>
 
       {/* ── INTRO ── */}
-      <section className="cb-section">
+      <section className="cb-section seo-intro-section">
         <div className="container">
-          <span data-reveal className="section-label">The Best Local SEO Agency in Dubai</span>
-          <h2 data-reveal className="cb-section-h2">Local SEO that <span className="gradient-text">drives real results</span></h2>
-          <div className="wad-intro-2col">
-            <div className="wad-intro-2col-left">
-              <p className="wad-para">Is it easy for potential customers to find your company online? Our local SEO services in Dubai help improve search engine rankings and attract more visitors.</p>
-              <p className="wad-para">Local SEO brings people who are ready to buy your products or services. Strengthen your online presence by working with a top local SEO company in Dubai.</p>
-              <p className="wad-para">Wide Wings Media is a local SEO company in Dubai, UAE. We provide high-quality search engine optimization services focused on delivering measurable results.</p>
-              <div className="wad-watermark" aria-hidden="true">Wide Wings</div>
+          <div className="seo-intro-editorial">
+            <div className="seo-intro-left">
+              <h2 className="seo-intro-title">The Best Local SEO<br /><span className="gradient-text">Agency in Dubai</span></h2>
+              <div className="seo-intro-bar" />
             </div>
-            <div className="wad-intro-2col-right">
-              <p className="wad-para">We increase organic traffic, conversions, and leads by ranking websites for high-value business keywords using proven SEO strategies in Dubai.</p>
-              <p className="wad-para">Our technical SEO experts ensure your website gets the technical attention it needs to rank in top search results.</p>
-              <p className="wad-para">Our goal is not only to increase visibility but also to increase long-term business value and revenue.</p>
+            <div className="seo-intro-right">
+              <p>Is it easy for potential customers to find your company online? Our local SEO services in Dubai help improve search engine rankings and attract more visitors.</p>
+              <p>Local SEO brings people who are ready to buy your products or services. Strengthen your online presence by working with a top local SEO company in Dubai.</p>
+              <p>Wide Wings Media is a local SEO company in Dubai, UAE. We provide high-quality search engine optimization services focused on delivering measurable results.</p>
+              <p>We increase organic traffic, conversions, and leads by ranking websites for high-value business keywords using proven SEO strategies in Dubai.</p>
+              <p>Our technical SEO experts ensure your website gets the technical attention it needs to rank in top search results.</p>
+              <p>Our goal is not only to increase visibility but also to increase long-term business value and revenue.</p>
             </div>
           </div>
         </div>
