@@ -174,27 +174,35 @@ export default function EmailSmsCrmPage() {
       {/* ── REVENUE CHANNEL ── */}
       <section className="cb-section cb-section-alt">
         <div className="container">
-          <span data-reveal className="section-label">Performance</span>
-          <h2 data-reveal className="cb-section-h2">More than emails. It&apos;s a <span className="gradient-text">revenue channel.</span></h2>
-          <div className="wad-expertise-split">
-            <div data-reveal className="wad-expertise-left">
-              <p className="wad-para">If you&apos;re wondering what email marketing should actually do, it should move users from attention to action, consistently.</p>
-              <p className="wad-para">We design branded templates and write persuasive copy for your campaigns and flows.</p>
-              <p className="wad-para">We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+          <div className="esc-rev-split">
+            <div data-reveal className="esc-rev-left">
+              <h2 className="esc-rev-title">More Than Emails. It&apos;s a <span className="gradient-text">Revenue Channel.</span></h2>
+              <p className="esc-rev-sub">If you&apos;re wondering what email marketing should actually do, it should move users from attention to action, consistently.</p>
+              <Link href="/contact" className="svc-btn-primary esc-rev-btn">
+                Get a Proposal
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </Link>
             </div>
-            <div data-reveal data-reveal-delay="120" className="wad-expertise-right">
-              <div className="wad-medical-card">
-                <div className="wad-medical-card-header">
-                  <div className="wad-medical-icon">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6,38 18,26 28,32 42,14"/>
-                      <polyline points="34,14 42,14 42,22"/>
-                    </svg>
-                  </div>
-                  <h3>Regular A/B testing ensures we are constantly improving performance.</h3>
+            <div className="esc-rev-right">
+              {[
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>,
+                  text: 'We design branded templates and write persuasive copy for your campaigns and flows.',
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>,
+                  text: 'We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).',
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+                  text: 'Regular A/B testing of subject lines and content ensures we are constantly improving performance.',
+                },
+              ].map((item, i) => (
+                <div key={i} data-reveal data-reveal-delay={`${i * 100}`} className="esc-rev-card">
+                  <div className="esc-rev-icon">{item.icon}</div>
+                  <p className="esc-rev-card-text">{item.text}</p>
                 </div>
-                <p className="wad-para">Regular A/B testing of subject lines and content ensures we are constantly improving performance across every campaign we run.</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
