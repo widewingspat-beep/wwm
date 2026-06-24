@@ -28,6 +28,7 @@
 .blg-breadcrumb a:hover { color: #a73184; }
 .blg-bc-sep { color: rgba(255,255,255,0.3); }
 
+.blg-hero-inner { text-align: center; }
 .blg-hero-h1 {
   font-family: Nexa, sans-serif;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
@@ -35,6 +36,7 @@
   color: #fff;
   margin: 0 0 16px;
   line-height: 1.15;
+  text-transform: uppercase;
 }
 .blg-hero-sub {
   font-family: Calibri, sans-serif;

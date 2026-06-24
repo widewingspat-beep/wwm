@@ -112,6 +112,8 @@
   line-height: 1.05;
   margin-bottom: 20px;
   color: #fff;
+  text-transform: uppercase;
+  text-align: center;
 }
 .svc-hero-h1 em {
   font-style: normal;
@@ -124,12 +126,15 @@
   font-family: 'Nexa', 'Calibri', sans-serif;
   font-size: 1.05rem;
   color: rgba(255,255,255,0.6);
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.7;
   max-width: 560px;
   margin: 0 0 40px;
 }
 .svc-hero-btns {
   display: flex;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
