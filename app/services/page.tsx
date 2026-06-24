@@ -145,8 +145,7 @@ export default function ServicesPage() {
           </nav>
 
           <h1 className="svc-hero-h1">
-            Our<br />
-            <em>Digital Marketing</em> Services
+            <em>Digital Marketing</em><br />Services
           </h1>
 
           <p className="svc-hero-sub">
@@ -159,7 +158,6 @@ export default function ServicesPage() {
               Free Consultation
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </Link>
-            <a href="#svc-list" className="svc-btn-outline">View All Services</a>
           </div>
         </div>
       </section>
