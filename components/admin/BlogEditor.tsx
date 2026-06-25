@@ -37,6 +37,24 @@ function extractBodyContent(input: string): string {
   const firstH2 = body.querySelector('h2');
   if (firstH2) firstH2.remove();
 
+  // ── 2.5. Convert <br><br> to <p> tags INSIDE text containers (before unwrapping) ──
+  // Elementor stores paragraphs as plain text separated by <br><br> inside widget divs.
+  // Converting here means the <p> tags survive after the outer divs are unwrapped.
+  const BLOCK_TAGS = ['H1','H2','H3','H4','H5','H6','UL','OL','TABLE','BLOCKQUOTE','DETAILS','P','SECTION','ARTICLE'];
+  Array.from(body.querySelectorAll('div, td')).forEach(el => {
+    // Skip if it has block-level children (it's a layout wrapper, not a text block)
+    if (Array.from(el.children).some(c => BLOCK_TAGS.includes(c.tagName))) return;
+    // Skip if no double-br (nothing to convert)
+    if (!el.innerHTML.match(/(<br\s*\/?>\s*){2,}/i)) return;
+    // Convert double-br to paragraph separator, then wrap in <p>
+    const converted = el.innerHTML
+      .replace(/\s*(<br\s*\/?>\s*){2,}/gi, '</p><p>')  // double br → para break
+      .replace(/<br\s*\/?>/gi, ' ')                     // single br → space
+      .replace(/^(<p>\s*<\/p>)+/, '')                   // remove empty leading p
+      .replace(/(<p>\s*<\/p>)+$/, '');                  // remove empty trailing p
+    el.innerHTML = `<p>${converted}</p>`;
+  });
+
   // ── 3. Convert FAQ <details>/<summary> → blog accordion ──
   const allDetails = Array.from(body.querySelectorAll('details'));
   if (allDetails.length > 0) {
@@ -81,16 +99,12 @@ function extractBodyContent(input: string): string {
     if (!anyRemoved) break;
   }
 
-  // ── 5. Convert double-<br> runs into paragraph breaks ──
+  // ── 5. Clean up any remaining stray <br> tags ──
   let html = body.innerHTML;
-  // Remove lone <br> right before/after block tags
-  html = html.replace(/<br\s*\/?>\s*(<\/?h[2-6])/gi, '$1');
+  html = html.replace(/<br\s*\/?>\s*(<\/?h[2-6])/gi, '$1');  // br before/after headings
   html = html.replace(/(<\/h[2-6]>)\s*<br\s*\/?>/gi, '$1');
-  // Convert 2+ consecutive <br> to paragraph separator
-  html = html.replace(/(<br\s*\/?>\s*){2,}/gi, '</p><p>');
-  // Remove stray single <br> at start/end of <p>
-  html = html.replace(/<p>\s*(<br\s*\/?>\s*)+/gi, '<p>');
-  html = html.replace(/(<br\s*\/?>\s*)+\s*<\/p>/gi, '</p>');
+  html = html.replace(/<p>\s*(<br\s*\/?>\s*)+/gi, '<p>');    // br at start of <p>
+  html = html.replace(/(<br\s*\/?>\s*)+\s*<\/p>/gi, '</p>'); // br at end of <p>
 
   // ── 6. Clean attributes on a fresh parse ──
   const doc2 = parser.parseFromString(`<html><body>${html}</body></html>`, 'text/html');

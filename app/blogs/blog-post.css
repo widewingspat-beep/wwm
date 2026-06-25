@@ -402,11 +402,9 @@
 .bp-article p:empty { display: none; margin: 0; }
 /* Hide stray single <br> tags that cause unwanted blank lines */
 .bp-article br { display: none; }
-/* Ensure h3 headings always have breathing room above */
-.bp-article h3 { margin-top: 36px; }
-.bp-article p + h3,
-.bp-article ul + h3,
-.bp-article ol + h3 { margin-top: 36px; }
+/* Ensure h3 headings always have breathing room above — padding-top won't collapse */
+.bp-article h3 { margin-top: 16px; padding-top: 20px; }
+.bp-article h2 { margin-top: 32px; padding-top: 16px; }
 /* Tighten gap between list end and following paragraph */
 .bp-article ul + p,
 .bp-article ol + p { margin-top: 4px; }
