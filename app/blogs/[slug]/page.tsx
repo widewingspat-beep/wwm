@@ -22,6 +22,7 @@ const PAGE_TITLES: Record<string, string> = {
   'ppc-advertising-company-dubai': 'PPC ADVERTISING COMPANY IN DUBAI',
   'social-media-marketing-agency-in-dubai': 'Social Media Marketing',
   'content-creation-graphic-design': 'Wide Wings Media | Leading Digital Marketing Agency in Dubai',
+  'email-sms-crm-marketing': 'Wide Wings Media | Leading Digital Marketing Agency in Dubai',
 };
 
 /* ── per-post content map ── */
@@ -1911,6 +1912,323 @@ const CONTENT: Record<string, React.ReactNode> = {
       <p>Get Noticed</p>
       <h2>Create Content That Converts</h2>
       <p>Stop using stock photos and generic copy. Create specific content that tells your unique story.</p>Request a Creative QuoteGet NoticedGet NoticedCreate Content That ConvertsStop using stock photos and generic copy. Create specific content that tells your unique story.Request a Creative Quote
+    </>
+  ),
+
+  'email-sms-crm-marketing': (
+    <>
+      <p>The Wayback Machine - https://web.archive.org/web/20260209213051/https://wide-wings.ae/email-sms-crm-marketing/</p>
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM Strategy
+      <p>The Wayback Machine - https://web.archive.org/web/20260209213051/https://wide-wings.ae/email-sms-crm-marketing/</p>
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM Strategy
+      <p>The Wayback Machine - https://web.archive.org/web/20260209213051/https://wide-wings.ae/email-sms-crm-marketing/</p>
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM StrategyThe Wayback Machine - https://web.archive.org/web/20260209213051/https://wide-wings.ae/email-sms-crm-marketing/
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM Strategy
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM Strategy
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>FAQ</h2>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM Strategy
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a Proposal
+      <p>Direct</p>
+      <h2>Email, SMS &amp; CRM Marketing</h2>
+      <p>Services</p>DirectDirectEmail, SMS &amp; CRM MarketingServices
+      <p>We build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.</p>Get a ProposalWe build targeted email and SMS campaigns that nurture leads and strengthen customer relationships. Using CRM-driven insights, we deliver timely, personalized communication that converts.Get a Proposal
+      <p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.</p>
+      <p>We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.</p>
+      <p>Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.</p>
+      <p>SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.</p>
+      <p>By leveraging CRM data, we ensure the right message reaches the right person at the right time.</p>Acquiring a customer is only the start. Wide Wings Media helps you maximize customer lifetime value through targeted Email, SMS, and CRM marketing strategies.We interpret your data to build automated customer journeys that nurture leads, welcome new users, and reactivate dormant accounts.Email marketing remains one of the highest ROI channels. We design beautiful, mobile-responsive emails that get opened and clicked.SMS marketing cuts through the noise with instant, high-impact messages perfect for time-sensitive offers.By leveraging CRM data, we ensure the right message reaches the right person at the right time.
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>
+      <h2>Data-Driven Retention Strategies</h2>
+      <p>Expertise &amp; Insights</p>Data-Driven Retention StrategiesExpertise &amp; Insights
+      <p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.</p>
+      <p>Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.</p>
+      <p>We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.</p>
+      <p>Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.</p>
+      <p>Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.</p>Personalization is power. We use segmentation to tailor messages based on customer behavior and preferences.Automation saves time and boosts revenue. We set up flows that work 24/7 to generate sales while you sleep.We focus on deliverability, ensuring your emails land in the inbox, not the spam folder.Our SMS campaigns are compliant and highly effective for flash sales and urgent updates.Integrating Email and SMS creates a cohesive omnichannel experience that customers appreciate.
+      <h2>FAQ</h2>FAQ
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <h2>Automating Your Growth</h2>
+      <p>We audit your current database and segmentation to find immediate opportunities.</p>Automating Your GrowthWe audit your current database and segmentation to find immediate opportunities.
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>
+      <p>We design branded templates and write persuasive copy for your campaigns and flows.</p>We design branded templates and write persuasive copy for your campaigns and flows.
+      <p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).</p>We set up complex automation triggers based on user behavior (e.g., abandoned cart, birthday, post-purchase).
+      <p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.</p>Regular A/B testing of subject lines and content ensures we are constantly improving performance.
+      <h2>Unlock Hidden Revenue in Your Database</h2>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>Unlock Hidden Revenue in Your Database
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>
+      <p>1</p>
+      <h3>High ROI</h3>
+      <p>Email marketing consistently delivers one of the highest returns on investment.</p>1High ROIEmail marketing consistently delivers one of the highest returns on investment.
+      <p>2</p>
+      <h3>Customer Loyalty</h3>
+      <p>Regular, valuable communication keeps your brand top-of-mind.</p>2Customer LoyaltyRegular, valuable communication keeps your brand top-of-mind.
+      <p>3</p>
+      <h3>Automated Revenue</h3>
+      <p>Set-and-forget flows generate sales automatically.</p>3Automated RevenueSet-and-forget flows generate sales automatically.
+      <p>4</p>
+      <h3>Advanced Segmentation</h3>
+      <p>Target users precisely based on their purchase history and behavior.</p>4Advanced SegmentationTarget users precisely based on their purchase history and behavior.
+      <p>Stay Connected</p>
+      <h2>Turn Subscribers into Loyal Customers</h2>
+      <p>Leverage your customer data to build relationships that last and drive repeat sales.</p>Audit My CRM StrategyStay ConnectedStay ConnectedTurn Subscribers into Loyal CustomersLeverage your customer data to build relationships that last and drive repeat sales.Audit My CRM Strategy
     </>
   ),
 
