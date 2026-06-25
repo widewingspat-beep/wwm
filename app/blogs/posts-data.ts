@@ -105,4 +105,22 @@ export const POSTS = [
     date: '2026-06-25',
     readTime: '8 min read',
   },
+  {
+    slug: 'pr-management',
+    title: 'PR Management',
+    excerpt: 'PR Management.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
+  {
+    slug: 'web-design-company-dubai',
+    title: 'Website Development Services',
+    excerpt: 'Website Development Services.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
 ];
