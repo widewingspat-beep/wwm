@@ -20,6 +20,7 @@ const PAGE_TITLES: Record<string, string> = {
   'healthcare-marketing-agency-in-dubai': 'Healthcare Marketing Agency for Clinics and Hospitals',
   'reliable-paid-ads-agency-in-dubai': 'Paid Ads Agency in Dubai: Expert Ad Campaigns',
   'ppc-advertising-company-dubai': 'PPC ADVERTISING COMPANY IN DUBAI',
+  'social-media-marketing-agency-in-dubai': 'Social Media Marketing',
 };
 
 /* ── per-post content map ── */
@@ -1548,6 +1549,60 @@ const CONTENT: Record<string, React.ReactNode> = {
       <p>Clear pricing models with no hidden costs, allowing accurate planning and budgeting.</p>Get Started
       <h2>Scale Faster with High-Performance PPC Campaigns</h2>
       <p>Work with a trusted PPC advertising agency in Dubai and turn clicks into real revenue.</p>Request a PPC Proposal
+    </>
+  ),
+
+  'social-media-marketing-agency-in-dubai': (
+    <>
+      <p>Wide Wings Media is a global social media marketing agency that is progressing on a track of rapid growth.<br /><br />We build your brand through personalized content publishing on your social media platforms to aid your brand&apos;s online visibility and credibility and ensure growth on multiple folds.<br /><br />Wide Wings Media helps you move way from just posting on your social media handles.</p>
+      <p>With an expert social media team in place, we strategize and organize everything from creating the content pipelines to innovating the post designs, monitoring the publishing times, and targeting the right mediums etc.<br /><br />By running targeted ads on social media marketing platforms, we help your business with conversion targets like driving website traffics to lead generation and maximizing sales.</p>
+      <ul>
+        <li>Social Media Audits</li>
+        <li>Social Media Strategy</li>
+        <li>Content Creation</li>
+        <li>Community Management</li>
+        <li>Paid Social Advertising</li>
+        <li>Influencer Marketing</li>
+      </ul>
+      <p>At Wide Wings Media, we have a track record of delivering incredible results and ROIs that exceeds expectations.<br /><br />We do not only pay close attention to the changing market, improving shopping trends and general customer requirements, our social media marketing specialists have garnered outstanding awards and certifications in the field and with extensive years of experience.<br /><br />The strategies that Wide Wings devises for you will comprehensively cover all your business expectations and do what is best to make your business a brand to look up to in the longer run. Speak to us today to get a whole new idea and a direction to drive your social media marketing efforts in a sustainable direction forward.</p>
+      <p>Our social media marketing plans are flexible and vary across businesses from small, mid-sized and large establishments.<br /><br />At Wide Wings Media, we explore the right platforms, research the right target audience, while putting empathizes on the needs of individual customers and promoting your offerings strategically to garner their interest and retain their attention.<br /><br />This is because we are extremely careful with your plan of action and its strategic implementation.<br /><br />Being the leading social media marketing agency in Dubai that offer results-oriented social media marketing services, we are well-equipped with all the tools and resources needed to bring your vision to reality.</p>
+      <h2>360° Social Media
+Marketing Agency
+in Dubai</h2>
+      <FaqAccordion items={[
+        {
+          q: 'Why Wide Wings Media for social media marketing services?',
+          a: <><ul>
+        <li>Custom strategies and designs specific to your vision</li>
+        <li>Matching your company&apos;s need with the end-user experience</li>
+        <li>Expert team of developers with more than 7 years of experience</li>
+        <li>Quality deliverables meeting deadlines way ahead of schedule</li>
+        <li>Frequent supervision by our technical team to ensure perfection</li>
+        <li>Project management tools in use for extra transparency Client service at its best and we&apos;re here to hear you anytime</li>
+      </ul>
+      <h5>We Strategize</h5>
+      <p>Coming up with social media marketing action plans that will help you accelerate your business growth is on us.<br /><br /></p>
+      <h5>We Implement</h5>
+      <p><br />We&apos;ll dissect all the areas where you can break the market and stand-alone free from any competition.<br /><br /></p>
+      <h5>We Optimize</h5>
+      <p><br />Helping your brand continuously stay relevant online is something we&apos;ll keep paying close attention to.<br /><br /></p>
+      <h5>Maximum ROI</h5>
+      <p><br />We have been helping a lot of SMEs flourish and scale up in a really short period of time through our strategic efforts.</p></>,
+        },
+        {
+          q: 'How Long Will It Take to Witness Results from Social Media Marketing?',
+          a: <><p>The timeline for realizing results from social media marketing varies, contingent upon factors such as your business goals, audience size, and strategies.<br /><br />Although heightened engagement and increased brand awareness may be noticeable within a few weeks, achieving substantial outcomes like augmented leads and revenue typically necessitates several months to a year of sustained effort.<br /><br />It is imperative to perceive social media marketing as a long-term investment, mandating continual refinement of strategies and adaptation to evolving trends. The specific timeline is contingent on your unique circumstances and the efficacy of your endeavors.</p></>,
+        },
+        {
+          q: 'How Can I Determine Which Social Media Platforms Are Appropriate for Marketing?',
+          a: <><p>Selecting the most suitable social media platforms for marketing hinges on your specific business objectives and target audience. Initiate by comprehending the demographics and preferences of your ideal customer base.<br /><br />For example, platforms like Instagram or TikTok may prove effective if you are targeting a younger, visually-oriented audience, while B2B businesses might find LinkedIn more advantageous for networking and lead generation.<br /><br />Additionally, consider the type of content you intend to create, as certain platforms are better suited for videos, while others are more text-centric.</p></>,
+        },
+        {
+          q: 'Is it Beneficial to Engage the Services of a Social Media Marketing Agency?',
+          a: <><h5>Indeed, enlisting the services of a digital marketing agency such as Prism Digital can be immensely advantageous for your business. Our expertise, industry knowledge, and access to cutting-edge tools can save you time and money in the long run.We boast a team of proficient professionals specializing in various facets of digital marketing, ensuring that your campaigns are both effective and results-driven.By collaborating with an agency, you gain a fresh perspective and innovative strategies that can confer a competitive edge to your business.We tailor our services to meet your unique needs, thereby maximizing your return on investment and fostering the prosperity of your business in the ever-evolving digital landscape.</h5></>,
+        }
+      ]} />
+      <h2>We specialize in connecting communities and ideas that turn your vision into a reality.</h2>
     </>
   ),
 

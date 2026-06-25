@@ -60,4 +60,13 @@ export const POSTS = [
     date: '2026-06-25',
     readTime: '8 min read',
   },
+  {
+    slug: 'social-media-marketing-agency-in-dubai',
+    title: 'Social Media Marketing',
+    excerpt: 'Explore expert insights: Social Media Marketing.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
 ];
