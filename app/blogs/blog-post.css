@@ -410,6 +410,7 @@
 .faq-accordion details.faq-item summary.faq-question:hover { background: #faf5fc; }
 .faq-accordion details[open].faq-item summary.faq-question { background: #faf5fc; color: #a73184; }
 .faq-accordion details[open].faq-item .faq-icon { transform: rotate(180deg); }
+.faq-accordion details[open].faq-item .faq-answer { max-height: none; overflow: visible; }
 
 /* ── Bottom CTA ── */
 .bp-bottom-cta {
