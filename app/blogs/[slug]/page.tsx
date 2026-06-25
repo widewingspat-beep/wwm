@@ -1489,7 +1489,6 @@ const CONTENT: Record<string, React.ReactNode> = {
         <li>Live streaming and webinars</li>
       </ul>
       <p>Your story deserves world-class storytelling—and we are here to deliver it.</p>
-      <p>All content belongs to Wide Wings Media.</p>
     </>
   ),
 
