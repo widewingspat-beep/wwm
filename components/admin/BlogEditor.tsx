@@ -147,50 +147,68 @@ export default function BlogEditor() {
           )}
         </div>
         <div style={{ padding: '16px 24px' }}>
-          {/* Search input */}
-          <div style={{ position: 'relative', maxWidth: 600, marginBottom: 10 }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2"
-              style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input
-              type="text"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              placeholder="Search blog title..."
-              className="adm-input"
-              style={{ width: '100%', paddingLeft: 32 }}
-            />
-          </div>
+          {/* Search + custom dropdown */}
+          <div style={{ position: 'relative', width: '100%' }}>
+            <div style={{ position: 'relative', marginBottom: 4 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2"
+                style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Type to search by title or URL (e.g. instagram, seo, dubai...)"
+                className="adm-input"
+                style={{ width: '100%', paddingLeft: 36 }}
+              />
+              {search && (
+                <button onClick={() => setSearch('')} style={{
+                  position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)',
+                  background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: 16, lineHeight: 1,
+                }}>×</button>
+              )}
+            </div>
 
-          {/* Dropdown filtered by search */}
-          <select
-            value={slug}
-            onChange={e => { setSlug(e.target.value); setSearch(''); }}
-            className="adm-input"
-            size={search ? Math.min(filteredPosts.length + 1, 8) : 1}
-            style={{ maxWidth: 600, width: '100%' }}
-          >
-            {filteredPosts.length === 0 && (
-              <option disabled>No posts found</option>
+            {/* Results list — shown only when searching */}
+            {search && (
+              <div style={{
+                border: '1px solid #374151', borderRadius: 8, background: '#111827',
+                maxHeight: 280, overflowY: 'auto', marginBottom: 10,
+              }}>
+                {filteredPosts.length === 0 ? (
+                  <div style={{ padding: '12px 16px', color: '#6b7280', fontSize: '0.83rem' }}>No posts found</div>
+                ) : filteredPosts.map(p => (
+                  <button
+                    key={p.slug}
+                    onClick={() => { setSlug(p.slug); setSearch(''); }}
+                    style={{
+                      display: 'block', width: '100%', textAlign: 'left',
+                      padding: '10px 16px', background: p.slug === slug ? '#1e3a5f' : 'transparent',
+                      border: 'none', borderBottom: '1px solid #1f2937', cursor: 'pointer',
+                      color: p.slug === slug ? '#93c5fd' : '#d1d5db',
+                    }}
+                    onMouseEnter={e => { if (p.slug !== slug) (e.currentTarget as HTMLButtonElement).style.background = '#1f2937'; }}
+                    onMouseLeave={e => { if (p.slug !== slug) (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
+                  >
+                    <div style={{ fontSize: '0.83rem', fontWeight: 600, marginBottom: 2 }}>{p.title}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>/blogs/{p.slug}</div>
+                  </button>
+                ))}
+              </div>
             )}
-            {filteredPosts.map(p => (
-              <option key={p.slug} value={p.slug}>
-                {p.title} — /blogs/{p.slug}
-              </option>
-            ))}
-          </select>
+          </div>
 
           {/* Selected post info */}
           {post && (
-            <div style={{ marginTop: 12, padding: '12px 16px', background: '#0f172a', borderRadius: 8, border: '1px solid #1e3a5f' }}>
+            <div style={{ marginTop: 8, padding: '12px 16px', background: '#0f172a', borderRadius: 8, border: '1px solid #1e3a5f' }}>
               <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>
-                {post.title}
+                ✓ {post.title}
               </div>
               <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: 6 }}>
                 Category: <span style={{ color: '#94a3b8' }}>{post.category}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Live URL:</span>
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer"
                   style={{ fontSize: '0.72rem', color: '#3b82f6', wordBreak: 'break-all' }}>
