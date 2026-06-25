@@ -4,31 +4,7 @@ import { POSTS } from '@/app/blogs/posts-data';
 
 type Tab = 'edit' | 'preview';
 
-function convertFaqToAccordion(content: string): string {
-  // Find FAQ heading + following Q&A pairs and convert to details/summary accordion
-  return content.replace(
-    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)([\s\S]*?)(?=<h2|$)/gi,
-    (_match, heading, body) => {
-      // Parse alternating <p>question</p><p>answer</p> pairs
-      const paragraphs: string[] = [];
-      body.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (_: string, text: string) => {
-        paragraphs.push(text.trim());
-        return '';
-      });
-
-      if (paragraphs.length < 2) return _match;
-
-      let accordion = heading + '\n<div class="faq-accordion">\n';
-      for (let i = 0; i < paragraphs.length - 1; i += 2) {
-        const q = paragraphs[i];
-        const a = paragraphs[i + 1] ?? '';
-        accordion += `<details class="faq-item"><summary class="faq-question"><span>${q}</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${a}</p></div></div></details>\n`;
-      }
-      accordion += '</div>\n';
-      return accordion;
-    }
-  );
-}
+const SVG_CHEVRON = `<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
 
 function extractBodyContent(input: string): string {
   // If not a full HTML doc, just return as-is
@@ -43,27 +19,63 @@ function extractBodyContent(input: string): string {
   // Remove <style> blocks
   content = content.replace(/<style[\s\S]*?<\/style>/gi, '');
 
-  // Remove wrapper divs (container, meta, wrapper) - unwrap container, delete meta
-  content = content.replace(/<div[^>]*class=["'][^"']*(?:container|meta|wrapper)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi,
-    (match, inner) => /class=["'][^"']*meta[^"']*["']/.test(match) ? '' : inner
-  );
+  // Remove meta source div entirely
+  content = content.replace(/<div[^>]*class=["'][^"']*meta[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, '');
 
-  // Remove <h1> tags entirely (page already has its own title in hero)
+  // Unwrap container div (keep inner content)
+  content = content.replace(/<div[^>]*class=["'][^"']*container[^"']*["'][^>]*>([\s\S]*?)<\/div>\s*$/i, '$1');
+
+  // Remove <h1> entirely (page hero already has the title)
   content = content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '');
 
-  // Remove the FIRST <h2> if it looks like a duplicate page title
+  // Remove the FIRST <h2> (usually duplicates the page title)
   let firstH2Removed = false;
   content = content.replace(/<h2[^>]*>[\s\S]*?<\/h2>/gi, (match) => {
     if (!firstH2Removed) { firstH2Removed = true; return ''; }
     return match;
   });
 
-  // Remove inline style attributes and unwanted class attributes
-  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
-  content = content.replace(/\s*class=["'][^"']*["']/gi, '');
+  // ── Convert FAQ <details>/<summary> to blog accordion style ──
+  // Case 1: HTML already uses <details class="faq-accordion-item"><summary>Q</summary><div class="faq-answer"><p>A</p></div></details>
+  // Wrap consecutive <details> in faq-accordion div and restyle them
+  content = content.replace(
+    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)\s*((?:<details[\s\S]*?<\/details>\s*)+)/gi,
+    (_match, heading, detailsBlock) => {
+      const items = detailsBlock.replace(
+        /<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>\s*<div[^>]*>([\s\S]*?)<\/div>\s*<\/details>/gi,
+        (_: string, q: string, a: string) =>
+          `<details class="faq-item"><summary class="faq-question"><span>${q.trim()}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner">${a.trim()}</div></div></details>\n`
+      );
+      return `${heading}\n<div class="faq-accordion">\n${items}</div>\n`;
+    }
+  );
 
-  // Convert FAQ sections to native accordion (details/summary)
-  content = convertFaqToAccordion(content);
+  // Case 2: FAQ is plain <p>Question</p><p>Answer</p> pairs after a FAQ heading
+  content = content.replace(
+    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)([\s\S]*?)(?=<h2|$)/gi,
+    (_match, heading, body) => {
+      // Only process if no faq-accordion already created
+      if (body.includes('faq-accordion')) return _match;
+      const paragraphs: string[] = [];
+      body.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (_: string, text: string) => { paragraphs.push(text.trim()); return ''; });
+      if (paragraphs.length < 2) return _match;
+      let accordion = `${heading}\n<div class="faq-accordion">\n`;
+      for (let i = 0; i < paragraphs.length - 1; i += 2) {
+        accordion += `<details class="faq-item"><summary class="faq-question"><span>${paragraphs[i]}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner"><p>${paragraphs[i + 1] ?? ''}</p></div></div></details>\n`;
+      }
+      accordion += '</div>\n';
+      return accordion;
+    }
+  );
+
+  // Remove inline style attributes
+  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
+
+  // Remove class attributes EXCEPT faq-related ones
+  content = content.replace(/\s*class=["']([^"']*)["']/gi, (_match, cls) => {
+    const keep = (cls as string).split(/\s+/).filter((c: string) => c.startsWith('faq-')).join(' ');
+    return keep ? ` class="${keep}"` : '';
+  });
 
   // Clean up excess blank lines
   content = content.replace(/\n{3,}/g, '\n\n').trim();
