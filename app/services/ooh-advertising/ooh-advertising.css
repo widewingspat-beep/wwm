@@ -134,6 +134,11 @@
 .ooh-deliver-icon svg { width: 22px; height: 22px; }
 .ooh-deliver-purple {
   background: linear-gradient(135deg, #a73184, #6b1a5a, #0d0d20) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 .ooh-deliver-purple .wad-cta-card-text { color: #fff !important; }
 .ooh-deliver-purple .wad-cta-card-btn {
