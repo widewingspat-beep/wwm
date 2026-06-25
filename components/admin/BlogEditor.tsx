@@ -115,8 +115,14 @@ export default function BlogEditor() {
     e.target.value = '';
   }
 
+  const [search, setSearch] = useState('');
+  const filteredPosts = search.trim()
+    ? POSTS.filter(p => p.title.toLowerCase().includes(search.toLowerCase()) || p.slug.includes(search.toLowerCase()))
+    : POSTS;
+
   const post = POSTS.find(p => p.slug === slug);
   const wordCount = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
+  const liveUrl = `https://wwm-mu.vercel.app/blogs/${slug}`;
 
   return (
     <div className="blog-editor">
@@ -141,22 +147,56 @@ export default function BlogEditor() {
           )}
         </div>
         <div style={{ padding: '16px 24px' }}>
+          {/* Search input */}
+          <div style={{ position: 'relative', maxWidth: 600, marginBottom: 10 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2"
+              style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input
+              type="text"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Search blog title..."
+              className="adm-input"
+              style={{ width: '100%', paddingLeft: 32 }}
+            />
+          </div>
+
+          {/* Dropdown filtered by search */}
           <select
             value={slug}
-            onChange={e => setSlug(e.target.value)}
+            onChange={e => { setSlug(e.target.value); setSearch(''); }}
             className="adm-input"
-            style={{ maxWidth: 480, width: '100%' }}
+            size={search ? Math.min(filteredPosts.length + 1, 8) : 1}
+            style={{ maxWidth: 600, width: '100%' }}
           >
-            {POSTS.map(p => (
+            {filteredPosts.length === 0 && (
+              <option disabled>No posts found</option>
+            )}
+            {filteredPosts.map(p => (
               <option key={p.slug} value={p.slug}>
-                [{p.category}] {p.title}
+                {p.title}
               </option>
             ))}
           </select>
+
+          {/* Selected post info */}
           {post && (
-            <div style={{ marginTop: 8, fontSize: '0.78rem', color: '#9ca3af' }}>
-              Slug: <code style={{ background: '#1f2937', padding: '1px 6px', borderRadius: 4 }}>{post.slug}</code>
-              &nbsp;&nbsp;Category: <strong style={{ color: '#d1d5db' }}>{post.category}</strong>
+            <div style={{ marginTop: 12, padding: '12px 16px', background: '#0f172a', borderRadius: 8, border: '1px solid #1e3a5f' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>
+                {post.title}
+              </div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: 6 }}>
+                Category: <span style={{ color: '#94a3b8' }}>{post.category}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Live URL:</span>
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer"
+                  style={{ fontSize: '0.72rem', color: '#3b82f6', wordBreak: 'break-all' }}>
+                  {liveUrl}
+                </a>
+              </div>
             </div>
           )}
         </div>
