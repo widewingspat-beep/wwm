@@ -30,7 +30,7 @@ const PAGE_TITLES: Record<string, string> = {
   'analytics-performance-marketing': 'Analytics & Performance Marketing',
   'pr-management': 'PR Management',
   'web-design-company-dubai': 'Website Development Services',
-  'seo-strategy-for-uae-startups': 'One moment, please...Loader',
+  'seo-strategy-for-uae-startups': 'SEO Strategy for UAE Startups: Simple Steps for Success',
   'ai-trend': 'Driving the Next Generation of Tech',
   'real-estate-content-writing-uae': 'Real Estate Content Writing Services in UAE: Why They Work',
   'local-seo-services-in-abu-dhabi': 'How Local SEO Services in Abu Dhabi Can Boost Your Business',
