@@ -100,6 +100,21 @@ export default function BlogEditor() {
     }
   }
 
+  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const text = ev.target?.result as string;
+      setHtml(extractBodyContent(text));
+      setTab('edit');
+      setStatus(null);
+    };
+    reader.readAsText(file);
+    // Reset input so same file can be re-uploaded
+    e.target.value = '';
+  }
+
   const post = POSTS.find(p => p.slug === slug);
   const wordCount = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
 
@@ -165,9 +180,29 @@ export default function BlogEditor() {
 
         {tab === 'edit' ? (
           <div style={{ padding: '0 24px 16px' }}>
-            <p style={{ fontSize: '0.8rem', color: '#9ca3af', marginBottom: 8 }}>
-              Paste your full HTML page — the editor will automatically strip the &lt;head&gt;, &lt;style&gt;, and wrapper tags and keep only the article content.
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+              <p style={{ fontSize: '0.8rem', color: '#9ca3af', margin: 0 }}>
+                Paste your full HTML page, or upload an <strong style={{ color: '#d1d5db' }}>.html file</strong> — wrapper tags are stripped automatically.
+              </p>
+              <label style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer',
+                padding: '6px 14px', borderRadius: 6, fontSize: '0.8rem', fontWeight: 600,
+                background: '#1f2937', color: '#d1d5db', border: '1px solid #374151',
+                whiteSpace: 'nowrap', flexShrink: 0,
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                Upload HTML File
+                <input
+                  type="file"
+                  accept=".html,.htm"
+                  onChange={handleFileUpload}
+                  style={{ display: 'none' }}
+                />
+              </label>
+            </div>
             {loading ? (
               <div style={{ padding: 40, textAlign: 'center', color: '#6b7280' }}>Loading…</div>
             ) : (
