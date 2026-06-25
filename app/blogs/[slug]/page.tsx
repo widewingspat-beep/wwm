@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { POSTS } from '../posts-data';
 import '../blog-post.css';
 import FaqAccordion from './FaqAccordion';
+import { getBlogContent } from '@/lib/admin/blog-kv';
 
 /* ── Real page titles (from old site) — separate from SEO listing titles ── */
 const PAGE_TITLES: Record<string, string> = {
@@ -4962,7 +4963,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = POSTS.find(p => p.slug === slug);
   if (!post) notFound();
 
-  const content = CONTENT[slug];
+  // KV content (set via admin) takes priority over hardcoded CONTENT
+  const kvHtml = await getBlogContent(slug);
+  const content = kvHtml
+    ? <div dangerouslySetInnerHTML={{ __html: kvHtml }} />
+    : CONTENT[slug];
   const related = getRelated(slug, post.category);
 
   /* TOC: pull h2 headings from content string representation */
