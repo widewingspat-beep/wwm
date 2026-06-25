@@ -4,6 +4,40 @@ import { POSTS } from '@/app/blogs/posts-data';
 
 type Tab = 'edit' | 'preview';
 
+function extractBodyContent(input: string): string {
+  // If it's a full HTML document, extract only the body content
+  if (!input.includes('<!DOCTYPE') && !input.includes('<html') && !input.includes('<body')) {
+    return input.trim();
+  }
+
+  // Extract everything inside <body>...</body>
+  const bodyMatch = input.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  let content = bodyMatch ? bodyMatch[1] : input;
+
+  // Remove wrapper divs like <div class="container"> and <div class="meta">
+  content = content.replace(/<div[^>]*class=["'][^"']*(?:container|meta|wrapper)[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, (match) => {
+    // Keep inner content of container div, remove meta div entirely
+    if (/class=["'][^"']*meta[^"']*["']/.test(match)) return '';
+    // For container, extract inner HTML
+    const inner = match.replace(/^<div[^>]*>/, '').replace(/<\/div>$/, '');
+    return inner;
+  });
+
+  // Remove <style> blocks
+  content = content.replace(/<style[\s\S]*?<\/style>/gi, '');
+
+  // Remove inline style attributes
+  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
+
+  // Remove class attributes that aren't needed (keep structure tags clean)
+  content = content.replace(/\s*class=["'][^"']*["']/gi, '');
+
+  // Clean up empty lines and trim
+  content = content.replace(/\n{3,}/g, '\n\n').trim();
+
+  return content;
+}
+
 export default function BlogEditor() {
   const [slug, setSlug] = useState(POSTS[0]?.slug ?? '');
   const [html, setHtml] = useState('');
@@ -132,7 +166,7 @@ export default function BlogEditor() {
         {tab === 'edit' ? (
           <div style={{ padding: '0 24px 16px' }}>
             <p style={{ fontSize: '0.8rem', color: '#9ca3af', marginBottom: 8 }}>
-              Paste HTML content below. Use standard HTML tags: &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;br /&gt;
+              Paste your full HTML page — the editor will automatically strip the &lt;head&gt;, &lt;style&gt;, and wrapper tags and keep only the article content.
             </p>
             {loading ? (
               <div style={{ padding: 40, textAlign: 'center', color: '#6b7280' }}>Loading…</div>
@@ -140,12 +174,17 @@ export default function BlogEditor() {
               <textarea
                 value={html}
                 onChange={e => setHtml(e.target.value)}
+                onPaste={e => {
+                  e.preventDefault();
+                  const pasted = e.clipboardData.getData('text');
+                  setHtml(extractBodyContent(pasted));
+                }}
                 className="adm-input"
                 style={{
                   width: '100%', minHeight: 500, fontFamily: 'monospace',
                   fontSize: '0.82rem', lineHeight: 1.6, resize: 'vertical',
                 }}
-                placeholder={`<h2>Section heading</h2>\n<p>Your paragraph text here...</p>\n<ul>\n  <li>List item</li>\n</ul>`}
+                placeholder={`Paste your full HTML page here — it will be cleaned automatically.`}
                 spellCheck={false}
               />
             )}
