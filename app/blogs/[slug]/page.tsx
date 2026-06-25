@@ -19,6 +19,7 @@ const PAGE_TITLES: Record<string, string> = {
   'google-ads-agency-dubai': 'Google Ads Agency in Dubai for Your Business',
   'healthcare-marketing-agency-in-dubai': 'Healthcare Marketing Agency for Clinics and Hospitals',
   'reliable-paid-ads-agency-in-dubai': 'Paid Ads Agency in Dubai: Expert Ad Campaigns',
+  'ppc-advertising-company-dubai': 'PPC Advertising Company in Dubai',
 };
 
 /* ── per-post content map ── */

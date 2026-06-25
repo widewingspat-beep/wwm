@@ -51,4 +51,13 @@ export const POSTS = [
   { slug: 'ai-video-creation-trends', title: 'AI Video Creation Trends and Their Industry Impact', excerpt: "Learn about the latest trends in AI video creation, how they're impacting the industry, and experts' predictions for the future.", category: 'Technology', image: '/blog/ai-video-creation-trends.webp' },
   { slug: 'successfully-rebrand-your-business', title: 'How to Develop Your Rebranding Strategy', excerpt: 'Want to know how to rebrand your business successfully? Learn the key steps to developing a rebranding strategy that resonates with your audience.', category: 'Branding', image: '/blog/successfully-rebrand-your-business.webp' },
   { slug: 'how-to-keep-your-audience-engaged', title: 'Boost Audience Engagement in a Distracted World', excerpt: 'Learn proven strategies for capturing and sustaining audience engagement in a distracted world. Boost attention and interaction effectively.', category: 'Content', image: '/blog/how-to-keep-your-audience-engaged.webp' },
+  {
+    slug: 'ppc-advertising-company-dubai',
+    title: 'PPC Advertising Company in Dubai',
+    excerpt: 'Explore our expert insights on ppc advertising company in dubai.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
 ];
