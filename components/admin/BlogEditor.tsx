@@ -7,80 +7,117 @@ type Tab = 'edit' | 'preview';
 const SVG_CHEVRON = `<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
 
 function extractBodyContent(input: string): string {
-  // If not a full HTML doc, just return as-is
-  if (!input.includes('<!DOCTYPE') && !input.includes('<html') && !input.includes('<body')) {
-    return input.trim();
+  const isFullDoc = input.includes('<!DOCTYPE') || input.includes('<html') || input.includes('<body');
+  if (!isFullDoc) return input.trim();
+
+  // Use browser DOMParser for correct nested-tag handling
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(input, 'text/html');
+  const body = doc.body;
+
+  // ── 1. Remove noise ──
+  body.querySelectorAll('style, script, link, noscript').forEach(e => e.remove());
+
+  // Remove all images/media (blog page has its own featured image)
+  body.querySelectorAll('img, picture, figure, figcaption, source, video, audio, iframe, embed').forEach(e => e.remove());
+
+  // Remove loading overlay divs (Elementor sites inject a full-screen loader)
+  body.querySelectorAll('*').forEach(el => {
+    const cls = el.getAttribute('class') || '';
+    if (/\bfixed\b/.test(cls) && /\binset\b|\bz-1\d{4}\b/.test(cls)) el.remove();
+  });
+
+  // Remove Elementor spacer/divider widgets and wp meta
+  body.querySelectorAll(
+    '[class*="widget-spacer"],[class*="widget-divider"],[class*="elementor-divider"],[class*="elementor-spacer"],[class*="elementor-separator"],.meta'
+  ).forEach(e => e.remove());
+
+  // ── 2. Remove title tags ──
+  body.querySelectorAll('h1').forEach(e => e.remove());
+  const firstH2 = body.querySelector('h2');
+  if (firstH2) firstH2.remove();
+
+  // ── 3. Convert FAQ <details>/<summary> → blog accordion ──
+  const allDetails = Array.from(body.querySelectorAll('details'));
+  if (allDetails.length > 0) {
+    // Find FAQ heading
+    let faqHeading: Element | undefined;
+    body.querySelectorAll('h2, h3').forEach(h => {
+      if (!faqHeading && /faq|frequently asked/i.test(h.textContent || '')) faqHeading = h;
+    });
+
+    const accordion = doc.createElement('div');
+    accordion.className = 'faq-accordion';
+
+    allDetails.forEach(details => {
+      const summary = details.querySelector('summary');
+      const answerEl = details.querySelector('.faq-answer') || details.querySelector('div');
+      const q = summary?.textContent?.trim() || '';
+      const a = answerEl?.innerHTML?.trim() || '';
+      const newItem = doc.createElement('details');
+      newItem.className = 'faq-item';
+      newItem.innerHTML = `<summary class="faq-question"><span>${q}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner">${a}</div></div>`;
+      accordion.appendChild(newItem);
+      details.remove();
+    });
+
+    if (faqHeading) faqHeading.after(accordion);
+    else body.appendChild(accordion);
   }
 
-  // Extract body content
-  const bodyMatch = input.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  let content = bodyMatch ? bodyMatch[1] : input;
+  // ── 4. Unwrap all block wrapper elements (div, section, article, etc.) ──
+  // but PROTECT elements that have faq-* classes (our accordion)
+  for (let pass = 0; pass < 20; pass++) {
+    const wrappers = Array.from(body.querySelectorAll('div, section, article, aside, header, footer, main, nav'));
+    if (wrappers.length === 0) break;
+    let anyRemoved = false;
+    wrappers.forEach(el => {
+      const cls = el.getAttribute('class') || '';
+      if (cls.split(' ').some(c => c.startsWith('faq-'))) return; // protect accordion
+      while (el.firstChild) el.before(el.firstChild);
+      el.remove();
+      anyRemoved = true;
+    });
+    if (!anyRemoved) break;
+  }
 
-  // Remove <style> blocks
-  content = content.replace(/<style[\s\S]*?<\/style>/gi, '');
+  // ── 5. Convert double-<br> runs into paragraph breaks ──
+  let html = body.innerHTML;
+  // Remove lone <br> right before/after block tags
+  html = html.replace(/<br\s*\/?>\s*(<\/?h[2-6])/gi, '$1');
+  html = html.replace(/(<\/h[2-6]>)\s*<br\s*\/?>/gi, '$1');
+  // Convert 2+ consecutive <br> to paragraph separator
+  html = html.replace(/(<br\s*\/?>\s*){2,}/gi, '</p><p>');
+  // Remove stray single <br> at start/end of <p>
+  html = html.replace(/<p>\s*(<br\s*\/?>\s*)+/gi, '<p>');
+  html = html.replace(/(<br\s*\/?>\s*)+\s*<\/p>/gi, '</p>');
 
-  // Remove meta source div entirely
-  content = content.replace(/<div[^>]*class=["'][^"']*meta[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, '');
+  // ── 6. Clean attributes on a fresh parse ──
+  const doc2 = parser.parseFromString(`<html><body>${html}</body></html>`, 'text/html');
+  const body2 = doc2.body;
 
-  // Unwrap container div (keep inner content)
-  content = content.replace(/<div[^>]*class=["'][^"']*container[^"']*["'][^>]*>([\s\S]*?)<\/div>\s*$/i, '$1');
-
-  // Remove <h1> entirely (page hero already has the title)
-  content = content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '');
-
-  // Remove the FIRST <h2> (usually duplicates the page title)
-  let firstH2Removed = false;
-  content = content.replace(/<h2[^>]*>[\s\S]*?<\/h2>/gi, (match) => {
-    if (!firstH2Removed) { firstH2Removed = true; return ''; }
-    return match;
+  body2.querySelectorAll('*').forEach(el => {
+    el.removeAttribute('style');
+    el.removeAttribute('id');
+    // Remove data-* and event attrs
+    Array.from(el.attributes)
+      .filter(a => a.name.startsWith('data-') || a.name.startsWith('on'))
+      .forEach(a => el.removeAttribute(a.name));
+    // Keep only faq-* classes
+    const cls = el.getAttribute('class');
+    if (cls !== null) {
+      const keep = cls.split(/\s+/).filter(c => c.startsWith('faq-')).join(' ');
+      if (keep) el.setAttribute('class', keep);
+      else el.removeAttribute('class');
+    }
   });
 
-  // ── Convert FAQ <details>/<summary> to blog accordion style ──
-  // Case 1: HTML already uses <details class="faq-accordion-item"><summary>Q</summary><div class="faq-answer"><p>A</p></div></details>
-  // Wrap consecutive <details> in faq-accordion div and restyle them
-  content = content.replace(
-    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)\s*((?:<details[\s\S]*?<\/details>\s*)+)/gi,
-    (_match, heading, detailsBlock) => {
-      const items = detailsBlock.replace(
-        /<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>\s*<div[^>]*>([\s\S]*?)<\/div>\s*<\/details>/gi,
-        (_: string, q: string, a: string) =>
-          `<details class="faq-item"><summary class="faq-question"><span>${q.trim()}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner">${a.trim()}</div></div></details>\n`
-      );
-      return `${heading}\n<div class="faq-accordion">\n${items}</div>\n`;
-    }
-  );
-
-  // Case 2: FAQ is plain <p>Question</p><p>Answer</p> pairs after a FAQ heading
-  content = content.replace(
-    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)([\s\S]*?)(?=<h2|$)/gi,
-    (_match, heading, body) => {
-      // Only process if no faq-accordion already created
-      if (body.includes('faq-accordion')) return _match;
-      const paragraphs: string[] = [];
-      body.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (_: string, text: string) => { paragraphs.push(text.trim()); return ''; });
-      if (paragraphs.length < 2) return _match;
-      let accordion = `${heading}\n<div class="faq-accordion">\n`;
-      for (let i = 0; i < paragraphs.length - 1; i += 2) {
-        accordion += `<details class="faq-item"><summary class="faq-question"><span>${paragraphs[i]}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner"><p>${paragraphs[i + 1] ?? ''}</p></div></div></details>\n`;
-      }
-      accordion += '</div>\n';
-      return accordion;
-    }
-  );
-
-  // Remove inline style attributes
-  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
-
-  // Remove class attributes EXCEPT faq-related ones
-  content = content.replace(/\s*class=["']([^"']*)["']/gi, (_match, cls) => {
-    const keep = (cls as string).split(/\s+/).filter((c: string) => c.startsWith('faq-')).join(' ');
-    return keep ? ` class="${keep}"` : '';
+  // ── 7. Remove empty block elements ──
+  body2.querySelectorAll('p, h2, h3, h4, li').forEach(el => {
+    if (!el.textContent?.trim()) el.remove();
   });
 
-  // Clean up excess blank lines
-  content = content.replace(/\n{3,}/g, '\n\n').trim();
-
-  return content;
+  return body2.innerHTML.replace(/\n{3,}/g, '\n\n').trim();
 }
 
 export default function BlogEditor() {
