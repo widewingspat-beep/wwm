@@ -15,8 +15,20 @@ function extractBodyContent(input: string): string {
   const doc = parser.parseFromString(input, 'text/html');
   const body = doc.body;
 
-  // ── 1. Remove noise ──
-  body.querySelectorAll('style, script, link, noscript').forEach(e => e.remove());
+  // ── 1. Remove site-wide chrome (header, nav, footer, sidebar) ──
+  // These must be DELETED, not unwrapped, or their content leaks into the article
+  body.querySelectorAll('header, footer, nav').forEach(e => e.remove());
+  body.querySelectorAll(
+    '[class*="site-header"],[class*="site-footer"],[class*="site-nav"],' +
+    '[class*="main-nav"],[class*="top-bar"],[class*="breadcrumb"],' +
+    '[id*="header"],[id*="footer"],[id*="nav"],[id*="menu"],' +
+    '[class*="footer"],[class*="sidebar"],[class*="widget-area"],' +
+    '[class*="social-icon"],[class*="social-media"],[class*="share-btn"],' +
+    '[class*="cookie"],[class*="popup"],[class*="modal"],[class*="banner"]'
+  ).forEach(e => e.remove());
+
+  // Remove all SVG icons (social media logos etc.) — we inject our own for FAQ
+  body.querySelectorAll('svg').forEach(e => e.remove());
 
   // Remove all images/media (blog page has its own featured image)
   body.querySelectorAll('img, picture, figure, figcaption, source, video, audio, iframe, embed').forEach(e => e.remove());
@@ -29,7 +41,8 @@ function extractBodyContent(input: string): string {
 
   // Remove Elementor spacer/divider widgets and wp meta
   body.querySelectorAll(
-    '[class*="widget-spacer"],[class*="widget-divider"],[class*="elementor-divider"],[class*="elementor-spacer"],[class*="elementor-separator"],.meta'
+    '[class*="widget-spacer"],[class*="widget-divider"],[class*="elementor-divider"],' +
+    '[class*="elementor-spacer"],[class*="elementor-separator"],.meta'
   ).forEach(e => e.remove());
 
   // ── 2. Remove title tags ──
