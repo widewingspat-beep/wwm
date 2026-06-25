@@ -397,6 +397,20 @@
 .faq-answer-inner ul { margin: 6px 0 10px; padding-left: 20px; }
 .faq-answer-inner li { margin-bottom: 4px; }
 
+/* ── KV-published content spacing fixes ── */
+/* Hide empty paragraphs left behind by br→p conversion */
+.bp-article p:empty { display: none; margin: 0; }
+/* Hide stray single <br> tags that cause unwanted blank lines */
+.bp-article br { display: none; }
+/* Ensure h3 headings always have breathing room above */
+.bp-article h3 { margin-top: 36px; }
+.bp-article p + h3,
+.bp-article ul + h3,
+.bp-article ol + h3 { margin-top: 36px; }
+/* Tighten gap between list end and following paragraph */
+.bp-article ul + p,
+.bp-article ol + p { margin-top: 4px; }
+
 /* ── FAQ via <details>/<summary> (KV-published content) ── */
 .faq-accordion details.faq-item { list-style: none; }
 .faq-accordion details.faq-item summary.faq-question {
