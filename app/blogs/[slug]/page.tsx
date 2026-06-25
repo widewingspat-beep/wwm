@@ -1566,9 +1566,7 @@ const CONTENT: Record<string, React.ReactNode> = {
       </ul>
       <p>At Wide Wings Media, we have a track record of delivering incredible results and ROIs that exceeds expectations.<br /><br />We do not only pay close attention to the changing market, improving shopping trends and general customer requirements, our social media marketing specialists have garnered outstanding awards and certifications in the field and with extensive years of experience.<br /><br />The strategies that Wide Wings devises for you will comprehensively cover all your business expectations and do what is best to make your business a brand to look up to in the longer run. Speak to us today to get a whole new idea and a direction to drive your social media marketing efforts in a sustainable direction forward.</p>
       <p>Our social media marketing plans are flexible and vary across businesses from small, mid-sized and large establishments.<br /><br />At Wide Wings Media, we explore the right platforms, research the right target audience, while putting empathizes on the needs of individual customers and promoting your offerings strategically to garner their interest and retain their attention.<br /><br />This is because we are extremely careful with your plan of action and its strategic implementation.<br /><br />Being the leading social media marketing agency in Dubai that offer results-oriented social media marketing services, we are well-equipped with all the tools and resources needed to bring your vision to reality.</p>
-      <h2>360° Social Media
-Marketing Agency
-in Dubai</h2>
+      <h2>360° Social Media Marketing Agency in Dubai</h2>
       <FaqAccordion items={[
         {
           q: 'Why Wide Wings Media for social media marketing services?',
@@ -1602,7 +1600,6 @@ in Dubai</h2>
           a: <><h5>Indeed, enlisting the services of a digital marketing agency such as Prism Digital can be immensely advantageous for your business. Our expertise, industry knowledge, and access to cutting-edge tools can save you time and money in the long run.We boast a team of proficient professionals specializing in various facets of digital marketing, ensuring that your campaigns are both effective and results-driven.By collaborating with an agency, you gain a fresh perspective and innovative strategies that can confer a competitive edge to your business.We tailor our services to meet your unique needs, thereby maximizing your return on investment and fostering the prosperity of your business in the ever-evolving digital landscape.</h5></>,
         }
       ]} />
-      <h2>We specialize in connecting communities and ideas that turn your vision into a reality.</h2>
     </>
   ),
 
