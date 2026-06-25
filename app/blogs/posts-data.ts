@@ -87,4 +87,22 @@ export const POSTS = [
     date: '2026-06-25',
     readTime: '8 min read',
   },
+  {
+    slug: 'outdoor-advertising-dubai',
+    title: 'Outdoor Advertising',
+    excerpt: 'Outdoor Advertising.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
+  {
+    slug: 'analytics-performance-marketing',
+    title: 'Analytics & Performance Marketing',
+    excerpt: 'Analytics & Performance Marketing.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
 ];
