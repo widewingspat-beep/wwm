@@ -130,7 +130,7 @@
   font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   font-weight: 900;
   color: #0d0d20;
-  text-transform: uppercase;
+  text-transform: none;
   line-height: 1.2;
   margin: 48px 0 16px;
   padding-top: 8px;
