@@ -33,7 +33,7 @@ const PAGE_TITLES: Record<string, string> = {
   'seo-strategy-for-uae-startups': 'SEO Strategy for UAE Startups: Simple Steps for Success',
   'ai-trend': 'Driving the Next Generation of Tech',
   'real-estate-content-writing-uae': 'Real Estate Content Writing Services in UAE: Why They Work',
-  'local-seo-services-in-abu-dhabi': 'How Local SEO Services in Abu Dhabi Can Boost Your Business',
+  'local-seo-services-in-abu-dhabi': 'Boost Your Google Ranking with Local SEO Services in Abu Dhabi!',
   'social-media-packages-for-smes': 'Social Media Packages for SMEs in the UAE',
   'digital-marketing-strategies-for-smes': 'Digital Marketing in Dubai: 5 Smart Strategies for SMEs',
   'local-seo-agency-for-startups': 'Top Local SEO Agency in Dubai',
