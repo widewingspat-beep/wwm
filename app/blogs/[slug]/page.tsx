@@ -7,6 +7,8 @@ import '../blog-post.css';
 import FaqAccordion from './FaqAccordion';
 import { getBlogContent } from '@/lib/admin/blog-kv';
 
+export const revalidate = 0; // always fetch fresh from KV, never cache
+
 /* ── Real page titles (from old site) — separate from SEO listing titles ── */
 const PAGE_TITLES: Record<string, string> = {
   'ecommerce-website-development-dubai': 'Ecommerce Website Development Company in Dubai, UAE',
