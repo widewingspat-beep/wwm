@@ -1300,7 +1300,6 @@ const CONTENT: Record<string, React.ReactNode> = {
 
   'videography-company-dubai': (
     <>
-      <h2>Leading Videography Company in Dubai for Pro Productions</h2>
       <p>Wide Wings Media is a leading videography company in Dubai, specializing in distinctive visual content for brands across the UAE. We create unique videos and provide photography that builds meaningful visual experiences that clearly communicate the value of a brand&apos;s product, service, or story. We have talented videographers, a director, an editor, and a cinematographer on our staff. They all work together to develop a captivating tale that brings clients&apos; ideas to life.</p>
       <p>Across the UAE, Wide Wings Media is relied upon by brands like the Saudi German Hospital Group, agencies like Alef Education, and government entities seeking polished corporate films, promotional visuals, lifestyle storytelling, event videography, animation, and 2D/3D video production.</p>
       <p>Today, Wide Wings Media stands among the top videography companies in Dubai, offering consistent and professional production support anywhere in the UAE.</p>
