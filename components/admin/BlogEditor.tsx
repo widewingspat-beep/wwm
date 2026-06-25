@@ -46,9 +46,19 @@ function extractBodyContent(input: string): string {
   ).forEach(e => e.remove());
 
   // ── 2. Remove title tags ──
+  // Remove all h1s (always a duplicate of the blog page title)
   body.querySelectorAll('h1').forEach(e => e.remove());
+  // Only remove the first h2 if it appears before any paragraph text
+  // (i.e. it's a redundant subtitle, not content)
   const firstH2 = body.querySelector('h2');
-  if (firstH2) firstH2.remove();
+  const firstP = body.querySelector('p');
+  if (firstH2 && firstP) {
+    const pos = firstH2.compareDocumentPosition(firstP);
+    // DOCUMENT_POSITION_FOLLOWING = 4 means firstP comes after firstH2
+    if (pos & Node.DOCUMENT_POSITION_FOLLOWING) firstH2.remove();
+  } else if (firstH2 && !firstP) {
+    firstH2.remove();
+  }
 
   // ── 2.5. Convert <br><br> to <p> tags INSIDE text containers (before unwrapping) ──
   // Elementor stores paragraphs as plain text separated by <br><br> inside widget divs.
@@ -68,30 +78,60 @@ function extractBodyContent(input: string): string {
     el.innerHTML = `<p>${converted}</p>`;
   });
 
-  // ── 3. Convert FAQ <details>/<summary> → blog accordion ──
+  // ── 3. Convert FAQ accordions → blog accordion ──
+  // Handles two formats:
+  //   A) <details>/<summary> (standard HTML / some Elementor builds)
+  //   B) .accordion-item > .tab-title .accordion-title + .tab-content (WCF/Elementor widget)
+
+  const buildAccordionItem = (q: string, a: string): Element => {
+    const newItem = doc.createElement('details');
+    newItem.className = 'faq-item';
+    newItem.innerHTML = `<summary class="faq-question"><span>${q}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner">${a}</div></div>`;
+    return newItem;
+  };
+
+  const findFaqHeading = (): Element | undefined => {
+    let h: Element | undefined;
+    body.querySelectorAll('h2, h3').forEach(el => {
+      if (!h && /faq|frequently asked/i.test(el.textContent || '')) h = el;
+    });
+    return h;
+  };
+
+  // Format A: <details>/<summary>
   const allDetails = Array.from(body.querySelectorAll('details'));
   if (allDetails.length > 0) {
-    // Find FAQ heading
-    let faqHeading: Element | undefined;
-    body.querySelectorAll('h2, h3').forEach(h => {
-      if (!faqHeading && /faq|frequently asked/i.test(h.textContent || '')) faqHeading = h;
-    });
-
+    const faqHeading = findFaqHeading();
     const accordion = doc.createElement('div');
     accordion.className = 'faq-accordion';
-
     allDetails.forEach(details => {
       const summary = details.querySelector('summary');
       const answerEl = details.querySelector('.faq-answer') || details.querySelector('div');
       const q = summary?.textContent?.trim() || '';
       const a = answerEl?.innerHTML?.trim() || '';
-      const newItem = doc.createElement('details');
-      newItem.className = 'faq-item';
-      newItem.innerHTML = `<summary class="faq-question"><span>${q}</span>${SVG_CHEVRON}</summary><div class="faq-answer"><div class="faq-answer-inner">${a}</div></div>`;
-      accordion.appendChild(newItem);
+      accordion.appendChild(buildAccordionItem(q, a));
       details.remove();
     });
+    if (faqHeading) faqHeading.after(accordion);
+    else body.appendChild(accordion);
+  }
 
+  // Format B: .accordion-item > [.tab-title .accordion-title] + [.tab-content]
+  const wcfItems = Array.from(body.querySelectorAll('.accordion-item'));
+  if (wcfItems.length > 0) {
+    const faqHeading = findFaqHeading();
+    const accordion = doc.createElement('div');
+    accordion.className = 'faq-accordion';
+    wcfItems.forEach(item => {
+      const titleEl = item.querySelector('.accordion-title');
+      const contentEl = item.querySelector('.tab-content');
+      const q = titleEl?.textContent?.trim() || '';
+      const a = contentEl?.innerHTML?.trim() || '';
+      if (q) accordion.appendChild(buildAccordionItem(q, a));
+      item.remove();
+    });
+    // Also remove the parent wcf--a-accordion wrapper (will be unwrapped anyway, but clean up script tags inside)
+    body.querySelectorAll('script').forEach(s => s.remove());
     if (faqHeading) faqHeading.after(accordion);
     else body.appendChild(accordion);
   }
