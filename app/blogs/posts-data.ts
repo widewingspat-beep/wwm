@@ -69,4 +69,13 @@ export const POSTS = [
     date: '2026-06-25',
     readTime: '8 min read',
   },
+  {
+    slug: 'content-creation-graphic-design',
+    title: 'Wide Wings Media | Leading Digital Marketing Agency in Dubai',
+    excerpt: 'Wide Wings Media | Leading Digital Marketing Agency in Dubai.',
+    category: 'Insights',
+    image: '/images/blog/default.jpg',
+    date: '2026-06-25',
+    readTime: '8 min read',
+  },
 ];
