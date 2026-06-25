@@ -176,7 +176,7 @@ export default function BlogEditor() {
             )}
             {filteredPosts.map(p => (
               <option key={p.slug} value={p.slug}>
-                {p.title}
+                {p.title} — /blogs/{p.slug}
               </option>
             ))}
           </select>
