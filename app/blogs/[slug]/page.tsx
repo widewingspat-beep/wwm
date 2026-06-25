@@ -19,7 +19,7 @@ const PAGE_TITLES: Record<string, string> = {
   'google-ads-agency-dubai': 'Google Ads Agency in Dubai for Your Business',
   'healthcare-marketing-agency-in-dubai': 'Healthcare Marketing Agency for Clinics and Hospitals',
   'reliable-paid-ads-agency-in-dubai': 'Paid Ads Agency in Dubai: Expert Ad Campaigns',
-  'ppc-advertising-company-dubai': 'PPC Advertising Company in Dubai',
+  'ppc-advertising-company-dubai': 'PPC ADVERTISING COMPANY IN DUBAI',
 };
 
 /* ── per-post content map ── */
@@ -1511,8 +1511,7 @@ const CONTENT: Record<string, React.ReactNode> = {
 
   'ppc-advertising-company-dubai': (
     <>
-#Best
-      <h1>PPC Advertising Company in Dubai</h1>
+      #Best
       <p>Services</p>
       <p>We plan, execute, and optimize paid advertising campaigns that maximize reach, conversions, and ROI. Our data-driven media buying ensures your budget delivers measurable results across platforms.</p>Get a Proposal
       <h2>Leading PPC Agency for More Leads &amp; Sales</h2>
@@ -1529,7 +1528,7 @@ const CONTENT: Record<string, React.ReactNode> = {
       <p>Google Ads are one of the most effective tools for generating high-quality leads and increasing sales.</p>
       <p>PPC advertising allows businesses to bring targeted visitors instantly by paying for clicks.</p>
       <p>Your ads appear at the top of search engines and social platforms such as Google, Bing, Facebook, Instagram, and LinkedIn.</p>
-      <h2>FAQ</h2>Are PPC services suitable for small businesses?Yes. PPC is ideal for small businesses because it delivers fast results with controlled budgets and measurable returns.Do you manage PPC campaigns outside Dubai?What makes a PPC agency effective?Why choose Wide Wings Media for PPC advertising?
+      <h2>FAQ</h2>Yes. PPC is ideal for small businesses because it delivers fast results with controlled budgets and measurable returns.
       <h2>Turn 1 AED Into 15 AED with Expert Google Ads Strategy</h2>
       <p>Our PPC agency handles planning, execution, and management of PPC campaigns to help businesses scale profitably.</p>
       <p>Wide Wings Media provides a complete PPC management system that supports long-term growth.</p>
