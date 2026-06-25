@@ -4,35 +4,68 @@ import { POSTS } from '@/app/blogs/posts-data';
 
 type Tab = 'edit' | 'preview';
 
+function convertFaqToAccordion(content: string): string {
+  // Find FAQ heading + following Q&A pairs and convert to details/summary accordion
+  return content.replace(
+    /(<h[23][^>]*>[^<]*(?:faq|frequently asked)[^<]*<\/h[23]>)([\s\S]*?)(?=<h2|$)/gi,
+    (_match, heading, body) => {
+      // Parse alternating <p>question</p><p>answer</p> pairs
+      const paragraphs: string[] = [];
+      body.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, (_: string, text: string) => {
+        paragraphs.push(text.trim());
+        return '';
+      });
+
+      if (paragraphs.length < 2) return _match;
+
+      let accordion = heading + '\n<div class="faq-accordion">\n';
+      for (let i = 0; i < paragraphs.length - 1; i += 2) {
+        const q = paragraphs[i];
+        const a = paragraphs[i + 1] ?? '';
+        accordion += `<details class="faq-item"><summary class="faq-question"><span>${q}</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-answer"><div class="faq-answer-inner"><p>${a}</p></div></div></details>\n`;
+      }
+      accordion += '</div>\n';
+      return accordion;
+    }
+  );
+}
+
 function extractBodyContent(input: string): string {
-  // If it's a full HTML document, extract only the body content
+  // If not a full HTML doc, just return as-is
   if (!input.includes('<!DOCTYPE') && !input.includes('<html') && !input.includes('<body')) {
     return input.trim();
   }
 
-  // Extract everything inside <body>...</body>
+  // Extract body content
   const bodyMatch = input.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
   let content = bodyMatch ? bodyMatch[1] : input;
-
-  // Remove wrapper divs like <div class="container"> and <div class="meta">
-  content = content.replace(/<div[^>]*class=["'][^"']*(?:container|meta|wrapper)[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, (match) => {
-    // Keep inner content of container div, remove meta div entirely
-    if (/class=["'][^"']*meta[^"']*["']/.test(match)) return '';
-    // For container, extract inner HTML
-    const inner = match.replace(/^<div[^>]*>/, '').replace(/<\/div>$/, '');
-    return inner;
-  });
 
   // Remove <style> blocks
   content = content.replace(/<style[\s\S]*?<\/style>/gi, '');
 
-  // Remove inline style attributes
-  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
+  // Remove wrapper divs (container, meta, wrapper) - unwrap container, delete meta
+  content = content.replace(/<div[^>]*class=["'][^"']*(?:container|meta|wrapper)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi,
+    (match, inner) => /class=["'][^"']*meta[^"']*["']/.test(match) ? '' : inner
+  );
 
-  // Remove class attributes that aren't needed (keep structure tags clean)
+  // Remove <h1> tags entirely (page already has its own title in hero)
+  content = content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '');
+
+  // Remove the FIRST <h2> if it looks like a duplicate page title
+  let firstH2Removed = false;
+  content = content.replace(/<h2[^>]*>[\s\S]*?<\/h2>/gi, (match) => {
+    if (!firstH2Removed) { firstH2Removed = true; return ''; }
+    return match;
+  });
+
+  // Remove inline style attributes and unwanted class attributes
+  content = content.replace(/\s*style=["'][^"']*["']/gi, '');
   content = content.replace(/\s*class=["'][^"']*["']/gi, '');
 
-  // Clean up empty lines and trim
+  // Convert FAQ sections to native accordion (details/summary)
+  content = convertFaqToAccordion(content);
+
+  // Clean up excess blank lines
   content = content.replace(/\n{3,}/g, '\n\n').trim();
 
   return content;

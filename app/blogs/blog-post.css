@@ -397,6 +397,20 @@
 .faq-answer-inner ul { margin: 6px 0 10px; padding-left: 20px; }
 .faq-answer-inner li { margin-bottom: 4px; }
 
+/* ── FAQ via <details>/<summary> (KV-published content) ── */
+.faq-accordion details.faq-item { list-style: none; }
+.faq-accordion details.faq-item summary.faq-question {
+  list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 20px; background: #fff; cursor: pointer; text-align: left;
+  font-family: Nexa, sans-serif; font-size: 0.95rem; font-weight: 800; color: #1a1a2e;
+  line-height: 1.4; transition: background 0.18s;
+}
+.faq-accordion details.faq-item summary.faq-question::-webkit-details-marker { display: none; }
+.faq-accordion details.faq-item summary.faq-question::marker { display: none; }
+.faq-accordion details.faq-item summary.faq-question:hover { background: #faf5fc; }
+.faq-accordion details[open].faq-item summary.faq-question { background: #faf5fc; color: #a73184; }
+.faq-accordion details[open].faq-item .faq-icon { transform: rotate(180deg); }
+
 /* ── Bottom CTA ── */
 .bp-bottom-cta {
   background: #f5f5f7;
