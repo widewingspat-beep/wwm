@@ -52,7 +52,7 @@ const PAGE_TITLES: Record<string, string> = {
   'content-repurposing': 'Improve your impact by using content repurposing—the hidden value.',
   'local-seo-and-ai-for-small-businesses': 'We help local businesses grow through local SEO and AI.',
   'social-media-for-small-businesses': "Social Media for Small Businesses: It's Not All Easy",
-  'what-are-open-graph-tags': 'Open Graph Tags: How to Increase Your Social Media Presence',
+  'what-are-open-graph-tags': 'Open Graph Tags: Want to use social media more often?',
   'what-are-anchor-texts': 'What are anchor texts and why do they matter in SEO',
   'digital-marketing-strategy-for-b2bs': 'Digital Marketing Strategy for B2Bs: Guide & Tips',
   'image-optimization-tips': 'Web Traffic Booster: Blogger\'s Guide to Image Optimisation',
