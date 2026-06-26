@@ -49,7 +49,7 @@ const PAGE_TITLES: Record<string, string> = {
   'systematic-search-engine-optimization': 'SEO Services in Dubai: How to Get Your Business Noticed',
   'brand-lift-tests': 'Brand Lift Tests: A Complete Guide For Digital Marketers',
   'marketing-for-ecommerce-businesses': 'Marketing for Ecommerce Businesses',
-  'content-repurposing': 'Creative Ways to Give your Content a New Direction',
+  'content-repurposing': 'Improve your impact by using content repurposing—the hidden value.',
   'local-seo-and-ai-for-small-businesses': 'Unlocking Local Growth: Local SEO and AI for Small Business',
   'social-media-for-small-businesses': 'Social Media for SMBs: Not All Sunshine and Rainbows',
   'what-are-open-graph-tags': 'Open Graph Tags: How to Increase Your Social Media Presence',
