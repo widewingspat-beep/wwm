@@ -58,7 +58,7 @@ const PAGE_TITLES: Record<string, string> = {
   'image-optimization-tips': 'Boost Website Traffic: Image Optimization Guide for Bloggers',
   'best-digital-marketing-agency-in-abu-dhabi': 'Digital Marketing Agency in Abu Dhabi for Growth.',
   'top-social-media-marketing-agencies-in-dubai': 'List of the Top 10 Social Media Marketing Agencies in Dubai.',
-  'healthcare-marketing': 'Healthcare Marketing with Next-Generation AI',
+  'healthcare-marketing': 'Healthcare Marketing Agency Driven By AI Technology',
   'what-are-banner-ads': 'Banner Ads: A Complete Guide for Marketers',
   'power-of-bridge-banner-advertising': 'The Cost-Effective Power of Bridge Banner Advertising',
   'power-of-shopping-mall-advertising': 'Why is shopping mall advertising the new marketing frontier?',
