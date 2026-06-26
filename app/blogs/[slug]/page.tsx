@@ -44,7 +44,7 @@ const PAGE_TITLES: Record<string, string> = {
   'broadcast-tv-advertising-for-millions': 'Maximize Your Reach: Broadcast TV Advertising to Millions',
   'connected-tv-advertising': 'Connected TV Advertising for Broadcast: Reach Millions with Ease',
   'impact-of-ai-on-marketing-and-advertising': 'How is AI Impacting Marketing and Advertising?',
-  'creative-street-marketing-solutions': 'Make a Lasting Impression: Street Advertising & Marketing',
+  'creative-street-marketing-solutions': 'Make an Impact With Smart Street Marketing & Advertisements.',
   'structured-data-for-enhanced-seo-performance': 'Structured Data for Enhanced SEO Performance',
   'systematic-search-engine-optimization': 'Dubai SEO: Your Path to Online Domination',
   'brand-lift-tests': 'Brand Lift Tests: A Comprehensive Guide for Marketers',
