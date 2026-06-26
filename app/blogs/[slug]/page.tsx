@@ -65,7 +65,7 @@ const PAGE_TITLES: Record<string, string> = {
   'market-segmentation-and-targeting': 'Market Segmentation: Targeting the Right Customers',
   'power-of-reputation-management': 'A Guide to Reputation Management: Manage Your Reputation',
   'premier-cinema-advertising-company': 'Cinema Advertising: Connect with emotion',
-  'best-time-to-post-on-instagram-in-uae': 'What is The Best Time to Post on Instagram in UAE',
+  'best-time-to-post-on-instagram-in-uae': 'Learn the best times to post on Instagram in the UAE.',
   'guide-to-effective-social-media-campaign': 'Step-By-Step Guide to An Effective Social Media Campaign',
   'youtube-studio-for-more-views': 'How­ to­ Use­ YouTube­ Studio­ to­ Get­ More­Views',
 };
