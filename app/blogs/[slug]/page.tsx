@@ -69,6 +69,7 @@ const PAGE_TITLES: Record<string, string> = {
   'guide-to-effective-social-media-campaign': 'Guide to a Successful Social Media Campaign',
   'youtube-studio-for-more-views': 'How to use the tools in YouTube Studio to grow your channel',
   'ai-video-creation-trends': 'AI Video Creation Trends and Their Industry Impact',
+  'successfully-rebrand-your-business': 'How to develop your rebranding strategy',
 };
 
 /* ── per-post content map ── */
