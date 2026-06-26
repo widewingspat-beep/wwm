@@ -68,6 +68,7 @@ const PAGE_TITLES: Record<string, string> = {
   'best-time-to-post-on-instagram-in-uae': 'Learn the best times to post on Instagram in the UAE.',
   'guide-to-effective-social-media-campaign': 'Guide to a Successful Social Media Campaign',
   'youtube-studio-for-more-views': 'How to use the tools in YouTube Studio to grow your channel',
+  'ai-video-creation-trends': 'AI Video Creation Trends and Their Industry Impact',
 };
 
 /* ── per-post content map ── */
