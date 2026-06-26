@@ -37,7 +37,7 @@ const PAGE_TITLES: Record<string, string> = {
   'social-media-packages-for-smes': 'Social Media Packages for SMEs in the UAE',
   'digital-marketing-strategies-for-smes': 'Digital Marketing in Dubai: 5 Smart Strategies for SMEs',
   'local-seo-agency-for-startups': 'Local SEO Agency in Dubai: Serving All Emirates',
-  'what-is-a-url': 'One moment, please...Loader',
+  'what-is-a-url': 'Short vs. Long URLs in SEO: What Actually Works?',
   'social-media-for-powerful-brand-awareness': 'Social Media for Powerful Brand Awareness: What Works Best?',
   'ai-in-healthcare-marketing': 'How to Transform Healthcare Within Current AI Breakthroughs',
   'advertisement-company-in-dubai': 'Advertisement Company in Dubai: Hit Your Target Market',
