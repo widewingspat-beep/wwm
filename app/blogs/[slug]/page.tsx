@@ -54,7 +54,7 @@ const PAGE_TITLES: Record<string, string> = {
   'social-media-for-small-businesses': "Social Media for Small Businesses: It's Not All Easy",
   'what-are-open-graph-tags': 'Open Graph Tags: Want to use social media more often?',
   'what-are-anchor-texts': 'What are anchor texts? Why are these images important for SEO?',
-  'digital-marketing-strategy-for-b2bs': 'Digital Marketing Strategy for B2Bs: Guide & Tips',
+  'digital-marketing-strategy-for-b2bs': 'A marketing strategy for B2B marketing companies',
   'image-optimization-tips': 'Web Traffic Booster: Blogger\'s Guide to Image Optimisation',
   'best-digital-marketing-agency-in-abu-dhabi': 'Wide Wings: The Best Digital Marketing Agency in Abu Dhabi',
   'top-social-media-marketing-agencies-in-dubai': 'Top 10 Social Media Marketing Agencies in Dubai',
