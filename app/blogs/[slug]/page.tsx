@@ -41,7 +41,7 @@ const PAGE_TITLES: Record<string, string> = {
   'social-media-for-powerful-brand-awareness': 'Social Media for Powerful Brand Awareness: What Works Best?',
   'ai-in-healthcare-marketing': 'How to Transform Healthcare Within Current AI Breakthroughs',
   'advertisement-company-in-dubai': 'Advertisement Company in Dubai: Hit Your Target Market',
-  'broadcast-tv-advertising-for-millions': 'Broadcast TV Advertising: Reach Millions with Broadcast Ads.',
+  'broadcast-tv-advertising-for-millions': 'Maximize Your Reach: Broadcast TV Advertising to Millions',
   'connected-tv-advertising': 'Connected TV Advertising for Programme Advertising',
   'impact-of-ai-on-marketing-and-advertising': 'How is AI Impacting Marketing and Advertising?',
   'creative-street-marketing-solutions': 'Make a Lasting Impression: Street Advertising & Marketing',
