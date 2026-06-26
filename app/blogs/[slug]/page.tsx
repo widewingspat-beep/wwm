@@ -60,7 +60,7 @@ const PAGE_TITLES: Record<string, string> = {
   'top-social-media-marketing-agencies-in-dubai': 'List of the Top 10 Social Media Marketing Agencies in Dubai.',
   'healthcare-marketing': 'Healthcare Marketing Agency Driven By AI Technology',
   'what-are-banner-ads': 'Make the most of banner ads! Tips and targeting strategies.',
-  'power-of-bridge-banner-advertising': 'The Cost-Effective Power of Bridge Banner Advertising',
+  'power-of-bridge-banner-advertising': 'Bridge Banner Ads: A cost-effective solution for your business',
   'power-of-shopping-mall-advertising': 'Why is shopping mall advertising the new marketing frontier?',
   'market-segmentation-and-targeting': 'Market Segmentation and Targeting: What you Should know',
   'power-of-reputation-management': 'Reputation Management: A New Era in Digital Marketing',
