@@ -50,7 +50,7 @@ const PAGE_TITLES: Record<string, string> = {
   'brand-lift-tests': 'Brand Lift Tests: A Complete Guide For Digital Marketers',
   'marketing-for-ecommerce-businesses': 'Marketing for Ecommerce Businesses',
   'content-repurposing': 'Improve your impact by using content repurposing—the hidden value.',
-  'local-seo-and-ai-for-small-businesses': 'Unlocking Local Growth: Local SEO and AI for Small Business',
+  'local-seo-and-ai-for-small-businesses': 'We help local businesses grow through local SEO and AI.',
   'social-media-for-small-businesses': 'Social Media for SMBs: Not All Sunshine and Rainbows',
   'what-are-open-graph-tags': 'Open Graph Tags: How to Increase Your Social Media Presence',
   'what-are-anchor-texts': 'What are anchor texts and why do they matter in SEO',
