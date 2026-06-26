@@ -61,7 +61,7 @@ const PAGE_TITLES: Record<string, string> = {
   'healthcare-marketing': 'Healthcare Marketing Agency Driven By AI Technology',
   'what-are-banner-ads': 'Make the most of banner ads! Tips and targeting strategies.',
   'power-of-bridge-banner-advertising': 'Bridge Banner Ads: A cost-effective solution for your business',
-  'power-of-shopping-mall-advertising': 'Why is shopping mall advertising the new marketing frontier?',
+  'power-of-shopping-mall-advertising': 'Shopping Mall Advertising as the New Marketing Frontier',
   'market-segmentation-and-targeting': 'Market Segmentation and Targeting: What you Should know',
   'power-of-reputation-management': 'Reputation Management: A New Era in Digital Marketing',
   'premier-cinema-advertising-company': 'Cinema Advertising: Connect with emotion',
