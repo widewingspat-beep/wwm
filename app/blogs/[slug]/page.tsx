@@ -56,7 +56,7 @@ const PAGE_TITLES: Record<string, string> = {
   'what-are-anchor-texts': 'What are anchor texts? Why are these images important for SEO?',
   'digital-marketing-strategy-for-b2bs': 'A marketing strategy for B2B marketing companies',
   'image-optimization-tips': 'Boost Website Traffic: Image Optimization Guide for Bloggers',
-  'best-digital-marketing-agency-in-abu-dhabi': 'Wide Wings: The Best Digital Marketing Agency in Abu Dhabi',
+  'best-digital-marketing-agency-in-abu-dhabi': 'Digital Marketing Agency in Abu Dhabi for Growth.',
   'top-social-media-marketing-agencies-in-dubai': 'Top 10 Social Media Marketing Agencies in Dubai',
   'healthcare-marketing': 'Healthcare Marketing with Next-Generation AI',
   'what-are-banner-ads': 'Banner Ads: A Complete Guide for Marketers',
