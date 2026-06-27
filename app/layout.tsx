@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: {
@@ -108,6 +109,7 @@ export default async function RootLayout({
             </svg>
           </a>
         )}
+        {!isAdmin && <ChatWidget />}
       </body>
     </html>
   );
