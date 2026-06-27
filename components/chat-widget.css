@@ -284,7 +284,30 @@
   transition: background 0.18s, color 0.18s;
 }
 .cw-option:hover .cw-option-chev { background: #a73184; color: #fff; }
-.cw-option-chev svg { width: 16px; height: 16px; }
+.cw-option-chev .cw-ico { width: 16px; height: 16px; }
+
+/* ── Inline SVG icons ── */
+.cw-ico {
+  display: inline-block;
+  vertical-align: -3px;
+  flex-shrink: 0;
+}
+.cw-bubble .cw-ico { vertical-align: -3px; margin: 0 1px; }
+.cw-option-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.cw-option-label .cw-ico { vertical-align: middle; }
+.cw-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.cw-link .cw-link-text { white-space: nowrap; }
+.cw-footer .cw-ico { vertical-align: -2px; color: #cfa821; }
 
 /* ── Footer ── */
 .cw-footer {
