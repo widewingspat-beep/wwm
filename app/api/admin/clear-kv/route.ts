@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getBlogContent, setBlogContent, listPublishedSlugs } from '@/lib/admin/blog-kv';
+import { getBlogContent, setBlogContent, deleteBlogContent, listPublishedSlugs } from '@/lib/admin/blog-kv';
 
 const SECRET = 'wwm-clear-2026';
 
@@ -9,6 +9,10 @@ export async function GET(req: NextRequest) {
   }
   const slug = req.nextUrl.searchParams.get('slug');
   if (slug) {
+    if (req.nextUrl.searchParams.get('action') === 'delete') {
+      await deleteBlogContent(slug);
+      return NextResponse.json({ ok: true, deleted: slug });
+    }
     const content = await getBlogContent(slug);
     return NextResponse.json({ slug, content });
   }
