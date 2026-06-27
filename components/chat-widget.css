@@ -157,22 +157,90 @@
 .cw-bubble {
   background: #fff;
   border-radius: 16px;
-  padding: 16px 18px;
+  padding: 14px 16px;
   font-family: 'Calibri', sans-serif;
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: #2a2a3a;
   box-shadow: 0 4px 16px rgba(30, 30, 60, 0.06);
   max-width: 86%;
+  white-space: pre-line;
+}
+
+/* In-bubble links */
+.cw-link {
+  color: #1f6feb;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cw-link:hover { text-decoration: underline; }
+
+/* ── User messages ── */
+.cw-bot-turn { display: flex; flex-direction: column; gap: 8px; }
+.cw-user-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 8px 0 2px;
+}
+.cw-user-bubble {
+  background: linear-gradient(150deg, #2e2e62, #1a1a3a);
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 78%;
+  box-shadow: 0 4px 16px rgba(46, 46, 98, 0.18);
+}
+.cw-user-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #2e2e62, #14142e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.cw-user-avatar svg { width: 18px; height: 18px; }
+
+/* ── Typing indicator ── */
+.cw-typing {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(30, 30, 60, 0.06);
+}
+.cw-typing span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #9aa0b0;
+  animation: cw-blink 1.2s infinite ease-in-out both;
+}
+.cw-typing span:nth-child(2) { animation-delay: 0.2s; }
+.cw-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes cw-blink {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
 }
 
 /* ── Option cards ── */
+.cw-row-options { align-items: flex-start; }
 .cw-options {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-left: 40px;
-  margin-top: 2px;
+  flex: 1;
+  min-width: 0;
 }
 .cw-option {
   display: flex;
@@ -212,25 +280,6 @@
 }
 .cw-option:hover .cw-option-chev { background: #a73184; color: #fff; }
 .cw-option-chev svg { width: 16px; height: 16px; }
-
-.cw-back {
-  align-self: flex-start;
-  margin: 2px 0 0 2px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Nexa', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #a73184;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 2px;
-}
-.cw-back svg { width: 14px; height: 14px; }
 
 /* ── Footer ── */
 .cw-footer {
