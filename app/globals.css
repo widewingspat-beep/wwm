@@ -359,8 +359,8 @@ footer {
 /* ── Go-to-top button ── */
 .go-top-btn {
   position: fixed;
-  bottom: 100px;
-  right: 32px;
+  bottom: 38px;
+  right: 104px;
   width: 48px;
   height: 48px;
   background: #1a1a2e;
@@ -564,6 +564,7 @@ footer {
   .footer-legal { flex-wrap: wrap; justify-content: center; gap: 14px; }
   .wa-float { bottom: 20px; right: 20px; width: 52px; height: 52px; }
   .wa-float svg { width: 26px; height: 26px; }
+  .go-top-btn { bottom: 22px; right: 84px; width: 48px; height: 48px; }
 }
 
 /* ── SHARED PAGE HERO (about-us style) — used on services, contact, etc ── */
