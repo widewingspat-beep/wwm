@@ -60,6 +60,8 @@ function cleanHtml(raw) {
   const body = bodyMatch ? bodyMatch[1] : raw;
 
   let html = body
+    .replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, '')
     .replace(/<\/?div[^>]*>/g, '')
     .replace(/<\/?section[^>]*>/g, '')
     .replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '')
