@@ -70,24 +70,31 @@ function cleanHtml(raw) {
     .replace(/ class="[^"]*"/g, '')
     .replace(/ data-[^=]*="[^"]*"/g, '');
 
-  // Convert <br/><br/> paragraph breaks to </p><p>
-  html = html.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '</p><p>');
-
-  // Remove stray <br/> after headings and lists
-  html = html.replace(/(<\/h[2-4]>)\s*<br\s*\/?>/gi, '$1');
-  html = html.replace(/(<\/ul>)\s*<br\s*\/?>/gi, '$1');
-  html = html.replace(/(<\/ol>)\s*<br\s*\/?>/gi, '$1');
-
-  // Remove <strong>/<em> wrappers directly inside headings (CSS handles weight)
-  html = html.replace(/(<h[2-4][^>]*>)\s*(?:<strong>|<em>|<strong><em>|<em><strong>)([\s\S]*?)(?:<\/strong>|<\/em>|<\/strong><\/em>|<\/em><\/strong>)\s*(<\/h[2-4]>)/gi,
+  // Remove <strong>/<em> wrappers directly inside headings (CSS handles bold weight)
+  html = html.replace(/(<h[2-4][^>]*>)\s*(?:<strong>|<em>|<strong><em>|<em><strong>)([\s\S]*?)(?:<\/em><\/strong>|<\/strong><\/em>|<\/strong>|<\/em>)\s*(<\/h[2-4]>)/gi,
     (m, open, content, close) => open + content.replace(/<\/?(?:strong|em)>/gi, '') + close);
 
-  // Wrap text that comes after </hN> directly (not already in a tag) in <p>
-  html = html.replace(/(<\/h[2-4]>)([\s\S]*?)(?=<h[2-4]|<ul|<ol|<p|$)/gi, (m, hclose, text) => {
-    const trimmed = text.trim();
-    if (!trimmed || trimmed.startsWith('<')) return m;
-    return hclose + '<p>' + trimmed + '</p>';
-  });
+  // STEP 1: Remove <br/> immediately after headings/lists (before any text wrapping)
+  html = html.replace(/(<\/h[2-4]>)\s*<br\s*\/?>\s*/gi, '$1');
+  html = html.replace(/(<\/[uo]l>)\s*<br\s*\/?>\s*/gi, '$1');
+
+  // STEP 2: After each closing heading, ensure following text starts in a <p>
+  // </h4>TEXT  →  </h4><p>TEXT
+  html = html.replace(/(<\/h[2-4]>)\s*([^<\s])/g, '$1<p>$2');
+
+  // STEP 3: Convert double-<br/> (paragraph separators) to </p><p>
+  html = html.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '</p><p>');
+
+  // STEP 4: Wrap leading bare text (start of content) in <p>
+  html = html.replace(/^\s*([^<\s])/m, '<p>$1');
+
+  // STEP 5: Close any unclosed <p> before block-level elements
+  // Use a simple approach: find <p>...not closed...before next block
+  html = html.replace(/(<p>)((?:(?!<\/p>)(?!<h[2-4])(?!<ul)(?!<ol)[\s\S])*?)(<h[2-4]|<ul|<ol)/g,
+    '$1$2</p>$3');
+
+  // Remove empty <p> tags
+  html = html.replace(/<p>\s*<\/p>/gi, '');
 
   // Wrap leading bare text in <p>
   html = html.replace(/^(\s*)([A-Za-zÀ-ɏ&])/m, '$1<p>$2');
