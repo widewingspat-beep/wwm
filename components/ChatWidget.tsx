@@ -89,9 +89,14 @@ export default function ChatWidget() {
   };
 
   /* ── Option lists (declared before actions that reference them) ── */
-  const followOpts = (): Opt[] => [
+  const topicFollowOpts = (): Opt[] => [
+    { label: 'Explore more questions 💬', onClick: () => openFaq('Explore more questions 💬') },
+    { label: 'Main menu 🔙', onClick: goMainMenu },
+  ];
+
+  const externalFollowOpts = (): Opt[] => [
     { label: 'See more questions 💬', onClick: () => openFaq('See more questions 💬') },
-    { label: 'Main menu ⬅️', onClick: goMainMenu },
+    { label: 'Main menu 🔙', onClick: goMainMenu },
   ];
 
   const mainOpts = (): Opt[] => [
@@ -136,7 +141,7 @@ export default function ChatWidget() {
     botSequence([
       { type: 'bubble', node: 'Got another question in mind? 💡' },
       { type: 'bubble', node: 'What would you like to do next? 👇' },
-      { type: 'options', opts: followOpts() },
+      { type: 'options', opts: externalFollowOpts() },
     ]);
   };
 
@@ -146,7 +151,7 @@ export default function ChatWidget() {
     botSequence([
       ...t.bubbles.map((node): BotItem => ({ type: 'bubble', node })),
       { type: 'bubble', node: 'What would you like to do next? 👇' },
-      { type: 'options', opts: followOpts() },
+      { type: 'options', opts: topicFollowOpts() },
     ]);
   };
 
