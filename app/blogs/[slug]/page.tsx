@@ -5103,18 +5103,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Sidebar */}
           <aside className="bp-sidebar">
 
-            {/* TOC */}
-            {slug === 'ecommerce-website-development-dubai' && (
-              <div className="bp-toc">
-                <p className="bp-toc-title">Table of Contents</p>
-                <ul className="bp-toc-list">
-                  {tocItems.map((item, i) => (
-                    <li key={i}><a href="#">{item}</a></li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
             {/* CTA */}
             <div className="bp-sidebar-cta">
               <p className="bp-sidebar-cta-title">Ready to Grow Your Business?</p>
