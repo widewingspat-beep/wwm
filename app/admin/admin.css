@@ -234,6 +234,7 @@
 .adm-login-title { font-size: 1.4rem; font-weight: 800; color: #0f0f1a; text-align: center; margin-bottom: 6px; }
 .adm-login-sub { font-size: 0.88rem; color: #6b7280; text-align: center; margin-bottom: 28px; }
 .adm-login-field { margin-bottom: 16px; }
+.adm-login-field .adm-input { width: 100%; box-sizing: border-box; }
 .adm-login-error { background: #fef2f2; border: 1px solid #fecaca; border-radius: 7px; padding: 10px 14px; color: #ef4444; font-size: 0.85rem; margin-bottom: 14px; }
 .adm-login-btn {
   width: 100%; padding: 12px; background: #a73184; color: #fff;

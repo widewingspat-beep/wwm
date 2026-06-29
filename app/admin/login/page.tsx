@@ -28,7 +28,7 @@ export default function AdminLogin() {
     <div className="adm-login-wrap">
       <div className="adm-login-box">
         <div className="adm-login-logo">
-          <img src="/LogoColour.svg" alt="Wide Wings Media" onError={e => { (e.target as HTMLImageElement).src = '/LogoWhite.svg'; }} />
+          <img src="/Logoblack.webp" alt="Wide Wings Media" />
         </div>
         <h1 className="adm-login-title">Admin Portal</h1>
         <p className="adm-login-sub">Wide Wings Media &amp; Advertisement</p>
