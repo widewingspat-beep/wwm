@@ -111,13 +111,17 @@ function SeoEditorInner() {
       <div className="adm-card" style={{ marginBottom: 24 }}>
         <div className="adm-card-head"><div className="adm-card-title">Select Page to Edit</div></div>
         <div style={{ padding: '16px 24px' }}>
-          <div className="adm-page-selector">
+          <select
+            className="adm-select"
+            value={selectedPage}
+            onChange={e => e.target.value && loadPage(e.target.value)}
+            style={{ width: '100%', maxWidth: 480, marginBottom: selectedPage ? 16 : 0 }}
+          >
+            <option value="">— Choose a page —</option>
             {pages.map(p => (
-              <button key={p.id} className={`adm-page-chip ${selectedPage === p.id ? 'sel' : ''}`} onClick={() => loadPage(p.id)}>
-                {p.title}
-              </button>
+              <option key={p.id} value={p.id}>{p.title} ({p.slug})</option>
             ))}
-          </div>
+          </select>
           {selectedPage && <SeoScore data={form} />}
         </div>
       </div>
