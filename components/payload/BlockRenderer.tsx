@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { RichText } from '@payloadcms/richtext-lexical/react';
+import { getPayloadInstance } from '@/lib/payload';
 
 type Media = { url?: string; alt?: string; width?: number; height?: number } | string | number | null | undefined;
 
@@ -18,9 +19,24 @@ type Block =
   | { blockType: 'textSection'; heading?: string; body?: unknown }
   | { blockType: 'imageBlock'; image: Media; caption?: string }
   | { blockType: 'twoColumn'; leftHeading?: string; leftBody?: unknown; rightHeading?: string; rightBody?: unknown }
-  | { blockType: 'cta'; heading: string; body?: string; buttonLabel: string; buttonHref: string };
+  | { blockType: 'cta'; heading: string; body?: string; buttonLabel: string; buttonHref: string }
+  | { blockType: 'teamGrid'; eyebrow?: string; heading?: string; subheading?: string };
 
-export function BlockRenderer({ blocks }: { blocks: Block[] }) {
+async function fetchTeamMembers() {
+  const payload = await getPayloadInstance();
+  const res = await payload.find({
+    collection: 'teamMembers',
+    sort: 'order',
+    limit: 200,
+  });
+  return res.docs as Array<{ id: string | number; name: string; role: string; imageUrl: string }>;
+}
+
+export async function BlockRenderer({ blocks }: { blocks: Block[] }) {
+  // Pre-fetch team members once if any teamGrid block is present.
+  const needsTeam = blocks.some((b) => b.blockType === 'teamGrid');
+  const team = needsTeam ? await fetchTeamMembers() : [];
+
   return (
     <div className="pl-blocks">
       {blocks.map((block, i) => {
@@ -74,6 +90,41 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
                 <h2>{block.heading}</h2>
                 {block.body && <p>{block.body}</p>}
                 <a href={block.buttonHref} className="pl-cta-btn">{block.buttonLabel}</a>
+              </section>
+            );
+          case 'teamGrid':
+            return (
+              <section key={i} id="au-team" className="au-wrap pl-team">
+                <div className="au-cast-head">
+                  {block.eyebrow && <div className="au-eyebrow"><span className="dot" />{block.eyebrow}</div>}
+                  {block.heading && <h2>{block.heading}</h2>}
+                  {block.subheading && <p>{block.subheading}</p>}
+                </div>
+                <div className="au-cast-grid">
+                  {team.map((m) => (
+                    <div key={m.id} className="au-cast-card">
+                      <div className="frame">
+                        <Image
+                          src={m.imageUrl}
+                          alt={m.name}
+                          fill
+                          sizes="300px"
+                          style={{ objectFit: 'cover', objectPosition: 'center 12%' }}
+                          loading="lazy"
+                        />
+                        <div className="spotlight" />
+                        <div className="grain" />
+                      </div>
+                      <div className="meta">
+                        <div>
+                          <h3>{m.name}</h3>
+                          <p className="role">{m.role}</p>
+                          <span className="rule" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </section>
             );
           default:

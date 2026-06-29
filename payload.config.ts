@@ -36,6 +36,21 @@ export default buildConfig({
       ],
     },
     {
+      slug: 'teamMembers',
+      labels: { singular: 'Team Member', plural: 'Team Members' },
+      admin: {
+        useAsTitle: 'name',
+        defaultColumns: ['name', 'role', 'order'],
+        description: 'Members shown in the Team Grid block on About Us.',
+      },
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        { name: 'role', type: 'text', required: true, admin: { description: 'Job title shown beneath the name.' } },
+        { name: 'imageUrl', type: 'text', required: true, admin: { description: 'Path or URL to the photo (e.g. /Mina.webp).' } },
+        { name: 'order', type: 'number', defaultValue: 0, admin: { description: 'Lower numbers appear first.' } },
+      ],
+    },
+    {
       slug: 'pages',
       admin: { useAsTitle: 'title', defaultColumns: ['title', 'slug', 'updatedAt'] },
       fields: [
@@ -91,6 +106,20 @@ export default buildConfig({
                 { name: 'buttonHref', type: 'text', required: true },
               ],
             },
+            {
+              slug: 'teamGrid',
+              labels: { singular: 'Team Grid', plural: 'Team Grids' },
+              fields: [
+                {
+                  name: 'eyebrow',
+                  type: 'text',
+                  defaultValue: 'FEATURING',
+                  admin: { description: 'Renders every Team Member document sorted by order. To add/remove team members, edit the Team Members collection.' },
+                },
+                { name: 'heading', type: 'text', defaultValue: 'Expert Team Members' },
+                { name: 'subheading', type: 'text', defaultValue: 'The best people to support your project' },
+              ],
+            },
           ],
         },
       ],
@@ -108,6 +137,33 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   onInit: async (payload) => {
+    // Seed team members from the legacy hardcoded list if the collection is empty.
+    const teamSeed = [
+      { name: 'Mina Banoub',              role: 'Sales Director',           imageUrl: '/Mina.webp',                  order: 10 },
+      { name: 'Alaa Mokhless Ali',        role: 'Account Manager',          imageUrl: '/Alaa.webp',                  order: 20 },
+      { name: 'Nouran Mamdouh',           role: 'Account Manager',          imageUrl: '/nowran.webp',                order: 30 },
+      { name: 'Ebtehal Elnoras',          role: 'Account Manager',          imageUrl: '/Ebtehal.webp',               order: 40 },
+      { name: 'Rawan Akram',              role: 'Account Manager',          imageUrl: '/RawanAkram.webp',            order: 50 },
+      { name: 'Mohamed Shaarawi',         role: 'Full-Stack Web Developer', imageUrl: '/Shaarawi.webp',              order: 60 },
+      { name: 'Lawrence Peter Watyabuko', role: 'SEO Specialist',           imageUrl: '/Lawrence.webp',              order: 70 },
+      { name: 'Mohamed Ibrahim Juba',     role: 'Graphic Designer',         imageUrl: '/MohamedIbrahimJuba.webp',    order: 80 },
+      { name: 'Mahmoud Ismail',           role: 'Graphic Designer',         imageUrl: '/MahmoudIsmail.webp',         order: 90 },
+      { name: 'Prasanna Veeramani',       role: 'Graphic Designer',         imageUrl: '/Prasanna.webp',              order: 100 },
+      { name: 'Nesma Ibrahim',            role: 'Graphic Designer',         imageUrl: '/Nesma.webp',                 order: 110 },
+      { name: 'Asmaa Mostafa',            role: 'Content Creator',          imageUrl: '/Asmaa.webp',                 order: 120 },
+      { name: 'Doha Ghareeb',             role: 'Content Creator',          imageUrl: '/Doha.webp',                  order: 130 },
+      { name: 'Eslam Deif',               role: 'Media Buyer',              imageUrl: '/Eslam.webp',                 order: 140 },
+      { name: 'Kareem Ayman Abdu',        role: 'Media Buyer',              imageUrl: '/Kareemayman.webp',           order: 150 },
+      { name: 'Rana Amir Irshad',         role: 'Cash Flow In-charge',      imageUrl: '/Amir.webp',                  order: 160 },
+    ];
+    const teamCount = await payload.count({ collection: 'teamMembers' });
+    if (teamCount.totalDocs === 0) {
+      for (const m of teamSeed) {
+        await payload.create({ collection: 'teamMembers', data: m });
+      }
+      payload.logger.info(`Seeded ${teamSeed.length} team members.`);
+    }
+
     // Build a Lexical document from one or more plain-text paragraphs.
     const richText = (...paragraphs: string[]) => ({
       root: {
@@ -170,11 +226,10 @@ export default buildConfig({
         ),
       },
       {
-        blockType: 'textSection',
+        blockType: 'teamGrid',
+        eyebrow: 'FEATURING',
         heading: 'Expert Team Members',
-        body: richText(
-          'The best people to support your project. Our team of 50+ specialists spans strategy, design, development, content, paid media, SEO, and analytics — all in-house in Dubai.',
-        ),
+        subheading: 'The best people to support your project',
       },
       {
         blockType: 'cta',
@@ -200,19 +255,22 @@ export default buildConfig({
       return;
     }
 
-    // Refresh the seed if the existing document still has the old placeholder
-    // heading from the first version of this spike. Real user edits past that
-    // point are preserved.
+    // Refresh the seed when the existing document is still on an older spike
+    // version (no teamGrid block yet, or the very first placeholder heading).
+    // Real user edits past that point are preserved.
     const doc = existing.docs[0];
     const blocks = (doc as { blocks?: Array<{ blockType?: string; heading?: string }> }).blocks ?? [];
     const firstHero = blocks.find((b) => b.blockType === 'hero');
-    if (firstHero?.heading === 'A digital marketing partner you can trust.') {
+    const hasTeamGrid = blocks.some((b) => b.blockType === 'teamGrid');
+    const isStaleSeed =
+      firstHero?.heading === 'A digital marketing partner you can trust.' || !hasTeamGrid;
+    if (isStaleSeed) {
       await payload.update({
         collection: 'pages',
         id: doc.id,
         data: { blocks: aboutUsBlocks },
       });
-      payload.logger.info('Refreshed About Us seed to mirror live content.');
+      payload.logger.info('Refreshed About Us seed to current spike content.');
     }
   },
 });

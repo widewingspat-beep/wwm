@@ -1,6 +1,7 @@
 import { findPageBySlug } from '@/lib/payload';
 import { BlockRenderer } from '@/components/payload/BlockRenderer';
 import '@/components/payload/blocks.css';
+import './about-us.css';
 import LegacyAboutUs from './LegacyAboutUs';
 
 export const revalidate = 0;
