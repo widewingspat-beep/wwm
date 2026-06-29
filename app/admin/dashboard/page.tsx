@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { getSession } from '@/lib/admin/auth';
 import { store } from '@/lib/admin/store';
+import { POSTS } from '@/app/blogs/posts-data';
 import AdminShell from '@/components/admin/AdminShell';
 
 export default async function Dashboard() {
@@ -12,6 +13,7 @@ export default async function Dashboard() {
   const newEnquiries = enquiries.filter(e => e.status === 'new').length;
   const seoData = store.seo.list();
   const seoFilled = seoData.filter(s => s.metaTitle && s.metaDescription).length;
+  const totalBlogs = POSTS.length;
 
   const roleLabel = { webadmin: 'Web Admin', seo: 'SEO Manager', enquiry: 'Enquiry Viewer' }[session.role];
 
@@ -23,6 +25,12 @@ export default async function Dashboard() {
           <div className="adm-stat adm-stat-accent">
             <div className="adm-stat-num">{pages.length}</div>
             <div className="adm-stat-label">Total Pages</div>
+          </div>
+        )}
+        {(session.role === 'webadmin' || session.role === 'seo') && (
+          <div className="adm-stat adm-stat-accent">
+            <div className="adm-stat-num">{totalBlogs}</div>
+            <div className="adm-stat-label">Total Blogs</div>
           </div>
         )}
         {(session.role === 'webadmin' || session.role === 'enquiry') && (

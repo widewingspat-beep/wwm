@@ -64,10 +64,30 @@ export interface Enquiry {
 }
 
 const pages: Page[] = [
+  // Static pages
   { id: 'home', title: 'Home', slug: '/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-01' },
-  { id: 'about', title: 'About Us', slug: '/about-us', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
-  { id: 'services', title: 'Services', slug: '/services', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'about', title: 'About', slug: '/about', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
+  { id: 'about-us', title: 'About Us', slug: '/about-us', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
   { id: 'contact', title: 'Contact', slug: '/contact', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-05' },
+  { id: 'services', title: 'Services', slug: '/services', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'blogs', title: 'Blogs', slug: '/blogs', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'news', title: 'News', slug: '/news', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'digital-marketing-services', title: 'Digital Marketing Services', slug: '/digital-marketing-services', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'privacy', title: 'Privacy', slug: '/privacy', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'privacy-policy', title: 'Privacy Policy', slug: '/privacy-policy', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'terms', title: 'Terms', slug: '/terms', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'terms-conditions', title: 'Terms & Conditions', slug: '/terms-conditions', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  // Service detail pages (clean URLs)
+  { id: 'web-app-development', title: 'Web & App Development', slug: '/web-app-development', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'creative-branding', title: 'Creative & Branding', slug: '/creative-branding', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'paid-advertising', title: 'Paid Advertising & Media Buying', slug: '/paid-advertising', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'social-media-management', title: 'Social Media Management', slug: '/social-media-management', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'content-creation', title: 'Content Creation & Graphic Design', slug: '/content-creation', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'email-sms-crm', title: 'Email, SMS & CRM Marketing', slug: '/email-sms-crm', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'seo-performance', title: 'SEO & Performance Management', slug: '/seo-performance', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'ooh-advertising', title: 'OOH Advertising', slug: '/ooh-advertising', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'analytics-performance', title: 'Analytics & Performance Marketing', slug: '/analytics-performance', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'pr-management', title: 'PR Management', slug: '/pr-management', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
 ];
 
 const seoData: SeoData[] = [
