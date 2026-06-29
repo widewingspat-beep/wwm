@@ -108,74 +108,111 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   onInit: async (payload) => {
-    const existing = await payload.find({
-      collection: 'pages',
-      where: { slug: { equals: 'about-us' } },
-      limit: 1,
-    });
-    if (existing.docs.length > 0) return;
-
-    const para = (text: string) => ({
+    // Build a Lexical document from one or more plain-text paragraphs.
+    const richText = (...paragraphs: string[]) => ({
       root: {
         type: 'root',
         format: '',
         indent: 0,
         version: 1,
         direction: 'ltr',
-        children: [
-          {
-            type: 'paragraph',
-            format: '',
-            indent: 0,
-            version: 1,
-            direction: 'ltr',
-            textFormat: 0,
-            textStyle: '',
-            children: [
-              { type: 'text', text, format: 0, detail: 0, mode: 'normal', style: '', version: 1 },
-            ],
-          },
-        ],
+        children: paragraphs.map((text) => ({
+          type: 'paragraph',
+          format: '',
+          indent: 0,
+          version: 1,
+          direction: 'ltr',
+          textFormat: 0,
+          textStyle: '',
+          children: [
+            { type: 'text', text, format: 0, detail: 0, mode: 'normal', style: '', version: 1 },
+          ],
+        })),
       },
     });
 
-    await payload.create({
-      collection: 'pages',
-      data: {
-        title: 'About Us',
-        slug: 'about-us',
-        blocks: [
-          {
-            blockType: 'hero',
-            eyebrow: 'About Wide Wings Media',
-            heading: 'A digital marketing partner you can trust.',
-            subheading:
-              'We are a Dubai-based agency driving growth through SEO, paid media, content, and branding for ambitious brands across the UAE and GCC.',
-          },
-          {
-            blockType: 'textSection',
-            heading: 'Who we are',
-            body: para(
-              'Wide Wings Media is a fully in-house digital marketing company in Dubai with a team of 50+ specialists. We work with brands across 15+ industries to design, build, and grow their digital presence.',
-            ),
-          },
-          {
-            blockType: 'textSection',
-            heading: 'How we work',
-            body: para(
-              'Every engagement starts with strategy. We then deploy small, senior teams who execute end-to-end — from creative to media buying to analytics — under one roof.',
-            ),
-          },
-          {
-            blockType: 'cta',
-            heading: 'Ready to grow with us?',
-            body: 'Tell us where you want to take your brand. We will tell you how we will get you there.',
-            buttonLabel: 'Get in touch',
-            buttonHref: '/contact',
-          },
-        ],
+    // Mirrors the visible text on /about-us (LegacyAboutUs.tsx). The unique
+    // sections on the live page (founder cards, team grid) don't map to the
+    // 5 generic block types in this spike — for production we'd add
+    // `founderCard` and `teamGrid` block types and reuse the existing CSS.
+    const aboutUsBlocks = [
+      {
+        blockType: 'hero',
+        eyebrow: 'About Wide Wings Media',
+        heading: 'A Digital Marketing Partner You Can Trust',
+        subheading:
+          'Empowering brands to break boundaries and soar beyond expectations.',
       },
+      {
+        blockType: 'textSection',
+        heading: 'We believe in limitless potential.',
+        body: richText(
+          'At Wide Wings Media, our mission is to help brands break free from boundaries and explore new horizons. With proper research, tailored plans and creative solutions, we empower businesses to spread their wings and soar beyond expectations.',
+          '01. Our approach is rooted in data-driven insights, enabling us to make informed decisions that maximize return on investment (ROI) for our clients.',
+          '02. We understand that every business is unique, which is why we offer tailor-made digital marketing strategies to meet the specific needs and goals of each client.',
+          '03. We build lasting partnerships by combining strategic thinking with creative execution — turning ambitious visions into measurable, real-world results.',
+        ),
+      },
+      {
+        blockType: 'textSection',
+        heading: 'Reem Osman — CEO & Founder',
+        body: richText(
+          '"As the CEO of Wide Wings Media, I carry the responsibility of every brand that puts its trust in us."',
+          "Our team's expertise and dedication are what let me make that promise with confidence. Together, we turn ambitious ideas into results our clients can measure.",
+        ),
+      },
+      {
+        blockType: 'textSection',
+        heading: 'Seham Batterjee — Founder',
+        body: richText(
+          '"I built Wide Wings Media because I believe great marketing should never feel like guesswork."',
+          "Every brand that works with us gets a partner that's as invested in their growth as they are. That's the standard we hold ourselves to, every single day.",
+        ),
+      },
+      {
+        blockType: 'textSection',
+        heading: 'Expert Team Members',
+        body: richText(
+          'The best people to support your project. Our team of 50+ specialists spans strategy, design, development, content, paid media, SEO, and analytics — all in-house in Dubai.',
+        ),
+      },
+      {
+        blockType: 'cta',
+        heading: 'Ready to spread your wings?',
+        body: 'Tell us where you want to take your brand. We will tell you how we will get you there.',
+        buttonLabel: 'Free Consultation',
+        buttonHref: '/contact',
+      },
+    ] as never;
+
+    const existing = await payload.find({
+      collection: 'pages',
+      where: { slug: { equals: 'about-us' } },
+      limit: 1,
     });
-    payload.logger.info('Seeded About Us page in Payload.');
+
+    if (existing.docs.length === 0) {
+      await payload.create({
+        collection: 'pages',
+        data: { title: 'About Us', slug: 'about-us', blocks: aboutUsBlocks },
+      });
+      payload.logger.info('Seeded About Us page in Payload.');
+      return;
+    }
+
+    // Refresh the seed if the existing document still has the old placeholder
+    // heading from the first version of this spike. Real user edits past that
+    // point are preserved.
+    const doc = existing.docs[0];
+    const blocks = (doc as { blocks?: Array<{ blockType?: string; heading?: string }> }).blocks ?? [];
+    const firstHero = blocks.find((b) => b.blockType === 'hero');
+    if (firstHero?.heading === 'A digital marketing partner you can trust.') {
+      await payload.update({
+        collection: 'pages',
+        id: doc.id,
+        data: { blocks: aboutUsBlocks },
+      });
+      payload.logger.info('Refreshed About Us seed to mirror live content.');
+    }
   },
 });
