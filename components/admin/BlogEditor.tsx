@@ -221,7 +221,7 @@ export default function BlogEditor() {
         body: JSON.stringify({ slug, content: html }),
       });
       if (res.ok) {
-        setStatus({ type: 'success', msg: `Published! Live at /blogs/${slug}` });
+        setStatus({ type: 'success', msg: `Published! Live at /${slug}` });
       } else {
         const d = await res.json();
         setStatus({ type: 'error', msg: d.error ?? 'Save failed' });
@@ -271,7 +271,7 @@ export default function BlogEditor() {
 
   const post = POSTS.find(p => p.slug === slug);
   const wordCount = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
-  const liveUrl = `https://wwm-mu.vercel.app/blogs/${slug}`;
+  const liveUrl = `https://wwm-mu.vercel.app/${slug}`;
 
   return (
     <div className="blog-editor">
@@ -281,7 +281,7 @@ export default function BlogEditor() {
           <div className="adm-card-title">Select Blog Post</div>
           {post && (
             <a
-              href={`/blogs/${slug}`}
+              href={`/${slug}`}
               target="_blank"
               rel="noopener noreferrer"
               className="adm-btn adm-btn-outline adm-btn-sm"
@@ -341,7 +341,7 @@ export default function BlogEditor() {
                     onMouseLeave={e => { if (p.slug !== slug) (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
                   >
                     <div style={{ fontSize: '0.83rem', fontWeight: 600, marginBottom: 2 }}>{p.title}</div>
-                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>/blogs/{p.slug}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>/{p.slug}</div>
                   </button>
                 ))}
               </div>

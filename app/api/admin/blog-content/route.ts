@@ -30,6 +30,6 @@ export async function POST(req: NextRequest) {
     await setBlogContent(slug, content);
   }
 
-  revalidatePath(`/blogs/${slug}`);
+  revalidatePath(`/${slug}`);
   return NextResponse.json({ ok: true });
 }

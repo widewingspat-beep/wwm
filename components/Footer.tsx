@@ -73,11 +73,11 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Services <span className="acc-icon">+</span></h4>
             <ul>
-              <li><Link href="/services/web-app-development">Web &amp; App Development</Link></li>
-              <li><Link href="/services/creative-branding">Creative &amp; Branding</Link></li>
-              <li><Link href="/services/paid-advertising">Paid Advertising &amp; Media Buying</Link></li>
-              <li><Link href="/services/social-media-management">Social Media Management</Link></li>
-              <li><Link href="/services/seo-performance">SEO &amp; Performance Management</Link></li>
+              <li><Link href="/web-app-development">Web &amp; App Development</Link></li>
+              <li><Link href="/creative-branding">Creative &amp; Branding</Link></li>
+              <li><Link href="/paid-advertising">Paid Advertising &amp; Media Buying</Link></li>
+              <li><Link href="/social-media-management">Social Media Management</Link></li>
+              <li><Link href="/seo-performance">SEO &amp; Performance Management</Link></li>
             </ul>
           </div>
 

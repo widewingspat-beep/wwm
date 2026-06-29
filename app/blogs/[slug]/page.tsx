@@ -5120,7 +5120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <ul className="bp-related-list">
                   {related.map(r => (
                     <li key={r.slug} className="bp-related-item">
-                      <Link href={`/blogs/${r.slug}`} className="bp-related-link">
+                      <Link href={`/${r.slug}`} className="bp-related-link">
                         <div className="bp-related-thumb">
                           <Image src={r.image} alt={r.title} width={58} height={42} />
                         </div>

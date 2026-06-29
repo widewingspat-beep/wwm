@@ -7,7 +7,7 @@ const services = [
   {
     num: '01',
     title: 'Web & App Development',
-    href: '/services/web-app-development',
+    href: '/web-app-development',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds1)" strokeWidth="1.8">
         <defs><linearGradient id="ds1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -18,7 +18,7 @@ const services = [
   {
     num: '02',
     title: 'Creative & Branding',
-    href: '/services/creative-branding',
+    href: '/creative-branding',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds2)" strokeWidth="1.8">
         <defs><linearGradient id="ds2" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -29,7 +29,7 @@ const services = [
   {
     num: '03',
     title: 'Paid Advertising & Media Buying',
-    href: '/services/paid-advertising',
+    href: '/paid-advertising',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds3)" strokeWidth="1.8">
         <defs><linearGradient id="ds3" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -40,7 +40,7 @@ const services = [
   {
     num: '04',
     title: 'Social Media Management',
-    href: '/services/social-media-management',
+    href: '/social-media-management',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds4)" strokeWidth="1.8">
         <defs><linearGradient id="ds4" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -51,7 +51,7 @@ const services = [
   {
     num: '05',
     title: 'Content Creation & Graphic Design',
-    href: '/services/content-creation',
+    href: '/content-creation',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds5)" strokeWidth="1.8">
         <defs><linearGradient id="ds5" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -62,7 +62,7 @@ const services = [
   {
     num: '06',
     title: 'Email, SMS & CRM Marketing',
-    href: '/services/email-sms-crm',
+    href: '/email-sms-crm',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds6)" strokeWidth="1.8">
         <defs><linearGradient id="ds6" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -73,7 +73,7 @@ const services = [
   {
     num: '07',
     title: 'SEO & Performance Management',
-    href: '/services/seo-performance',
+    href: '/seo-performance',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds7)" strokeWidth="1.8">
         <defs><linearGradient id="ds7" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -84,7 +84,7 @@ const services = [
   {
     num: '08',
     title: 'OOH Advertising',
-    href: '/services/ooh-advertising',
+    href: '/ooh-advertising',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds8)" strokeWidth="1.8">
         <defs><linearGradient id="ds8" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -95,7 +95,7 @@ const services = [
   {
     num: '09',
     title: 'Analytics & Performance Marketing',
-    href: '/services/analytics-performance',
+    href: '/analytics-performance',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds9)" strokeWidth="1.8">
         <defs><linearGradient id="ds9" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
@@ -106,7 +106,7 @@ const services = [
   {
     num: '10',
     title: 'PR Management',
-    href: '/services/pr-management',
+    href: '/pr-management',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds10)" strokeWidth="1.8">
         <defs><linearGradient id="ds10" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
