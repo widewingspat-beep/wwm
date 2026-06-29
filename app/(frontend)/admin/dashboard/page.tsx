@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { getSession } from '@/lib/admin/auth';
 import { store } from '@/lib/admin/store';
-import { POSTS } from '@/app/blogs/posts-data';
+import { POSTS } from '@/app/(frontend)/blogs/posts-data';
 import AdminShell from '@/components/admin/AdminShell';
 
 export default async function Dashboard() {

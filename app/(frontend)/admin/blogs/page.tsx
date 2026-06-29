@@ -3,7 +3,7 @@ import { getSession } from '@/lib/admin/auth';
 import AdminShell from '@/components/admin/AdminShell';
 import BlogEditor from '@/components/admin/BlogEditor';
 import { listPublishedSlugs } from '@/lib/admin/blog-kv';
-import { POSTS } from '@/app/blogs/posts-data';
+import { POSTS } from '@/app/(frontend)/blogs/posts-data';
 
 export default async function BlogsPage() {
   const session = await getSession();

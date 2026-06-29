@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { POSTS } from '@/app/blogs/posts-data';
+import { POSTS } from '@/app/(frontend)/blogs/posts-data';
 
 type Tab = 'edit' | 'preview';
 

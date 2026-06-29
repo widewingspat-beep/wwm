@@ -222,7 +222,7 @@ function CtaSection() {
   );
 }
 
-export default function AboutUsPage() {
+export default function LegacyAboutUs() {
   return (
     <div id="au-page">
 

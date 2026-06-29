@@ -43,3 +43,8 @@ next-env.d.ts
 .vercel
 .env*
 blog-extractor/
+
+# Payload CMS (local spike — swap to Postgres for production)
+payload.db
+payload.db-journal
+payload-types.ts

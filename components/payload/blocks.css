@@ -1,0 +1,93 @@
+.pl-blocks {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+  font-family: 'Calibri', Arial, sans-serif;
+  color: #1f1d2e;
+}
+.pl-blocks > section { margin-bottom: 56px; }
+
+.pl-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a73184;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.pl-hero-heading {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+.pl-hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #4a4858;
+  max-width: 720px;
+  margin: 0 0 24px;
+}
+.pl-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-top: 32px;
+}
+
+.pl-section-heading {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+}
+
+.pl-text p { font-size: 1.02rem; line-height: 1.75; color: #34323f; margin: 0 0 14px; }
+.pl-text h2 { font-size: 1.8rem; font-weight: 800; margin: 28px 0 12px; }
+.pl-text h3 { font-size: 1.3rem; font-weight: 700; margin: 22px 0 10px; }
+.pl-text ul, .pl-text ol { padding-left: 22px; margin: 0 0 16px; line-height: 1.75; }
+.pl-text li { margin-bottom: 6px; }
+.pl-text a { color: #a73184; text-decoration: underline; }
+
+.pl-figure { margin: 0 0 32px; }
+.pl-figure img { width: 100%; height: auto; border-radius: 12px; }
+.pl-figure figcaption {
+  font-size: 0.88rem;
+  color: #6c6a78;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pl-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.pl-two-col h3 { font-size: 1.4rem; font-weight: 700; margin: 0 0 10px; }
+@media (max-width: 720px) {
+  .pl-two-col { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.pl-cta {
+  background: linear-gradient(135deg, #1a1726 0%, #2a223d 100%);
+  color: #fff;
+  padding: 48px 32px;
+  border-radius: 16px;
+  text-align: center;
+}
+.pl-cta h2 { color: #fff; margin: 0 0 12px; }
+.pl-cta p { color: rgba(255,255,255,0.75); margin: 0 0 22px; }
+.pl-cta-btn {
+  display: inline-block;
+  background: #a73184;
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.pl-cta-btn:hover { background: #8e2770; }
