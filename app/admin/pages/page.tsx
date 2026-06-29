@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import AdminShell from '@/components/admin/AdminShell';
 import type { SessionPayload } from '@/lib/admin/auth';
@@ -57,6 +57,7 @@ export default function PagesAdmin() {
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Page | null>(null);
   const [loading, setLoading] = useState(true);
+  const formRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     fetch('/api/admin/pages').then(r => {
@@ -66,6 +67,12 @@ export default function PagesAdmin() {
 
     fetch('/api/admin/session').then(r => r.ok ? r.json() : null).then(s => s && setSession(s));
   }, []);
+
+  useEffect(() => {
+    if (editing || showForm) {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [editing, showForm]);
 
   async function handleCreate(data: Partial<Page>) {
     const res = await fetch('/api/admin/pages', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
@@ -102,14 +109,14 @@ export default function PagesAdmin() {
         </div>
 
         {showForm && (
-          <div style={{ borderBottom: '1px solid #f3f4f6' }}>
+          <div ref={formRef} style={{ borderBottom: '1px solid #f3f4f6' }}>
             <div style={{ padding: '14px 24px', background: '#fafafa', borderBottom: '1px solid #f3f4f6', fontWeight: 700, color: '#374151', fontSize: '0.9rem' }}>Create New Page</div>
             <PageForm onSave={handleCreate} onCancel={() => setShowForm(false)} />
           </div>
         )}
 
         {editing && (
-          <div style={{ borderBottom: '1px solid #f3f4f6' }}>
+          <div ref={formRef} style={{ borderBottom: '1px solid #f3f4f6' }}>
             <div style={{ padding: '14px 24px', background: '#fafafa', borderBottom: '1px solid #f3f4f6', fontWeight: 700, color: '#374151', fontSize: '0.9rem' }}>Edit: {editing.title}</div>
             <PageForm initial={editing} onSave={handleUpdate} onCancel={() => setEditing(null)} />
           </div>
