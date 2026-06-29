@@ -1,4 +1,5 @@
 // In-memory store — replace with a real DB (Supabase, Neon, etc.) for production
+import { POSTS } from '@/app/blogs/posts-data';
 
 export interface MediaItem {
   id: string;
@@ -230,7 +231,41 @@ export const store = {
     delete: (id: string) => { const idx = pages.findIndex(p => p.id === id); if (idx > -1) pages.splice(idx, 1); },
   },
   seo: {
-    list: () => pages.map(p => seoData.find(s => s.pageId === p.id) ?? { pageId: p.id, pageTitle: p.title, slug: p.slug } as SeoData),
+    list: () => {
+      const fromPages = pages.map(p =>
+        seoData.find(s => s.pageId === p.id) ?? { pageId: p.id, pageTitle: p.title, slug: p.slug } as SeoData,
+      );
+      // Each blog post is also an SEO target. If no SEO has been authored yet,
+      // pre-fill metaTitle from the post title and metaDescription from its
+      // excerpt so the SEO score isn't zero out of the gate.
+      const fromBlogs = POSTS.map(post => {
+        const pageId = `blog-${post.slug}`;
+        const existing = seoData.find(s => s.pageId === pageId);
+        if (existing) return existing;
+        return {
+          pageId,
+          pageTitle: post.title,
+          slug: `/${post.slug}`,
+          metaTitle: post.title,
+          metaDescription: post.excerpt,
+          focusKeyword: '',
+          secondaryKeywords: '',
+          canonicalUrl: `https://wwm-mu.vercel.app/${post.slug}`,
+          ogTitle: post.title,
+          ogDescription: post.excerpt,
+          ogImage: post.image,
+          twitterCard: 'summary_large_image',
+          robots: 'index, follow',
+          schemaType: 'Article',
+          featuredImage: post.image,
+          featuredImageAlt: post.title,
+          noindex: false,
+          nofollow: false,
+          updatedAt: '',
+        } as SeoData;
+      });
+      return [...fromPages, ...fromBlogs];
+    },
     get: (pageId: string) => seoData.find(s => s.pageId === pageId),
     upsert: (data: SeoData) => {
       const idx = seoData.findIndex(s => s.pageId === data.pageId);

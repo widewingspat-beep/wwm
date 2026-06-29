@@ -45,7 +45,7 @@ function SeoEditorInner() {
   const initPage = searchParams.get('page') ?? '';
 
   const [session, setSession] = useState<SessionPayload | null>(null);
-  const [pages, setPages] = useState<{ id: string; title: string; slug: string }[]>([]);
+  const [targets, setTargets] = useState<{ id: string; title: string; slug: string; kind: 'page' | 'blog' }[]>([]);
   const [selectedPage, setSelectedPage] = useState(initPage);
   const [form, setForm] = useState<Partial<SeoData>>(EMPTY_SEO);
   const [redirects, setRedirects] = useState<{ id: string; from: string; to: string; type: '301' | '302' }[]>([]);
@@ -55,13 +55,20 @@ function SeoEditorInner() {
 
   useEffect(() => {
     fetch('/api/admin/session').then(r => r.ok ? r.json() : null).then(s => s && setSession(s));
-    fetch('/api/admin/pages').then(r => {
+    fetch('/api/admin/seo').then(r => {
       if (r.status === 401) { router.push('/admin/login'); return; }
       return r.json();
-    }).then(data => { if (data) setPages(data); setLoading(false); });
-    fetch('/api/admin/seo').then(r => r.json()).then(data => {
-      if (initPage && data) {
-        const found = data.find((s: SeoData) => s.pageId === initPage);
+    }).then((data: SeoData[] | undefined) => {
+      if (!data) return;
+      setTargets(data.map(s => ({
+        id: s.pageId,
+        title: s.pageTitle,
+        slug: s.slug,
+        kind: s.pageId.startsWith('blog-') ? 'blog' : 'page',
+      })));
+      setLoading(false);
+      if (initPage) {
+        const found = data.find(s => s.pageId === initPage);
         if (found) setForm(found);
       }
     });
@@ -70,10 +77,10 @@ function SeoEditorInner() {
 
   function loadPage(pageId: string) {
     setSelectedPage(pageId);
-    const page = pages.find(p => p.id === pageId);
-    fetch('/api/admin/seo').then(r => r.json()).then(data => {
-      const found = data?.find((s: SeoData) => s.pageId === pageId);
-      setForm(found ?? { ...EMPTY_SEO, pageId, pageTitle: page?.title ?? '', slug: page?.slug ?? '' });
+    const target = targets.find(t => t.id === pageId);
+    fetch('/api/admin/seo').then(r => r.json()).then((data: SeoData[] | undefined) => {
+      const found = data?.find(s => s.pageId === pageId);
+      setForm(found ?? { ...EMPTY_SEO, pageId, pageTitle: target?.title ?? '', slug: target?.slug ?? '' });
     });
   }
 
@@ -109,18 +116,25 @@ function SeoEditorInner() {
 
       {/* PAGE SELECTOR */}
       <div className="adm-card" style={{ marginBottom: 24 }}>
-        <div className="adm-card-head"><div className="adm-card-title">Select Page to Edit</div></div>
+        <div className="adm-card-head"><div className="adm-card-title">Select Page or Blog Post to Edit</div></div>
         <div style={{ padding: '16px 24px' }}>
           <select
             className="adm-select"
             value={selectedPage}
             onChange={e => e.target.value && loadPage(e.target.value)}
-            style={{ width: '100%', maxWidth: 480, marginBottom: selectedPage ? 16 : 0 }}
+            style={{ width: '100%', maxWidth: 560, marginBottom: selectedPage ? 16 : 0 }}
           >
-            <option value="">— Choose a page —</option>
-            {pages.map(p => (
-              <option key={p.id} value={p.id}>{p.title} ({p.slug})</option>
-            ))}
+            <option value="">— Choose a page or blog post —</option>
+            <optgroup label={`Pages (${targets.filter(t => t.kind === 'page').length})`}>
+              {targets.filter(t => t.kind === 'page').map(t => (
+                <option key={t.id} value={t.id}>{t.title} ({t.slug})</option>
+              ))}
+            </optgroup>
+            <optgroup label={`Blog Posts (${targets.filter(t => t.kind === 'blog').length})`}>
+              {targets.filter(t => t.kind === 'blog').map(t => (
+                <option key={t.id} value={t.id}>{t.title} ({t.slug})</option>
+              ))}
+            </optgroup>
           </select>
           {selectedPage && <SeoScore data={form} />}
         </div>
