@@ -117,10 +117,17 @@ function makeSeo(
 }
 
 const seoData: SeoData[] = [
-  makeSeo('home', 'Home', '/',
-    'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
-    'Achieve rapid growth across all media platforms with Wide Wings Media, your premier digital marketing agency in Dubai, UAE.',
-    'Organization'),
+  {
+    ...makeSeo('home', 'Home', '/',
+      'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
+      'Achieve rapid growth across all media platforms with Wide Wings Media, your premier digital marketing agency in Dubai, UAE.',
+      'Organization'),
+    focusKeyword: 'digital marketing agency Dubai',
+    secondaryKeywords: 'marketing agency UAE, digital marketing Dubai, social media marketing Dubai, SEO agency Dubai',
+    ogImage: '/Logoblack.webp',
+    featuredImage: '/Logoblack.webp',
+    featuredImageAlt: 'Wide Wings Media — Leading Digital Marketing Agency in Dubai, UAE',
+  },
   makeSeo('about', 'About', '/about',
     'Wide Wings Media: A Digital Marketing Partner You Can Trust.',
     'Wide Wings Media is a digital marketing company in Dubai, driving growth through SEO, paid media, and social marketing. Reach out for more.',
