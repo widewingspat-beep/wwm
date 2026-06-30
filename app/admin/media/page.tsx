@@ -20,6 +20,45 @@ function formatBytes(b: number) {
   return `${(b / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+// Client-side image compression using Canvas API (no external dependency)
+async function compressImage(
+  file: File,
+  quality: number,
+  maxWidth: number,
+): Promise<{ file: File; saved: number }> {
+  // Skip SVGs, GIFs (animation would break), and already-tiny files
+  if (file.type === 'image/svg+xml' || file.type === 'image/gif' || file.size < 80 * 1024) {
+    return { file, saved: 0 };
+  }
+  return new Promise(resolve => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      let { width, height } = img;
+      if (width > maxWidth) {
+        height = Math.round(height * (maxWidth / width));
+        width = maxWidth;
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d')!.drawImage(img, 0, 0, width, height);
+      canvas.toBlob(blob => {
+        if (!blob || blob.size >= file.size) {
+          resolve({ file, saved: 0 });
+          return;
+        }
+        const outName = file.name.replace(/\.(jpe?g|png|bmp|tiff?)$/i, '.webp');
+        const compressed = new File([blob], outName, { type: 'image/webp' });
+        resolve({ file: compressed, saved: file.size - compressed.size });
+      }, 'image/webp', quality / 100);
+    };
+    img.onerror = () => resolve({ file, saved: 0 });
+    img.src = url;
+  });
+}
+
 function FileIcon({ type }: { type: FileType }) {
   if (type === 'pdf') return (
     <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
@@ -63,7 +102,6 @@ function EditModal({ item, onSave, onClose }: { item: MediaItem; onSave: (data: 
           <button className="adm-modal-close" onClick={onClose}>×</button>
         </div>
 
-        {/* Preview */}
         <div style={{ marginBottom: 20, borderRadius: 10, overflow: 'hidden', background: '#f9fafb', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 180 }}>
           {item.fileType === 'image' ? (
             <img src={item.url} alt={item.altText} style={{ maxHeight: 240, maxWidth: '100%', objectFit: 'contain', display: 'block' }} />
@@ -81,7 +119,8 @@ function EditModal({ item, onSave, onClose }: { item: MediaItem; onSave: (data: 
           <div className="adm-field">
             <label className="adm-label">File Name</label>
             <input className="adm-input" value={name} onChange={e => setName(e.target.value)}
-              readOnly={item.source === 'public'} style={item.source === 'public' ? { background: '#f9fafb', color: '#6b7280' } : {}} />
+              readOnly={item.source === 'public'}
+              style={item.source === 'public' ? { background: '#f9fafb', color: '#6b7280' } : {}} />
           </div>
 
           {(item.fileType === 'image' || item.fileType === 'video') && (
@@ -91,24 +130,23 @@ function EditModal({ item, onSave, onClose }: { item: MediaItem; onSave: (data: 
                 <span className="adm-label-hint">Describe the {item.fileType} for accessibility &amp; SEO</span>
               </label>
               <input className="adm-input" value={altText} onChange={e => setAltText(e.target.value)}
-                placeholder={item.fileType === 'image' ? 'e.g. Marketing team in Dubai office' : 'e.g. Product demo walkthrough video'} />
+                placeholder="e.g. Marketing team in Dubai office" />
             </div>
           )}
 
           <div className="adm-field">
             <label className="adm-label">
-              Keywords
-              <span className="adm-label-hint">Comma-separated</span>
+              Keywords <span className="adm-label-hint">Comma-separated</span>
             </label>
             <input className="adm-input" value={keywords} onChange={e => setKeywords(e.target.value)}
               placeholder="e.g. digital marketing, Dubai, branding" />
           </div>
 
           <div className="adm-field">
-            <label className="adm-label">File URL <span className="adm-label-hint">(use this path in pages &amp; SEO)</span></label>
+            <label className="adm-label">File URL <span className="adm-label-hint">Use this path in pages &amp; SEO</span></label>
             <div style={{ display: 'flex', gap: 8 }}>
-              <input className="adm-input" value={item.url.startsWith('data:') ? '(embedded data URL)' : item.url}
-                readOnly style={{ flex: 1, background: '#f9fafb', color: '#374151', fontFamily: 'monospace', fontSize: '0.82rem' }} />
+              <input className="adm-input" value={item.url.startsWith('data:') ? '(embedded)' : item.url}
+                readOnly style={{ flex: 1, background: '#f9fafb', fontFamily: 'monospace', fontSize: '0.82rem' }} />
               {!item.url.startsWith('data:') && (
                 <button className="adm-btn adm-btn-outline adm-btn-sm" onClick={copyUrl}>
                   {copied ? '✓ Copied' : 'Copy'}
@@ -117,14 +155,19 @@ function EditModal({ item, onSave, onClose }: { item: MediaItem; onSave: (data: 
             </div>
           </div>
 
-          <div style={{ color: '#9ca3af', fontSize: '0.78rem' }}>
-            {item.mimeType} · {formatBytes(item.sizeBytes)}
-            {item.source === 'public' && <span style={{ marginLeft: 8, background: '#f0fdf4', color: '#16a34a', padding: '1px 6px', borderRadius: 4, fontWeight: 600 }}>PUBLIC ASSET</span>}
+          <div style={{ color: '#9ca3af', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span>{item.mimeType} · {formatBytes(item.sizeBytes)}</span>
+            {item.source === 'public' && (
+              <span style={{ background: '#f0fdf4', color: '#16a34a', padding: '1px 7px', borderRadius: 4, fontWeight: 700, fontSize: '0.72rem' }}>PUBLIC ASSET</span>
+            )}
           </div>
         </div>
 
         <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-          <button className="adm-btn adm-btn-primary" onClick={() => onSave({ name: item.source === 'public' ? item.name : name, altText, keywords })}>Save Changes</button>
+          <button className="adm-btn adm-btn-primary"
+            onClick={() => onSave({ name: item.source === 'public' ? item.name : name, altText, keywords })}>
+            Save Changes
+          </button>
           <button className="adm-btn adm-btn-outline" onClick={onClose}>Cancel</button>
         </div>
       </div>
@@ -134,10 +177,10 @@ function EditModal({ item, onSave, onClose }: { item: MediaItem; onSave: (data: 
 
 function MediaCard({ item, onEdit, onDelete }: { item: MediaItem; onEdit: () => void; onDelete: () => void }) {
   const isPublic = item.source === 'public';
+  const missingAlt = (item.fileType === 'image' || item.fileType === 'video') && !item.altText;
 
   return (
     <div className="adm-card" style={{ margin: 0, overflow: 'hidden' }}>
-      {/* Thumbnail */}
       <div style={{ height: 140, background: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', position: 'relative', cursor: 'pointer' }} onClick={onEdit}>
         {item.fileType === 'image' ? (
           <img src={item.url} alt={item.altText || item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -146,26 +189,23 @@ function MediaCard({ item, onEdit, onDelete }: { item: MediaItem; onEdit: () => 
         ) : (
           <FileIcon type={item.fileType} />
         )}
-        {/* Type badge */}
         <span style={{ position: 'absolute', top: 8, left: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: '0.62rem', fontWeight: 700, padding: '2px 7px', borderRadius: 100, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {item.fileType}
         </span>
-        {/* Missing alt warning */}
-        {(item.fileType === 'image' || item.fileType === 'video') && !item.altText && (
+        {missingAlt && (
           <span style={{ position: 'absolute', top: 8, right: 8, background: '#f59e0b', color: '#fff', fontSize: '0.62rem', fontWeight: 700, padding: '2px 6px', borderRadius: 100 }} title="Alt text missing">! ALT</span>
         )}
       </div>
 
-      {/* Info */}
       <div style={{ padding: '10px 14px' }}>
         <div style={{ fontWeight: 600, fontSize: '0.82rem', color: '#0f0f1a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={item.name}>{item.name}</div>
-        <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2 }}>
-          {formatBytes(item.sizeBytes)}
-          {isPublic && <span style={{ marginLeft: 6, background: '#f0fdf4', color: '#16a34a', padding: '0px 5px', borderRadius: 3, fontWeight: 700 }}>PUBLIC</span>}
+        <div style={{ fontSize: '0.72rem', color: '#9ca3af', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span>{formatBytes(item.sizeBytes)}</span>
+          {isPublic && <span style={{ background: '#f0fdf4', color: '#16a34a', padding: '0 5px', borderRadius: 3, fontWeight: 700 }}>PUBLIC</span>}
         </div>
         {item.altText && (
           <div style={{ fontSize: '0.72rem', color: '#6b7280', marginTop: 3, display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-            ALT: {item.altText}
+            {item.altText}
           </div>
         )}
         {item.keywords && (
@@ -175,7 +215,6 @@ function MediaCard({ item, onEdit, onDelete }: { item: MediaItem; onEdit: () => 
         )}
       </div>
 
-      {/* Actions */}
       <div style={{ padding: '0 14px 12px', display: 'flex', gap: 6 }}>
         <button className="adm-btn adm-btn-outline adm-btn-sm" style={{ flex: 1 }} onClick={onEdit}>Edit Details</button>
         {!isPublic && (
@@ -190,6 +229,29 @@ function MediaCard({ item, onEdit, onDelete }: { item: MediaItem; onEdit: () => 
   );
 }
 
+function Section({ title, count, isPublic, children }: { title: string; count: number; isPublic?: boolean; children: React.ReactNode }) {
+  const [collapsed, setCollapsed] = useState(false);
+  return (
+    <div style={{ marginBottom: 32 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14, cursor: 'pointer', userSelect: 'none' }}
+        onClick={() => setCollapsed(c => !c)}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2"
+          style={{ transform: collapsed ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 0.15s', flexShrink: 0 }}>
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f0f1a' }}>{title}</span>
+        <span style={{ background: '#f3f4f6', color: '#6b7280', fontSize: '0.73rem', fontWeight: 600, padding: '2px 8px', borderRadius: 100 }}>{count}</span>
+        {isPublic && <span style={{ background: '#f0fdf4', color: '#16a34a', fontSize: '0.68rem', fontWeight: 700, padding: '2px 7px', borderRadius: 100, letterSpacing: '0.04em' }}>PUBLIC ASSETS</span>}
+      </div>
+      {!collapsed && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: 14 }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function MediaAdmin() {
   const router = useRouter();
   const [session, setSession] = useState<SessionPayload | null>(null);
@@ -199,11 +261,20 @@ export default function MediaAdmin() {
   const [search, setSearch] = useState('');
   const [editing, setEditing] = useState<MediaItem | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState('');
   const [dragOver, setDragOver] = useState(false);
   const [urlInput, setUrlInput] = useState('');
   const [urlType, setUrlType] = useState<FileType>('video');
   const [urlName, setUrlName] = useState('');
   const [tab, setTab] = useState<'upload' | 'url'>('upload');
+  const [compressStats, setCompressStats] = useState<{ count: number; saved: number } | null>(null);
+
+  // Optimization settings
+  const [optEnabled, setOptEnabled] = useState(true);
+  const [optExpanded, setOptExpanded] = useState(false);
+  const [optQuality, setOptQuality] = useState(82);
+  const [optMaxWidth, setOptMaxWidth] = useState(1920);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -217,15 +288,31 @@ export default function MediaAdmin() {
   const processFiles = useCallback(async (files: FileList | File[]) => {
     const arr = Array.from(files);
     setUploading(true);
-    for (const file of arr) {
-      const fileType = getMimeFileType(file.type);
+    setCompressStats(null);
+    let totalSaved = 0;
+    let compressCount = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      const file = arr[i];
+      setUploadStatus(arr.length > 1 ? `Processing ${i + 1} of ${arr.length}…` : 'Processing…');
+
+      let uploadFile = file;
+      if (optEnabled && file.type.startsWith('image/')) {
+        setUploadStatus(arr.length > 1 ? `Optimizing ${i + 1} of ${arr.length}…` : 'Optimizing image…');
+        const { file: compressed, saved } = await compressImage(file, optQuality, optMaxWidth);
+        uploadFile = compressed;
+        if (saved > 0) { totalSaved += saved; compressCount++; }
+      }
+
+      const fileType = getMimeFileType(uploadFile.type);
       const dataUrl = await new Promise<string>((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = e => resolve(e.target?.result as string);
         reader.onerror = reject;
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(uploadFile);
       });
-      const payload = { name: file.name, fileType, mimeType: file.type, url: dataUrl, sizeBytes: file.size, altText: '', keywords: '' };
+
+      const payload = { name: uploadFile.name, fileType, mimeType: uploadFile.type, url: dataUrl, sizeBytes: uploadFile.size, altText: '', keywords: '' };
       const res = await fetch('/api/admin/media', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (res.ok) {
         const item = await res.json();
@@ -233,17 +320,15 @@ export default function MediaAdmin() {
         if (fileType === 'image' || fileType === 'video') setEditing(item);
       }
     }
+
     setUploading(false);
-  }, []);
+    setUploadStatus('');
+    if (compressCount > 0) setCompressStats({ count: compressCount, saved: totalSaved });
+  }, [optEnabled, optQuality, optMaxWidth]);
 
   async function addFromUrl() {
     if (!urlInput.trim()) return;
-    const payload = {
-      name: urlName || urlInput.split('/').pop() || 'external-file',
-      fileType: urlType,
-      mimeType: urlType === 'video' ? 'video/mp4' : urlType === 'pdf' ? 'application/pdf' : 'image/jpeg',
-      url: urlInput, sizeBytes: 0, altText: '', keywords: '',
-    };
+    const payload = { name: urlName || urlInput.split('/').pop() || 'external-file', fileType: urlType, mimeType: urlType === 'video' ? 'video/mp4' : urlType === 'pdf' ? 'application/pdf' : 'image/jpeg', url: urlInput, sizeBytes: 0, altText: '', keywords: '' };
     const res = await fetch('/api/admin/media', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     if (res.ok) { const item = await res.json(); setItems(prev => [item, ...prev]); setUrlInput(''); setUrlName(''); setEditing(item); }
   }
@@ -261,15 +346,13 @@ export default function MediaAdmin() {
     setItems(prev => prev.filter(m => m.id !== id));
   }
 
-  // Filter & search
   const searchLower = search.toLowerCase();
   const filtered = items.filter(m => {
     if (filter !== 'all' && m.fileType !== filter) return false;
-    if (searchLower && !m.name.toLowerCase().includes(searchLower) && !m.url.toLowerCase().includes(searchLower) && !m.altText.toLowerCase().includes(searchLower)) return false;
+    if (searchLower && !m.name.toLowerCase().includes(searchLower) && !m.url.toLowerCase().includes(searchLower) && !(m.altText ?? '').toLowerCase().includes(searchLower)) return false;
     return true;
   });
 
-  // Group: uploaded first, then public items grouped by folder
   const uploaded = filtered.filter(m => m.source !== 'public');
   const publicItems = filtered.filter(m => m.source === 'public');
   const folderMap = new Map<string, MediaItem[]>();
@@ -278,25 +361,35 @@ export default function MediaAdmin() {
     if (!folderMap.has(f)) folderMap.set(f, []);
     folderMap.get(f)!.push(item);
   }
-  // Sort folders: Site Assets first, then alphabetical
   const sortedFolders = [...folderMap.keys()].sort((a, b) => {
     if (a === 'Site Assets') return -1;
     if (b === 'Site Assets') return 1;
     return a.localeCompare(b);
   });
 
-  const counts = {
-    all: items.length,
-    image: items.filter(m => m.fileType === 'image').length,
-    video: items.filter(m => m.fileType === 'video').length,
-    pdf: items.filter(m => m.fileType === 'pdf').length,
-    other: items.filter(m => m.fileType === 'other').length,
-  };
-
+  const counts = { all: items.length, image: items.filter(m => m.fileType === 'image').length, video: items.filter(m => m.fileType === 'video').length, pdf: items.filter(m => m.fileType === 'pdf').length, other: items.filter(m => m.fileType === 'other').length };
   const fakeSession: SessionPayload = session ?? { username: 'webadmin', role: 'webadmin', displayName: 'Web Admin' };
+
+  // Quality label helper
+  function qualityLabel(q: number) {
+    if (q >= 88) return 'High quality';
+    if (q >= 75) return 'Balanced';
+    return 'Smaller file';
+  }
 
   return (
     <AdminShell session={fakeSession} title="Media Library" subtitle="Browse public assets and manage uploaded files">
+
+      {/* COMPRESSION SUCCESS TOAST */}
+      {compressStats && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 10, padding: '12px 16px', marginBottom: 20 }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style={{ fontWeight: 600, color: '#15803d', fontSize: '0.88rem' }}>
+            Optimized {compressStats.count} image{compressStats.count > 1 ? 's' : ''} — saved {formatBytes(compressStats.saved)} total
+          </span>
+          <button onClick={() => setCompressStats(null)} style={{ marginLeft: 'auto', background: 'none', border: 'none', cursor: 'pointer', color: '#6b7280', fontSize: '1.1rem', lineHeight: 1 }}>×</button>
+        </div>
+      )}
 
       {/* UPLOAD PANEL */}
       <div className="adm-card" style={{ marginBottom: 24 }}>
@@ -311,8 +404,9 @@ export default function MediaAdmin() {
         <div style={{ padding: 24 }}>
           {tab === 'upload' ? (
             <>
+              {/* DROP ZONE */}
               <div
-                style={{ border: `2px dashed ${dragOver ? '#a73184' : '#d1d5db'}`, borderRadius: 12, padding: '40px 32px', textAlign: 'center', background: dragOver ? 'rgba(167,49,132,0.04)' : '#fafafa', transition: 'all 0.2s', cursor: 'pointer' }}
+                style={{ border: `2px dashed ${dragOver ? '#a73184' : '#d1d5db'}`, borderRadius: 12, padding: '36px 32px', textAlign: 'center', background: dragOver ? 'rgba(167,49,132,0.04)' : '#fafafa', transition: 'all 0.2s', cursor: 'pointer' }}
                 onClick={() => fileInputRef.current?.click()}
                 onDragOver={e => { e.preventDefault(); setDragOver(true); }}
                 onDragLeave={() => setDragOver(false)}
@@ -323,16 +417,94 @@ export default function MediaAdmin() {
                   <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
                 <div style={{ fontWeight: 700, color: '#374151', fontSize: '1rem', marginBottom: 6 }}>
-                  {uploading ? 'Uploading…' : 'Drag & drop files here'}
+                  {uploading ? (uploadStatus || 'Uploading…') : 'Drag & drop files here'}
                 </div>
-                <div style={{ color: '#9ca3af', fontSize: '0.85rem', marginBottom: 16 }}>or click to browse — Images, Videos, PDFs, Documents</div>
+                <div style={{ color: '#9ca3af', fontSize: '0.85rem', marginBottom: 16 }}>
+                  or click to browse — Images, Videos, PDFs, Documents
+                </div>
                 <button className="adm-btn adm-btn-outline" onClick={e => { e.stopPropagation(); fileInputRef.current?.click(); }}>Browse Files</button>
                 <input ref={fileInputRef} type="file" multiple accept="image/*,video/*,application/pdf,.doc,.docx,.xls,.xlsx" style={{ display: 'none' }}
                   onChange={e => e.target.files && processFiles(e.target.files)} />
               </div>
-              <p style={{ color: '#9ca3af', fontSize: '0.78rem', marginTop: 10, textAlign: 'center' }}>
-                After upload, you will be prompted to add alt text and keywords for images &amp; videos.
-              </p>
+
+              {/* OPTIMIZATION SETTINGS */}
+              <div style={{ marginTop: 14, border: '1px solid #e5e7eb', borderRadius: 10, overflow: 'hidden' }}>
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 16px', background: '#f9fafb', cursor: 'pointer', userSelect: 'none' }}
+                  onClick={() => setOptExpanded(e => !e)}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2">
+                    <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                  <span style={{ fontWeight: 600, fontSize: '0.85rem', color: '#374151' }}>Image Optimization</span>
+                  {optEnabled && (
+                    <span style={{ background: '#f0fdf4', color: '#16a34a', fontSize: '0.7rem', fontWeight: 700, padding: '1px 6px', borderRadius: 4 }}>ON — {optQuality}% quality · max {optMaxWidth}px</span>
+                  )}
+                  {!optEnabled && (
+                    <span style={{ background: '#fef2f2', color: '#ef4444', fontSize: '0.7rem', fontWeight: 700, padding: '1px 6px', borderRadius: 4 }}>OFF</span>
+                  )}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" style={{ marginLeft: 'auto', transform: optExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s' }}>
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+
+                {optExpanded && (
+                  <div style={{ padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: 16, background: '#fff' }}>
+                    {/* Enable toggle */}
+                    <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+                      <div
+                        style={{ width: 40, height: 22, borderRadius: 11, background: optEnabled ? '#a73184' : '#d1d5db', position: 'relative', transition: 'background 0.2s', flexShrink: 0 }}
+                        onClick={() => setOptEnabled(e => !e)}
+                      >
+                        <div style={{ position: 'absolute', top: 3, left: optEnabled ? 21 : 3, width: 16, height: 16, borderRadius: '50%', background: '#fff', transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }} />
+                      </div>
+                      <div>
+                        <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#0f0f1a' }}>Auto-optimize images on upload</div>
+                        <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>Converts JPG/PNG to WebP, resizes to max width, reduces file size</div>
+                      </div>
+                    </label>
+
+                    {optEnabled && (
+                      <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+                        {/* Quality slider */}
+                        <div style={{ flex: 1, minWidth: 220 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
+                            <label style={{ fontWeight: 600, fontSize: '0.82rem', color: '#374151' }}>Quality</label>
+                            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#a73184' }}>{optQuality}% <span style={{ color: '#9ca3af', fontWeight: 400 }}>({qualityLabel(optQuality)})</span></span>
+                          </div>
+                          <input type="range" min={50} max={95} step={1} value={optQuality}
+                            onChange={e => setOptQuality(Number(e.target.value))}
+                            style={{ width: '100%', accentColor: '#a73184' }} />
+                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#9ca3af', marginTop: 3 }}>
+                            <span>50% (smallest)</span><span>95% (sharpest)</span>
+                          </div>
+                        </div>
+
+                        {/* Max width */}
+                        <div style={{ minWidth: 160 }}>
+                          <label style={{ display: 'block', fontWeight: 600, fontSize: '0.82rem', color: '#374151', marginBottom: 6 }}>Max Width</label>
+                          <select className="adm-select" value={optMaxWidth} onChange={e => setOptMaxWidth(Number(e.target.value))} style={{ width: '100%' }}>
+                            <option value={3840}>Keep original size</option>
+                            <option value={2560}>2560px (2K)</option>
+                            <option value={1920}>1920px (Full HD)</option>
+                            <option value={1440}>1440px (Laptop)</option>
+                            <option value={1200}>1200px (Desktop)</option>
+                            <option value={800}>800px (Tablet)</option>
+                          </select>
+                          <div style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: 4 }}>Wider images are scaled down</div>
+                        </div>
+                      </div>
+                    )}
+
+                    {optEnabled && (
+                      <div style={{ background: '#fafafa', borderRadius: 8, padding: '10px 14px', fontSize: '0.78rem', color: '#6b7280', lineHeight: 1.6 }}>
+                        <strong style={{ color: '#374151' }}>What gets optimized:</strong> JPG, PNG, WebP → converted to WebP at {optQuality}% quality.
+                        Files under 80 KB, SVGs, and GIFs are skipped automatically.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </>
           ) : (
             <div className="adm-form-grid">
@@ -362,7 +534,7 @@ export default function MediaAdmin() {
         </div>
       </div>
 
-      {/* FILTER + SEARCH BAR */}
+      {/* FILTER + SEARCH */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 20, flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {(['all', 'image', 'video', 'pdf', 'other'] as const).map(f => (
@@ -371,15 +543,11 @@ export default function MediaAdmin() {
             </button>
           ))}
         </div>
-        <input
-          className="adm-input"
-          style={{ flex: 1, minWidth: 200, maxWidth: 320 }}
-          placeholder="Search by name or alt text…"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
+        <input className="adm-input" style={{ flex: 1, minWidth: 200, maxWidth: 320 }} placeholder="Search by name or alt text…"
+          value={search} onChange={e => setSearch(e.target.value)} />
       </div>
 
+      {/* MEDIA GRID */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: 48, color: '#9ca3af' }}>Loading media library…</div>
       ) : filtered.length === 0 ? (
@@ -392,7 +560,6 @@ export default function MediaAdmin() {
         </div>
       ) : (
         <>
-          {/* Uploaded files section */}
           {uploaded.length > 0 && (
             <Section title="Uploaded Files" count={uploaded.length}>
               {uploaded.map(item => (
@@ -400,8 +567,6 @@ export default function MediaAdmin() {
               ))}
             </Section>
           )}
-
-          {/* Public asset sections grouped by folder */}
           {sortedFolders.map(folder => (
             <Section key={folder} title={folder} count={folderMap.get(folder)!.length} isPublic>
               {folderMap.get(folder)!.map(item => (
@@ -414,31 +579,5 @@ export default function MediaAdmin() {
 
       {editing && <EditModal item={editing} onSave={handleUpdate} onClose={() => setEditing(null)} />}
     </AdminShell>
-  );
-}
-
-function Section({ title, count, isPublic, children }: { title: string; count: number; isPublic?: boolean; children: React.ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false);
-  return (
-    <div style={{ marginBottom: 32 }}>
-      <div
-        style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14, cursor: 'pointer', userSelect: 'none' }}
-        onClick={() => setCollapsed(c => !c)}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" style={{ transform: collapsed ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 0.15s', flexShrink: 0 }}>
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-        <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f0f1a' }}>{title}</span>
-        <span style={{ background: '#f3f4f6', color: '#6b7280', fontSize: '0.73rem', fontWeight: 600, padding: '2px 8px', borderRadius: 100 }}>{count}</span>
-        {isPublic && (
-          <span style={{ background: '#f0fdf4', color: '#16a34a', fontSize: '0.68rem', fontWeight: 700, padding: '2px 7px', borderRadius: 100, letterSpacing: '0.04em' }}>PUBLIC ASSETS</span>
-        )}
-      </div>
-      {!collapsed && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: 14 }}>
-          {children}
-        </div>
-      )}
-    </div>
   );
 }
