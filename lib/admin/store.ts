@@ -367,6 +367,269 @@ const enquiries: Enquiry[] = [
   { id: 'enq-005', name: 'Raj Sharma', email: 'raj@indiadubai.com', phone: '+971 56 789 0123', service: 'Web & App Development', message: 'Need a B2B e-commerce platform built. Would like to discuss requirements.', status: 'read', receivedAt: '2026-06-15T08:20:00Z' },
 ];
 
+const BLOG_SEO: Record<string, { metaTitle: string; focusKeyword: string; secondaryKeywords: string }> = {
+  'ecommerce-website-development-dubai': {
+    metaTitle: 'Ecommerce Website Development Dubai | Build & Grow Online',
+    focusKeyword: 'ecommerce website development Dubai',
+    secondaryKeywords: 'online store development Dubai, ecommerce solutions UAE, Shopify development Dubai',
+  },
+  'search-engine-marketing-company-dubai': {
+    metaTitle: 'Search Engine Marketing Company in Dubai | ROI-Driven SEM',
+    focusKeyword: 'search engine marketing company Dubai',
+    secondaryKeywords: 'SEM agency Dubai, PPC agency Dubai, Google Ads Dubai, paid search UAE',
+  },
+  'ppc-for-ecommerce-dubai': {
+    metaTitle: 'PPC for E-Commerce Websites in Dubai | Wide Wings Media',
+    focusKeyword: 'PPC for ecommerce websites Dubai',
+    secondaryKeywords: 'ecommerce PPC Dubai, Google Shopping Ads Dubai, paid ads ecommerce UAE',
+  },
+  'instagram-growth-services-uae': {
+    metaTitle: 'Best Instagram Growth Services in UAE | 2026 Expert Guide',
+    focusKeyword: 'Instagram growth services UAE',
+    secondaryKeywords: 'Instagram marketing UAE, grow Instagram followers Dubai, social media growth UAE',
+  },
+  'shopify-web-development-dubai': {
+    metaTitle: 'Shopify Web Development in Dubai | Built for UAE Growth',
+    focusKeyword: 'Shopify web development Dubai',
+    secondaryKeywords: 'Shopify store Dubai, Shopify developer UAE, ecommerce development Dubai',
+  },
+  'videography-company-dubai': {
+    metaTitle: 'Leading Videography Company in Dubai for Pro Productions',
+    focusKeyword: 'videography company in Dubai',
+    secondaryKeywords: 'corporate video production Dubai, photography company Dubai, drone videography UAE',
+  },
+  'b2b-seo-services-in-dubai': {
+    metaTitle: 'B2B SEO Services in Dubai for Revenue & Lead Growth',
+    focusKeyword: 'B2B SEO services in Dubai',
+    secondaryKeywords: 'B2B digital marketing Dubai, lead generation SEO UAE, enterprise SEO Dubai',
+  },
+  'digital-marketing-for-restaurants': {
+    metaTitle: 'Digital Marketing for Restaurants in UAE | Boost Visibility',
+    focusKeyword: 'digital marketing for restaurants in UAE',
+    secondaryKeywords: 'restaurant marketing Dubai, food & beverage marketing UAE, social media for restaurants',
+  },
+  'google-ads-agency-dubai': {
+    metaTitle: 'Google Ads Agency in Dubai | Measurable ROI Results',
+    focusKeyword: 'Google Ads agency in Dubai',
+    secondaryKeywords: 'Google AdWords Dubai, PPC management Dubai, Google advertising UAE',
+  },
+  'healthcare-marketing-agency-in-dubai': {
+    metaTitle: 'Healthcare Marketing Agency in Dubai | Wide Wings Media',
+    focusKeyword: 'healthcare marketing agency in Dubai',
+    secondaryKeywords: 'medical marketing Dubai, clinic marketing UAE, hospital digital marketing Dubai',
+  },
+  'reliable-paid-ads-agency-in-dubai': {
+    metaTitle: 'Paid Ads Agency in Dubai: Enhance ROI with Smart Strategies',
+    focusKeyword: 'paid ads agency in Dubai',
+    secondaryKeywords: 'Meta ads Dubai, LinkedIn ads UAE, paid advertising agency Dubai',
+  },
+  'seo-strategy-for-uae-startups': {
+    metaTitle: 'SEO Strategy for UAE Startups: Rank #1 in Dubai & Abu Dhabi',
+    focusKeyword: 'SEO strategy for UAE startups',
+    secondaryKeywords: 'startup SEO Dubai, local SEO UAE, SEO for new businesses Dubai',
+  },
+  'ai-trend': {
+    metaTitle: 'AI Trends UAE: Generative AI & Intelligent Automation',
+    focusKeyword: 'AI trends UAE',
+    secondaryKeywords: 'generative AI UAE, artificial intelligence Dubai, AI automation Middle East',
+  },
+  'real-estate-content-writing-uae': {
+    metaTitle: 'Real Estate Content Writing Services in the UAE',
+    focusKeyword: 'real estate content writing UAE',
+    secondaryKeywords: 'property content writing Dubai, real estate SEO content UAE, property marketing content',
+  },
+  'local-seo-services-in-abu-dhabi': {
+    metaTitle: 'Local SEO Services in Abu Dhabi | Boost Business Visibility',
+    focusKeyword: 'local SEO services in Abu Dhabi',
+    secondaryKeywords: 'SEO agency Abu Dhabi, Google My Business Abu Dhabi, local search optimization UAE',
+  },
+  'social-media-packages-for-smes': {
+    metaTitle: 'Social Media Packages for SMEs in the UAE | Wide Wings Media',
+    focusKeyword: 'social media packages for SMEs UAE',
+    secondaryKeywords: 'social media pricing UAE, SME marketing packages Dubai, affordable social media UAE',
+  },
+  'digital-marketing-strategies-for-smes': {
+    metaTitle: 'Digital Marketing for SMEs in Dubai: Strategies that Work',
+    focusKeyword: 'digital marketing for SMEs in Dubai',
+    secondaryKeywords: 'SME marketing Dubai, small business digital marketing UAE, online marketing SMEs',
+  },
+  'local-seo-agency-for-startups': {
+    metaTitle: 'Top Local SEO Agency in Dubai | Wide Wings Media UAE',
+    focusKeyword: 'local SEO agency in Dubai',
+    secondaryKeywords: 'local search SEO Dubai, Google Maps optimization UAE, local SEO for startups Dubai',
+  },
+  'what-is-a-url': {
+    metaTitle: 'Short vs. Long URLs in SEO: What Actually Works?',
+    focusKeyword: 'short vs long URLs in SEO',
+    secondaryKeywords: 'URL structure SEO, URL best practices, SEO-friendly URLs Dubai',
+  },
+  'social-media-for-powerful-brand-awareness': {
+    metaTitle: 'Social Media for Brand Awareness: What Works Best?',
+    focusKeyword: 'social media for brand awareness',
+    secondaryKeywords: 'brand awareness Dubai, social media strategy UAE, building brand on social media',
+  },
+  'ai-in-healthcare-marketing': {
+    metaTitle: 'How AI in Healthcare is Transforming the Future of Medicine',
+    focusKeyword: 'AI in healthcare',
+    secondaryKeywords: 'AI healthcare marketing, artificial intelligence medicine UAE, AI patient engagement',
+  },
+  'advertisement-company-in-dubai': {
+    metaTitle: 'Advertisement Company in Dubai: Reach Your Target Market',
+    focusKeyword: 'advertisement company in Dubai',
+    secondaryKeywords: 'advertising agency Dubai, ad company UAE, marketing agency Dubai',
+  },
+  'broadcast-tv-advertising-for-millions': {
+    metaTitle: 'Broadcast TV Advertising: Maximize Your Reach to Millions',
+    focusKeyword: 'broadcast TV advertising',
+    secondaryKeywords: 'TV advertising UAE, television ads Dubai, broadcast media marketing',
+  },
+  'connected-tv-advertising': {
+    metaTitle: 'Connected TV Advertising for Broadcast Ads: Reach Millions',
+    focusKeyword: 'connected TV advertising',
+    secondaryKeywords: 'CTV advertising UAE, OTT advertising Dubai, streaming TV ads',
+  },
+  'impact-of-ai-on-marketing-and-advertising': {
+    metaTitle: 'Impact of AI for Marketing & Advertising: Insights & Trends',
+    focusKeyword: 'AI for marketing and advertising',
+    secondaryKeywords: 'AI marketing trends, artificial intelligence advertising, AI campaign optimization',
+  },
+  'creative-street-marketing-solutions': {
+    metaTitle: 'Street Marketing and Advertising: Lasting Impression',
+    focusKeyword: 'street marketing and advertising',
+    secondaryKeywords: 'outdoor advertising Dubai, street furniture advertising UAE, guerrilla marketing Dubai',
+  },
+  'structured-data-for-enhanced-seo-performance': {
+    metaTitle: 'Structured Data for Enhanced SEO Performance',
+    focusKeyword: 'structured data for SEO',
+    secondaryKeywords: 'schema markup SEO, JSON-LD schema Dubai, rich snippets optimization',
+  },
+  'systematic-search-engine-optimization': {
+    metaTitle: 'SEO Services in Dubai: How to Get Your Business Noticed',
+    focusKeyword: 'SEO services in Dubai',
+    secondaryKeywords: 'search engine optimization Dubai, SEO company UAE, website ranking Dubai',
+  },
+  'brand-lift-tests': {
+    metaTitle: "Brand Lift Tests: A Digital Marketer's Complete Guide",
+    focusKeyword: 'brand lift tests',
+    secondaryKeywords: 'brand lift study, ad effectiveness measurement, campaign impact measurement',
+  },
+  'marketing-for-ecommerce-businesses': {
+    metaTitle: 'Marketing for Ecommerce Businesses',
+    focusKeyword: 'marketing for ecommerce businesses',
+    secondaryKeywords: 'ecommerce marketing strategy, digital marketing online store, ecommerce growth UAE',
+  },
+  'content-repurposing': {
+    metaTitle: 'Improve Your Impact by Using Content Repurposing',
+    focusKeyword: 'content repurposing',
+    secondaryKeywords: 'repurpose content strategy, content recycling, content marketing UAE',
+  },
+  'local-seo-and-ai-for-small-businesses': {
+    metaTitle: 'Local SEO and AI for Small Business Growth',
+    focusKeyword: 'local SEO for small businesses',
+    secondaryKeywords: 'AI local SEO, small business SEO Dubai, local search optimization AI',
+  },
+  'social-media-for-small-businesses': {
+    metaTitle: "Social Media for Small Businesses: It's Not All Easy",
+    focusKeyword: 'social media for small businesses',
+    secondaryKeywords: 'small business social media Dubai, SME social media UAE, social media challenges',
+  },
+  'what-are-open-graph-tags': {
+    metaTitle: 'Open Graph Tags: Want to use social media more often?',
+    focusKeyword: 'open graph tags',
+    secondaryKeywords: 'OG meta tags, social media preview tags, Facebook open graph',
+  },
+  'what-are-anchor-texts': {
+    metaTitle: 'Anchor Texts: What They Are & Why They Matter for SEO',
+    focusKeyword: 'anchor texts SEO',
+    secondaryKeywords: 'anchor text best practices, internal linking SEO, link text optimization',
+  },
+  'digital-marketing-strategy-for-b2bs': {
+    metaTitle: 'Master B2B Marketing: Digital Marketing Strategy for B2Bs',
+    focusKeyword: 'B2B digital marketing strategy',
+    secondaryKeywords: 'B2B marketing Dubai, business to business marketing UAE, B2B lead generation',
+  },
+  'image-optimization-tips': {
+    metaTitle: 'Boost Website Traffic: Image Optimization Guide for Bloggers',
+    focusKeyword: 'image optimization for bloggers',
+    secondaryKeywords: 'image SEO tips, compress images for web, website speed optimization UAE',
+  },
+  'best-digital-marketing-agency-in-abu-dhabi': {
+    metaTitle: 'Digital Marketing Agency in Abu Dhabi That Focuses on Growth',
+    focusKeyword: 'digital marketing agency in Abu Dhabi',
+    secondaryKeywords: 'marketing agency Abu Dhabi, online marketing Abu Dhabi, digital growth UAE',
+  },
+  'top-social-media-marketing-agencies-in-dubai': {
+    metaTitle: 'Best Social Media Marketing Agencies in Dubai for Business',
+    focusKeyword: 'social media marketing agencies in Dubai',
+    secondaryKeywords: 'top social media agencies Dubai, social media management UAE, Instagram agency Dubai',
+  },
+  'healthcare-marketing': {
+    metaTitle: 'Healthcare Marketing Agency Driven By AI Technology',
+    focusKeyword: 'healthcare marketing agency AI',
+    secondaryKeywords: 'AI healthcare marketing Dubai, medical digital marketing UAE, hospital marketing',
+  },
+  'what-are-banner-ads': {
+    metaTitle: 'Make the Most of Banner Ads! Tips and Targeting Strategies',
+    focusKeyword: 'banner ads tips and targeting',
+    secondaryKeywords: 'display banner advertising, banner ad design, banner ad targeting UAE',
+  },
+  'power-of-bridge-banner-advertising': {
+    metaTitle: 'Bridge Banner Ads: A Cost-Effective OOH Solution',
+    focusKeyword: 'bridge banner advertising',
+    secondaryKeywords: 'bridge banner ads Dubai, OOH advertising UAE, outdoor bridge banners',
+  },
+  'power-of-shopping-mall-advertising': {
+    metaTitle: 'Shopping Mall Advertising: The New Marketing Frontier',
+    focusKeyword: 'shopping mall advertising',
+    secondaryKeywords: 'mall advertising Dubai, retail advertising UAE, in-mall media',
+  },
+  'market-segmentation-and-targeting': {
+    metaTitle: 'Market Segmentation: How to Target the Right Customers',
+    focusKeyword: 'market segmentation and targeting',
+    secondaryKeywords: 'audience targeting strategy, customer segmentation, market targeting Dubai',
+  },
+  'power-of-reputation-management': {
+    metaTitle: 'Online Reputation Management: How People View Your Company',
+    focusKeyword: 'online reputation management',
+    secondaryKeywords: 'brand reputation Dubai, ORM services UAE, manage online reviews',
+  },
+  'premier-cinema-advertising-company': {
+    metaTitle: 'Cinema Advertising: Emotional Connection With Your Audience',
+    focusKeyword: 'cinema advertising',
+    secondaryKeywords: 'cinema ads UAE, movie theater advertising Dubai, film advertising Middle East',
+  },
+  'best-time-to-post-on-instagram-in-uae': {
+    metaTitle: 'Find out the best times to post on Instagram in UAE',
+    focusKeyword: 'best times to post on Instagram UAE',
+    secondaryKeywords: 'Instagram posting schedule UAE, when to post Instagram Dubai, UAE Instagram strategy',
+  },
+  'guide-to-effective-social-media-campaign': {
+    metaTitle: 'Guide to a Successful Social Media Campaign',
+    focusKeyword: 'social media campaign guide',
+    secondaryKeywords: 'social media campaign strategy, run social media campaigns UAE, marketing campaign Dubai',
+  },
+  'youtube-studio-for-more-views': {
+    metaTitle: 'YouTube Studio for More Views: Boost Your Channel Fast',
+    focusKeyword: 'YouTube Studio for more views',
+    secondaryKeywords: 'grow YouTube channel, YouTube analytics tips, video SEO UAE',
+  },
+  'ai-video-creation-trends': {
+    metaTitle: 'AI Video Creation Trends: Insights & Future Projections',
+    focusKeyword: 'AI video creation trends',
+    secondaryKeywords: 'AI video tools, generative AI video, AI content creation UAE',
+  },
+  'successfully-rebrand-your-business': {
+    metaTitle: 'How to Develop Your Rebranding Strategy',
+    focusKeyword: 'rebranding strategy',
+    secondaryKeywords: 'rebrand your business, brand identity refresh, rebranding process UAE',
+  },
+  'how-to-keep-your-audience-engaged': {
+    metaTitle: 'Strategies for Sustaining Audience Engagement',
+    focusKeyword: 'audience engagement strategies',
+    secondaryKeywords: 'keep audience engaged, content engagement tips, audience retention UAE',
+  },
+};
+
 export const store = {
   pages: {
     list: () => [...pages],
@@ -396,16 +659,18 @@ export const store = {
         const pageId = `blog-${post.slug}`;
         const existing = seoData.find(s => s.pageId === pageId);
         if (existing) return existing;
+        const blogMeta = BLOG_SEO[post.slug];
+        const resolvedTitle = blogMeta?.metaTitle ?? post.title;
         return {
           pageId,
           pageTitle: post.title,
           slug: `/${post.slug}`,
-          metaTitle: post.title,
+          metaTitle: resolvedTitle,
           metaDescription: post.excerpt,
-          focusKeyword: '',
-          secondaryKeywords: '',
+          focusKeyword: blogMeta?.focusKeyword ?? '',
+          secondaryKeywords: blogMeta?.secondaryKeywords ?? '',
           canonicalUrl: `https://wwm-mu.vercel.app/${post.slug}`,
-          ogTitle: post.title,
+          ogTitle: resolvedTitle,
           ogDescription: post.excerpt,
           ogImage: post.image,
           twitterCard: 'summary_large_image',
