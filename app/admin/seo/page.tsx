@@ -47,6 +47,8 @@ function SeoEditorInner() {
   const [session, setSession] = useState<SessionPayload | null>(null);
   const [targets, setTargets] = useState<{ id: string; title: string; slug: string; kind: 'page' | 'blog' }[]>([]);
   const [selectedPage, setSelectedPage] = useState(initPage);
+  const [pageDropVal, setPageDropVal] = useState(initPage.startsWith('blog-') ? '' : initPage);
+  const [blogDropVal, setBlogDropVal] = useState(initPage.startsWith('blog-') ? initPage : '');
   const [form, setForm] = useState<Partial<SeoData>>(EMPTY_SEO);
   const [redirects, setRedirects] = useState<{ id: string; from: string; to: string; type: '301' | '302' }[]>([]);
   const [newRedirect, setNewRedirect] = useState({ from: '', to: '', type: '301' as '301' | '302' });
@@ -116,26 +118,50 @@ function SeoEditorInner() {
 
       {/* PAGE SELECTOR */}
       <div className="adm-card" style={{ marginBottom: 24 }}>
-        <div className="adm-card-head"><div className="adm-card-title">Select Page or Blog Post to Edit</div></div>
-        <div style={{ padding: '16px 24px' }}>
-          <select
-            className="adm-select"
-            value={selectedPage}
-            onChange={e => e.target.value && loadPage(e.target.value)}
-            style={{ width: '100%', maxWidth: 560, marginBottom: selectedPage ? 16 : 0 }}
-          >
-            <option value="">— Choose a page or blog post —</option>
-            <optgroup label={`Pages (${targets.filter(t => t.kind === 'page').length})`}>
-              {targets.filter(t => t.kind === 'page').map(t => (
-                <option key={t.id} value={t.id}>{t.title} ({t.slug})</option>
-              ))}
-            </optgroup>
-            <optgroup label={`Blog Posts (${targets.filter(t => t.kind === 'blog').length})`}>
-              {targets.filter(t => t.kind === 'blog').map(t => (
-                <option key={t.id} value={t.id}>{t.title} ({t.slug})</option>
-              ))}
-            </optgroup>
-          </select>
+        <div className="adm-card-head"><div className="adm-card-title">Select a Page or Blog Post to Edit</div></div>
+        <div style={{ padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: 240 }}>
+              <label className="adm-label">Pages ({targets.filter(t => t.kind === 'page').length})</label>
+              <select
+                className="adm-select"
+                value={pageDropVal}
+                onChange={e => {
+                  const val = e.target.value;
+                  setPageDropVal(val);
+                  setBlogDropVal('');
+                  if (val) loadPage(val);
+                  else setSelectedPage('');
+                }}
+                style={{ width: '100%' }}
+              >
+                <option value="">— Choose a page —</option>
+                {targets.filter(t => t.kind === 'page').map(t => (
+                  <option key={t.id} value={t.id}>{t.title}</option>
+                ))}
+              </select>
+            </div>
+            <div style={{ flex: 1, minWidth: 240 }}>
+              <label className="adm-label">Blog Posts ({targets.filter(t => t.kind === 'blog').length})</label>
+              <select
+                className="adm-select"
+                value={blogDropVal}
+                onChange={e => {
+                  const val = e.target.value;
+                  setBlogDropVal(val);
+                  setPageDropVal('');
+                  if (val) loadPage(val);
+                  else setSelectedPage('');
+                }}
+                style={{ width: '100%' }}
+              >
+                <option value="">— Choose a blog post —</option>
+                {targets.filter(t => t.kind === 'blog').map(t => (
+                  <option key={t.id} value={t.id}>{t.title}</option>
+                ))}
+              </select>
+            </div>
+          </div>
           {selectedPage && <SeoScore data={form} />}
         </div>
       </div>

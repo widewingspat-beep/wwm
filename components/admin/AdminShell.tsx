@@ -53,7 +53,7 @@ export default function AdminShell({ session, children, title, subtitle }: {
       {/* SIDEBAR */}
       <aside className="adm-sidebar">
         <div className="adm-sidebar-logo">
-          <img src="/LogoWhite.svg" alt="Wide Wings Media" style={{ height: 36 }} />
+          <img src="/Logoblack.webp" alt="Wide Wings Media" style={{ height: 36, filter: 'brightness(0) invert(1)' }} />
           <div className="adm-sidebar-role">{roleLabel}</div>
         </div>
         <nav className="adm-nav">
