@@ -1,5 +1,6 @@
 // In-memory store — replace with a real DB (Supabase, Neon, etc.) for production
 import { POSTS } from '@/app/blogs/posts-data';
+import { loadEvents, saveEvents } from './chat-persist';
 
 export interface MediaItem {
   id: string;
@@ -369,7 +370,8 @@ const seoData: SeoData[] = [
 const redirects: Redirect[] = [];
 
 const mediaItems: MediaItem[] = [];
-const chatEvents: ChatEvent[] = [];
+// Initialise from file so data survives hot-reloads and lambda warm starts
+const chatEvents: ChatEvent[] = loadEvents();
 
 const enquiries: Enquiry[] = [
   { id: 'enq-001', name: 'Ahmed Al Rashid', email: 'ahmed@example.com', phone: '+971 50 123 4567', service: 'SEO & Performance Management', message: 'We need help ranking our e-commerce site in the UAE. Please get in touch.', status: 'new', receivedAt: '2026-06-20T09:15:00Z' },
@@ -750,8 +752,9 @@ export const store = {
       const ev: ChatEvent = { ...e, id: `ce-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, timestamp: new Date().toISOString() };
       chatEvents.push(ev);
       if (chatEvents.length > 5000) chatEvents.splice(0, chatEvents.length - 5000);
+      saveEvents(chatEvents);
       return ev;
     },
-    clear: () => { chatEvents.length = 0; },
+    clear: () => { chatEvents.length = 0; saveEvents(chatEvents); },
   },
 };
