@@ -66,6 +66,15 @@ export interface Enquiry {
   receivedAt: string;
 }
 
+export interface ChatEvent {
+  id: string;
+  event: 'widget_open' | 'option_click' | 'topic_view' | 'external_link';
+  label: string;       // human-readable: option echo text, topic key, or URL
+  page: string;        // page pathname where the event happened
+  sessionId: string;   // anonymous session ID (random, stored in sessionStorage)
+  timestamp: string;   // ISO 8601
+}
+
 const pages: Page[] = [
   // Static pages
   { id: 'home', title: 'Home', slug: '/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-01' },
@@ -360,6 +369,7 @@ const seoData: SeoData[] = [
 const redirects: Redirect[] = [];
 
 const mediaItems: MediaItem[] = [];
+const chatEvents: ChatEvent[] = [];
 
 const enquiries: Enquiry[] = [
   { id: 'enq-001', name: 'Ahmed Al Rashid', email: 'ahmed@example.com', phone: '+971 50 123 4567', service: 'SEO & Performance Management', message: 'We need help ranking our e-commerce site in the UAE. Please get in touch.', status: 'new', receivedAt: '2026-06-20T09:15:00Z' },
@@ -733,5 +743,15 @@ export const store = {
       return mediaItems[idx];
     },
     delete: (id: string) => { const idx = mediaItems.findIndex(m => m.id === id); if (idx > -1) mediaItems.splice(idx, 1); },
+  },
+  chatEvents: {
+    list: () => [...chatEvents],
+    add: (e: Omit<ChatEvent, 'id' | 'timestamp'>) => {
+      const ev: ChatEvent = { ...e, id: `ce-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, timestamp: new Date().toISOString() };
+      chatEvents.push(ev);
+      if (chatEvents.length > 5000) chatEvents.splice(0, chatEvents.length - 5000);
+      return ev;
+    },
+    clear: () => { chatEvents.length = 0; },
   },
 };

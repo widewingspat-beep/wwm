@@ -106,6 +106,22 @@ const bookCta = (
   </>
 );
 
+// Generate or retrieve an anonymous session ID (resets on tab close)
+function getSessionId(): string {
+  if (typeof sessionStorage === 'undefined') return 'ssr';
+  let id = sessionStorage.getItem('cw_sid');
+  if (!id) { id = Math.random().toString(36).slice(2, 11); sessionStorage.setItem('cw_sid', id); }
+  return id;
+}
+
+function trackEvent(event: 'widget_open' | 'option_click' | 'topic_view' | 'external_link', label: string) {
+  fetch('/api/admin/chat-analytics', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event, label, page: window.location.pathname, sessionId: getSessionId() }),
+  }).catch(() => { /* analytics failure must never break the widget */ });
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<LogItem[]>([]);
@@ -185,6 +201,7 @@ export default function ChatWidget() {
 
   const openFaq = (echo: string) => {
     pushUser(echo);
+    trackEvent('option_click', echo);
     botSequence([
       { type: 'bubble', node: (<><Ico name="sparkles" />{' Great! Here are some of the most common questions we get.'}{'\n'}Choose a topic below to learn more <Ico name="arrow-down" /></>) },
       { type: 'options', opts: topicOpts() },
@@ -193,6 +210,7 @@ export default function ChatWidget() {
 
   const external = (echo: string, href: string) => {
     pushUser(echo);
+    trackEvent('external_link', echo);
     if (href.startsWith('/')) {
       window.location.href = href;
       return;
@@ -208,6 +226,7 @@ export default function ChatWidget() {
   const topic = (key: 'services' | 'start' | 'sizes' | 'social' | 'pricing' | 'other') => {
     const t = TOPICS[key];
     pushUser(t.echo);
+    trackEvent('topic_view', t.echo);
     botSequence([
       ...t.bubbles.map((node): BotItem => ({ type: 'bubble', node })),
       { type: 'bubble', node: (<>What would you like to do next? <Ico name="arrow-down" /></>) },
@@ -293,6 +312,7 @@ export default function ChatWidget() {
   const handleOpen = () => {
     if (messages.length === 0) startConversation();
     setOpen(true);
+    trackEvent('widget_open', window.location.pathname);
   };
   const handleClose = () => {
     clearTimers();
