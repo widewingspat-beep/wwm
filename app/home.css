@@ -61,7 +61,7 @@
 }
 .hero-glow-1 { width: 500px; height: 500px; background: rgba(167,49,132,.25); top: -100px; right: -80px; }
 .hero-glow-2 { width: 400px; height: 400px; background: rgba(207,168,33,.15); bottom: -60px; left: 10%; }
-.hero-inner {
+#hero .hero-inner {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -73,7 +73,7 @@
   max-width: 1280px;
   margin: 0 auto;
 }
-.hero-badge {
+#hero .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -82,8 +82,8 @@
   margin-bottom: 28px;
   background: rgba(207,168,33,.07);
 }
-.hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-.hero-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+#hero .hero-badge span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+#hero .hero-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
 .hero-h1 {
   font-size: clamp(4rem, 8vw, 8.5rem);
   font-weight: 900;
@@ -402,7 +402,7 @@
 
 /* ─── RESPONSIVE ────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  #hero .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-visual { display: none; }
   .hero-stats { justify-content: center; }
   .hero-sub { margin: 0 auto 44px; }
@@ -419,8 +419,8 @@
 @media (max-width: 768px) {
   .section-label { font-size: 0.64rem; }
   #hero { min-height: 100svh; }
-  .hero-inner { padding: 100px 20px 64px; gap: 0; text-align: center; display: flex; flex-direction: column; }
-  .hero-badge { margin: 36px auto 28px; }
+  #hero .hero-inner { padding: 100px 20px 64px; gap: 0; text-align: center; display: flex; flex-direction: column; }
+  #hero .hero-badge { margin: 36px auto 28px; }
   .hero-h1 { font-size: clamp(3.4rem, 12vw, 4.6rem); line-height: 1.15; margin-top: 8px; margin-bottom: 28px; padding-bottom: 8px; overflow: visible; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; margin: 0 auto 36px; line-height: 1.6; }
   .hero-actions { flex-direction: row; align-items: center; gap: 10px; justify-content: center; margin-bottom: 36px; }
