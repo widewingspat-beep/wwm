@@ -494,11 +494,11 @@ export default function HomePage() {
           </div>
           <div className="blogs-grid">
             {[
-              { img:'blog-ecommerce.webp', tag:'E-Commerce', date:'January 15, 2026', title:'Ecommerce Website Development in Dubai for Scalable Growth', excerpt:'Get high-converting ecommerce website development in Dubai & UAE. Fast, secure, mobile-first online stores built for growth.' },
-              { img:'blog-sem.webp', tag:'SEM', date:'January 13, 2026', title:'Search Engine Marketing Company in Dubai — SEM Services UAE', excerpt:'ROI-focused search engine marketing company in Dubai delivering high-intent PPC campaigns built for the UAE market.' },
-              { img:'blog-ppc.webp', tag:'PPC', date:'January 8, 2026', title:'PPC for E-commerce Websites in Dubai: Where to Start', excerpt:"Smart PPC for e-commerce websites in Dubai that aligns with buyer intent — decision-led Google Ads strategies that convert." },
+              { img:'blog-ecommerce.webp', tag:'E-Commerce', date:'January 15, 2026', title:'Ecommerce Website Development in Dubai for Scalable Growth', excerpt:'Get high-converting ecommerce website development in Dubai & UAE. Fast, secure, mobile-first online stores built for growth.', href:'/ecommerce-website-development-dubai' },
+              { img:'blog-sem.webp', tag:'SEM', date:'January 13, 2026', title:'Search Engine Marketing Company in Dubai — SEM Services UAE', excerpt:'ROI-focused search engine marketing company in Dubai delivering high-intent PPC campaigns built for the UAE market.', href:'/search-engine-marketing-company-dubai' },
+              { img:'blog-ppc.webp', tag:'PPC', date:'January 8, 2026', title:'PPC for E-commerce Websites in Dubai: Where to Start', excerpt:"Smart PPC for e-commerce websites in Dubai that aligns with buyer intent — decision-led Google Ads strategies that convert.", href:'/ppc-for-ecommerce-dubai' },
             ].map((blog, i) => (
-              <Link key={i} href="#" className="blog-card">
+              <Link key={i} href={blog.href} className="blog-card">
                 <div className="blog-thumb">
                   <div className="blog-thumb-img" style={{backgroundImage:`url('/${blog.img}')`}}></div>
                   <div className="blog-thumb-tag">{blog.tag}</div>
