@@ -490,7 +490,7 @@ export default function HomePage() {
         <div className="container">
           <div className="blogs-header">
             <div><span className="section-label">Insights</span><h2 className="blogs-h2">Recent <span className="gradient-text">Blogs</span></h2></div>
-            <Link href="#" className="btn-outline">All Articles</Link>
+            <Link href="/blogs" className="btn-outline">All Articles</Link>
           </div>
           <div className="blogs-grid">
             {[
