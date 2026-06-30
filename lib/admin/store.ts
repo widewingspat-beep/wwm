@@ -11,6 +11,8 @@ export interface MediaItem {
   altText: string;
   keywords: string;
   uploadedAt: string;
+  source?: 'public' | 'upload'; // 'public' = from /public dir, 'upload' = user-uploaded
+  folder?: string;               // display group e.g. "Blog Images", "Site Assets"
 }
 
 export interface Page {
@@ -722,6 +724,12 @@ export const store = {
       const idx = mediaItems.findIndex(m => m.id === id);
       if (idx === -1) return null;
       mediaItems[idx] = { ...mediaItems[idx], ...data };
+      return mediaItems[idx];
+    },
+    upsert: (item: MediaItem) => {
+      const idx = mediaItems.findIndex(m => m.id === item.id);
+      if (idx === -1) { mediaItems.unshift(item); return item; }
+      mediaItems[idx] = { ...mediaItems[idx], ...item };
       return mediaItems[idx];
     },
     delete: (id: string) => { const idx = mediaItems.findIndex(m => m.id === id); if (idx > -1) mediaItems.splice(idx, 1); },
