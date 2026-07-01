@@ -5083,7 +5083,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               alt={post.title}
               width={1200}
               height={480}
-              style={{ width: '100%', height: '480px', objectFit: 'cover' }}
+              style={{ width: '100%', height: 'auto', aspectRatio: '2.5 / 1', objectFit: 'cover' }}
               priority
             />
           </div>
