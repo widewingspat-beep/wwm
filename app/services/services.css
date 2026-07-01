@@ -448,6 +448,10 @@
 }
 .cwc-corner {
   position: absolute; width: 18px; height: 18px; z-index: 10; opacity: 0.55;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .cwc-tl { top:14px; left:14px;  border-top:1.5px solid #c084fc; border-left:1.5px solid #c084fc; }
 .cwc-tr { top:14px; right:14px; border-top:1.5px solid #c084fc; border-right:1.5px solid #c084fc; }
