@@ -50,7 +50,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body style={{ fontFamily: "'Calibri', 'Arial', sans-serif", background: "#ffffff", color: "#333333", overflowX: "hidden" }}>
+      <body style={{ fontFamily: "'Calibri', 'Arial', sans-serif", background: "#0a0a1a", color: "#333333", overflowX: "hidden" }}>
         {!isAdmin && (
           <script
             type="application/ld+json"
