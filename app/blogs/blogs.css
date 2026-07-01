@@ -94,8 +94,8 @@
   align-items: center;
   letter-spacing: 0.04em;
 }
-.blg-filter-btn--all-active,
-.blg-filter-btn--all:hover {
+.blg-filter-btn.blg-filter-btn--all-active,
+.blg-filter-btn.blg-filter-btn--all:hover {
   background: #a73184;
   color: #fff;
 }
