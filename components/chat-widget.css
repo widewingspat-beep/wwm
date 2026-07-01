@@ -8,17 +8,17 @@
   height: 60px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(150deg, #2e2e62 0%, #1a1a3a 100%);
+  background: linear-gradient(150deg, #a73184 0%, #7a2361 100%);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 6px 24px rgba(46, 46, 98, 0.45);
+  box-shadow: 0 6px 24px rgba(167, 49, 132, 0.45);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.cw-launcher:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(46, 46, 98, 0.6); }
+.cw-launcher:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(167, 49, 132, 0.6); }
 .cw-launcher svg { width: 26px; height: 26px; }
 
 /* ── Panel ── */
