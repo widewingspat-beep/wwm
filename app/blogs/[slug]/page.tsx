@@ -5076,15 +5076,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* ── FEATURED IMAGE ── */}
       {post.image && (
-        <div className="bp-featured-img-wrap">
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={1200}
-            height={480}
-            style={{ width: '100%', height: '480px', objectFit: 'cover' }}
-            priority
-          />
+        <div className="bp-featured-img-section">
+          <div className="bp-featured-img-wrap">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={480}
+              style={{ width: '100%', height: '480px', objectFit: 'cover' }}
+              priority
+            />
+          </div>
         </div>
       )}
 
