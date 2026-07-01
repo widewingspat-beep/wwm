@@ -1,0 +1,167 @@
+/* ─── CASE STUDY HERO ───────────────────────────────────── */
+
+.cs-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0a0a1a;
+  display: flex;
+  flex-direction: column;
+}
+.cs-hero-media {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: csKenBurns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes csKenBurns {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+.cs-hero-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.cs-hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,26,.72) 0%, rgba(10,10,26,.28) 32%, rgba(10,10,26,.5) 62%, rgba(10,10,26,.96) 100%);
+  pointer-events: none;
+}
+.cs-hero-fade {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+  background: linear-gradient(0deg, #0B0B0E, transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+.cs-hero-inner {
+  position: relative; z-index: 3;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  padding: 150px 40px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.cs-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+}
+.cs-breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+.cs-breadcrumb a:hover { color: #FF6B5B; }
+.cs-breadcrumb span:last-child { color: #FF6B5B; }
+.cs-bc-sep { opacity: 0.35; }
+
+.cs-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.cs-hero-tag {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  background: var(--magenta);
+  color: #fff;
+  border-radius: 4px;
+}
+.cs-hero-client {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cs-hero-title {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #fff;
+  max-width: 820px;
+  margin-bottom: 22px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.cs-hero-result {
+  font-family: 'Calibri', 'Nexa', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+.cs-hero-result strong { color: var(--gold); }
+
+.cs-hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.cs-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 34px;
+  font-family: 'Calibri', 'Arial', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  border: 2px solid rgba(255,255,255,0.5);
+  background: transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+.cs-btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.cs-hero-scroll {
+  position: absolute;
+  bottom: 26px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.cs-hero-scroll svg { animation: csScrollBounce 1.8s ease-in-out infinite; }
+@keyframes csScrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .cs-hero-inner { padding: 130px 20px 70px; }
+  .cs-hero-scroll { display: none; }
+}
