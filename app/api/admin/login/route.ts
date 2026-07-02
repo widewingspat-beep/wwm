@@ -3,7 +3,7 @@ import { validateCredentials, createToken, COOKIE_NAME } from '@/lib/admin/auth'
 
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
-  const user = validateCredentials(username, password);
+  const user = await validateCredentials(username, password);
   if (!user) {
     return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
   }

@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { getPasswordOverride, setPasswordOverride } from './auth-kv';
 
 export type AdminRole = 'webadmin' | 'seo' | 'enquiry';
 
@@ -34,6 +35,38 @@ const USERS: (SessionPayload & { password: string })[] = [
 
 const enc = new TextEncoder();
 
+const PBKDF2_ITERATIONS = 100_000;
+
+function toHex(buf: ArrayBuffer): string {
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function fromHex(hex: string): Uint8Array {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+  return bytes;
+}
+
+export async function hashPassword(password: string): Promise<string> {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const key = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' }, key, 256
+  );
+  return `${toHex(salt.buffer as ArrayBuffer)}:${toHex(bits)}`;
+}
+
+async function verifyPassword(password: string, stored: string): Promise<boolean> {
+  const [saltHex, hashHex] = stored.split(':');
+  if (!saltHex || !hashHex) return false;
+  const salt = fromHex(saltHex);
+  const key = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: salt.buffer as ArrayBuffer, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' }, key, 256
+  );
+  return toHex(bits) === hashHex;
+}
+
 async function hmac(value: string): Promise<string> {
   const key = await crypto.subtle.importKey(
     'raw', enc.encode(SECRET),
@@ -61,8 +94,28 @@ export async function verifyToken(token: string): Promise<SessionPayload | null>
   }
 }
 
-export function validateCredentials(username: string, password: string) {
-  return USERS.find(u => u.username === username && u.password === password) ?? null;
+export async function validateCredentials(username: string, password: string) {
+  const user = USERS.find(u => u.username === username);
+  if (!user) return null;
+
+  const override = await getPasswordOverride(user.role);
+  const ok = override ? await verifyPassword(password, override) : password === user.password;
+  return ok ? user : null;
+}
+
+// For the change-password flow: verifies a user's *current* password (override
+// if one has been set, otherwise the original default) so a role can confirm
+// its own identity before rotating to a new one.
+export async function verifyCurrentPassword(role: AdminRole, password: string): Promise<boolean> {
+  const user = USERS.find(u => u.role === role);
+  if (!user) return false;
+  const override = await getPasswordOverride(role);
+  return override ? verifyPassword(password, override) : password === user.password;
+}
+
+export async function changePassword(role: AdminRole, newPassword: string): Promise<boolean> {
+  const hashed = await hashPassword(newPassword);
+  return setPasswordOverride(role, hashed);
 }
 
 export async function getSession(): Promise<SessionPayload | null> {
