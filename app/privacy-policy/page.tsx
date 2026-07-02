@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/seo';
 import PrivacyAccordion from './PrivacyAccordion';
 
-export const metadata = {
-  title: 'Privacy Policy – Wide Wings Media',
-  description: 'Privacy Policy for Wide Wings Media, LLC. Learn how we collect, use, and protect your personal information.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata('privacy-policy');
+}
 
 const sections = [
   {

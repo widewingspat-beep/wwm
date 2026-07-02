@@ -1,13 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { POSTS } from '../posts-data';
 import '../blog-post.css';
 import FaqAccordion from './FaqAccordion';
 import { getBlogContent } from '@/lib/admin/blog-kv';
+import { getPageMetadata } from '@/lib/seo';
 
 export const revalidate = 0; // always fetch fresh from KV, never cache
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  return getPageMetadata(`blog-${slug}`);
+}
 
 /* ── Real page titles (from old site) — separate from SEO listing titles ── */
 const PAGE_TITLES: Record<string, string> = {

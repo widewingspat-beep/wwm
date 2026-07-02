@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
 import './analytics-performance.css';
@@ -170,6 +172,10 @@ const SPARKS = [
   { l:'78%', t:'12%', c:'#FFD166', sz:'2px', op:'0.5',  sd:'3.4s', dl:'0.4s' },
   { l:'90%', t:'42%', c:'#06D6A0', sz:'3px', op:'0.55', sd:'2.7s', dl:'1.2s' },
 ];
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata('analytics-performance');
+}
 
 export default function AnalyticsPerformancePage() {
   return (

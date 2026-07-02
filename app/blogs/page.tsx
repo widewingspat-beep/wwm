@@ -1,7 +1,13 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/seo';
 import './blogs.css';
 import BlogsClient from './BlogsClient';
 import { POSTS } from './posts-data';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata('blogs');
+}
 
 export default function BlogsPage() {
   return (

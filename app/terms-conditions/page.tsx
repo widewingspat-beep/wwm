@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/seo';
 import PrivacyAccordion from '../privacy-policy/PrivacyAccordion';
 
-export const metadata = {
-  title: 'Terms & Conditions – Wide Wings Media',
-  description: 'Terms and Conditions for Wide Wings Media, LLC. Read our terms of service, payment policy, refund policy, and legal agreements.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata('terms-conditions');
+}
 
 const sections = [
   {

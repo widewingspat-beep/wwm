@@ -153,36 +153,40 @@ const seoData: SeoData[] = [
   },
   {
     ...makeSeo('about-us', 'About Us', '/about-us',
-      'Wide Wings Media: A Digital Marketing Partner You Can Trust.',
-      'Wide Wings Media is a digital marketing company in Dubai, driving growth through SEO, paid media, and social marketing. Reach out for more.',
+      'About Wide Wings Media – Full-Service Digital Marketing Agency Dubai',
+      "Wide Wings Media is a fully in-house digital marketing company in Dubai with 50+ specialists. Google & Meta verified partner operating across 15+ industries in UAE and GCC. 4.9/5 average client rating.",
       'Organization'),
-    focusKeyword: 'digital marketing company Dubai',
-    secondaryKeywords: 'marketing agency UAE, Wide Wings Media, Dubai marketing team',
-    ogImage: '/Logoblack.webp',
-    featuredImage: '/Logoblack.webp',
-    featuredImageAlt: 'Wide Wings Media — A Digital Marketing Partner You Can Trust',
+    focusKeyword: 'Wide Wings Media Dubai',
+    secondaryKeywords: 'digital marketing agency about, in-house digital agency UAE, Google partner Dubai, Meta partner UAE, marketing specialists Dubai',
+    ogTitle: "About Wide Wings Media – Dubai's Leading Digital Marketing Agency",
+    ogDescription: "Meet the team behind Dubai's top-ranked digital marketing agency. 50+ specialists, Google & Meta verified, 15+ industries served.",
+    ogImage: '/og-about.jpg',
+    featuredImage: '/og-about.jpg',
+    featuredImageAlt: 'Wide Wings Media team Dubai',
   },
   {
     ...makeSeo('contact', 'Contact', '/contact',
-      'Contact Us at Wide Wings Media to Start Your Project Today!',
-      "Contact us at Wide Wings Media to discuss your project or get a free quote. Let's bring your media vision to life with expert support.",
+      'Contact Wide Wings Media – Digital Marketing Agency Dubai',
+      "Get in touch with Wide Wings Media, Dubai's leading digital marketing agency. Office: Al Quoz Industrial Area 3, Dubai, UAE. Phone: +971 4 335 2645. Free consultation available.",
       'LocalBusiness'),
     focusKeyword: 'contact digital marketing agency Dubai',
-    secondaryKeywords: 'Wide Wings Media contact, digital marketing UAE consultation, free quote Dubai',
-    ogImage: '/Logoblack.webp',
-    featuredImage: '/Logoblack.webp',
-    featuredImageAlt: 'Contact Wide Wings Media — Digital Marketing Agency Dubai',
+    secondaryKeywords: 'Wide Wings Media contact, digital marketing consultation Dubai, marketing agency Al Quoz Dubai, free marketing consultation UAE',
+    ogTitle: 'Contact Wide Wings Media – Free Digital Marketing Consultation',
+    ogDescription: "Speak to Dubai's leading digital marketing team. Free consultation for SEO, paid ads, social media & web development.",
+    ogImage: '/og-contact.jpg',
+    featuredImage: '/og-contact.jpg',
+    featuredImageAlt: 'Wide Wings Media office Al Quoz Dubai',
   },
   {
     ...makeSeo('services', 'Services', '/services',
       'Boost ROI with Data-Driven Digital Marketing Services in Dubai',
-      'Drive conversions and return on investment (ROI) with data-based digital marketing services from Wide Wings Media. Request your quote today!',
+      'Wide Wings Media offers full-service digital marketing in Dubai — SEO, paid advertising, social media management, content creation, web development, OOH advertising, and PR. Data-driven strategies that deliver measurable ROI across UAE and GCC.',
       'Service'),
     focusKeyword: 'digital marketing services Dubai',
-    secondaryKeywords: 'SEO services Dubai, paid advertising UAE, social media management Dubai, web development Dubai',
-    ogImage: '/Logoblack.webp',
-    featuredImage: '/Logoblack.webp',
-    featuredImageAlt: 'Wide Wings Media — Digital Marketing Services in Dubai, UAE',
+    secondaryKeywords: 'data-driven digital marketing UAE, SEO services Dubai, paid advertising Dubai, social media management UAE, content creation Dubai, web development UAE, OOH advertising Dubai, performance marketing GCC, PR management Dubai',
+    ogImage: '/og-services.jpg',
+    featuredImage: '/og-services.jpg',
+    featuredImageAlt: 'Wide Wings Media Digital Marketing Services Dubai',
   },
   {
     ...makeSeo('blogs', 'Blogs', '/blogs',
@@ -644,6 +648,34 @@ const BLOG_SEO: Record<string, { metaTitle: string; focusKeyword: string; second
   },
 };
 
+// Pre-fills SEO for a blog post that hasn't been edited in the SEO Manager yet,
+// so the score isn't zero out of the gate and generateMetadata always has a value.
+export function blogSeoDefault(post: (typeof POSTS)[number]): SeoData {
+  const blogMeta = BLOG_SEO[post.slug];
+  const resolvedTitle = blogMeta?.metaTitle ?? post.title;
+  return {
+    pageId: `blog-${post.slug}`,
+    pageTitle: post.title,
+    slug: `/${post.slug}`,
+    metaTitle: resolvedTitle,
+    metaDescription: post.excerpt,
+    focusKeyword: blogMeta?.focusKeyword ?? '',
+    secondaryKeywords: blogMeta?.secondaryKeywords ?? '',
+    canonicalUrl: `https://wwm-mu.vercel.app/${post.slug}`,
+    ogTitle: resolvedTitle,
+    ogDescription: post.excerpt,
+    ogImage: post.image,
+    twitterCard: 'summary_large_image',
+    robots: 'index, follow',
+    schemaType: 'Article',
+    featuredImage: post.image,
+    featuredImageAlt: post.title,
+    noindex: false,
+    nofollow: false,
+    updatedAt: '',
+  };
+}
+
 export const store = {
   pages: {
     list: () => [...pages],
@@ -666,40 +698,21 @@ export const store = {
       const fromPages = pages.map(p =>
         seoData.find(s => s.pageId === p.id) ?? { pageId: p.id, pageTitle: p.title, slug: p.slug } as SeoData,
       );
-      // Each blog post is also an SEO target. If no SEO has been authored yet,
-      // pre-fill metaTitle from the post title and metaDescription from its
-      // excerpt so the SEO score isn't zero out of the gate.
       const fromBlogs = POSTS.map(post => {
         const pageId = `blog-${post.slug}`;
-        const existing = seoData.find(s => s.pageId === pageId);
-        if (existing) return existing;
-        const blogMeta = BLOG_SEO[post.slug];
-        const resolvedTitle = blogMeta?.metaTitle ?? post.title;
-        return {
-          pageId,
-          pageTitle: post.title,
-          slug: `/${post.slug}`,
-          metaTitle: resolvedTitle,
-          metaDescription: post.excerpt,
-          focusKeyword: blogMeta?.focusKeyword ?? '',
-          secondaryKeywords: blogMeta?.secondaryKeywords ?? '',
-          canonicalUrl: `https://wwm-mu.vercel.app/${post.slug}`,
-          ogTitle: resolvedTitle,
-          ogDescription: post.excerpt,
-          ogImage: post.image,
-          twitterCard: 'summary_large_image',
-          robots: 'index, follow',
-          schemaType: 'Article',
-          featuredImage: post.image,
-          featuredImageAlt: post.title,
-          noindex: false,
-          nofollow: false,
-          updatedAt: '',
-        } as SeoData;
+        return seoData.find(s => s.pageId === pageId) ?? blogSeoDefault(post);
       });
       return [...fromPages, ...fromBlogs];
     },
-    get: (pageId: string) => seoData.find(s => s.pageId === pageId),
+    get: (pageId: string) => {
+      const existing = seoData.find(s => s.pageId === pageId);
+      if (existing) return existing;
+      if (pageId.startsWith('blog-')) {
+        const post = POSTS.find(p => `blog-${p.slug}` === pageId);
+        if (post) return blogSeoDefault(post);
+      }
+      return undefined;
+    },
     upsert: (data: SeoData) => {
       const idx = seoData.findIndex(s => s.pageId === data.pageId);
       if (idx > -1) seoData[idx] = { ...data, updatedAt: new Date().toISOString() };

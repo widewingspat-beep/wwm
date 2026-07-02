@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+import { getPageMetadata } from '@/lib/seo';
 import './news.css';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata('news');
+}
 
 const NEWS = [
   {

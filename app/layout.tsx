@@ -5,39 +5,35 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ChatWidget from "@/components/ChatWidget";
+import { getPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
-    template: '%s | Wide Wings Media',
-  },
-  description: 'Wide Wings Media is Dubai\'s leading full-service digital marketing agency. We specialize in SEO, paid advertising, social media management, web development, and branding across the UAE and GCC market.',
-  keywords: ['digital marketing agency Dubai', 'SEO Dubai', 'social media management UAE', 'paid advertising Dubai', 'web development UAE', 'branding agency Dubai', 'performance marketing GCC'],
+const STATIC_DEFAULTS: Metadata = {
   authors: [{ name: 'Wide Wings Media' }],
   creator: 'Wide Wings Media',
   publisher: 'Wide Wings Media',
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-  openGraph: {
-    type: 'website',
-    locale: 'en_AE',
-    url: 'https://wwm-mu.vercel.app',
-    siteName: 'Wide Wings Media',
-    title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
-    description: 'Full-service digital marketing agency in Dubai. SEO, paid ads, social media, web development and branding for UAE & GCC businesses.',
-    images: [{ url: '/LogoColour.svg', width: 1200, height: 630, alt: 'Wide Wings Media – Digital Marketing Agency Dubai' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai',
-    description: 'Full-service digital marketing agency in Dubai – SEO, paid ads, social media, web & branding.',
-    images: ['/LogoColour.svg'],
-  },
   icons: {
     icon: '/brand-wings.svg',
     shortcut: '/brand-wings.svg',
     apple: '/brand-wings.svg',
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageMetadata('home');
+  return {
+    ...STATIC_DEFAULTS,
+    ...seo,
+    title: seo.title
+      ? { default: seo.title as string, template: '%s | Wide Wings Media' }
+      : { default: 'Wide Wings Media: Leading Digital Marketing Agency in Dubai', template: '%s | Wide Wings Media' },
+    openGraph: {
+      type: 'website',
+      locale: 'en_AE',
+      siteName: 'Wide Wings Media',
+      ...seo.openGraph,
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
