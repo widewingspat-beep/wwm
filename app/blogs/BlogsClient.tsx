@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Post = {
   slug: string;
@@ -104,19 +105,21 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               <div className="blg-grid">
                 {visible.map(post => (
                   <article key={post.slug} className="blg-card">
-                    <div className="blg-card-img">
+                    <Link href={`/${post.slug}`} className="blg-card-img">
                       <Image src={post.image} alt={post.title} width={600} height={340} className="blg-card-img-el" />
                       <span className="blg-card-cat">{post.category}</span>
-                    </div>
+                    </Link>
                     <div className="blg-card-body">
-                      <h2 className="blg-card-title">{post.title}</h2>
+                      <h2 className="blg-card-title">
+                        <Link href={`/${post.slug}`}>{post.title}</Link>
+                      </h2>
                       <p className="blg-card-excerpt">{post.excerpt}</p>
-                      <a href={`/${post.slug}`} className="blg-card-link">
-                        Read More
+                      <Link href={`/${post.slug}`} className="blg-card-link">
+                        Read More<span className="sr-only"> about {post.title}</span>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </article>
                 ))}

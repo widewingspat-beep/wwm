@@ -213,6 +213,7 @@
 }
 
 .blg-card-img {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -261,6 +262,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.blg-card-title a { transition: color 0.2s; }
+.blg-card-title a:hover { color: #a73184; }
 .blg-card-excerpt {
   font-family: Calibri, sans-serif;
   font-size: 0.9rem;
