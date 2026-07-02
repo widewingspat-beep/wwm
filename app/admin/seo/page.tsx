@@ -53,6 +53,8 @@ function SeoEditorInner() {
   const [redirects, setRedirects] = useState<{ id: string; from: string; to: string; type: '301' | '302' }[]>([]);
   const [newRedirect, setNewRedirect] = useState({ from: '', to: '', type: '301' as '301' | '302' });
   const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -89,15 +91,29 @@ function SeoEditorInner() {
   function set(key: keyof SeoData, val: string | boolean) {
     setForm(prev => ({ ...prev, [key]: val }));
     setSaved(false);
+    setSaveError(false);
   }
 
   async function handleSave() {
-    const res = await fetch('/api/admin/seo', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, pageId: selectedPage }),
-    });
-    if (res.ok) { setSaved(true); setTimeout(() => setSaved(false), 3000); }
+    setSaving(true);
+    setSaveError(false);
+    try {
+      const res = await fetch('/api/admin/seo', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, pageId: selectedPage }),
+      });
+      if (res.ok) {
+        setSaved(true);
+        setTimeout(() => setSaved(false), 3000);
+      } else {
+        setSaveError(true);
+      }
+    } catch {
+      setSaveError(true);
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function addRedirect() {
@@ -287,8 +303,12 @@ function SeoEditorInner() {
                 </div>
               </div>
 
-              <div style={{ marginTop: 24, display: 'flex', gap: 10 }}>
-                <button className="adm-btn adm-btn-primary" onClick={handleSave}>Save SEO Settings</button>
+              <div style={{ marginTop: 24, display: 'flex', gap: 10, alignItems: 'center' }}>
+                <button className="adm-btn adm-btn-primary" onClick={handleSave} disabled={saving}>
+                  {saving ? 'Saving…' : 'Save SEO Settings'}
+                </button>
+                {saved && <span style={{ color: '#16a34a', fontSize: '0.85rem', fontWeight: 600 }}>&#10003; Saved — live on the site now</span>}
+                {saveError && <span style={{ color: '#dc2626', fontSize: '0.85rem', fontWeight: 600 }}>&#10007; Save failed — please try again</span>}
               </div>
             </div>
           </div>
