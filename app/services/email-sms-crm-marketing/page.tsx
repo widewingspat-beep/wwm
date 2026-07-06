@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './email-sms-crm.css';
+import './email-sms-crm-marketing.css';
 
 const EXPERTISE = [
   {
@@ -109,7 +109,7 @@ export default function EmailSmsCrmPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>Email, SMS &amp; CRM</span>
           </nav>

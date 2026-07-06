@@ -82,25 +82,24 @@ const pages: Page[] = [
   { id: 'about', title: 'About', slug: '/about', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
   { id: 'about-us', title: 'About Us', slug: '/about-us', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
   { id: 'contact', title: 'Contact', slug: '/contact', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-05' },
-  { id: 'services', title: 'Services', slug: '/services', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'blogs', title: 'Blogs', slug: '/blogs', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'services', title: 'Services', slug: '/digital-marketing-services/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'blogs', title: 'Blogs', slug: '/insights/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'news', title: 'News', slug: '/news', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'digital-marketing-services', title: 'Digital Marketing Services', slug: '/digital-marketing-services', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'privacy', title: 'Privacy', slug: '/privacy', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'privacy-policy', title: 'Privacy Policy', slug: '/privacy-policy', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'terms', title: 'Terms', slug: '/terms', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'terms-conditions', title: 'Terms & Conditions', slug: '/terms-conditions', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  // Service detail pages (clean URLs)
-  { id: 'web-app-development', title: 'Web & App Development', slug: '/web-app-development', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'creative-branding', title: 'Creative & Branding', slug: '/creative-branding', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'paid-advertising', title: 'Paid Advertising & Media Buying', slug: '/paid-advertising', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'social-media-management', title: 'Social Media Management', slug: '/social-media-management', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'content-creation', title: 'Content Creation & Graphic Design', slug: '/content-creation', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'email-sms-crm', title: 'Email, SMS & CRM Marketing', slug: '/email-sms-crm', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'seo-performance', title: 'SEO & Performance Management', slug: '/seo-performance', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'ooh-advertising', title: 'OOH Advertising', slug: '/ooh-advertising', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'analytics-performance', title: 'Analytics & Performance Marketing', slug: '/analytics-performance', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
-  { id: 'pr-management', title: 'PR Management', slug: '/pr-management', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  // Service detail pages (URLs match old wide-wings.ae slugs)
+  { id: 'web-app-development', title: 'Web & App Development', slug: '/web-design-company-dubai/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'creative-branding', title: 'Creative & Branding', slug: '/creative-branding/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'paid-advertising', title: 'Paid Advertising & Media Buying', slug: '/ppc-advertising-company-dubai/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'social-media-management', title: 'Social Media Management', slug: '/social-media-marketing-agency-in-dubai/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'content-creation', title: 'Content Creation & Graphic Design', slug: '/content-creation-graphic-design/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'email-sms-crm', title: 'Email, SMS & CRM Marketing', slug: '/email-sms-crm-marketing/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'seo-performance', title: 'SEO & Performance Management', slug: '/seo-services-dubai/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'ooh-advertising', title: 'OOH Advertising', slug: '/outdoor-advertising-dubai/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'analytics-performance', title: 'Analytics & Performance Marketing', slug: '/analytics-performance-marketing/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
+  { id: 'pr-management', title: 'PR Management', slug: '/pr-management/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
 ];
 
 // SEO metadata fetched from the corresponding pages on the legacy wide-wings.ae
@@ -178,7 +177,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media office Al Quoz Dubai',
   },
   {
-    ...makeSeo('services', 'Services', '/services',
+    ...makeSeo('services', 'Services', '/digital-marketing-services/',
       'Boost ROI with Data-Driven Digital Marketing Services in Dubai',
       'Wide Wings Media offers full-service digital marketing in Dubai — SEO, paid advertising, social media management, content creation, web development, OOH advertising, and PR. Data-driven strategies that deliver measurable ROI across UAE and GCC.',
       'Service'),
@@ -189,7 +188,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media Digital Marketing Services Dubai',
   },
   {
-    ...makeSeo('blogs', 'Blogs', '/blogs',
+    ...makeSeo('blogs', 'Blogs', '/insights/',
       'Wide Wings Media: Digital Marketing Insights and Knowledge',
       'Explore valuable insights, articles, and blogs with Wide Wings Media. Expand your knowledge and feed your curiosity daily with our blogs.'),
     focusKeyword: 'digital marketing blog Dubai',
@@ -207,17 +206,9 @@ const seoData: SeoData[] = [
     ogImage: '/Logoblack.webp',
     featuredImage: '/Logoblack.webp',
     featuredImageAlt: 'Wide Wings Media — Latest News & Press Coverage',
-  },
-  {
-    ...makeSeo('digital-marketing-services', 'Digital Marketing Services', '/digital-marketing-services',
-      'Boost ROI with Data-Driven Digital Marketing Services in Dubai',
-      'Drive conversions and return on investment (ROI) with data-based digital marketing services from Wide Wings Media. Request your quote today!',
-      'Service'),
-    focusKeyword: 'digital marketing services Dubai',
-    secondaryKeywords: 'online marketing UAE, full-service digital agency Dubai, marketing solutions Dubai',
-    ogImage: '/Logoblack.webp',
-    featuredImage: '/Logoblack.webp',
-    featuredImageAlt: 'Wide Wings Media — Digital Marketing Services Dubai',
+    robots: 'noindex, nofollow',
+    noindex: true,
+    nofollow: true,
   },
   {
     ...makeSeo('privacy', 'Privacy', '/privacy',
@@ -260,7 +251,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Terms & Conditions',
   },
   {
-    ...makeSeo('web-app-development', 'Web & App Development', '/web-app-development',
+    ...makeSeo('web-app-development', 'Web & App Development', '/web-design-company-dubai/',
       'Web & App Development | Wide Wings Media Digital Agency Dubai',
       'We design and develop high-performing websites and mobile applications that are fast, secure, and user-focused. Every build is optimized for user experience, scalability, and business growth.',
       'Service'),
@@ -271,7 +262,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Web & App Development Agency Dubai',
   },
   {
-    ...makeSeo('creative-branding', 'Creative & Branding', '/creative-branding',
+    ...makeSeo('creative-branding', 'Creative & Branding', '/creative-branding/',
       'Creative & Branding | Wide Wings Media Digital Agency Dubai',
       'We create brands that look sharp, speak clearly, and actually perform, from strategy to design and content.',
       'Service'),
@@ -282,7 +273,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Creative & Branding Agency Dubai',
   },
   {
-    ...makeSeo('paid-advertising', 'Paid Advertising & Media Buying', '/paid-advertising',
+    ...makeSeo('paid-advertising', 'Paid Advertising & Media Buying', '/ppc-advertising-company-dubai/',
       'Paid Advertising & Media Buying | Wide Wings Media Digital Agency Dubai',
       'We plan, execute, and optimize paid advertising campaigns that maximize reach, conversions, and ROI. Our data-driven media buying ensures your budget delivers measurable results across platforms.',
       'Service'),
@@ -293,7 +284,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Paid Advertising & Media Buying Dubai',
   },
   {
-    ...makeSeo('social-media-management', 'Social Media Management', '/social-media-management',
+    ...makeSeo('social-media-management', 'Social Media Management', '/social-media-marketing-agency-in-dubai/',
       'Social Media Management | Wide Wings Media Digital Agency Dubai',
       'We manage your social media presence with strategic content, consistent engagement, and platform-specific growth tactics. Our approach builds communities, increases visibility, and drives meaningful interactions.',
       'Service'),
@@ -304,7 +295,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Social Media Management Agency Dubai',
   },
   {
-    ...makeSeo('content-creation', 'Content Creation & Graphic Design', '/content-creation',
+    ...makeSeo('content-creation', 'Content Creation & Graphic Design', '/content-creation-graphic-design/',
       'Content Creation & Graphic Design | Wide Wings Media Digital Agency Dubai',
       'We create compelling content and visuals that capture attention and communicate your brand story clearly. From graphics to copy, every asset is designed to inspire action and strengthen brand recall.',
       'Service'),
@@ -315,7 +306,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Content Creation & Graphic Design Dubai',
   },
   {
-    ...makeSeo('email-sms-crm', 'Email, SMS & CRM Marketing', '/email-sms-crm',
+    ...makeSeo('email-sms-crm', 'Email, SMS & CRM Marketing', '/email-sms-crm-marketing/',
       'Email, SMS & CRM Marketing | Wide Wings Media Digital Agency Dubai',
       'We create campaigns that people open, read, and act on. From welcome flows to retention sequences, every message has a purpose and a result behind it.',
       'Service'),
@@ -326,7 +317,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Email, SMS & CRM Marketing Dubai',
   },
   {
-    ...makeSeo('seo-performance', 'SEO & Performance Management', '/seo-performance',
+    ...makeSeo('seo-performance', 'SEO & Performance Management', '/seo-services-dubai/',
       'SEO & Performance Management | Wide Wings Media Digital Agency Dubai',
       'We optimize your digital presence to rank higher, attract quality traffic, and improve long-term performance. Our SEO strategies are data-led, ethical, and focused on sustainable growth.',
       'Service'),
@@ -337,7 +328,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — SEO & Performance Management Agency Dubai',
   },
   {
-    ...makeSeo('ooh-advertising', 'OOH Advertising', '/ooh-advertising',
+    ...makeSeo('ooh-advertising', 'OOH Advertising', '/outdoor-advertising-dubai/',
       'OOH Advertising | Wide Wings Media Digital Agency Dubai',
       'We deliver impactful out-of-home advertising that amplifies brand visibility across key locations. From billboards to transit media, we help your message reach audiences beyond digital screens.',
       'Service'),
@@ -348,7 +339,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — OOH Advertising Agency Dubai',
   },
   {
-    ...makeSeo('analytics-performance', 'Analytics & Performance Marketing', '/analytics-performance',
+    ...makeSeo('analytics-performance', 'Analytics & Performance Marketing', '/analytics-performance-marketing/',
       'Analytics & Performance Marketing | Wide Wings Media Digital Agency Dubai',
       "We're not just a media buying agency, we build performance systems that scale. From strategy to execution, every campaign is designed to convert, not just reach.",
       'Service'),
@@ -359,7 +350,7 @@ const seoData: SeoData[] = [
     featuredImageAlt: 'Wide Wings Media — Analytics & Performance Marketing Dubai',
   },
   {
-    ...makeSeo('pr-management', 'PR Management', '/pr-management',
+    ...makeSeo('pr-management', 'PR Management', '/pr-management/',
       'PR Management | Wide Wings Media Digital Agency Dubai',
       'We position your brand where it matters. Through the right narratives, the right platforms, and the right timing. Every move is intentional, built to strengthen credibility and visibility.',
       'Service'),

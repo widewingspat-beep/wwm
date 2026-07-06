@@ -2,7 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
 import './news.css';
+
+const PAGE_SCHEMA = getPageSchema('news');
 
 export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata('news');
@@ -28,6 +32,7 @@ const NEWS = [
 export default function NewsPage() {
   return (
     <>
+      <SchemaScripts blocks={PAGE_SCHEMA} />
       {/* Hero */}
       <section className="nws-hero">
         <div className="nws-hero-blob" aria-hidden="true" />

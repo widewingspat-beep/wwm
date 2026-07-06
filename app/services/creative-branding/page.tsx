@@ -224,7 +224,7 @@ export default function CreativeBrandingPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>Creative &amp; Branding</span>
           </nav>

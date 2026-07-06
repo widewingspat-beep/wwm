@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ChatWidget from "@/components/ChatWidget";
 import { getPageMetadata } from "@/lib/seo";
+import { SITEWIDE_SCHEMA } from "@/lib/schema";
 
 const STATIC_DEFAULTS: Metadata = {
   authors: [{ name: 'Wide Wings Media' }],
@@ -50,48 +51,7 @@ export default async function RootLayout({
         {!isAdmin && (
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://wwm-mu.vercel.app/#organization",
-                  "name": "Wide Wings Media",
-                  "url": "https://wwm-mu.vercel.app",
-                  "logo": { "@type": "ImageObject", "url": "https://wwm-mu.vercel.app/LogoColour.svg" },
-                  "description": "Full-service digital marketing agency in Dubai specialising in SEO, paid advertising, social media management, web development, branding, OOH advertising, and PR across UAE and GCC.",
-                  "foundingDate": "2020",
-                  "areaServed": ["Dubai", "UAE", "GCC"],
-                  "sameAs": ["https://wide-wings.ae"],
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": "+971-4-335-2645",
-                    "contactType": "customer service",
-                    "areaServed": "AE",
-                    "availableLanguage": ["English", "Arabic"]
-                  }
-                },
-                {
-                  "@type": "LocalBusiness",
-                  "@id": "https://wwm-mu.vercel.app/#localbusiness",
-                  "name": "Wide Wings Media",
-                  "image": "https://wwm-mu.vercel.app/LogoColour.svg",
-                  "url": "https://wwm-mu.vercel.app",
-                  "telephone": "+971-4-335-2645",
-                  "email": "info@wide-wings.ae",
-                  "priceRange": "$$",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Al Quoz Industrial Area 3",
-                    "addressLocality": "Dubai",
-                    "addressCountry": "AE"
-                  },
-                  "geo": { "@type": "GeoCoordinates", "latitude": 25.1480, "longitude": 55.2200 },
-                  "openingHours": "Mo-Fr 09:00-18:00",
-                  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50" }
-                }
-              ]
-            })}}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(SITEWIDE_SCHEMA) }}
           />
         )}
         {!isAdmin && <ScrollReveal />}

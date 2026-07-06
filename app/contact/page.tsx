@@ -3,6 +3,10 @@
 import { useState, useRef, MouseEvent, useCallback } from 'react';
 import Link from 'next/link';
 import './contact.css';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
+
+const PAGE_SCHEMA = getPageSchema('contact-us');
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -50,6 +54,7 @@ export default function ContactPage() {
 
   return (
     <main>
+      <SchemaScripts blocks={PAGE_SCHEMA} />
       {/* HERO */}
       <section id="contact-hero">
         <div className="contact-hero-blob"></div>

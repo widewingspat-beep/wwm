@@ -1,274 +1,261 @@
-'use client';
-
+import React from 'react';
 import Link from 'next/link';
-import './digital-marketing-services.css';
+import '../services/services.css';
+import CtaCanvas from '../services/CtaCanvas';
+import ServiceShowcase from '../services/ServiceShowcase';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
 
-const services = [
+const PAGE_SCHEMA = getPageSchema('digital-marketing-services');
+
+const SERVICES = [
   {
     num: '01',
     title: 'Web & App Development',
-    href: '/web-app-development',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds1)" strokeWidth="1.8">
-        <defs><linearGradient id="ds1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
-      </svg>
-    ),
+    slug: '/web-design-company-dubai',
+    desc: 'From sleek websites to powerful mobile applications, we build digital products that perform — fast, secure, and built to scale with your business.',
   },
   {
     num: '02',
     title: 'Creative & Branding',
-    href: '/creative-branding',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds2)" strokeWidth="1.8">
-        <defs><linearGradient id="ds2" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-      </svg>
-    ),
+    slug: '/creative-branding',
+    desc: 'We craft identities that resonate. From logo design to full brand systems, we ensure your brand speaks clearly across every touchpoint.',
   },
   {
     num: '03',
     title: 'Paid Advertising & Media Buying',
-    href: '/paid-advertising',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds3)" strokeWidth="1.8">
-        <defs><linearGradient id="ds3" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
-      </svg>
-    ),
+    slug: '/ppc-advertising-company-dubai',
+    desc: 'Hyper-targeted campaigns across Google, Meta, TikTok, and beyond. We maximise your ROI with data-driven ad strategies designed to convert.',
   },
   {
     num: '04',
     title: 'Social Media Management',
-    href: '/social-media-management',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds4)" strokeWidth="1.8">
-        <defs><linearGradient id="ds4" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-      </svg>
-    ),
+    slug: '/social-media-marketing-agency-in-dubai',
+    desc: 'We manage your social presence end-to-end — content calendars, community management, and growth strategies that build loyal audiences.',
   },
   {
     num: '05',
     title: 'Content Creation & Graphic Design',
-    href: '/content-creation',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds5)" strokeWidth="1.8">
-        <defs><linearGradient id="ds5" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-      </svg>
-    ),
+    slug: '/content-creation-graphic-design',
+    desc: 'Compelling visuals, videos, and copy that stop the scroll. Our creative team produces content that drives engagement and reflects your brand perfectly.',
   },
   {
     num: '06',
     title: 'Email, SMS & CRM Marketing',
-    href: '/email-sms-crm',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds6)" strokeWidth="1.8">
-        <defs><linearGradient id="ds6" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-      </svg>
-    ),
+    slug: '/email-sms-crm-marketing',
+    desc: 'Keep your audience engaged and your pipeline full. We design and automate email and SMS campaigns that nurture leads into loyal customers.',
   },
   {
     num: '07',
     title: 'SEO & Performance Management',
-    href: '/seo-performance',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds7)" strokeWidth="1.8">
-        <defs><linearGradient id="ds7" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    ),
+    slug: '/seo-services-dubai',
+    desc: 'Rank higher, get found faster. Our SEO strategies are built on keyword intelligence, technical audits, and content that earns authority.',
   },
   {
     num: '08',
     title: 'OOH Advertising',
-    href: '/ooh-advertising',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds8)" strokeWidth="1.8">
-        <defs><linearGradient id="ds8" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
+    slug: '/outdoor-advertising-dubai',
+    desc: 'Billboards, unipoles, bridge banners, and digital screens across the UAE. We plan and execute out-of-home campaigns that make your brand impossible to ignore.',
   },
   {
     num: '09',
     title: 'Analytics & Performance Marketing',
-    href: '/analytics-performance',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds9)" strokeWidth="1.8">
-        <defs><linearGradient id="ds9" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-      </svg>
-    ),
+    slug: '/analytics-performance-marketing',
+    desc: 'Data is your competitive edge. We track, measure, and optimise every campaign to turn intent into measurable, real-world growth.',
   },
   {
     num: '10',
     title: 'PR Management',
-    href: '/pr-management',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="url(#ds10)" strokeWidth="1.8">
-        <defs><linearGradient id="ds10" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#b62d83"/><stop offset="1" stopColor="#cfa821"/></linearGradient></defs>
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-    ),
+    slug: '/pr-management',
+    desc: 'From press releases to crisis communications, we protect and elevate your reputation through strategic media relations and influencer outreach.',
   },
 ];
 
-const valueProps = [
+const VALUE_PROPS = [
   {
-    num: '01',
-    title: 'Keywords Optimized for Conversion',
-    desc: 'Get in front of high-intent customers with hyper-targeted campaigns and display ads that put your brand exactly where your audience is searching.',
+    title: 'Keywords Optimised for Conversion',
+    body: 'Get in front of high-intent customers with hyper-targeted campaigns and display ads designed to drive action at every stage of the funnel.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="24" r="20"/>
+        <circle cx="24" cy="24" r="12"/>
+        <circle cx="24" cy="24" r="4" fill="currentColor" stroke="none"/>
+        <line x1="24" y1="4" x2="24" y2="10"/>
+        <line x1="24" y1="38" x2="24" y2="44"/>
+        <line x1="4" y1="24" x2="10" y2="24"/>
+        <line x1="38" y1="24" x2="44" y2="24"/>
+      </svg>
+    ),
   },
   {
-    num: '02',
     title: 'Top of Mind, Bottom of Funnel',
-    desc: 'We capture top-funnel traffic and transform it into bottom-funnel conversions through rapid experimentation and data-backed creative testing.',
+    body: 'We capture top-funnel traffic and transform it into bottom-funnel conversions through rapid experimentation and proven frameworks.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 10h32l-12 16v10l-8-4V26L8 10z"/>
+        <line x1="6" y1="10" x2="42" y2="10"/>
+      </svg>
+    ),
   },
   {
-    num: '03',
-    title: 'Turn Intent Into Measurable Growth',
-    desc: 'By unlocking high-quality consumer intent, we fuel rapid and measurable growth through quality leads that convert into loyal, long-term customers.',
+    title: 'Turn Intent into Measurable Growth',
+    body: 'By unlocking high-quality consumer intent, we fuel rapid and measurable growth through quality leads and performance-first strategies.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6,36 18,22 26,30 42,12"/>
+        <polyline points="32,12 42,12 42,22"/>
+        <line x1="6" y1="42" x2="42" y2="42"/>
+        <line x1="6" y1="12" x2="6" y2="42"/>
+      </svg>
+    ),
   },
   {
-    num: '04',
-    title: 'Digital Marketing Services with Proven Revenue Growth',
-    desc: 'Our team of paid search growth experts measure and maximize search intent and keyword potential at every stage of the funnel to drive real revenue.',
+    title: 'Proven Revenue Growth',
+    body: 'Our team of growth experts measure and maximise search intent and keyword potential at every stage of the funnel — delivering results you can see.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 4l4.5 9 10 1.5-7.25 7 1.75 10L24 26.5 15 31.5l1.75-10L9.5 14.5l10-1.5z"/>
+        <line x1="24" y1="34" x2="24" y2="44"/>
+        <line x1="16" y1="44" x2="32" y2="44"/>
+      </svg>
+    ),
   },
 ];
 
 export default function DigitalMarketingServicesPage() {
   return (
-    <main>
+    <>
+      <SchemaScripts blocks={PAGE_SCHEMA} />
       {/* ── HERO ── */}
-      <section id="dm-hero">
-        <div className="dm-hero-bg" />
-        <div className="dm-hero-glow-1" />
-        <div className="dm-hero-glow-2" />
-        <div className="dm-hero-inner">
-          <div>
-            <div className="dm-hero-badge">
-              <div className="dm-hero-badge-dot" />
-              <span>Our Digital Marketing Services</span>
-            </div>
-            <h1 className="dm-hero-h1">
-              Boost ROI with <em>Data-Driven</em><br />
-              Digital Marketing Services<br />
-              in Dubai
-            </h1>
-            <p className="dm-hero-sub">
-              Use digital marketing services that are based on data to make your brand stronger. Get a high return on investment (ROI) and more conversions with Wide Wings Media&apos;s digital marketing services, which are data-based. Request a quote now.
-            </p>
-            <p className="dm-hero-sub2">
-              Work with a digital marketing services agency in Dubai that has won awards and is designed to help businesses thrive by making meaningful connections.
-            </p>
-            <div className="dm-hero-actions">
-              <Link href="/contact" className="btn-primary">
-                Request a Quote
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </Link>
-              <Link href="#dm-services" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,.25)', color: '#fff' }}>
-                Our Services
-              </Link>
-            </div>
-          </div>
-          <div>
-            <div className="dm-stat-cards">
-              {[
-                { num: '5+',   lbl: 'Years of Excellence' },
-                { num: '62+',  lbl: 'Clients Served' },
-                { num: '11+',  lbl: 'Countries We Reach' },
-                { num: '50+',  lbl: 'Brand Partners' },
-              ].map((s, i) => (
-                <div key={i} className="dm-stat-card">
-                  <div className="dm-stat-num">{s.num}</div>
-                  <div className="dm-stat-lbl">{s.lbl}</div>
-                </div>
-              ))}
-            </div>
-            <div className="dm-hero-tag">
-              {['SEO', 'Paid Ads', 'Social Media', 'Branding', 'Content', 'PR', 'Analytics', 'Email Marketing'].map(t => (
-                <span key={t}>{t}</span>
-              ))}
-            </div>
+      <section className="svc-hero">
+        <div className="svc-hero-blob" aria-hidden="true" />
+        <div className="svc-hero-sparks" aria-hidden="true">
+          <span className="svc-spark" style={{left:'12%',top:'18%','--sc':'#FF6B5B','--sz':'3px','--op':'0.65','--sd':'2.1s','--dl':'0s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'28%',top:'72%','--sc':'#FFA94D','--sz':'4px','--op':'0.6','--sd':'3.0s','--dl':'0.5s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'45%',top:'15%','--sc':'#FFD166','--sz':'3px','--op':'0.55','--sd':'2.6s','--dl':'1.1s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'60%',top:'80%','--sc':'#06D6A0','--sz':'3px','--op':'0.6','--sd':'2.8s','--dl':'0.3s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'73%',top:'30%','--sc':'#4CC9F0','--sz':'4px','--op':'0.65','--sd':'2.3s','--dl':'0.8s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'85%',top:'65%','--sc':'#9B5DE5','--sz':'3px','--op':'0.55','--sd':'3.2s','--dl':'0.2s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'18%',top:'45%','--sc':'#FF6B5B','--sz':'2px','--op':'0.5','--sd':'2.5s','--dl':'1.4s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'52%',top:'55%','--sc':'#FFA94D','--sz':'2px','--op':'0.5','--sd':'2.9s','--dl':'0.7s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'78%',top:'12%','--sc':'#FFD166','--sz':'2px','--op':'0.5','--sd':'3.4s','--dl':'0.4s'} as React.CSSProperties} />
+          <span className="svc-spark" style={{left:'90%',top:'42%','--sc':'#06D6A0','--sz':'3px','--op':'0.55','--sd':'2.7s','--dl':'1.2s'} as React.CSSProperties} />
+        </div>
+
+        <div className="svc-hero-inner">
+          <nav className="svc-breadcrumb" aria-label="breadcrumb">
+            <Link href="/">Home</Link>
+            <span className="svc-bc-sep">/</span>
+            <span>Services</span>
+          </nav>
+
+          <h1 className="svc-hero-h1">
+            <em>Digital Marketing</em><br />Services
+          </h1>
+
+          <p className="svc-hero-sub">
+            Use digital marketing services based on data to make your brand stronger.
+            Get a high return on investment and more conversions with Wide Wings Media.
+          </p>
+
+          <div className="svc-hero-btns">
+            <Link href="/contact" className="svc-btn-primary">
+              Free Consultation
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES GRID ── */}
-      <section id="dm-services">
-        <div className="container">
-          <div className="dm-services-header">
-            <span className="section-label">What We Do</span>
-            <h2 className="dm-services-h2">
-              Full-Service <span className="gradient-text">Digital Marketing</span> Agency
-            </h2>
-            <p className="dm-services-sub">
-              Every service we offer is designed to work together — so your brand grows with momentum, not just isolated wins.
+      {/* ── PARTNER BAND ── */}
+      <div data-reveal className="svc-band">
+        <span className="svc-band-tag">TOP RANKED</span>
+        <p className="svc-band-text">
+          <strong>Your Partner for Premier Digital Marketing Services</strong> — A trusted partner for startups, scaleups, and established enterprises.
+        </p>
+        <Link href="/contact" className="svc-band-cta">
+          Take the Leap
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </Link>
+      </div>
+
+      {/* ── SERVICE LIST ── */}
+      <section id="svc-list" className="svc-list-section">
+        <div className="svc-list-inner">
+
+          {/* LEFT COLUMN */}
+          <div className="svc-list-left">
+            <div data-reveal className="svc-list-heading">
+              <strong className="svc-lh-main">Digital Marketing Services</strong>
+            </div>
+            {/* Animated service showcase */}
+            <div data-reveal data-reveal-delay="100">
+              <ServiceShowcase />
+            </div>
+            <p data-reveal data-reveal-delay="200" className="svc-list-desc">
+              Use digital marketing services that are based on data to make your brand stronger.
+              Get a high return on investment (ROI) and more conversions with Wide Wings Media&apos;s
+              digital marketing services, which are data-based. Request a quote now.
+            </p>
+            <p data-reveal data-reveal-delay="280" className="svc-list-desc">
+              Work with a digital marketing services agency in Dubai that has won awards and is
+              designed to help businesses thrive by making meaningful connections.
             </p>
           </div>
-          <div className="dm-services-grid">
-            {services.map(svc => (
-              <Link key={svc.num} href={svc.href} className="dm-svc-card">
-                <div className="dm-svc-num">{svc.num}</div>
-                <div className="dm-svc-icon">{svc.icon}</div>
-                <div className="dm-svc-title">{svc.title}</div>
-                <div className="dm-svc-arrow">
-                  Learn More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </div>
+
+          {/* RIGHT COLUMN — lined list */}
+          <div className="svc-list-right">
+            {SERVICES.map((s, i) => (
+              <Link key={s.slug} href={s.slug} className="svc-row" data-reveal data-reveal-delay={String(i * 60)}>
+                <span className="svc-row-title">{s.title}</span>
+                <svg className="svc-row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M9 7h8v8"/>
+                </svg>
               </Link>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── VALUE PROPS ── */}
+      <section className="svc-values">
+        <span className="svc-values-watermark" aria-hidden="true">WIDE WINGS</span>
+        <div className="svc-values-inner">
+          <div data-reveal className="svc-values-head">
+            <div className="svc-eyebrow"><span className="svc-dot" />Why Choose Us</div>
+            <h2 className="svc-values-h2">Take the Leap from<br /><em>Experiments to Conversions</em></h2>
+          </div>
+          <div className="svc-values-grid">
+            {VALUE_PROPS.map((v, i) => (
+              <div key={i} className="svc-value-card" data-reveal data-reveal-delay={String(i * 100)}>
+                <div className="svc-value-icon">{v.icon}</div>
+                <h3 className="svc-value-title">{v.title}</h3>
+                <p className="svc-value-body">{v.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── VALUE PROPS ── */}
-      <section id="dm-value">
-        <div className="dm-value-glow" />
-        <div className="container">
-          <div className="dm-value-inner">
-            <div>
-              <div className="dm-value-label">Top Ranked</div>
-              <div className="dm-value-tag">Your Partner for Premier Digital Marketing Services</div>
-              <h2 className="dm-value-h2">
-                Take the Leap from<br />
-                <span className="gradient-text">Experiments to Conversions</span>
-              </h2>
-              <p className="dm-value-trust">A trusted partner for startups, scaleups, and Fortune 100s.</p>
-              <div className="dm-value-cta">
-                <Link href="/contact" className="btn-primary">Free Consultation</Link>
-              </div>
-            </div>
-            <div className="dm-props-list">
-              {valueProps.map(p => (
-                <div key={p.num} className="dm-prop-item">
-                  <div className="dm-prop-num">{p.num}</div>
-                  <div className="dm-prop-body">
-                    <div className="dm-prop-title">{p.title}</div>
-                    <p className="dm-prop-desc">{p.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
-      <section id="dm-cta">
-        <div className="container">
-          <h2 className="dm-cta-h2">
-            Have Any Project <span>in Mind..?</span>
-          </h2>
-          <Link href="/contact" className="btn-primary">
+      <section className="svc-cta">
+        <CtaCanvas />
+        <div data-reveal className="svc-cta-inner">
+          <h2 className="svc-cta-h2">Have Any Project in Mind?</h2>
+          <p className="svc-cta-sub">
+            Let&apos;s discuss how we can drive measurable growth for your business.
+          </p>
+          <Link href="/contact" className="svc-btn-primary">
             Free Consultation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
           </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }

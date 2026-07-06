@@ -1,17 +1,22 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
-import './blogs.css';
-import BlogsClient from './BlogsClient';
-import { POSTS } from './posts-data';
+import '../blogs/blogs.css';
+import BlogsClient from '../blogs/BlogsClient';
+import { POSTS } from '../blogs/posts-data';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
+
+const PAGE_SCHEMA = getPageSchema('insights');
 
 export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata('blogs');
 }
 
-export default function BlogsPage() {
+export default function InsightsPage() {
   return (
     <>
+      <SchemaScripts blocks={PAGE_SCHEMA} />
       {/* Hero */}
       <section className="blg-hero">
         <div className="blg-hero-blob" aria-hidden="true" />

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './content-creation.css';
+import './content-creation-graphic-design.css';
 
 const EXPERTISE = [
   {
@@ -171,7 +171,7 @@ export default function ContentCreationPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>Content Creation</span>
           </nav>

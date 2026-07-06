@@ -14,6 +14,14 @@ type Post = {
 
 const PER_PAGE = 6;
 
+const READ_MORE_PHRASES = [
+  'See how to grow your brand',
+  'Get the full story',
+  'Explore more strategies',
+  'Boost your marketing game',
+  'Find out more about this topic',
+];
+
 export default function BlogsClient({ posts }: { posts: Post[] }) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [page, setPage] = useState(1);
@@ -103,19 +111,19 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               <p className="blg-empty">No posts in this category yet.</p>
             ) : (
               <div className="blg-grid">
-                {visible.map(post => (
+                {visible.map((post, i) => (
                   <article key={post.slug} className="blg-card">
-                    <Link href={`/${post.slug}`} className="blg-card-img">
+                    <Link href={`/${post.slug}/`} className="blg-card-img">
                       <Image src={post.image} alt={post.title} width={600} height={340} className="blg-card-img-el" />
                       <span className="blg-card-cat">{post.category}</span>
                     </Link>
                     <div className="blg-card-body">
                       <h2 className="blg-card-title">
-                        <Link href={`/${post.slug}`}>{post.title}</Link>
+                        <Link href={`/${post.slug}/`}>{post.title}</Link>
                       </h2>
                       <p className="blg-card-excerpt">{post.excerpt}</p>
-                      <Link href={`/${post.slug}`} className="blg-card-link">
-                        Read More<span className="sr-only"> about {post.title}</span>
+                      <Link href={`/${post.slug}/`} className="blg-card-link">
+                        {READ_MORE_PHRASES[i % READ_MORE_PHRASES.length]}<span className="sr-only"> about {post.title}</span>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                         </svg>
@@ -155,7 +163,7 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               <ul className="blg-recent-list">
                 {recent.map(post => (
                   <li key={post.slug} className="blg-recent-item">
-                    <a href={`/${post.slug}`} className="blg-recent-link">
+                    <a href={`/${post.slug}/`} className="blg-recent-link">
                       <div className="blg-recent-thumb">
                         <Image src={post.image} alt={post.title} width={58} height={42} className="blg-recent-img" />
                       </div>

@@ -5,6 +5,10 @@ import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import './about-us.css';
 import CtaCanvas from '../services/CtaCanvas';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
+
+const PAGE_SCHEMA = getPageSchema('about-us');
 
 const team = [
   { name: 'Mina Banoub',              title: 'Sales Director',           img: '/Mina.webp' },
@@ -225,6 +229,7 @@ function CtaSection() {
 export default function AboutUsPage() {
   return (
     <div id="au-page">
+      <SchemaScripts blocks={PAGE_SCHEMA} />
 
       {/* ── HERO ── */}
       <section id="au-hero-orig">

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './web-app-development.css';
+import './web-design-company-dubai.css';
 import WadExpertiseAccordion from './WadExpertiseAccordion';
 
 const WHAT_WE_DO = [
@@ -108,7 +108,7 @@ export default function WebAppDevelopmentPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>Web &amp; App Development</span>
           </nav>

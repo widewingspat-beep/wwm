@@ -55,9 +55,9 @@ export default function Header() {
       <nav id="site-nav" ref={navRef}>
         <ul className="nav-links">
           <li><Link href="/" className={isActive('/') ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
-          <li><Link href="/services" className={pathname.startsWith('/services') ? 'active' : ''} onClick={closeMenu}>Services</Link></li>
+          <li><Link href="/digital-marketing-services/" className={isActive('/digital-marketing-services/') ? 'active' : ''} onClick={closeMenu}>Services</Link></li>
           <li><Link href="/about-us" className={isActive('/about-us') ? 'active' : ''} onClick={closeMenu}>About Us</Link></li>
-          <li><Link href="/blogs" className={isActive('/blogs') ? 'active' : ''} onClick={closeMenu}>Blogs</Link></li>
+          <li><Link href="/insights/" className={isActive('/insights/') ? 'active' : ''} onClick={closeMenu}>Blogs</Link></li>
           <li><Link href="/news" className={isActive('/news') ? 'active' : ''} onClick={closeMenu}>News</Link></li>
           <li><Link href="/contact" className={isActive('/contact') ? 'active' : ''} onClick={closeMenu}>Contact Us</Link></li>
         </ul>

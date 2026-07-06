@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './seo-performance.css';
+import './seo-services-dubai.css';
 
 const EXPERTISE = [
   {
@@ -145,7 +145,7 @@ export default function SeoPerformancePage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>SEO &amp; Performance</span>
           </nav>

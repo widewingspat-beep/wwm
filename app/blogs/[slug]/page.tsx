@@ -8,6 +8,8 @@ import '../blog-post.css';
 import FaqAccordion from './FaqAccordion';
 import { getBlogContent } from '@/lib/admin/blog-kv';
 import { getPageMetadata } from '@/lib/seo';
+import { getPageSchema } from '@/lib/schema';
+import SchemaScripts from '@/components/SchemaScripts';
 
 export const revalidate = 0; // always fetch fresh from KV, never cache
 
@@ -5038,6 +5040,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     ? <div dangerouslySetInnerHTML={{ __html: kvHtml }} />
     : CONTENT[slug];
   const related = getRelated(slug, post.category);
+  const postSchema = getPageSchema(slug);
 
   /* TOC: pull h2 headings from content string representation */
   const tocItems = [
@@ -5055,6 +5058,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <SchemaScripts blocks={postSchema} />
       {/* ── HERO ── */}
       <section className="bp-hero">
         <div className="bp-hero-blob" aria-hidden="true" />
@@ -5062,7 +5066,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <nav className="bp-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="bp-bc-sep">/</span>
-            <Link href="/blogs">Blogs</Link>
+            <Link href="/insights/">Blogs</Link>
             <span className="bp-bc-sep">/</span>
             <span>{post.category}</span>
           </nav>

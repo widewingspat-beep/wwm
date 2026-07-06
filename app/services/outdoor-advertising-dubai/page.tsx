@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './ooh-advertising.css';
+import './outdoor-advertising-dubai.css';
 
 const EXPERTISE = [
   {
@@ -111,7 +111,7 @@ export default function OohAdvertisingPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>OOH Advertising</span>
           </nav>

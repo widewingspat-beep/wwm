@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { getPageMetadata } from '@/lib/seo';
 import '../services.css';
 import '../service-page.css';
-import './social-media-management.css';
+import './social-media-marketing-agency-in-dubai.css';
 
 const WHY_US = [
   {
@@ -165,7 +165,7 @@ export default function SocialMediaManagementPage() {
           <nav className="svc-breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link>
             <span className="svc-bc-sep">/</span>
-            <Link href="/services">Services</Link>
+            <Link href="/digital-marketing-services/">Services</Link>
             <span className="svc-bc-sep">/</span>
             <span>Social Media Management</span>
           </nav>

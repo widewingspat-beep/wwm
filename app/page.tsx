@@ -5,7 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ServiceFlipText from '@/components/ServiceFlipText';
 import LogoWhite from '@/components/LogoWhite';
+import SchemaScripts from '@/components/SchemaScripts';
+import { getPageSchema } from '@/lib/schema';
 import './home.css';
+
+const HOME_SCHEMA = getPageSchema('home');
 
 export default function HomePage() {
   useEffect(() => {
@@ -177,6 +181,7 @@ export default function HomePage() {
 
   return (
     <main>
+      <SchemaScripts blocks={HOME_SCHEMA} />
       {/* HERO */}
       <section id="hero">
         <div className="hero-bg"></div>
@@ -490,13 +495,13 @@ export default function HomePage() {
         <div className="container">
           <div className="blogs-header">
             <div><span className="section-label">Insights</span><h2 className="blogs-h2">Recent <span className="gradient-text">Blogs</span></h2></div>
-            <Link href="/blogs" className="btn-outline">All Articles</Link>
+            <Link href="/insights/" className="btn-outline">All Articles</Link>
           </div>
           <div className="blogs-grid">
             {[
-              { img:'blog-ecommerce.webp', tag:'E-Commerce', date:'January 15, 2026', title:'Ecommerce Website Development in Dubai for Scalable Growth', excerpt:'Get high-converting ecommerce website development in Dubai & UAE. Fast, secure, mobile-first online stores built for growth.', href:'/ecommerce-website-development-dubai' },
-              { img:'blog-sem.webp', tag:'SEM', date:'January 13, 2026', title:'Search Engine Marketing Company in Dubai — SEM Services UAE', excerpt:'ROI-focused search engine marketing company in Dubai delivering high-intent PPC campaigns built for the UAE market.', href:'/search-engine-marketing-company-dubai' },
-              { img:'blog-ppc.webp', tag:'PPC', date:'January 8, 2026', title:'PPC for E-commerce Websites in Dubai: Where to Start', excerpt:"Smart PPC for e-commerce websites in Dubai that aligns with buyer intent — decision-led Google Ads strategies that convert.", href:'/ppc-for-ecommerce-dubai' },
+              { img:'blog-ecommerce.webp', tag:'E-Commerce', date:'January 15, 2026', title:'Ecommerce Website Development in Dubai for Scalable Growth', excerpt:'Get high-converting ecommerce website development in Dubai & UAE. Fast, secure, mobile-first online stores built for growth.', href:'/ecommerce-website-development-dubai/', cta:'See how to grow your brand' },
+              { img:'blog-sem.webp', tag:'SEM', date:'January 13, 2026', title:'Search Engine Marketing Company in Dubai — SEM Services UAE', excerpt:'ROI-focused search engine marketing company in Dubai delivering high-intent PPC campaigns built for the UAE market.', href:'/search-engine-marketing-company-dubai/', cta:'Get the full story' },
+              { img:'blog-ppc.webp', tag:'PPC', date:'January 8, 2026', title:'PPC for E-commerce Websites in Dubai: Where to Start', excerpt:"Smart PPC for e-commerce websites in Dubai that aligns with buyer intent — decision-led Google Ads strategies that convert.", href:'/ppc-for-ecommerce-dubai/', cta:'Explore more strategies' },
             ].map((blog, i) => (
               <Link key={i} href={blog.href} className="blog-card">
                 <div className="blog-thumb">
@@ -507,7 +512,7 @@ export default function HomePage() {
                   <div className="blog-date">{blog.date}</div>
                   <div className="blog-title">{blog.title}</div>
                   <div className="blog-excerpt">{blog.excerpt}</div>
-                  <span className="blog-link">Read More →</span>
+                  <span className="blog-link">{blog.cta} →</span>
                 </div>
               </Link>
             ))}
