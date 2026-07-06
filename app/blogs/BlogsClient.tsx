@@ -10,17 +10,10 @@ type Post = {
   excerpt: string;
   category: string;
   image: string;
+  cta: string;
 };
 
 const PER_PAGE = 6;
-
-const READ_MORE_PHRASES = [
-  'See how to grow your brand',
-  'Get the full story',
-  'Explore more strategies',
-  'Boost your marketing game',
-  'Find out more about this topic',
-];
 
 export default function BlogsClient({ posts }: { posts: Post[] }) {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -111,7 +104,7 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
               <p className="blg-empty">No posts in this category yet.</p>
             ) : (
               <div className="blg-grid">
-                {visible.map((post, i) => (
+                {visible.map((post) => (
                   <article key={post.slug} className="blg-card">
                     <Link href={`/${post.slug}/`} className="blg-card-img">
                       <Image src={post.image} alt={post.title} width={600} height={340} className="blg-card-img-el" />
@@ -123,7 +116,7 @@ export default function BlogsClient({ posts }: { posts: Post[] }) {
                       </h2>
                       <p className="blg-card-excerpt">{post.excerpt}</p>
                       <Link href={`/${post.slug}/`} className="blg-card-link">
-                        {READ_MORE_PHRASES[i % READ_MORE_PHRASES.length]}<span className="sr-only"> about {post.title}</span>
+                        {post.cta}<span className="sr-only"> about {post.title}</span>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                         </svg>
