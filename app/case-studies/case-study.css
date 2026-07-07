@@ -592,6 +592,78 @@
   .cs-services-grid { grid-template-columns: 1fr; }
 }
 
+/* Grouped services (categorized scope of work) */
+.cs-service-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+}
+.cs-service-group-title {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-weight: 900;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cs-services-grid-single {
+  margin-top: 4px;
+}
+
+/* Impact list (title + description pairs) */
+.cs-impact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+.cs-impact-item {
+  padding-left: 20px;
+  border-left: 2px solid var(--magenta);
+}
+.cs-impact-heading {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-weight: 900;
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+.cs-impact-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Testimonial */
+.cs-testimonial-section { text-align: center; }
+.cs-testimonial {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cs-testimonial-quote {
+  font-family: 'Nexa', 'Calibri', sans-serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.cs-testimonial-quote::before,
+.cs-testimonial-quote::after {
+  content: '"';
+  color: var(--gold);
+}
+.cs-testimonial-attribution {
+  font-family: 'Calibri', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 /* Results */
 .cs-results-groups {
   display: grid;

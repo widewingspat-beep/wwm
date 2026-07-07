@@ -40,9 +40,19 @@ export function CaseSplit({ image, imageAlt, reverse, children }: CaseSplitProps
 
 type MetaItem = { label: string; value: string };
 
-export function CaseIntro({ meta, paragraphs, visual }: { meta: MetaItem[]; paragraphs: string[]; visual?: ReactNode }) {
+export function CaseIntro({
+  title,
+  meta,
+  paragraphs,
+  visual,
+}: {
+  title: string;
+  meta: MetaItem[];
+  paragraphs: string[];
+  visual?: ReactNode;
+}) {
   return (
-    <CaseSection eyebrow="Overview" title="About Zaina Cafe">
+    <CaseSection eyebrow="Overview" title={title}>
       <div className={visual ? 'cs-intro-grid' : undefined}>
         <div>
           <div className="cs-meta-row">
@@ -63,12 +73,20 @@ export function CaseIntro({ meta, paragraphs, visual }: { meta: MetaItem[]; para
   );
 }
 
-export function CaseChallenges({ intro, items }: { intro: string; items: string[] }) {
+export function CaseChallenges({
+  title = 'Challenges',
+  intro,
+  items,
+}: {
+  title?: string;
+  intro?: string;
+  items: string[];
+}) {
   return (
     <>
       <p className="cs-eyebrow">The Brief</p>
-      <h2 className="cs-section-title">Challenges</h2>
-      <p className="cs-lead">{intro}</p>
+      <h2 className="cs-section-title">{title}</h2>
+      {intro && <p className="cs-lead">{intro}</p>}
       <div className="cs-challenge-list">
         {items.map((item, i) => (
           <div className="cs-challenge-item" key={item}>
@@ -100,16 +118,62 @@ export function CaseProcess({ steps }: { steps: ProcessStep[] }) {
   );
 }
 
-export function CaseServices({ items }: { items: string[] }) {
+function ServiceCheck() {
   return (
-    <CaseSection eyebrow="Scope of Work" title="Services We Provided">
+    <span className="cs-service-check">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+    </span>
+  );
+}
+
+export function CaseServices({
+  eyebrow = 'Scope of Work',
+  title = 'Services We Provided',
+  items,
+}: {
+  eyebrow?: string;
+  title?: string;
+  items: string[];
+}) {
+  return (
+    <CaseSection eyebrow={eyebrow} title={title}>
       <div className="cs-services-grid">
         {items.map((item) => (
           <div className="cs-service-item" key={item}>
-            <span className="cs-service-check">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
-            </span>
+            <ServiceCheck />
             {item}
+          </div>
+        ))}
+      </div>
+    </CaseSection>
+  );
+}
+
+type ServiceGroup = { heading: string; items: string[] };
+
+export function CaseServiceGroups({
+  eyebrow = 'Scope of Work',
+  title = 'Services We Provide',
+  groups,
+}: {
+  eyebrow?: string;
+  title?: string;
+  groups: ServiceGroup[];
+}) {
+  return (
+    <CaseSection eyebrow={eyebrow} title={title}>
+      <div className="cs-service-groups">
+        {groups.map((group) => (
+          <div className="cs-service-group" key={group.heading}>
+            <p className="cs-service-group-title">{group.heading}</p>
+            <div className="cs-services-grid cs-services-grid-single">
+              {group.items.map((item) => (
+                <div className="cs-service-item" key={item}>
+                  <ServiceCheck />
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -138,6 +202,44 @@ export function CaseResults({ groups }: { groups: ResultGroup[] }) {
         ))}
       </div>
     </CaseSection>
+  );
+}
+
+type ImpactItem = { heading: string; description: string };
+
+export function CaseImpactList({
+  eyebrow = 'The Outcome',
+  title = 'Results & Business Impact',
+  items,
+}: {
+  eyebrow?: string;
+  title?: string;
+  items: ImpactItem[];
+}) {
+  return (
+    <CaseSection eyebrow={eyebrow} title={title}>
+      <div className="cs-impact-list">
+        {items.map((item) => (
+          <div className="cs-impact-item" key={item.heading}>
+            <p className="cs-impact-heading">{item.heading}</p>
+            <p className="cs-impact-desc">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </CaseSection>
+  );
+}
+
+export function CaseTestimonial({ quote, attribution }: { quote: string; attribution: string }) {
+  return (
+    <section className="cs-section cs-section-alt cs-testimonial-section">
+      <div className="cs-container">
+        <blockquote className="cs-testimonial">
+          <p className="cs-testimonial-quote">{quote}</p>
+          <p className="cs-testimonial-attribution">{attribution}</p>
+        </blockquote>
+      </div>
+    </section>
   );
 }
 

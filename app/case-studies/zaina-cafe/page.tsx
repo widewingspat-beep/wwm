@@ -51,6 +51,7 @@ export default function ZainaCafeCaseStudy() {
       />
 
       <CaseIntro
+        title="About Zaina Cafe"
         meta={[
           { label: 'Category', value: 'Food & Beverage' },
           { label: 'Location', value: 'UAE — Dubai, Ajman, Sharjah, and Umm Al Quwain' },
