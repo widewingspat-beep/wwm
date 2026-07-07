@@ -28,10 +28,10 @@ export default function CaseHero({ image, category, client, title, result }: Cas
 
         <div className="cs-hero-meta">
           <span className="cs-hero-tag">{category}</span>
-          <span className="cs-hero-client">{client}</span>
         </div>
 
-        <h1 className="cs-hero-title">{title}</h1>
+        <h1 className="cs-hero-client">{client}</h1>
+        <p className="cs-hero-title">{title}</p>
         <p className="cs-hero-result">{result}</p>
 
         <div className="cs-hero-btns">
