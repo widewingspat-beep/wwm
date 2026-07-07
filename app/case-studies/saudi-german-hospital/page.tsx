@@ -13,7 +13,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Saudi German Hospital Group: Healthcare Brand Growth Case Study',
-  description: 'How Wide Wings Media grew Saudi German Hospital Group’s digital presence, achieving a 600% increase in traffic and 5x ROAS across MENA.',
+  description: 'Saudi German Health is one of the region’s leading private healthcare groups, delivering multi-specialty hospital care, clinics, and advanced medical services across the MENA region.',
 };
 
 export default function SaudiGermanHospitalCaseStudy() {
@@ -24,7 +24,7 @@ export default function SaudiGermanHospitalCaseStudy() {
         category="Healthcare"
         client="Saudi German Hospital Group"
         title="Healthcare Brand Growth"
-        result={<>Achieved <strong>600% increase in traffic</strong> and <strong>5&times; ROAS</strong> across MENA.</>}
+        result="Built a unified yet locally relevant social media presence across SGH branches in Saudi Arabia, the UAE, and Egypt, supported by region-specific websites that maintain a consistent brand experience."
       />
 
       <CaseIntro
