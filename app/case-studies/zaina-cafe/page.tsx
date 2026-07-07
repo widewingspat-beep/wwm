@@ -52,11 +52,11 @@ export default function ZainaCafeCaseStudy() {
       <CaseIntro
         meta={[
           { label: 'Category', value: 'Food & Beverage' },
-          { label: 'Location', value: 'UAE — Dubai, Ajman, Sharjah & Umm Al Quwain' },
+          { label: 'Location', value: 'UAE — Dubai, Ajman, Sharjah, and Umm Al Quwain' },
         ]}
         paragraphs={[
-          'Zaina Cafe is where every cup tells a story — nestled in the heart of Dubai, delivering an unparalleled experience filled with the rich aromas of premium coffee and the soothing flavors of exquisite tea.',
-          'Zaina Cafe has been our client since their opening, and we’ve worked together on everything from A to Z. Branding, social media management, and website development were the main pillars, alongside many other services along the way.',
+          'Zaina Cafe is where every cup tells a story, nestled conveniently within the heart of Dubai to provide an unparalleled experience filled with the rich aromas of the best coffee and the soothing flavors of our exquisite tea.',
+          'Zaina Cafe has been our client since their opening, we worked together on everything from A to Z. Branding, social media management and website development were the main pillars, in addition to many others, we’ve worked on.',
         ]}
       />
 
@@ -64,7 +64,7 @@ export default function ZainaCafeCaseStudy() {
         <div className="cs-container">
           <CaseSplit image="/zaina/Post-1.jpg" imageAlt="Zaina Cafe delivery campaign creative">
             <CaseChallenges
-              intro="As a growing cafe chain entering and expanding across a competitive UAE F&B market, Zaina Cafe needed a strong launch presence, consistent brand communication, and content that could build familiarity across multiple locations."
+              intro="As a growing café chain entering and expanding across a competitive UAE F&B market, Zaina Café needed a strong launch presence, consistent brand communication, and content that could build familiarity across multiple locations."
               items={[
                 'Establishing a recognizable digital presence from the grand opening stage.',
                 'Creating consistent content that reflects the brand’s premium coffee experience, cultural identity, and welcoming atmosphere.',
@@ -80,8 +80,8 @@ export default function ZainaCafeCaseStudy() {
           <CaseSplit image="/zaina/Post-2.jpg" imageAlt="Zaina Cafe creative campaign execution" reverse>
             <CaseProcess
               steps={[
-                { title: 'Audit & Strategy', description: 'We analyzed the current digital standing, identified gaps, and built a custom roadmap tailored to Zaina Cafe’s specific objectives.' },
-                { title: 'Creation & Execution', description: 'Our specialists deployed the agreed-upon services — producing the necessary creatives, writing the copy, and launching the campaigns.' },
+                { title: 'Audit & Strategy', description: 'We analyzed the current digital standing, identified gaps, and built a custom roadmap tailored to their specific objectives.' },
+                { title: 'Creation & Execution', description: 'Our specialists deployed the agreed-upon services—producing the necessary creatives, writing the copy, and launching the campaigns.' },
                 { title: 'Optimize & Scale', description: 'Post-launch, we actively monitored performance, refined our assets, and adjusted targeting to ensure sustained quality and delivery.' },
               ]}
             />
@@ -97,6 +97,7 @@ export default function ZainaCafeCaseStudy() {
           'Video Production & Animation',
           'UI/UX Design',
           'Social Media Management',
+          'Social media solutions',
           'Performance Marketing & Ads',
           'Media Buying & Planning',
           'SEO & Content',
@@ -109,30 +110,30 @@ export default function ZainaCafeCaseStudy() {
       <CaseResults
         groups={[
           {
-            heading: 'Strategy & Branding',
+            heading: 'Strategy and Branding',
             items: [
               'Improved advertising efficiency through continuous optimization.',
-              'Supported brand growth by understanding goals and objectives to deliver metrics on time.',
+              'Helped brand growth by understanding both goals and objectives to deliver metrics on time.',
               'Successfully launched a refreshed brand identity.',
               'Built a consistent visual presence across all digital platforms.',
-              'Increased brand awareness among the target audience with a strategy that speaks to the right audience while meeting brand goals.',
-              'Strengthened brand positioning within a competitive market — the UAE hospitality and F&B space is thriving.',
+              'Increased brand awareness among the target audience by coming up with a brand strategy that both speaks to the right audience and meets brand goals.',
+              'Strengthened brand positioning within a competitive market; UAE is very thriving in the hospitality and F&B market.',
             ],
           },
           {
             heading: 'Digital Experience',
             items: [
-              'Delivered and published the official Zaina Cafe website.',
+              'Delivered the Zaina website that’s published at the moment.',
               'Improved website speed and technical performance.',
-              'Enhanced user journey, navigation, and landing page conversion rate.',
+              'Enhanced user journey and navigation and landing page conversion rate.',
             ],
           },
           {
             heading: 'Business Outcomes',
             items: [
-              'Supported the successful launch of new products across the menu.',
-              'Expanded into new markets — Zaina Cafe now has three branches, a growth story we’re proud to be part of.',
-              'Increased customer inquiries and generated higher-quality leads for delivery and partnership opportunities.',
+              'Supported the successful launch of a new product or service.',
+              'Expanded into new markets, Zaina Cafe has three branches now that we’re very proud to be part of this growth.',
+              'Increased appointment bookings and generated higher-quality sales opportunities.',
             ],
           },
           {
