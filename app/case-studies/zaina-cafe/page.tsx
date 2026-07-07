@@ -3,6 +3,7 @@ import '../case-study.css';
 import CaseHero from '../CaseHero';
 import CaseGallery, { type GalleryImage } from '../CaseGallery';
 import { CaseIntro, CaseSplit, CaseChallenges, CaseProcess, CaseServices, CaseResults, CaseStats } from '../CaseContent';
+import CaseDonut from '../CaseDonut';
 
 export const metadata: Metadata = {
   title: 'Zaina Cafe: Cafe Chain Launch Case Study',
@@ -58,6 +59,15 @@ export default function ZainaCafeCaseStudy() {
           'Zaina Cafe is where every cup tells a story, nestled conveniently within the heart of Dubai to provide an unparalleled experience filled with the rich aromas of the best coffee and the soothing flavors of our exquisite tea.',
           'Zaina Cafe has been our client since their opening, we worked together on everything from A to Z. Branding, social media management and website development were the main pillars, in addition to many others, we’ve worked on.',
         ]}
+        visual={
+          <CaseDonut
+            title="Cumulative Ad Spend"
+            segments={[
+              { label: 'Instagram', value: 78.5, color: 'var(--magenta)' },
+              { label: 'TikTok', value: 21.5, color: 'var(--gold)' },
+            ]}
+          />
+        }
       />
 
       <section className="cs-section">

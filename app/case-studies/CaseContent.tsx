@@ -40,20 +40,25 @@ export function CaseSplit({ image, imageAlt, reverse, children }: CaseSplitProps
 
 type MetaItem = { label: string; value: string };
 
-export function CaseIntro({ meta, paragraphs }: { meta: MetaItem[]; paragraphs: string[] }) {
+export function CaseIntro({ meta, paragraphs, visual }: { meta: MetaItem[]; paragraphs: string[]; visual?: ReactNode }) {
   return (
     <CaseSection eyebrow="Overview" title="About Zaina Cafe">
-      <div className="cs-meta-row">
-        {meta.map((m) => (
-          <div className="cs-meta-item" key={m.label}>
-            <p className="cs-meta-label">{m.label}</p>
-            <p className="cs-meta-value">{m.value}</p>
+      <div className={visual ? 'cs-intro-grid' : undefined}>
+        <div>
+          <div className="cs-meta-row">
+            {meta.map((m) => (
+              <div className="cs-meta-item" key={m.label}>
+                <p className="cs-meta-label">{m.label}</p>
+                <p className="cs-meta-value">{m.value}</p>
+              </div>
+            ))}
           </div>
-        ))}
+          {paragraphs.map((p) => (
+            <p className="cs-lead" key={p}>{p}</p>
+          ))}
+        </div>
+        {visual && <div className="cs-intro-visual">{visual}</div>}
       </div>
-      {paragraphs.map((p) => (
-        <p className="cs-lead" key={p}>{p}</p>
-      ))}
     </CaseSection>
   );
 }
