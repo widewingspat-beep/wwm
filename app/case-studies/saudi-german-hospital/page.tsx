@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../case-study.css';
 import CaseHero from '../CaseHero';
+import CaseGallery, { type GalleryImage } from '../CaseGallery';
 import {
   CaseIntro,
   CaseChallenges,
@@ -10,6 +11,28 @@ import {
   CaseImpactList,
   CaseTestimonial,
 } from '../CaseContent';
+
+const galleryImages: GalleryImage[] = [
+  { src: '/sgh/sgh-dermatology-sun-protection.jpg', alt: 'Saudi German Hospital dermatology summer skin protection post' },
+  { src: '/sgh/sgh-obgyn-womens-health.jpg', alt: 'Saudi German Hospital OB/GYN women’s health post' },
+  { src: '/sgh/sgh-orthopedics-joint-health.jpg', alt: 'Saudi German Hospital orthopedics joint health post' },
+  { src: '/sgh/sgh-urology-kidney-health.jpg', alt: 'Saudi German Hospital urology kidney health post' },
+  { src: '/sgh/sgh-summer-engagement-post.jpg', alt: 'Saudi German Hospital summer engagement post' },
+  { src: '/sgh/sgh-dental-implants.jpg', alt: 'Saudi German Hospital dental implants post' },
+  { src: '/sgh/sgh-ent-sinus-health.jpg', alt: 'Saudi German Hospital ENT sinus health post' },
+  {
+    src: '/sgh/sgh-gastroenterology-digestive-health.jpg',
+    alt: 'Saudi German Hospital gastroenterology digestive health carousel',
+    caption: 'Book your appointment with the Gastroenterology team at Saudi German Hospital today.',
+  },
+  { src: '/sgh/sgh-cardiology-cholesterol.jpg', alt: 'Saudi German Hospital cardiology cholesterol post' },
+  { src: '/sgh/sgh-neurology-headache.jpg', alt: 'Saudi German Hospital neurology headache post' },
+  {
+    src: '/sgh/sgh-ophthalmology-eye-health.jpg',
+    alt: 'Saudi German Hospital ophthalmology eye health carousel',
+    caption: 'Book your appointment with our Ophthalmology team today and keep your vision healthy all summer long.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Saudi German Hospital Group: Healthcare Brand Growth Case Study',
@@ -114,6 +137,8 @@ export default function SaudiGermanHospitalCaseStudy() {
           },
         ]}
       />
+
+      <CaseGallery title="Campaign Gallery" images={galleryImages} aspectRatio="16 / 9" itemWidth={360} />
 
       <CaseImpactList
         items={[

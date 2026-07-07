@@ -12,9 +12,11 @@ export type GalleryImage = {
 type CaseGalleryProps = {
   title?: string;
   images: GalleryImage[];
+  aspectRatio?: string;
+  itemWidth?: number;
 };
 
-export default function CaseGallery({ title = 'Campaign Gallery', images }: CaseGalleryProps) {
+export default function CaseGallery({ title = 'Campaign Gallery', images, aspectRatio = '4 / 5', itemWidth = 300 }: CaseGalleryProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -77,6 +79,7 @@ export default function CaseGallery({ title = 'Campaign Gallery', images }: Case
               className="cs-gallery-item"
               onClick={() => openLightbox(i)}
               aria-label={`Open image ${i + 1} of ${images.length}`}
+              style={{ width: itemWidth, aspectRatio }}
             >
               <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 70vw, 320px" className="cs-gallery-img" />
               {img.caption && <span className="cs-gallery-caption">{img.caption}</span>}
@@ -101,7 +104,7 @@ export default function CaseGallery({ title = 'Campaign Gallery', images }: Case
           </button>
 
           <div className="cs-lightbox-stage" onClick={(e) => e.stopPropagation()}>
-            <div className="cs-lightbox-media">
+            <div className="cs-lightbox-media" style={{ aspectRatio }}>
               <Image src={active.src} alt={active.alt} fill sizes="90vw" className="cs-lightbox-img" />
             </div>
             {active.caption && <p className="cs-lightbox-caption">{active.caption}</p>}
