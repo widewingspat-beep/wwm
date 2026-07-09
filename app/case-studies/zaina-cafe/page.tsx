@@ -100,7 +100,7 @@ export default function ZainaCafeCaseStudy() {
         <div className="cs-container">
           <CaseSplit
             image="/zaina/Post-2.jpg"
-            collage={['/zaina/Post-2.jpg', '/zaina/Post-3.jpg']}
+            collage={['/zaina/Post-2.jpg', '/zaina/Post-3.jpg', '/zaina/Post-4.jpg', '/zaina/Post-5.jpg']}
             imageAlt="Zaina Cafe creative campaign execution"
             reverse
           >

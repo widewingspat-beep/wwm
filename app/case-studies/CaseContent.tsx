@@ -38,7 +38,13 @@ export function CaseSplit({ image, images, collage, imageAlt, reverse, children 
           <div className="cs-collage">
             {collage.map((src) => (
               <div className="cs-collage-item" key={src}>
-                <Image src={src} alt={imageAlt} fill sizes="(max-width: 900px) 45vw, 22vw" className="cs-collage-img" />
+                <Image
+                  src={src}
+                  alt={imageAlt}
+                  fill
+                  sizes={`(max-width: 900px) ${Math.round(90 / collage.length)}vw, ${Math.round(45 / collage.length)}vw`}
+                  className="cs-collage-img"
+                />
               </div>
             ))}
           </div>
