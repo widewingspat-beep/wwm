@@ -98,7 +98,12 @@ export default function ZainaCafeCaseStudy() {
 
       <section className="cs-section cs-section-alt">
         <div className="cs-container">
-          <CaseSplit image="/zaina/Post-2.jpg" imageAlt="Zaina Cafe creative campaign execution" reverse>
+          <CaseSplit
+            image="/zaina/Post-2.jpg"
+            collage={['/zaina/Post-2.jpg', '/zaina/Post-3.jpg']}
+            imageAlt="Zaina Cafe creative campaign execution"
+            reverse
+          >
             <CaseProcess
               steps={[
                 { title: 'Audit & Strategy', description: 'We analyzed the current digital standing, identified gaps, and built a custom roadmap tailored to their specific objectives.' },

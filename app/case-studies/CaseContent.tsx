@@ -24,16 +24,25 @@ export function CaseSection({ eyebrow, title, className = '', children }: Sectio
 type CaseSplitProps = {
   image: string;
   images?: string[];
+  collage?: string[];
   imageAlt: string;
   reverse?: boolean;
   children: ReactNode;
 };
 
-export function CaseSplit({ image, images, imageAlt, reverse, children }: CaseSplitProps) {
+export function CaseSplit({ image, images, collage, imageAlt, reverse, children }: CaseSplitProps) {
   return (
     <div className={`cs-split${reverse ? ' cs-split-reverse' : ''}`}>
       <div className="cs-split-media">
-        {images && images.length > 1 ? (
+        {collage && collage.length > 1 ? (
+          <div className="cs-collage">
+            {collage.map((src) => (
+              <div className="cs-collage-item" key={src}>
+                <Image src={src} alt={imageAlt} fill sizes="(max-width: 900px) 45vw, 22vw" className="cs-collage-img" />
+              </div>
+            ))}
+          </div>
+        ) : images && images.length > 1 ? (
           <ShatterSlideshow images={images} alt={imageAlt} />
         ) : (
           <Image src={image} alt={imageAlt} fill sizes="(max-width: 900px) 90vw, 45vw" style={{ objectFit: 'cover' }} />

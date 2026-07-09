@@ -534,6 +534,36 @@
   opacity: 0;
 }
 
+/* Image collage (hover to expand) */
+.cs-collage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+.cs-collage-item {
+  position: relative;
+  flex: 1 1 0%;
+  overflow: hidden;
+  transition: flex-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cs-collage-item + .cs-collage-item {
+  border-left: 2px solid rgba(255,255,255,0.15);
+}
+.cs-collage-img {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cs-collage-item:hover {
+  flex-grow: 6;
+}
+.cs-collage-item:hover .cs-collage-img {
+  transform: scale(1.05);
+}
+.cs-collage-item:has(~ .cs-collage-item:hover),
+.cs-collage-item:hover ~ .cs-collage-item {
+  flex-grow: 0.25;
+}
+
 /* Challenges */
 .cs-challenge-list {
   display: flex;
