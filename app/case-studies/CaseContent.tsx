@@ -312,7 +312,7 @@ export function CaseWebsitePreview({
   const displayUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
   return (
-    <CaseSection eyebrow={eyebrow} title={title}>
+    <CaseSection eyebrow={eyebrow} title={title} className="cs-website-preview-section">
       {lead && <p className="cs-lead">{lead}</p>}
       <a href={url} target="_blank" rel="noopener noreferrer" className="cs-site-preview">
         <div className="cs-site-preview-chrome">

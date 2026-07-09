@@ -665,9 +665,14 @@
 }
 
 /* Website preview (browser mockup, scrolls to reveal full page on hover) */
+.cs-website-preview-section { text-align: center; }
+.cs-website-preview-section .cs-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
 .cs-site-preview {
   display: block;
-  max-width: 480px;
+  max-width: 960px;
   margin: 24px auto 0;
   border-radius: 14px;
   overflow: hidden;
@@ -704,7 +709,7 @@
 }
 .cs-site-preview-window {
   position: relative;
-  height: 460px;
+  height: 640px;
   overflow: hidden;
 }
 .cs-site-preview-img {
@@ -715,7 +720,7 @@
   transition: transform 9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cs-site-preview:hover .cs-site-preview-img {
-  transform: translateY(calc(-100% + 460px));
+  transform: translateY(calc(-100% + 640px));
   transition-duration: 14s;
 }
 
