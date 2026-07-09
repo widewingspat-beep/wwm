@@ -289,3 +289,42 @@ export function CaseStats({
     </CaseSection>
   );
 }
+
+export function CaseWebsitePreview({
+  eyebrow = 'The Website',
+  title = 'See It Live',
+  lead,
+  url,
+  image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+}: {
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  url: string;
+  image: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+}) {
+  const displayUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+  return (
+    <CaseSection eyebrow={eyebrow} title={title}>
+      {lead && <p className="cs-lead">{lead}</p>}
+      <a href={url} target="_blank" rel="noopener noreferrer" className="cs-site-preview">
+        <div className="cs-site-preview-chrome">
+          <span className="cs-site-preview-dot cs-dot-red" />
+          <span className="cs-site-preview-dot cs-dot-yellow" />
+          <span className="cs-site-preview-dot cs-dot-green" />
+          <span className="cs-site-preview-url">{displayUrl}</span>
+        </div>
+        <div className="cs-site-preview-window">
+          <Image src={image} alt={imageAlt} width={imageWidth} height={imageHeight} className="cs-site-preview-img" />
+        </div>
+      </a>
+    </CaseSection>
+  );
+}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import '../case-study.css';
 import CaseHero from '../CaseHero';
 import CaseGallery, { type GalleryImage } from '../CaseGallery';
-import { CaseIntro, CaseSplit, CaseChallenges, CaseProcess, CaseServices, CaseResults, CaseStats } from '../CaseContent';
+import { CaseIntro, CaseSplit, CaseChallenges, CaseProcess, CaseServices, CaseResults, CaseStats, CaseWebsitePreview } from '../CaseContent';
 import CaseDonut from '../CaseDonut';
 
 export const metadata: Metadata = {
@@ -114,6 +114,15 @@ export default function ZainaCafeCaseStudy() {
           'SEO & Content',
           'Website Development (WordPress, Shopify, Custom)',
         ]}
+      />
+
+      <CaseWebsitePreview
+        url="https://zaina-cafe.com/"
+        lead="Hover to scroll through the full site we designed and built for Zaina Cafe."
+        image="/zaina/zaina-cafe-website-preview.webp"
+        imageAlt="Zaina Cafe website homepage"
+        imageWidth={1000}
+        imageHeight={7084}
       />
 
       <CaseGallery title="Campaign Gallery" images={galleryImages} />
