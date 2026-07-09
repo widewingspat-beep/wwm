@@ -73,7 +73,17 @@ export default function ZainaCafeCaseStudy() {
 
       <section className="cs-section">
         <div className="cs-container">
-          <CaseSplit image="/zaina/Post-1.jpg" imageAlt="Zaina Cafe delivery campaign creative">
+          <CaseSplit
+            image="/zaina/Post-1.jpg"
+            images={[
+              '/zaina/Post-1.jpg',
+              '/zaina/Post-2.jpg',
+              '/zaina/Post-6.jpg',
+              '/zaina/Post-7.jpg',
+              '/zaina/Post-8.jpg',
+            ]}
+            imageAlt="Zaina Cafe campaign creative"
+          >
             <CaseChallenges
               intro="As a growing café chain entering and expanding across a competitive UAE F&B market, Zaina Café needed a strong launch presence, consistent brand communication, and content that could build familiarity across multiple locations."
               items={[

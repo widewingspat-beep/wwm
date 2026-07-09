@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import ShatterSlideshow from './ShatterSlideshow';
 
 type SectionProps = {
   eyebrow?: string;
@@ -22,16 +23,21 @@ export function CaseSection({ eyebrow, title, className = '', children }: Sectio
 
 type CaseSplitProps = {
   image: string;
+  images?: string[];
   imageAlt: string;
   reverse?: boolean;
   children: ReactNode;
 };
 
-export function CaseSplit({ image, imageAlt, reverse, children }: CaseSplitProps) {
+export function CaseSplit({ image, images, imageAlt, reverse, children }: CaseSplitProps) {
   return (
     <div className={`cs-split${reverse ? ' cs-split-reverse' : ''}`}>
       <div className="cs-split-media">
-        <Image src={image} alt={imageAlt} fill sizes="(max-width: 900px) 90vw, 45vw" style={{ objectFit: 'cover' }} />
+        {images && images.length > 1 ? (
+          <ShatterSlideshow images={images} alt={imageAlt} />
+        ) : (
+          <Image src={image} alt={imageAlt} fill sizes="(max-width: 900px) 90vw, 45vw" style={{ objectFit: 'cover' }} />
+        )}
       </div>
       <div className="cs-split-content">{children}</div>
     </div>
