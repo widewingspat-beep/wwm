@@ -316,6 +316,7 @@ export function CaseWebsitePreview({
   title = 'See It Live',
   lead,
   url,
+  label,
   image,
   imageAlt,
   imageWidth,
@@ -324,28 +325,44 @@ export function CaseWebsitePreview({
   eyebrow?: string;
   title?: string;
   lead?: string;
-  url: string;
+  url?: string;
+  label?: string;
   image: string;
   imageAlt: string;
   imageWidth: number;
   imageHeight: number;
 }) {
-  const displayUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+  const displayUrl = url ? url.replace(/^https?:\/\//, '').replace(/\/$/, '') : label;
+
+  const chrome = (
+    <div className="cs-site-preview-chrome">
+      <span className="cs-site-preview-dot cs-dot-red" />
+      <span className="cs-site-preview-dot cs-dot-yellow" />
+      <span className="cs-site-preview-dot cs-dot-green" />
+      <span className="cs-site-preview-url">{displayUrl}</span>
+    </div>
+  );
+
+  const window = (
+    <div className="cs-site-preview-window">
+      <Image src={image} alt={imageAlt} width={imageWidth} height={imageHeight} className="cs-site-preview-img" />
+    </div>
+  );
 
   return (
     <CaseSection eyebrow={eyebrow} title={title} className="cs-website-preview-section">
       {lead && <p className="cs-lead">{lead}</p>}
-      <a href={url} target="_blank" rel="noopener noreferrer" className="cs-site-preview">
-        <div className="cs-site-preview-chrome">
-          <span className="cs-site-preview-dot cs-dot-red" />
-          <span className="cs-site-preview-dot cs-dot-yellow" />
-          <span className="cs-site-preview-dot cs-dot-green" />
-          <span className="cs-site-preview-url">{displayUrl}</span>
+      {url ? (
+        <a href={url} target="_blank" rel="noopener noreferrer" className="cs-site-preview">
+          {chrome}
+          {window}
+        </a>
+      ) : (
+        <div className="cs-site-preview">
+          {chrome}
+          {window}
         </div>
-        <div className="cs-site-preview-window">
-          <Image src={image} alt={imageAlt} width={imageWidth} height={imageHeight} className="cs-site-preview-img" />
-        </div>
-      </a>
+      )}
     </CaseSection>
   );
 }

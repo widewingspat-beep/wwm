@@ -9,6 +9,7 @@ import {
   CaseServices,
   CaseProcess,
   CaseServiceGroups,
+  CaseWebsitePreview,
   CaseTestimonial,
 } from '../CaseContent';
 
@@ -163,6 +164,15 @@ export default function AlSobhHospitalCaseStudy() {
             items: ['Landing Page Creation', 'Website Edits & Functional Page Development'],
           },
         ]}
+      />
+
+      <CaseWebsitePreview
+        label="Al Sobh Hospital"
+        lead="Hover to scroll through the site we designed and built for Al Sobh Hospital."
+        image="/alsaboh/al-sobh-website-preview.webp"
+        imageAlt="Al Sobh Hospital website homepage"
+        imageWidth={1000}
+        imageHeight={3572}
       />
 
       <CaseGallery title="Campaign Gallery" images={galleryImages} />
