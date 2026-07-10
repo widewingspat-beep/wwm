@@ -82,6 +82,7 @@ const pages: Page[] = [
   { id: 'about', title: 'About', slug: '/about', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
   { id: 'about-us', title: 'About Us', slug: '/about-us', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-10' },
   { id: 'contact', title: 'Contact', slug: '/contact', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-05' },
+  { id: 'thank-you', title: 'Thank You', slug: '/contact/thank-you', content: '', status: 'published', createdAt: '2026-07-10', updatedAt: '2026-07-10' },
   { id: 'services', title: 'Services', slug: '/digital-marketing-services/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'blogs', title: 'Blogs', slug: '/insights/', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
   { id: 'news', title: 'News', slug: '/news', content: '', status: 'published', createdAt: '2025-01-01', updatedAt: '2026-06-21' },
@@ -175,6 +176,14 @@ const seoData: SeoData[] = [
     ogImage: '/og-contact.jpg',
     featuredImage: '/og-contact.jpg',
     featuredImageAlt: 'Wide Wings Media office Al Quoz Dubai',
+  },
+  {
+    ...makeSeo('thank-you', 'Thank You', '/contact/thank-you',
+      'Thank You | Wide Wings Media',
+      'Thank you for contacting Wide Wings Media. Our team will review your enquiry and get back to you within 24 hours.'),
+    // Post-submission page — never index thank-you pages
+    robots: 'noindex, follow',
+    noindex: true,
   },
   {
     ...makeSeo('services', 'Services', '/digital-marketing-services/',

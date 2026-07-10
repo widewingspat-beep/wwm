@@ -4,6 +4,18 @@ import { useRouter } from 'next/navigation';
 import AdminShell from '@/components/admin/AdminShell';
 import type { SessionPayload } from '@/lib/admin/auth';
 import type { Enquiry } from '@/lib/admin/store';
+import type { SheetSettings } from '@/lib/admin/settings';
+
+const APPS_SCRIPT_CODE = `function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var d = JSON.parse(e.postData.contents);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Received At', 'Name', 'Email', 'Phone', 'Service', 'Message']);
+  }
+  sheet.appendRow([d.receivedAt, d.name, d.email, d.phone, d.service, d.message]);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}`;
 
 export default function EnquiriesAdmin() {
   const router = useRouter();
@@ -12,14 +24,53 @@ export default function EnquiriesAdmin() {
   const [selected, setSelected] = useState<Enquiry | null>(null);
   const [filter, setFilter] = useState<'all' | 'new' | 'read'>('all');
   const [loading, setLoading] = useState(true);
+  const [sheets, setSheets] = useState<SheetSettings | null>(null);
+  const [sheetsMsg, setSheetsMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null);
+  const [sheetsBusy, setSheetsBusy] = useState(false);
 
   useEffect(() => {
-    fetch('/api/admin/session').then(r => r.ok ? r.json() : null).then(s => s && setSession(s));
+    fetch('/api/admin/session').then(r => r.ok ? r.json() : null).then(s => {
+      if (!s) return;
+      setSession(s);
+      if (s.role === 'webadmin') {
+        fetch('/api/admin/settings').then(r => r.ok ? r.json() : null).then(cfg => cfg && setSheets(cfg));
+      }
+    });
     fetch('/api/admin/enquiries').then(r => {
       if (r.status === 401) { router.push('/admin/login'); return; }
       return r.json();
     }).then(data => { if (data) setEnquiries(data); setLoading(false); });
   }, []);
+
+  async function saveSheets() {
+    if (!sheets) return;
+    setSheetsBusy(true);
+    setSheetsMsg(null);
+    const res = await fetch('/api/admin/settings', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ enabled: sheets.enabled, sheetUrl: sheets.sheetUrl, webhookUrl: sheets.webhookUrl }),
+    });
+    const body = await res.json().catch(() => null);
+    if (res.ok) {
+      setSheets(body);
+      setSheetsMsg({ kind: 'ok', text: 'Settings saved.' });
+    } else {
+      setSheetsMsg({ kind: 'err', text: body?.error ?? 'Could not save settings.' });
+    }
+    setSheetsBusy(false);
+  }
+
+  async function sendTestRow() {
+    setSheetsBusy(true);
+    setSheetsMsg(null);
+    const res = await fetch('/api/admin/settings', { method: 'POST' });
+    const body = await res.json().catch(() => null);
+    setSheetsMsg(res.ok
+      ? { kind: 'ok', text: 'Test row sent — check your Google Sheet.' }
+      : { kind: 'err', text: body?.error ?? 'Test failed.' });
+    setSheetsBusy(false);
+  }
 
   async function markRead(e: Enquiry) {
     if (e.status === 'read') return;
@@ -54,6 +105,98 @@ export default function EnquiriesAdmin() {
           <div className="adm-stat-label">Read</div>
         </div>
       </div>
+
+      {/* GOOGLE SHEETS SYNC — webadmin only */}
+      {session?.role === 'webadmin' && sheets && (
+        <div className="adm-card" style={{ marginBottom: 24 }}>
+          <div className="adm-card-head">
+            <div>
+              <div className="adm-card-title">Google Sheets Sync</div>
+              <div style={{ fontSize: '0.8rem', color: '#9ca3af', marginTop: 3 }}>
+                Every contact form submission is also saved as a row in your Google Sheet.
+              </div>
+            </div>
+            <span className={`adm-badge ${sheets.enabled ? 'adm-badge-new' : 'adm-badge-read'}`}>
+              {sheets.enabled ? '● Active' : 'Off'}
+            </span>
+          </div>
+
+          <div style={{ display: 'grid', gap: 14, maxWidth: 720 }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: '0.88rem', fontWeight: 600 }}>
+              <input
+                type="checkbox"
+                checked={sheets.enabled}
+                onChange={e => setSheets({ ...sheets, enabled: e.target.checked })}
+                style={{ width: 16, height: 16, accentColor: '#a73184' }}
+              />
+              Save form submissions to Google Sheet
+            </label>
+
+            <div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
+                Google Sheet Link {sheets.sheetUrl && (
+                  <a href={sheets.sheetUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#a73184', textTransform: 'none', letterSpacing: 0, marginLeft: 8 }}>
+                    Open Sheet ↗
+                  </a>
+                )}
+              </div>
+              <input
+                className="adm-input"
+                type="url"
+                placeholder="https://docs.google.com/spreadsheets/d/…"
+                value={sheets.sheetUrl}
+                onChange={e => setSheets({ ...sheets, sheetUrl: e.target.value })}
+                style={{ width: '100%' }}
+              />
+            </div>
+
+            <div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
+                Apps Script Web App URL (this is what writes the rows)
+              </div>
+              <input
+                className="adm-input"
+                type="url"
+                placeholder="https://script.google.com/macros/s/…/exec"
+                value={sheets.webhookUrl}
+                onChange={e => setSheets({ ...sheets, webhookUrl: e.target.value })}
+                style={{ width: '100%' }}
+              />
+            </div>
+
+            {sheetsMsg && (
+              <div style={{ fontSize: '0.85rem', fontWeight: 600, color: sheetsMsg.kind === 'ok' ? '#16a34a' : '#e53e3e' }}>
+                {sheetsMsg.text}
+              </div>
+            )}
+
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button className="adm-btn adm-btn-primary" onClick={saveSheets} disabled={sheetsBusy}>
+                {sheetsBusy ? 'Working…' : 'Save Settings'}
+              </button>
+              <button className="adm-btn adm-btn-outline" onClick={sendTestRow} disabled={sheetsBusy || !sheets.webhookUrl}>
+                Send Test Row
+              </button>
+            </div>
+
+            <details style={{ fontSize: '0.85rem', color: '#4b5563', lineHeight: 1.7 }}>
+              <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#a73184' }}>
+                How to connect your Google Sheet (one-time setup)
+              </summary>
+              <ol style={{ paddingLeft: 20, marginTop: 10, display: 'grid', gap: 6 }}>
+                <li>Open (or create) your Google Sheet, then go to <strong>Extensions → Apps Script</strong>.</li>
+                <li>Delete any code there and paste the script below, then click <strong>Save</strong>.</li>
+                <li>Click <strong>Deploy → New deployment → Web app</strong>. Set <em>Execute as: Me</em> and <em>Who has access: Anyone</em>, then click <strong>Deploy</strong> and authorise it.</li>
+                <li>Copy the <strong>Web app URL</strong> (ends in <code>/exec</code>) and paste it in the field above, along with your sheet&apos;s normal link.</li>
+                <li>Tick the checkbox, click <strong>Save Settings</strong>, then <strong>Send Test Row</strong> to confirm a row appears in the sheet.</li>
+              </ol>
+              <pre style={{ background: '#0f0f1a', color: '#d1d5db', padding: 14, borderRadius: 6, overflowX: 'auto', fontSize: '0.75rem', marginTop: 10 }}>
+                {APPS_SCRIPT_CODE}
+              </pre>
+            </details>
+          </div>
+        </div>
+      )}
 
       <div className="adm-card">
         <div className="adm-card-head">

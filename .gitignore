@@ -3,6 +3,9 @@
 # Chat analytics — persisted locally, not committed
 /data/chat-events.json
 
+# Google Sheets sync settings — local dev persistence; production uses Vercel KV
+/data/sheet-settings.json
+
 # dependencies
 /node_modules
 /.pnp

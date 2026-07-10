@@ -2,6 +2,7 @@
 
 import { useState, useRef, MouseEvent, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import './contact.css';
 import SchemaScripts from '@/components/SchemaScripts';
 import { getPageSchema } from '@/lib/schema';
@@ -9,7 +10,8 @@ import { getPageSchema } from '@/lib/schema';
 const PAGE_SCHEMA = getPageSchema('contact-us');
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
+  const [error, setError] = useState('');
   const ctaRef = useRef<HTMLElement>(null);
 
   const handleCtaMouseMove = useCallback((e: MouseEvent<HTMLElement>) => {
@@ -34,7 +36,7 @@ export default function ContactPage() {
     e.currentTarget.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const required = form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]');
@@ -47,8 +49,30 @@ export default function ContactPage() {
       }
     });
     if (!valid) return;
+    setError('');
     setSubmitting(true);
-    setTimeout(() => { setSubmitting(false); setSubmitted(true); }, 1400);
+    try {
+      const data = new FormData(form);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          service: data.get('service'),
+          message: data.get('message'),
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error ?? 'Something went wrong. Please try again.');
+      }
+      router.push('/contact/thank-you');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setSubmitting(false);
+    }
   }
 
 
@@ -157,22 +181,21 @@ export default function ContactPage() {
             <div className="contact-form-panel">
               <div className="form-wrapper">
                 <div className="form-corner-tl"></div>
-                {!submitted ? (
-                  <div id="form-content">
+                <div id="form-content">
                     <h3 className="form-title anim-fade-up">Send a Message</h3>
                     <p className="form-subtitle anim-fade-up anim-d1">Fill in the details below and our team will get back to you within 24 hours.</p>
                     <form onSubmit={handleSubmit} noValidate>
                       <div className="form-row">
-                        <div className="form-group"><label>Full Name <span>*</span></label><input type="text" className="form-control" placeholder="Your Name" required /></div>
-                        <div className="form-group"><label>Email Address <span>*</span></label><input type="email" className="form-control" placeholder="Email" required /></div>
+                        <div className="form-group"><label>Full Name <span>*</span></label><input type="text" name="name" className="form-control" placeholder="Your Name" required /></div>
+                        <div className="form-group"><label>Email Address <span>*</span></label><input type="email" name="email" className="form-control" placeholder="Email" required /></div>
                       </div>
                       <div className="form-group">
                         <label>Phone Number</label>
-                        <input type="tel" className="form-control" placeholder="Phone" />
+                        <input type="tel" name="phone" className="form-control" placeholder="Phone" />
                       </div>
                       <div className="form-group">
                         <label>Service Interested In <span>*</span></label>
-                        <select className="form-control" required defaultValue="">
+                        <select className="form-control" name="service" required defaultValue="">
                           <option value="" disabled>Select a service…</option>
                           <option>Digital Marketing Strategy</option>
                           <option>Social Media Management</option>
@@ -188,8 +211,11 @@ export default function ContactPage() {
                       </div>
                       <div className="form-group">
                         <label>Your Message <span>*</span></label>
-                        <textarea className="form-control" placeholder="Tell us about your project goals, timeline, and any specific requirements…" required></textarea>
+                        <textarea className="form-control" name="message" placeholder="Tell us about your project goals, timeline, and any specific requirements…" required></textarea>
                       </div>
+                      {error && (
+                        <p style={{ color: '#e53e3e', fontSize: '0.85rem', marginBottom: 14 }} role="alert">{error}</p>
+                      )}
                       <div className="form-submit-row">
                         <p className="form-privacy">By submitting, you agree to our<br/><Link href="#">Privacy Policy</Link> &amp; <Link href="#">Terms of Service</Link>.</p>
                         <button type="submit" className="btn-submit" disabled={submitting}>
@@ -199,15 +225,6 @@ export default function ContactPage() {
                       </div>
                     </form>
                   </div>
-                ) : (
-                  <div className="form-success visible">
-                    <div className="success-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <h3 className="success-title">Message Sent!</h3>
-                    <p className="success-desc">Thank you for reaching out. Our team will review your inquiry and get back to you within 24 hours.</p>
-                  </div>
-                )}
               </div>
             </div>
           </div>

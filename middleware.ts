@@ -9,14 +9,16 @@ export async function middleware(req: NextRequest) {
   res.headers.set('x-pathname', pathname);
 
   if (!pathname.startsWith('/admin')) return res;
-  if (pathname === '/admin/login') return res;
+  // trailingSlash: true means the live URL is /admin/login/ — match both forms,
+  // otherwise the login page redirects to itself in an infinite loop
+  if (pathname === '/admin/login' || pathname === '/admin/login/') return res;
 
   const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (!token) return NextResponse.redirect(new URL('/admin/login', req.url));
+  if (!token) return NextResponse.redirect(new URL('/admin/login/', req.url));
 
   const session = await verifyToken(token);
   if (!session) {
-    const redirect = NextResponse.redirect(new URL('/admin/login', req.url));
+    const redirect = NextResponse.redirect(new URL('/admin/login/', req.url));
     redirect.cookies.delete(COOKIE_NAME);
     return redirect;
   }
