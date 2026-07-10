@@ -627,7 +627,6 @@
   .cs-split { grid-template-columns: 1fr; gap: 32px; }
   .cs-split-reverse .cs-split-media { order: 1; }
   .cs-split-reverse .cs-split-content { order: 2; }
-  .cs-split-media { aspect-ratio: 16 / 10; }
 }
 
 /* Services */
