@@ -4,6 +4,7 @@ import CaseHero from '../CaseHero';
 import CaseGallery, { type GalleryImage } from '../CaseGallery';
 import {
   CaseIntro,
+  CaseSplit,
   CaseChallenges,
   CaseProcess,
   CaseServices,
@@ -137,15 +138,27 @@ export default function SaudiGermanHospitalCaseStudy() {
 
       <section className="cs-section">
         <div className="cs-container">
-          <CaseChallenges
-            title="Main Challenges or Milestones"
-            items={[
-              'Maintaining a unified digital identity across multiple countries, hospital branches, specialties, and audience needs.',
-              'Creating consistent, medically accurate, and engaging content that makes complex healthcare topics accessible to patients and families.',
-              'Supporting awareness, trust, and appointment-driven communication across a highly competitive healthcare market.',
-              'Developing region-specific websites that reflect local market needs while maintaining a consistent brand experience across all digital platforms.',
+          <CaseSplit
+            image="/sgh/sgh-post-05.jpg"
+            images={[
+              '/sgh/sgh-post-05.jpg',
+              '/sgh/sgh-post-15.jpg',
+              '/sgh/sgh-post-25.jpg',
+              '/sgh/sgh-post-35.jpg',
+              '/sgh/sgh-post-45.jpg',
             ]}
-          />
+            imageAlt="Saudi German Hospital campaign creative"
+          >
+            <CaseChallenges
+              title="Main Challenges or Milestones"
+              items={[
+                'Maintaining a unified digital identity across multiple countries, hospital branches, specialties, and audience needs.',
+                'Creating consistent, medically accurate, and engaging content that makes complex healthcare topics accessible to patients and families.',
+                'Supporting awareness, trust, and appointment-driven communication across a highly competitive healthcare market.',
+                'Developing region-specific websites that reflect local market needs while maintaining a consistent brand experience across all digital platforms.',
+              ]}
+            />
+          </CaseSplit>
         </div>
       </section>
 
@@ -166,22 +179,29 @@ export default function SaudiGermanHospitalCaseStudy() {
 
       <section className="cs-section cs-section-alt">
         <div className="cs-container">
-          <CaseProcess
-            steps={[
-              {
-                title: 'Audit & Strategy',
-                description: 'We assessed each market’s audience, branch priorities, medical specialties, seasonal health needs, and content performance to build a localized strategy under one unified SGH brand direction. For web development, we analyzed user journeys, service structures, and regional requirements to define clear website architectures for each market.',
-              },
-              {
-                title: 'Creation & Execution',
-                description: 'We developed clear, patient-friendly content across static posts, carousels, reels, awareness campaigns, doctor-led communication, and service-focused creatives—while ensuring each piece remained medically responsible and aligned with the brand. In parallel, we designed and developed two dedicated websites: one serving Egypt and Alexandria, and another tailored for KSA and UAE, ensuring optimized user experience, clear navigation, and localized content structures.',
-              },
-              {
-                title: 'Ongoing Management',
-                description: 'We continuously optimized content direction based on seasonal priorities, engagement patterns, medical campaigns, and branch-specific needs to maintain relevance, consistency, and sustained audience trust. We also supported ongoing website updates, content enhancements, and performance improvements to ensure both platforms remain aligned with evolving business needs.',
-              },
-            ]}
-          />
+          <CaseSplit
+            image="/sgh/sgh-post-55.jpg"
+            collage={['/sgh/sgh-post-55.jpg', '/sgh/sgh-post-65.jpg', '/sgh/sgh-post-75.jpg', '/sgh/sgh-post-85.jpg']}
+            imageAlt="Saudi German Hospital creative campaign execution"
+            reverse
+          >
+            <CaseProcess
+              steps={[
+                {
+                  title: 'Audit & Strategy',
+                  description: 'We assessed each market’s audience, branch priorities, medical specialties, seasonal health needs, and content performance to build a localized strategy under one unified SGH brand direction. For web development, we analyzed user journeys, service structures, and regional requirements to define clear website architectures for each market.',
+                },
+                {
+                  title: 'Creation & Execution',
+                  description: 'We developed clear, patient-friendly content across static posts, carousels, reels, awareness campaigns, doctor-led communication, and service-focused creatives—while ensuring each piece remained medically responsible and aligned with the brand. In parallel, we designed and developed two dedicated websites: one serving Egypt and Alexandria, and another tailored for KSA and UAE, ensuring optimized user experience, clear navigation, and localized content structures.',
+                },
+                {
+                  title: 'Ongoing Management',
+                  description: 'We continuously optimized content direction based on seasonal priorities, engagement patterns, medical campaigns, and branch-specific needs to maintain relevance, consistency, and sustained audience trust. We also supported ongoing website updates, content enhancements, and performance improvements to ensure both platforms remain aligned with evolving business needs.',
+                },
+              ]}
+            />
+          </CaseSplit>
         </div>
       </section>
 
