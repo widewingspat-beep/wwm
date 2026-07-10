@@ -4,6 +4,7 @@ import CaseHero from '../CaseHero';
 import CaseGallery, { type GalleryImage } from '../CaseGallery';
 import {
   CaseIntro,
+  CaseSplit,
   CaseChallenges,
   CaseServices,
   CaseProcess,
@@ -79,14 +80,26 @@ export default function AlSobhHospitalCaseStudy() {
 
       <section className="cs-section">
         <div className="cs-container">
-          <CaseChallenges
-            title="Main Challenges or Milestones"
-            items={[
-              'Communicating sensitive mental health, addiction, and rehabilitation topics in a responsible, culturally aware, and stigma-conscious way.',
-              'Encouraging Saudi audiences to view hospital visits for mental health as a proactive step toward wellbeing, not only a last resort.',
-              'Giving equal visibility to Al Sobh’s general clinics and medical services to position the hospital as a comprehensive healthcare institution, not solely a mental health provider.',
+          <CaseSplit
+            image="/alsaboh/al-sobh-post-03.jpg"
+            images={[
+              '/alsaboh/al-sobh-post-03.jpg',
+              '/alsaboh/al-sobh-post-08.jpg',
+              '/alsaboh/al-sobh-post-13.jpg',
+              '/alsaboh/al-sobh-post-18.jpg',
+              '/alsaboh/al-sobh-post-23.jpg',
             ]}
-          />
+            imageAlt="Al Sobh Hospital campaign creative"
+          >
+            <CaseChallenges
+              title="Main Challenges or Milestones"
+              items={[
+                'Communicating sensitive mental health, addiction, and rehabilitation topics in a responsible, culturally aware, and stigma-conscious way.',
+                'Encouraging Saudi audiences to view hospital visits for mental health as a proactive step toward wellbeing, not only a last resort.',
+                'Giving equal visibility to Al Sobh’s general clinics and medical services to position the hospital as a comprehensive healthcare institution, not solely a mental health provider.',
+              ]}
+            />
+          </CaseSplit>
         </div>
       </section>
 
@@ -103,22 +116,29 @@ export default function AlSobhHospitalCaseStudy() {
 
       <section className="cs-section cs-section-alt">
         <div className="cs-container">
-          <CaseProcess
-            steps={[
-              {
-                title: 'Audit & Strategy',
-                description: 'We reviewed Al Sobh Hospital’s service structure, audience needs, healthcare communication priorities, and digital touchpoints to develop a content and website roadmap that supports both mental health awareness and general medical service visibility.',
-              },
-              {
-                title: 'Creation & Execution',
-                description: 'We created bilingual and culturally relevant content calendars, social media designs, awareness campaigns, website updates, landing pages, and printed collateral. The work translated sensitive healthcare topics into clear, reassuring, and patient-friendly communication.',
-              },
-              {
-                title: 'Ongoing Management',
-                description: 'We continuously refined content based on seasonal health priorities, department needs, audience engagement, and campaign performance. Website pages and digital assets were also updated to ensure the patient journey remains clear, functional, and aligned with the hospital’s evolving services.',
-              },
-            ]}
-          />
+          <CaseSplit
+            image="/alsaboh/al-sobh-post-28.jpg"
+            collage={['/alsaboh/al-sobh-post-28.jpg', '/alsaboh/al-sobh-post-30.jpg', '/alsaboh/al-sobh-post-32.jpg', '/alsaboh/al-sobh-post-34.jpg']}
+            imageAlt="Al Sobh Hospital creative campaign execution"
+            reverse
+          >
+            <CaseProcess
+              steps={[
+                {
+                  title: 'Audit & Strategy',
+                  description: 'We reviewed Al Sobh Hospital’s service structure, audience needs, healthcare communication priorities, and digital touchpoints to develop a content and website roadmap that supports both mental health awareness and general medical service visibility.',
+                },
+                {
+                  title: 'Creation & Execution',
+                  description: 'We created bilingual and culturally relevant content calendars, social media designs, awareness campaigns, website updates, landing pages, and printed collateral. The work translated sensitive healthcare topics into clear, reassuring, and patient-friendly communication.',
+                },
+                {
+                  title: 'Ongoing Management',
+                  description: 'We continuously refined content based on seasonal health priorities, department needs, audience engagement, and campaign performance. Website pages and digital assets were also updated to ensure the patient journey remains clear, functional, and aligned with the hospital’s evolving services.',
+                },
+              ]}
+            />
+          </CaseSplit>
         </div>
       </section>
 
