@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ServiceFlipText from '@/components/ServiceFlipText';
@@ -12,6 +12,16 @@ import './home.css';
 const HOME_SCHEMA = getPageSchema('home');
 
 export default function HomePage() {
+  const casesTrackRef = useRef<HTMLDivElement>(null);
+
+  const scrollCases = (dir: 1 | -1) => {
+    const track = casesTrackRef.current;
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>('.case-card');
+    const step = card ? card.offsetWidth + 24 : track.clientWidth * 0.9;
+    track.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const heroWords = document.querySelectorAll<HTMLElement>('#hero-h1 .hw');
     heroWords.forEach((w, i) => { setTimeout(() => w.classList.add('visible'), 200 + i * 110); });
@@ -379,13 +389,25 @@ export default function HomePage() {
         <div className="container">
           <div className="cases-header">
             <div><span className="section-label">Success Stories</span><h2 className="cases-h2">Our Success <span className="gradient-text">Stories</span></h2></div>
-            <Link href="#" className="btn-outline">All Case Studies</Link>
+            <div className="cases-header-actions">
+              <div className="cases-nav">
+                <button type="button" aria-label="Previous success stories" className="cases-arrow" onClick={() => scrollCases(-1)}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button type="button" aria-label="Next success stories" className="cases-arrow" onClick={() => scrollCases(1)}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+              </div>
+              <Link href="#" className="btn-outline">All Case Studies</Link>
+            </div>
           </div>
-          <div className="cases-grid">
+          <div className="cases-grid" ref={casesTrackRef}>
             {[
               { bg:"/zaina-launch.webp", cat:'Hospitality', client:'Zaina Cafe', title:'Cafe Chain Launch', result:<>Full brand rollout delivering <strong>3× engagement growth</strong> in 60 days.</>, href:'/case-studies/zaina-cafe' },
               { bg:"/sgh-best-hospital-in-dubai.webp", cat:'Healthcare', client:'Saudi German Hospital Group', title:'Healthcare Brand Growth', result:<>Achieved <strong>600% increase in traffic</strong> and <strong>5× ROAS</strong> across MENA.</>, href:'/case-studies/saudi-german-hospital' },
               { bg:"/sbk-dubai-realestate.webp", cat:'Real Estate', client:'SBK Properties', title:'Real Estate Developer', result:<>Targeted lead generation achieving <strong>high-quality pipeline</strong> in competitive UAE market.</>, href:'/case-studies/sbk-properties' },
+              { bg:"/al-sobh-hospital.webp", cat:'Healthcare', client:'Al Sobh Hospital', title:'Healthcare Communication & Awareness', result:<>Translated sensitive healthcare topics into <strong>clear, reassuring, patient-friendly communication</strong>.</>, href:'/case-studies/al-sobh-hospital' },
+              { bg:"/placeholder-case-study.webp", cat:'Non-Profit', client:'Make-A-Wish Saudi Arabia', title:'Charity Awareness Campaign', result:<>Translated the impact of wish-granting into <strong>simple, emotional, inspiring stories</strong>.</>, href:'/case-studies/make-a-wish-saudi-arabia' },
             ].map((c, i) => (
               <Link key={i} href={c.href} className="case-card">
                 <div className="case-card-bg" style={{background:`url('${c.bg}') center center / cover no-repeat`}}></div>
