@@ -405,9 +405,9 @@ export default function HomePage() {
             {[
               { bg:"/zaina-launch.webp", cat:'Hospitality', client:'Zaina Cafe', title:'Cafe Chain Launch', result:<>Full brand rollout delivering <strong>3× engagement growth</strong> in 60 days.</>, href:'/case-studies/zaina-cafe' },
               { bg:"/sgh-best-hospital-in-dubai.webp", cat:'Healthcare', client:'Saudi German Hospital Group', title:'Healthcare Brand Growth', result:<>Achieved <strong>600% increase in traffic</strong> and <strong>5× ROAS</strong> across MENA.</>, href:'/case-studies/saudi-german-hospital' },
-              { bg:"/sbk-dubai-realestate.webp", cat:'Real Estate', client:'SBK Properties', title:'Real Estate Developer', result:<>Targeted lead generation achieving <strong>high-quality pipeline</strong> in competitive UAE market.</>, href:'/case-studies/sbk-properties' },
               { bg:"/al-sobh-hospital.webp", cat:'Healthcare', client:'Al Sobh Hospital', title:'Healthcare Communication & Awareness', result:<>Translated sensitive healthcare topics into <strong>clear, reassuring, patient-friendly communication</strong>.</>, href:'/case-studies/al-sobh-hospital' },
               { bg:"/placeholder-case-study.webp", cat:'Non-Profit', client:'Make-A-Wish Saudi Arabia', title:'Charity Awareness Campaign', result:<>Translated the impact of wish-granting into <strong>simple, emotional, inspiring stories</strong>.</>, href:'/case-studies/make-a-wish-saudi-arabia' },
+              { bg:"/sbk-dubai-realestate.webp", cat:'Real Estate', client:'SBK Properties', title:'Real Estate Developer', result:<>Targeted lead generation achieving <strong>high-quality pipeline</strong> in competitive UAE market.</>, href:'/case-studies/sbk-properties' },
             ].map((c, i) => (
               <Link key={i} href={c.href} className="case-card">
                 <div className="case-card-bg" style={{background:`url('${c.bg}') center center / cover no-repeat`}}></div>
