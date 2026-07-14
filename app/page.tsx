@@ -413,10 +413,18 @@ export default function HomePage() {
                 <div className="case-card-bg" style={{background:`url('${c.bg}') center center / cover no-repeat`}}></div>
                 <div className="case-card-overlay"></div>
                 <div className="case-card-accent">{c.cat}</div>
+                <div className="case-card-index">{String(i + 1).padStart(2, '0')}</div>
                 <div className="case-card-content">
+                  <div className="case-card-rule"></div>
                   <div className="case-client">{c.client}</div>
                   <div className="case-title">{c.title}</div>
                   <div className="case-result">{c.result}</div>
+                  <div className="case-card-cta">
+                    View Case Study
+                    <span className="case-card-cta-arrow">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
