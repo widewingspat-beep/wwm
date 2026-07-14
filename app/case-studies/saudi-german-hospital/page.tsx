@@ -12,6 +12,7 @@ import {
   CaseImpactList,
   CaseTestimonial,
 } from '../CaseContent';
+import CaseDonut from '../CaseDonut';
 
 const galleryImages: GalleryImage[] = [
   { src: '/sgh/sgh-post-01.jpg', alt: 'Saudi German Hospital campaign post 1' },
@@ -134,6 +135,15 @@ export default function SaudiGermanHospitalCaseStudy() {
         paragraphs={[
           'Saudi German Health is one of the region’s leading private healthcare groups, delivering multi-specialty hospital care, clinics, and advanced medical services across the MENA region. With a strong presence in Saudi Arabia, the UAE, and Egypt, SGH combines specialized care, international partnerships, and patient-focused healthcare experiences across its network.',
         ]}
+        visual={
+          <CaseDonut
+            title="Cumulative Ad Spend by Channel"
+            segments={[
+              { label: 'Meta Ads', value: 67, color: 'var(--magenta)' },
+              { label: 'Google Ads', value: 33, color: 'var(--gold)' },
+            ]}
+          />
+        }
       />
 
       <section className="cs-section">

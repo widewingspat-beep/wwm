@@ -12,6 +12,7 @@ import {
   CaseWebsitePreview,
   CaseTestimonial,
 } from '../CaseContent';
+import CaseDonut from '../CaseDonut';
 
 const galleryImages: GalleryImage[] = [
   { src: '/alsaboh/al-sobh-post-01.jpg', alt: 'Al Sobh Hospital campaign post 1' },
@@ -77,6 +78,15 @@ export default function AlSobhHospitalCaseStudy() {
         paragraphs={[
           'Al Sobh Hospital is a specialized healthcare destination in Jeddah, operating under Saudi German Health. Built around a “two hospitals in one” model, it combines general medical care with psychiatric care, addiction treatment, rehabilitation, and long-term therapeutic support for patients across different age groups.',
         ]}
+        visual={
+          <CaseDonut
+            title="Content Focus Split"
+            segments={[
+              { label: 'Mental Health & Wellness', value: 58, color: 'var(--magenta)' },
+              { label: 'General Medical Clinics', value: 42, color: 'var(--gold)' },
+            ]}
+          />
+        }
       />
 
       <section className="cs-section">
