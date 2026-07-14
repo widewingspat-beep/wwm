@@ -416,7 +416,6 @@ export default function HomePage() {
                 <div className="case-card-brand"><img src="/brand-wings.svg" alt="" /></div>
                 <div className="case-card-index">{String(i + 1).padStart(2, '0')}</div>
                 <div className="case-card-content">
-                  <div className="case-card-rule"></div>
                   <div className="case-client">{c.client}</div>
                   <div className="case-title">{c.title}</div>
                   <div className="case-result">{c.result}</div>
