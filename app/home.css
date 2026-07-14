@@ -343,7 +343,10 @@
 .case-card-bg { position: absolute; inset: 0; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
 .case-card:hover .case-card-bg { transform: scale(1.08); }
 .case-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,22,.94) 0%, rgba(8,8,22,.35) 55%, rgba(8,8,22,.05) 100%); }
-.case-card-index { position: absolute; top: 24px; right: 26px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,.55); font-variant-numeric: tabular-nums; }
+.case-card-brand { position: absolute; top: 20px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.28); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,.18); transition: transform .35s ease; }
+.case-card:hover .case-card-brand { transform: scale(1.08); }
+.case-card-brand img { width: 20px; height: auto; display: block; }
+.case-card-index { position: absolute; top: 70px; right: 26px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,.55); font-variant-numeric: tabular-nums; }
 .case-card-accent { position: absolute; top: 24px; left: 24px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 7px 14px; background: rgba(255,255,255,.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.25); color: #fff; border-radius: 999px; }
 .case-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px; }
 .case-card-rule { width: 36px; height: 3px; background: var(--grad-brand); border-radius: 2px; margin-bottom: 14px; }

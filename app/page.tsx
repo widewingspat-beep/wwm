@@ -413,6 +413,7 @@ export default function HomePage() {
                 <div className="case-card-bg" style={{background:`url('${c.bg}') center center / cover no-repeat`}}></div>
                 <div className="case-card-overlay"></div>
                 <div className="case-card-accent">{c.cat}</div>
+                <div className="case-card-brand"><img src="/brand-wings.svg" alt="" /></div>
                 <div className="case-card-index">{String(i + 1).padStart(2, '0')}</div>
                 <div className="case-card-content">
                   <div className="case-card-rule"></div>
