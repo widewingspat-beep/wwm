@@ -7,6 +7,8 @@ import ServiceFlipText from '@/components/ServiceFlipText';
 import LogoWhite from '@/components/LogoWhite';
 import SchemaScripts from '@/components/SchemaScripts';
 import { getPageSchema } from '@/lib/schema';
+import { CASE_STUDIES } from './case-studies/cases-data';
+import CaseStoryCard from './case-studies/CaseStoryCard';
 import './home.css';
 
 const HOME_SCHEMA = getPageSchema('home');
@@ -398,35 +400,12 @@ export default function HomePage() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
                 </button>
               </div>
-              <Link href="#" className="btn-outline">All Case Studies</Link>
+              <Link href="/case-studies" className="btn-outline">All Case Studies</Link>
             </div>
           </div>
           <div className="cases-grid" ref={casesTrackRef}>
-            {[
-              { bg:"/zaina-launch.webp", cat:'Hospitality', client:'Zaina Cafe', title:'Cafe Chain Launch', result:<>Full brand rollout delivering <strong>3× engagement growth</strong> in 60 days.</>, href:'/case-studies/zaina-cafe' },
-              { bg:"/sgh-best-hospital-in-dubai.webp", cat:'Healthcare', client:'Saudi German Hospital Group', title:'Healthcare Brand Growth', result:<>Achieved <strong>600% increase in traffic</strong> and <strong>5× ROAS</strong> across MENA.</>, href:'/case-studies/saudi-german-hospital' },
-              { bg:"/al-sobh-hospital-card.webp", cat:'Healthcare', client:'Al Sobh Hospital', title:'Healthcare Communication & Awareness', result:<>Translated sensitive healthcare topics into <strong>clear, reassuring, patient-friendly communication</strong>.</>, href:'/case-studies/al-sobh-hospital' },
-              { bg:"/placeholder-case-study.webp", cat:'Non-Profit', client:'Make-A-Wish Saudi Arabia', title:'Charity Awareness Campaign', result:<>Translated the impact of wish-granting into <strong>simple, emotional, inspiring stories</strong>.</>, href:'/case-studies/make-a-wish-saudi-arabia' },
-              { bg:"/sbk-dubai-realestate.webp", cat:'Real Estate', client:'SBK Properties', title:'Real Estate Developer', result:<>Targeted lead generation achieving <strong>high-quality pipeline</strong> in competitive UAE market.</>, href:'/case-studies/sbk-properties' },
-            ].map((c, i) => (
-              <Link key={i} href={c.href} className="case-card">
-                <div className="case-card-bg" style={{background:`url('${c.bg}') center center / cover no-repeat`}}></div>
-                <div className="case-card-overlay"></div>
-                <div className="case-card-accent">{c.cat}</div>
-                <div className="case-card-brand"><img src="/brand-wings.svg" alt="" /></div>
-                <div className="case-card-index">{String(i + 1).padStart(2, '0')}</div>
-                <div className="case-card-content">
-                  <div className="case-client">{c.client}</div>
-                  <div className="case-title">{c.title}</div>
-                  <div className="case-result">{c.result}</div>
-                  <div className="case-card-cta">
-                    View Case Study
-                    <span className="case-card-cta-arrow">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </span>
-                  </div>
-                </div>
-              </Link>
+            {CASE_STUDIES.map((c, i) => (
+              <CaseStoryCard key={c.href} data={c} index={i} />
             ))}
           </div>
         </div>
