@@ -10,6 +10,7 @@ import {
   CaseServices,
   CaseServiceGroups,
   CaseImpactList,
+  CaseWebsitePreview,
   CaseTestimonial,
 } from '../CaseContent';
 import CaseDonut from '../CaseDonut';
@@ -240,6 +241,15 @@ export default function SaudiGermanHospitalCaseStudy() {
             items: ['Website Design & Development', 'Landing Page Creation', 'Google Analytics & Tracking Setup'],
           },
         ]}
+      />
+
+      <CaseWebsitePreview
+        label="Saudi German Hospital — Egypt"
+        lead="Hover to scroll through the Egypt website we designed and built for Saudi German Health."
+        image="/sgh/sgh-website-preview.webp"
+        imageAlt="Saudi German Hospital Egypt website homepage"
+        imageWidth={1000}
+        imageHeight={2358}
       />
 
       <CaseGallery title="Campaign Gallery" images={galleryImages} />
