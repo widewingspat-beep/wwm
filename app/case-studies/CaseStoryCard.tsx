@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import type { CaseCardData } from './cases-data';
 
-export default function CaseStoryCard({ data, index }: { data: CaseCardData; index: number }) {
+export default function CaseStoryCard({ data, index, useHomeBg }: { data: CaseCardData; index: number; useHomeBg?: boolean }) {
+  const bg = useHomeBg && data.homeBg ? data.homeBg : data.bg;
   return (
     <Link href={data.href} className="case-card">
-      <div className="case-card-bg" style={{ background: `url('${data.bg}') center center / cover no-repeat` }}></div>
+      <div className="case-card-bg" style={{ background: `url('${bg}') center center / cover no-repeat` }}></div>
       <div className="case-card-overlay"></div>
       <div className="case-card-accent">{data.cat}</div>
       <div className="case-card-brand"><img src="/brand-wings.svg" alt="" /></div>

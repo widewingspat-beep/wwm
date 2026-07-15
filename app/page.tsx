@@ -405,7 +405,7 @@ export default function HomePage() {
           </div>
           <div className="cases-grid" ref={casesTrackRef}>
             {CASE_STUDIES.map((c, i) => (
-              <CaseStoryCard key={c.href} data={c} index={i} />
+              <CaseStoryCard key={c.href} data={c} index={i} useHomeBg />
             ))}
           </div>
         </div>
