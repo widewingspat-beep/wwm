@@ -572,6 +572,27 @@
   transform: scale(1.08);
   background: var(--magenta);
 }
+
+/* Muted-autoplay unmute affordance: small corner icon, not a full overlay */
+.cs-feature-video-unmute {
+  inset: auto;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+}
+.cs-feature-video-unmute svg {
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  background: rgba(0,0,0,0.5);
+}
+.cs-feature-video-unmute:hover { background: transparent; }
+.cs-feature-video-unmute:hover svg {
+  transform: scale(1.08);
+  background: var(--magenta);
+}
 .cs-feature-video-caption {
   position: absolute;
   left: 0; right: 0; bottom: 0;

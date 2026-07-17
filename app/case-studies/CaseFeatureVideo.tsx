@@ -10,15 +10,15 @@ type CaseFeatureVideoProps = {
 
 export default function CaseFeatureVideo({ src, poster, title }: CaseFeatureVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [unmuted, setUnmuted] = useState(false);
 
-  const handlePlay = () => {
+  const handleUnmute = () => {
     const video = videoRef.current;
     if (!video) return;
     video.controls = true;
     video.muted = false;
     video.play();
-    setPlaying(true);
+    setUnmuted(true);
   };
 
   return (
@@ -27,16 +27,23 @@ export default function CaseFeatureVideo({ src, poster, title }: CaseFeatureVide
         ref={videoRef}
         src={src}
         poster={poster}
+        autoPlay
+        muted
+        loop
         playsInline
-        preload="metadata"
+        preload="auto"
         className="cs-feature-video-el"
       />
-      {!playing && (
-        <button type="button" className="cs-feature-video-play" onClick={handlePlay} aria-label={title ? `Play video: ${title}` : 'Play video'}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+      {!unmuted && (
+        <button type="button" className="cs-feature-video-play cs-feature-video-unmute" onClick={handleUnmute} aria-label={title ? `Unmute video: ${title}` : 'Unmute video'}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
         </button>
       )}
-      {title && !playing && <span className="cs-feature-video-caption">{title}</span>}
+      {title && !unmuted && <span className="cs-feature-video-caption">{title}</span>}
     </div>
   );
 }
