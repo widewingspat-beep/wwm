@@ -52,6 +52,7 @@ const nextConfig: NextConfig = {
       { source: '/services/:slug', destination: '/:slug/', permanent: true },
       { source: '/blogs', destination: '/insights/', permanent: true },
       { source: '/blogs/:slug', destination: '/:slug/', permanent: true },
+      { source: '/case-studies/sbk-properties', destination: '/case-studies/batterjee-properties/', permanent: true },
     ];
   },
 };

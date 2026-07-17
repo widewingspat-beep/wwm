@@ -240,9 +240,9 @@ export default function HomePage() {
         <p className="ticker-label">Trusted by brands across Dubai, GCC and beyond</p>
         <div style={{overflow:'hidden'}}>
           <div className="ticker-track">
-            {['Zaina Cafe','Saudi German Hospital','SBK Properties','House of Santoba','Bex Beauty','SGH Group',
-              'Zaina Cafe','Saudi German Hospital','SBK Properties','House of Santoba','Bex Beauty','SGH Group',
-              'Zaina Cafe','Saudi German Hospital','SBK Properties','House of Santoba','Bex Beauty','SGH Group'].map((name, i) => (
+            {['Zaina Cafe','Saudi German Hospital','Batterjee Properties','House of Santoba','Bex Beauty','SGH Group',
+              'Zaina Cafe','Saudi German Hospital','Batterjee Properties','House of Santoba','Bex Beauty','SGH Group',
+              'Zaina Cafe','Saudi German Hospital','Batterjee Properties','House of Santoba','Bex Beauty','SGH Group'].map((name, i) => (
               <span key={i} className="ticker-item">{name}</span>
             ))}
           </div>

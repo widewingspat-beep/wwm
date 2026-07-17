@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: 'How Wide Wings Media delivered targeted lead generation for Batterjee Properties, building a high-quality pipeline in the competitive UAE real estate market.',
 };
 
-export default function SbkPropertiesCaseStudy() {
+export default function BatterjeePropertiesCaseStudy() {
   return (
     <>
       <CaseHero
