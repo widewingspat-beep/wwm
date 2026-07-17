@@ -3,6 +3,7 @@ import '../case-study.css';
 import CaseHero from '../CaseHero';
 import CaseGallery, { type GalleryImage } from '../CaseGallery';
 import CaseVideoGallery, { type GalleryVideo } from '../CaseVideoGallery';
+import CaseFeatureVideo from '../CaseFeatureVideo';
 import {
   CaseIntro,
   CaseSplit,
@@ -55,6 +56,7 @@ export default function MakeAWishSaudiArabiaCaseStudy() {
         paragraphs={[
           'Make-A-Wish Saudi Arabia is a non-profit organization dedicated to granting life-changing wishes for children with critical illnesses. As the Saudi affiliate of one of the world’s most recognized wish-granting organizations, it brings a global humanitarian mission into the local Saudi community with a focus on hope, emotional support, and meaningful impact.',
         ]}
+        visual={<CaseFeatureVideo src="/MAW/maw-reel-1.mp4" poster="/MAW/maw-reel-1-poster.jpg" title="Make-A-Wish Reel" />}
       />
 
       <section className="cs-section">
